@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import Login from './components/Login';
+import LoginSuccess from './components/LoginSuccess';
+import UserTable from './components/adminPages/UserTable';
+import PropertyTable from './components/adminPages/PropertyTable';
+import MasterTable from './components/adminPages/MasterTable';
+import Navbar from './components/Navbar';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/login-success" element={<LoginSuccess />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/user" element={<UserTable />} />
+          <Route path="/property" element={<PropertyTable />} />
+          <Route path="/Master" element={<MasterTable />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
