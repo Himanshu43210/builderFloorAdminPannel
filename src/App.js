@@ -6,14 +6,12 @@ import LoginSuccess from './components/LoginSuccess';
 import UserTable from './components/adminPages/UserTable';
 import PropertyTable from './components/adminPages/PropertyTable';
 import MasterTable from './components/adminPages/MasterTable';
-import Navbar from './components/Navbar';
 import './App.css';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
         <Routes>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/login-success" element={<LoginSuccess />} />

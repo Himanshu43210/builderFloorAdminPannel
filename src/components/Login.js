@@ -14,8 +14,6 @@ const Login = () => {
 
     const [email, setEmail] = useState(USER_RESPONSE_DATA.email);
     const [password, setPassword] = useState('');
-    const [parentId,setParentId]= useState(USER_RESPONSE_DATA.parentId);
-    const [role,setRole]=useState(USER_RESPONSE_DATA.role);
 
     useEffect(() => {
         if (userStoreData.loginStatus && !userStoreData.errorMessage) {
@@ -32,12 +30,6 @@ const Login = () => {
     };
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
-    };
-    const handleParentIdChange=(e)=>{
-        setParentId(e.target.value);
-    }
-    const handleRoleChange=(e)=>{
-        setRole(e.target.value);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -65,24 +57,6 @@ const Login = () => {
                         type="password"
                         value={password}
                         onChange={handlePasswordChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>ParentId</label>
-                    <input
-                        type="password"
-                        value={parentId}
-                        onChange={handleParentIdChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Role</label>
-                    <input
-                        type="password"
-                        value={role}
-                        onChange={handleRoleChange}
                         required
                     />
                 </div>

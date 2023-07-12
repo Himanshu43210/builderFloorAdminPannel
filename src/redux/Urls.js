@@ -1,4 +1,4 @@
-const SERVER = "https://vrbe.nextsolutions.in";
+const SERVER = "https://builder-floor-backend-n2ib.onrender.com";
 //const SERVER = "http://localhost:3106";
 
 export const LOGIN_URL = SERVER + "/login";
