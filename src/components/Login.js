@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { saveProfile } from '../redux/slice/authSlice';
 import { clearLoginStatus, loginUser } from '../redux/slice/userSlice';
-import { USER_RESPONSE_DATA } from './Consts';
+import { PASSWORD, USER_RESPONSE_DATA } from './Consts';
 import "../css/UserStyle.css"
 
 const Login = () => {
@@ -13,7 +13,7 @@ const Login = () => {
     const userStoreData = useSelector((state) => state.user);
 
     const [email, setEmail] = useState(USER_RESPONSE_DATA.email);
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState(PASSWORD);
 
     useEffect(() => {
         if (userStoreData.loginStatus && !userStoreData.errorMessage) {

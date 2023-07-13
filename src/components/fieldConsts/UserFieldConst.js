@@ -1,0 +1,56 @@
+export const newUserConst = [
+  {
+    name: "name",
+    label: "Name",
+    type: "text",
+    isRequired: true,
+    requiredErrorMessage: "Please enter your name.",
+  },
+  {
+    name: "phoneNumber",
+    label: "Phone Number",
+    type: "text",
+    isRequired: true,
+    requiredErrorMessage: "Please enter your phone number.",
+  },
+  {
+    name: "address",
+    label: "Address",
+    type: "text",
+    isRequired: true,
+    requiredErrorMessage: "Please enter your address.",
+  },
+  {
+    name: "email",
+    label: "Email",
+    type: "email",
+    isRequired: true,
+    requiredErrorMessage: "Please enter your email.",
+  },
+  {
+    name: "password",
+    label: "Password",
+    type: "password",
+    isRequired: true,
+    requiredErrorMessage: "Please enter your password.",
+  },
+  {
+    name: "confirmPassword",
+    label: "Confirm Password",
+    type: "password",
+    isRequired: true,
+    requiredErrorMessage: "Please confirm your password.",
+  },
+  {
+    name: "role",
+    label: "Role",
+    type: "select",
+    isRequired: true,
+    options: [
+      { value: "admin", label: "Admin" },
+      { value: "channelPartner", label: "Channel Partner" },
+      { value: "user", label: "User" },
+    ],
+    requiredErrorMessage: "Please select a role.",
+  },
+];

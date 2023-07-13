@@ -6,7 +6,7 @@ import {
   makeStyles,
   Typography,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 // import DrawerComponent from "./drawer";
@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontSize: "20px",
     marginLeft: theme.spacing(2),
-    "&:hover": { color: "yellow", borderBottom: "1px solid yellow" }
-  }
+    "&:hover": { color: "yellow", borderBottom: "1px solid yellow" },
+  },
 }));
 
 function Navbar() {
@@ -33,20 +33,30 @@ function Navbar() {
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
-          Navbar
+          Admin Pannel
         </Typography>
         {isMobile ? (
-          {/* <DrawerComponent /> */}
+          <div className={classes.navlinks}>
+            <Link to="/user" className={classes.link}>
+              User
+            </Link>
+            <Link to="/property" className={classes.link}>
+              Property
+            </Link>
+            <Link to="/master" className={classes.link}>
+              Master
+            </Link>
+          </div>
         ) : (
           <div className={classes.navlinks}>
             <Link to="/user" className={classes.link}>
-             User
+              User
             </Link>
             <Link to="/property" className={classes.link}>
-             Property
+              Property
             </Link>
             <Link to="/master" className={classes.link}>
-             Master
+              Master
             </Link>
           </div>
         )}

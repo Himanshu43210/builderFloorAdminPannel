@@ -15,10 +15,10 @@ function App() {
         <Routes>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/login-success" element={<LoginSuccess />} />
-          <Route path="/" element={<Login />} />
           <Route path="/user" element={<UserTable />} />
           <Route path="/property" element={<PropertyTable />} />
           <Route path="/Master" element={<MasterTable />} />
+          <Route path="/" element={<Login />} />
         </Routes>
       </div>
     </Router>
