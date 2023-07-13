@@ -2,6 +2,7 @@ export const newUserConst = [
   {
     name: "name",
     label: "Name",
+    dataKey: "name",
     type: "text",
     isRequired: true,
     requiredErrorMessage: "Please enter your name.",
@@ -9,6 +10,7 @@ export const newUserConst = [
   {
     name: "phoneNumber",
     label: "Phone Number",
+    dataKey: "PhoneNumber",
     type: "text",
     isRequired: true,
     requiredErrorMessage: "Please enter your phone number.",
@@ -16,6 +18,7 @@ export const newUserConst = [
   {
     name: "address",
     label: "Address",
+    dataKey: "address",
     type: "text",
     isRequired: true,
     requiredErrorMessage: "Please enter your address.",
@@ -23,6 +26,7 @@ export const newUserConst = [
   {
     name: "email",
     label: "Email",
+    dataKey: "email",
     type: "email",
     isRequired: true,
     requiredErrorMessage: "Please enter your email.",
@@ -44,6 +48,7 @@ export const newUserConst = [
   {
     name: "role",
     label: "Role",
+    dataKey: "role",
     type: "select",
     isRequired: true,
     options: [
@@ -52,5 +57,12 @@ export const newUserConst = [
       { value: "user", label: "User" },
     ],
     requiredErrorMessage: "Please select a role.",
+  },
+  {
+    name: "parentId",
+    label: "Parent Id",
+    type: "parentId",
+    isRequired: true,
+    requiredErrorMessage: "Please enter Parent Id.",
   },
 ];

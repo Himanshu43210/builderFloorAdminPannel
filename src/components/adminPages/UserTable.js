@@ -1,50 +1,42 @@
 import React, { useState } from "react";
-import FormBuilder from "../reusables/FormBuilder";
+import ListingTable from "../reusables/ListingTable";
+import { userTableData } from "../toDelete/sampleUserTableData";
 import { newUserConst } from "../fieldConsts/UserFieldConst";
-import ReusablePopup from "../reusables/ReusablePopup";
-import { Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import "../css/AdminTable.css";
+import TableButtonHeader from "./TableButtonHeader";
 
 function UserTable() {
-  const [formData, setFormData] = useState({});
-  const [showEditPopup, setShowEditPopup] = useState(false);
+  const tableData = userTableData;
+  const desktopHeaders = [
+    "name",
+    "PhoneNumber",
+    "address",
+    "email",
+    "password",
+    "role",
+  ];
+  const mobileHeaders = ["name", "role"];
+  const fieldConst = newUserConst;
 
   const handleSave = () => {
-    // if (/*validation succeeds*/) {
-    //   // use formData for saving
-    // }
-    console.log(formData);
-  };
-
-  const handleFormDataChange = (newFormData) => {
-    setFormData(newFormData);
-    console.log(formData);
+    console.log("On Save Click");
   };
 
   return (
     <>
-      {showEditPopup && (
-        <ReusablePopup
-          onSave={handleSave}
-          onHide={() => {
-            setShowEditPopup(false);
-          }}
-          onCancel={() => {
-            setShowEditPopup(false);
-          }}
-        >
-          <FormBuilder
-            fields={newUserConst}
-            onFormDataChange={handleFormDataChange}
+      <Card className="admin-table-card">
+        <Card.Header>User Details</Card.Header>
+        <Card.Body>
+          <TableButtonHeader fieldConst={fieldConst} tableData={tableData} />
+          <ListingTable
+            data={tableData}
+            headersDesktop={desktopHeaders}
+            headersMobile={mobileHeaders}
+            fieldConst={fieldConst}
           />
-        </ReusablePopup>
-      )}
-      <Button
-        onClick={() => {
-          setShowEditPopup(true);
-        }}
-      >
-        Click Open popup
-      </Button>
+        </Card.Body>
+      </Card>
     </>
   );
 }

@@ -1,14 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
-import LoginSuccess from './components/LoginSuccess';
-import UserTable from './components/adminPages/UserTable';
-import PropertyTable from './components/adminPages/PropertyTable';
-import MasterTable from './components/adminPages/MasterTable';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
+import LoginSuccess from "./components/LoginSuccess";
+import UserTable from "./components/adminPages/UserTable";
+import PropertyTable from "./components/adminPages/PropertyTable";
+import MasterTable from "./components/adminPages/MasterTable";
 // import Navbar from './components/Navbar';
-import './App.css';
-import GenericHeader from './components/adminPages/Buttons';
+import "./App.css";
+import GenericHeader from "./components/adminPages/TableButtonHeader";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/login-success" element={<LoginSuccess />} />
           <Route path="/" element={<Login />} />
-          <Route path="/user" element={<GenericHeader />} />
+          <Route path="/user" element={<UserTable />} />
           <Route path="/property" element={<PropertyTable />} />
           <Route path="/Master" element={<MasterTable />} />
         </Routes>

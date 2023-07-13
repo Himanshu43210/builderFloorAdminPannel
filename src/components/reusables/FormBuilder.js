@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
 
-const FormBuilder = ({ fields, onFormDataChange }) => {
-  const [formData, setFormData] = useState({});
+const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
+  const [formData, setFormData] = useState(propsFormData || {});
   const [fieldErrors, setFieldErrors] = useState({});
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const FormBuilder = ({ fields, onFormDataChange }) => {
               type="text"
               id={field.name}
               name={field.name}
-              value={formData[field.name] || ""}
+              value={formData[field.name] || formData[field.dataKey] || ""}
               onChange={(e) => handleChange(field.name, e.target.value)}
               required={field.isRequired}
             />
@@ -60,7 +60,7 @@ const FormBuilder = ({ fields, onFormDataChange }) => {
               type="email"
               id={field.name}
               name={field.name}
-              value={formData[field.name] || ""}
+              value={formData[field.name] || formData[field.dataKey] || ""}
               onChange={(e) => handleChange(field.name, e.target.value)}
               required={field.isRequired}
             />
@@ -70,7 +70,7 @@ const FormBuilder = ({ fields, onFormDataChange }) => {
               type="password"
               id={field.name}
               name={field.name}
-              value={formData[field.name] || ""}
+              value={formData[field.name] || formData[field.dataKey] || ""}
               onChange={(e) => handleChange(field.name, e.target.value)}
               required={field.isRequired}
             />
@@ -79,7 +79,7 @@ const FormBuilder = ({ fields, onFormDataChange }) => {
             <textarea
               id={field.name}
               name={field.name}
-              value={formData[field.name] || ""}
+              value={formData[field.name] || formData[field.dataKey] || ""}
               onChange={(e) => handleTextareaChange(field.name, e.target.value)}
               required={field.isRequired}
             />
@@ -88,7 +88,7 @@ const FormBuilder = ({ fields, onFormDataChange }) => {
             <Select
               id={field.name}
               name={field.name}
-              value={formData[field.name] || ""}
+              value={formData[field.name] || formData[field.dataKey] || ""}
               options={field.options}
               onChange={(selectedOption) =>
                 handleSelectChange(field.name, selectedOption)
@@ -104,7 +104,10 @@ const FormBuilder = ({ fields, onFormDataChange }) => {
                     type="radio"
                     name={field.name}
                     value={option.value}
-                    checked={formData[field.name] === option.value}
+                    checked={
+                      formData[field.name] ||
+                      formData[field.dataKey] === option.value
+                    }
                     onChange={() => handleRadioChange(field.name, option.value)}
                     required={field.isRequired}
                   />
