@@ -6,7 +6,9 @@ import LoginSuccess from './components/LoginSuccess';
 import UserTable from './components/adminPages/UserTable';
 import PropertyTable from './components/adminPages/PropertyTable';
 import MasterTable from './components/adminPages/MasterTable';
+// import Navbar from './components/Navbar';
 import './App.css';
+import GenericHeader from './components/adminPages/Buttons';
 
 function App() {
   return (
@@ -15,10 +17,10 @@ function App() {
         <Routes>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/login-success" element={<LoginSuccess />} />
-          <Route path="/user" element={<UserTable />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/user" element={<GenericHeader />} />
           <Route path="/property" element={<PropertyTable />} />
           <Route path="/Master" element={<MasterTable />} />
-          <Route path="/" element={<Login />} />
         </Routes>
       </div>
     </Router>
