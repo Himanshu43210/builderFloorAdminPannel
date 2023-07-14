@@ -1,7 +1,7 @@
-.container {
+.contain {
   margin: 0 auto;
   margin-top: 100px;
-    width: 40%; 
+    width: 50%; 
   
     
     padding: 20px;
@@ -17,12 +17,19 @@
   
   .form-group {
     margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    
   }
   
   label {
-    display: block;
-    margin-bottom: 5px;
+    display: block; 
+    /* margin-bottom: 2px; */
+    width: 100px;
+  margin-top: 6px;
+  
   }
+
   
   input[type="text"],
   input[type="email"],
@@ -73,7 +80,7 @@
   @media (max-width: 768px) {
     .container {
           margin-top: 100px;
-      max-width: 300px;
+      width: 300px;
     }
   }
   
@@ -137,6 +144,17 @@
     border-radius: 5px;
     cursor: pointer;
   }
+  .addbtn{
+background-color: #fff  ;
+border-radius: 4px;
+padding: 10px;
+justify-content: center;
+text-align: center;
+  }
+
+.inpt{
+  width: 100px;
+}  
   
 .btn{
   background-color: blue;

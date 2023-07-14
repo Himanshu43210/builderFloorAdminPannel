@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button ,Container} from "react-bootstrap";
 import Pagination from "react-js-pagination";
 import Select from "react-select";
 import ReusablePopup from "./ReusablePopup";
 import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import the dark variant CSS
+
+
 
 const options = [
   { value: 5, label: "5" },
@@ -131,9 +134,10 @@ const ListingTable = ({
           />
         </ReusablePopup>
       ) : null}
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
+      <div >
+      <Table striped bordered hover responsive variant="light"  >
+        <thead >
+          <tr >
             {tableHeaders.map((header, index) => (
               <th
                 key={index}
@@ -148,7 +152,7 @@ const ListingTable = ({
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {data
             .slice(
               (activePage - 1) * itemsCountPerPage,
@@ -165,8 +169,10 @@ const ListingTable = ({
                 {tableHeaders.map((header, index) => (
                   <td key={index}>{element[header]}</td>
                 ))}
-                <td>
+                <td  >
                   <Button
+                  style={ {width:'75px' ,paddingLeft:'2px'}}
+                  variant="primary"
                     onClick={(e) => {
                       e.stopPropagation();
                       setCurrentRowData(element);
@@ -174,8 +180,9 @@ const ListingTable = ({
                     }}
                   >
                     Edit
-                  </Button>
+                  </Button>&nbsp;
                   <Button
+                    style={ {width:'75px'}}
                     onClick={(e) => {
                       e.stopPropagation();
                       setCurrentRowData(element);
@@ -189,20 +196,25 @@ const ListingTable = ({
             ))}
         </tbody>
       </Table>
+
+      </div>
       <p>Records Per Page</p>
       <Select
         value={selectedOption}
         onChange={handleRecordPerPage}
         options={options}
       />
-      <Pagination
-        className="my-pagination"
+<Container className="d-flex justify-content-center mt-5 ">
+      <Pagination 
+        size="lg"
         activePage={activePage}
         itemsCountPerPage={itemsCountPerPage}
         totalItemsCount={data.length}
         pageRangeDisplayed={5}
         onChange={handlePageChange}
       />
+   </Container>
+
     </>
   );
 };
