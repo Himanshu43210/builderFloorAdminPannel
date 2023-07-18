@@ -13,7 +13,7 @@ import GenericHeader from "./components/adminPages/TableButtonHeader";
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App" >
         <Routes>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/login-success" element={<LoginSuccess />} />

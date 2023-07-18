@@ -25,8 +25,8 @@ function UserTable() {
 
   return (
     <>
-      <Card className="admin-table-card " style={ { width:'100%'}}>
-        <Card.Header>User Details</Card.Header>
+      <Card className="admin-table-card ">
+        <Card.Header  className="font">User Details</Card.Header>
         <Card.Body>
           <TableButtonHeader fieldConst={fieldConst} tableData={tableData} />
           <ListingTable

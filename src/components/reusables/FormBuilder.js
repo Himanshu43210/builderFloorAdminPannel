@@ -4,6 +4,7 @@ import Select from "react-select";
 import { backdropClasses } from "@mui/material";
 import './../../css/UserStyle.css'
 import { brown } from "@mui/material/colors";
+import './../css/AdminTable.css'
 
 const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
   const [formData, setFormData] = useState(propsFormData || {});
@@ -45,17 +46,18 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
 
   return (
     <form className="addbtn">
-    <div style={ { border:'2px solid black' ,padding:'10px' ,borderRadius:'4px'}}>
+    <div className="formcontainer">
       {fields.map((field) => (
-        <div key={field.name}  style={{display:'flex' ,flexDirection:'row' }}>
-          <div style={{flex:1}}>
-          <label htmlFor={field.name}>{field.label}</label>
+        <div key={field.name}  className="subform">
+          <div className="lablediv">
+          <label className="lbel" htmlFor={field.name}>{field.label}</label>
           </div>
 
-<div style={ { flex:2 , padding:'1px'}}>
+<div className="inputdiv">
 
           {field.type === "text" && (
             <input
+            className="inputtag"
               type="text"
               id={field.name}
               name={field.name}
@@ -66,6 +68,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
           )}
           {field.type === "email" && (
             <input
+              className="inputtag"
               type="email"
               id={field.name}
               name={field.name}
@@ -76,6 +79,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
           )}
           {field.type === "password" && (
             <input
+              className="inputtag"
               type="password"
               id={field.name}
               name={field.name}
@@ -86,6 +90,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
           )}
           {field.type === "textarea" && (
             <textarea
+              className="inputtag"
               id={field.name}
               name={field.name}
               value={formData[field.name] || formData[field.dataKey] || ""}
@@ -95,6 +100,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
           )}
           {field.type === "select" && (
             <Select
+              className="inputtag"
               id={field.name}
               name={field.name}
               value={formData[field.name] || formData[field.dataKey] || ""}
@@ -110,6 +116,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
               {field.options.map((option) => (
                 <label key={option.value}>
                   <input
+                    className="inputtag"
                     type="radio"
                     name={field.name}
                     value={option.value}

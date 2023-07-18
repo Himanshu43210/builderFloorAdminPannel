@@ -1,5 +1,95 @@
 .admin-table-card {
-  width: 80%;
+  width: 100%;
   justify-content: center;
   text-align: center;
+
+
+}
+
+
+
+
+
+.cardhead{
+  background-color:38343c ;
+  font-size: larger;
+  color: white;
+
+}
+.font{
+  margin-top: 10px;
+  font-weight: 500;
+  color: #1c345d;
+  font-size: larger;
+}
+
+.tablehead {
+
+  background-color: #1c345d !important ;
+  border-radius: 4px !important;
+  color: #4677c3 !important;
+  border: none !important;
+            
+}
+.tablebody{
+  background-color:  #172b4d !important;
+
+}
+.tableborder{
+  border-color: #1c345d;
+}
+.bodytext{
+background-color: #172b4d !important;
+color: white !important;
+border-color: #1c345d !important;
+
+}
+.tablediv{
+margin-top:10px ;
+background-color: #172b4d;
+padding-top: 1px;
+padding-bottom: 1px;
+border-radius: 6px;
+box-shadow:0 4px 4px 4px #1c345d ;
+
+}
+
+.formcontainer{
+border: 2px solid #1c345d;
+padding:10px;
+border-radius: 4px;
+  background-color: #172b4d;
+  /* box-shadow: 3px 3px 4px 1px #4677c3 ; */
+
+}
+.subform{
+
+  display: flex;
+  flex-direction: row;
+  background-color: #172b4d;
+ 
+}
+.lbel{
+  color:#4677c3;
+  
+  margin: 9px;
+  font-weight: 500;
+}
+
+.labediv{
+  flex: 1;
+ 
+}
+
+.inputdiv{
+ flex:2;
+ padding: 1px;
+}
+.inputtag{
+  margin: 5px;
+  outline:none;
+  color: #4677c3;
+    font-weight: 500;
+    background-color: aliceblue;
+
 }

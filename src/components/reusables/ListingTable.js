@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Table, Button ,Container} from "react-bootstrap";
+import { Table, Button ,Container, Badge} from "react-bootstrap";
 import Pagination from "react-js-pagination";
 import Select from "react-select";
 import ReusablePopup from "./ReusablePopup";
 import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import the dark variant CSS
-
+import './../css/AdminTable.css'
 
 
 const options = [
@@ -122,7 +122,9 @@ const ListingTable = ({
           onHide={toogleDelete}
           onCancel={toogleDelete}
         >
-          <p>Are you sure want to Delete?</p>
+          <p className="lbel">Are you sure want to Delete?</p>
+
+     
         </ReusablePopup>
       ) : null}
       {showRowModal ? (
@@ -134,32 +136,36 @@ const ListingTable = ({
           />
         </ReusablePopup>
       ) : null}
-      <div >
-      <Table striped bordered hover responsive variant="light"  >
-        <thead >
-          <tr >
+
+      <div className="tablediv" >
+    
+
+      
+      <Table striped bordered hover responsive size="sm">
+        <thead  >
+          <tr style={ { border:"none" }} >
             {tableHeaders.map((header, index) => (
               <th
                 key={index}
                 onClick={() => handleSort(header)}
-                style={{ cursor: "pointer" }}
+                className="tablehead"
               >
                 {header}
                 {sortColumn === header &&
                   (sortType === "asc" ? <FaCaretUp /> : <FaCaretDown />)}
               </th>
             ))}
-            <th>Actions</th>
+            <th  className="tablehead">Actions</th>
           </tr>
         </thead>
-        <tbody >
+        <tbody className="tablebody" >
           {data
             .slice(
               (activePage - 1) * itemsCountPerPage,
               activePage * itemsCountPerPage
             )
             .map((element) => (
-              <tr
+              <tr className="tableborder"
                 key={element.id}
                 onClick={() => {
                   setCurrentRowData(element);
@@ -167,12 +173,12 @@ const ListingTable = ({
                 }}
               >
                 {tableHeaders.map((header, index) => (
-                  <td key={index}>{element[header]}</td>
+                  <td className="bodytext" key={index}>{element[header]}</td>
                 ))}
-                <td  >
+                <td className="tablebody tableborder">
                   <Button
                   style={ {width:'75px' ,paddingLeft:'2px'}}
-                  variant="primary"
+                  variant="success"
                     onClick={(e) => {
                       e.stopPropagation();
                       setCurrentRowData(element);
@@ -182,6 +188,7 @@ const ListingTable = ({
                     Edit
                   </Button>&nbsp;
                   <Button
+                  variant="danger"
                     style={ {width:'75px'}}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -198,13 +205,15 @@ const ListingTable = ({
       </Table>
 
       </div>
-      <p>Records Per Page</p>
-      <Select
+      <p className="font">Records Per Page</p>
+
+      <Select 
         value={selectedOption}
         onChange={handleRecordPerPage}
         options={options}
       />
-<Container className="d-flex justify-content-center mt-5 ">
+
+<Container className="d-flex justify-content-center mt-5  "  >
       <Pagination 
         size="lg"
         activePage={activePage}

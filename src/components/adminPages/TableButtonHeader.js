@@ -89,18 +89,18 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
       {importPopup ? (
         <ReusablePopup onHide={toogleUploadPopup} onCancel={toogleUploadPopup}>
           <div className="container">
-            <h2>You Can Upload Your Files over Here</h2>
-            <input type="file" onChange={handleFileSelect} />
-            <Button class="btnclass">Upload File</Button>
+            <h2 className="lbel">You Can Upload Your Files over Here</h2>
+            <input className="inputtag" type="file" onChange={handleFileSelect} />
+            <Button variant="success" class="btnclass">Upload File</Button>
           </div>
         </ReusablePopup>
       ) : null}
       {exportPopup ? (
         <ReusablePopup onHide={toogleExportPopup}>
-        <div class="container">
+        <div class="container" >
 
-          <p>Export Table Data into Excel</p>
-          <Button onClick={handleExportClick}>Export to Excel</Button>
+          <p className="lbel">Export Table Data into Excel</p>
+          <Button  variant="success" onClick={handleExportClick}>Export to Excel</Button>
         </div>
         </ReusablePopup>
       ) : null}
