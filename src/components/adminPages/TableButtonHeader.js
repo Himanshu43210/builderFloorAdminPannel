@@ -5,6 +5,7 @@ import axios from "axios";
 import { Button } from "react-bootstrap";
 import ReusablePopup from "../reusables/ReusablePopup";
 import FormBuilder from "../reusables/FormBuilder";
+// import './../../css/UserStyle.css'
 
 const TableButtonHeader = ({ tableData, fieldConst }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -87,7 +88,7 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
       ) : null}
       {importPopup ? (
         <ReusablePopup onHide={toogleUploadPopup} onCancel={toogleUploadPopup}>
-          <div>
+          <div className="container">
             <h2>You Can Upload Your Files over Here</h2>
             <input type="file" onChange={handleFileSelect} />
             <Button class="btnclass">Upload File</Button>
@@ -96,8 +97,11 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
       ) : null}
       {exportPopup ? (
         <ReusablePopup onHide={toogleExportPopup}>
+        <div class="container">
+
           <p>Export Table Data into Excel</p>
           <Button onClick={handleExportClick}>Export to Excel</Button>
+        </div>
         </ReusablePopup>
       ) : null}
       <div

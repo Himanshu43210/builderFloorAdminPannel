@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
+import { backdropClasses } from "@mui/material";
+import './../../css/UserStyle.css'
+import { brown } from "@mui/material/colors";
 
 const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
   const [formData, setFormData] = useState(propsFormData || {});
@@ -41,10 +44,16 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
   };
 
   return (
-    <form>
+    <form className="addbtn">
+    <div style={ { border:'2px solid black' ,padding:'10px' ,borderRadius:'4px'}}>
       {fields.map((field) => (
-        <div key={field.name}>
+        <div key={field.name}  style={{display:'flex' ,flexDirection:'row' }}>
+          <div style={{flex:1}}>
           <label htmlFor={field.name}>{field.label}</label>
+          </div>
+
+<div style={ { flex:2 , padding:'1px'}}>
+
           {field.type === "text" && (
             <input
               type="text"
@@ -117,8 +126,9 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
             </div>
           )}
           {fieldErrors[field.name] && <p>{fieldErrors[field.name]}</p>}
+</div>
         </div>
-      ))}
+      ))}</div>
     </form>
   );
 };

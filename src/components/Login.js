@@ -39,21 +39,25 @@ const Login = () => {
         }));
     };
     return (
-        <div className="container">
+        <div className="contain">
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Email</label>
-                    <input
+                    <label className='lab-class'>Email</label>
+                  
+
+                    <input 
                         type="email"
                         value={email}
                         onChange={handleEmailChange}
                         required
                     />
+                
                 </div>
                 <div className="form-group">
-                    <label>Password</label>
+                    <label >Password</label>
                     <input
+                    className='inpt'
                         type="password"
                         value={password}
                         onChange={handlePasswordChange}
