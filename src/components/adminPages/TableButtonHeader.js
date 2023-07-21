@@ -3,8 +3,8 @@ import React from "react";
 import * as XLSX from "xlsx";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-import ReusablePopup from "../reusables/ReusablePopup";
-import FormBuilder from "../reusables/FormBuilder";
+import ReusablePopup from "../utils/ReusablePopup";
+import FormBuilder from "../utils/FormBuilder";
 // import './../../css/UserStyle.css'
 
 const TableButtonHeader = ({ tableData, fieldConst }) => {

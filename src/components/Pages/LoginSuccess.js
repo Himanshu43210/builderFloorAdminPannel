@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
-import { saveProfile } from '../redux/slice/authSlice';
+import { saveProfile } from '../../redux/slice/authSlice';
 
 
 const LoginSuccess = () => {
@@ -19,7 +19,7 @@ const LoginSuccess = () => {
     const role= queryParams.get('role');
     dispatch(saveProfile({  name, email, parentId,role}));
 
-    navigate('/dashboard')
+    navigate('/adminDashboard')
   },);
 
 

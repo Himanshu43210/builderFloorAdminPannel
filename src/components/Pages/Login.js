@@ -2,10 +2,10 @@ import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
-import { saveProfile } from '../redux/slice/authSlice';
-import { clearLoginStatus, loginUser } from '../redux/slice/userSlice';
-import { PASSWORD, USER_RESPONSE_DATA } from './Consts';
-import "../css/UserStyle.css"
+import { saveProfile } from '../../redux/slice/authSlice';
+import { clearLoginStatus, loginUser } from '../../redux/slice/userSlice';
+import { PASSWORD, USER_RESPONSE_DATA } from '../Consts';
+import "../../css/UserStyle.css"
 
 const Login = () => {
     const navigate = useNavigate();
@@ -21,9 +21,9 @@ const Login = () => {
             dispatch(saveProfile({
                 ...userStoreData.profile
             }))
-            navigate('/dashboard')
+            navigate('/adminDashboard')
         }
-    }, [userStoreData]);
+    }, [dispatch, navigate, userStoreData]);
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -64,7 +64,7 @@ const Login = () => {
                         required
                     />
                 </div>
-                {userStoreData.isLoginLoading ?
+                {userStoreData?.isLoginLoading ?
                     <div className='loading-class' >
                         <CircularProgress />
                     </div>

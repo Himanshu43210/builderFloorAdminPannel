@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ListingTable from "../reusables/ListingTable";
+import ListingTable from "../utils/ListingTable";
 import { Card } from "react-bootstrap";
 import "../css/AdminTable.css";
-import { masterTableData } from "../toDelete/sampleMasterTableData";
+import { masterTableData } from "../externalDataForTesting/sampleMasterTableData";
 import { newMasterConst } from "../fieldConsts/MasterFieldConst";
 import TableButtonHeader from "./TableButtonHeader";
 

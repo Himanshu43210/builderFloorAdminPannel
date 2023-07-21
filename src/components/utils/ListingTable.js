@@ -5,7 +5,6 @@ import Select from "react-select";
 import ReusablePopup from "./ReusablePopup";
 import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import the dark variant CSS
 import './../css/AdminTable.css'
 
 

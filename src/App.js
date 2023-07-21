@@ -1,26 +1,30 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-import Login from "./components/Login";
-import LoginSuccess from "./components/LoginSuccess";
+import Dashboard from "./components/adminPages/AdminDashboard";
+import Login from "./components/Pages/Login";
+import LoginSuccess from "./components/Pages/LoginSuccess";
 import UserTable from "./components/adminPages/UserTable";
 import PropertyTable from "./components/adminPages/PropertyTable";
 import MasterTable from "./components/adminPages/MasterTable";
-// import Navbar from './components/Navbar';
 import "./App.css";
-import GenericHeader from "./components/adminPages/TableButtonHeader";
+import Home from "./components/Pages/Home";
+import DetailedView from "./components/Pages/DetailedView";
+import SearchResult from "./components/Pages/SearchResult";
 
 function App() {
   return (
     <Router>
       <div className="App" >
         <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/adminDashboard" element={<Dashboard />} />
           <Route path="/login-success" element={<LoginSuccess />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/user" element={<UserTable />} />
           <Route path="/property" element={<PropertyTable />} />
           <Route path="/Master" element={<MasterTable />} />
+          <Route path="/searchResult" element={<SearchResult />} />
+          <Route path="/builderFloorDetails" element={<DetailedView />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Router>
