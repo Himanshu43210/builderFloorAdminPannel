@@ -8,8 +8,9 @@ function Dashboard() {
 
     <Navbar/>
     <Panel />
-        <p>
-        Dashboard
+     
+      <p>
+        Admin Dashboard
       </p>
     </div>
   )

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import ListingTable from "../reusables/ListingTable";
-import { userTableData } from "../toDelete/sampleUserTableData";
+import React from "react";
+import ListingTable from "../utils/ListingTable";
+import { userTableData } from "../externalDataForTesting/sampleUserTableData";
 import { newUserConst } from "../fieldConsts/UserFieldConst";
 import { Card } from "react-bootstrap";
 import "../css/AdminTable.css";
@@ -20,10 +20,6 @@ function PropertyTable() {
   ];
   const mobileHeaders = ["name", "role"];
   const fieldConst = newUserConst;
-
-  const handleSave = () => {
-    console.log("On Save Click");
-  };
 
   return (
     <>

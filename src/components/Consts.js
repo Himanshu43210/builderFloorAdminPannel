@@ -1,7 +1,7 @@
 export const USER_RESPONSE_DATA={
     "name":"abc",
     "email": "ja0fd@catfle.com",
-    "role":"Admin/channelPartner/User",
+    "role":"channelPartner",
     "parentId":"654635465410",
 }
 

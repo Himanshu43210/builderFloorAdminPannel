@@ -6,6 +6,8 @@ import { Button } from "react-bootstrap";
 import ReusablePopup from "../reusables/ReusablePopup";
 import FormBuilder from "../reusables/FormBuilder";
 import {FaUserPlus , FaCloudUploadAlt ,FaCloudDownloadAlt} from "react-icons/fa"
+import ReusablePopup from "../utils/ReusablePopup";
+import FormBuilder from "../utils/FormBuilder";
 // import './../../css/UserStyle.css'
 
 const TableButtonHeader = ({ tableData, fieldConst }) => {
