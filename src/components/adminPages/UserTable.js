@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import ListingTable from "../reusables/ListingTable";
 import { userTableData } from "../toDelete/sampleUserTableData";
 import { newUserConst } from "../fieldConsts/UserFieldConst";
-import { Card } from "react-bootstrap";
+import { Card} from "react-bootstrap";
 import "../css/AdminTable.css";
 import TableButtonHeader from "./TableButtonHeader";
+import Navbar from "../Navbar";
+import Panel from "../Panel";
 
 function UserTable() {
   const tableData = userTableData;
@@ -25,18 +27,42 @@ function UserTable() {
 
   return (
     <>
-      <Card className="admin-table-card ">
-        <Card.Header  className="font">User Details</Card.Header>
-        <Card.Body>
-          <TableButtonHeader fieldConst={fieldConst} tableData={tableData} />
+<div style={ {backgroundColor:"#f6f7fc"}} >
+  
+    <Navbar />
+   <div style={ {display:"flex"}}>
+    
+    <div style={ {width :"200px"}}>
+          <Panel />
+
+    </div>
+
+       
+
+    <div style={ {border:"none" ,marginLeft:'10px' , marginTop:'60px'}}>
+ <Card  style={ {backgroundColor:"#f6f7fc" , border:"none"}}>
+        <Card.Header  className="font"  style={ {backgroundColor:"#f6f7fc" , border:"none"}} >User Details</Card.Header>
+        <Card.Body style={ {backgroundColor:"#f6f7fc" , padding:"20px"}}>
+    
+<TableButtonHeader fieldConst={fieldConst} tableData={tableData} />
           <ListingTable
             data={tableData}
             headersDesktop={desktopHeaders}
             headersMobile={mobileHeaders}
             fieldConst={fieldConst}
           />
+
+          
         </Card.Body>
       </Card>
+
+        </div>
+    </div>
+   
+
+
+</div>
+     
     </>
   );
 }

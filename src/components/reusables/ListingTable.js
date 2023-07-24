@@ -7,6 +7,8 @@ import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import the dark variant CSS
 import './../css/AdminTable.css'
+import {FaUserEdit ,FaRegTrashAlt} from "react-icons/fa"
+
 
 
 const options = [
@@ -137,7 +139,10 @@ const ListingTable = ({
         </ReusablePopup>
       ) : null}
 
-      <div className="tablediv" >
+
+        
+ 
+      <div className="tablediv "  >
     
 
       
@@ -148,24 +153,24 @@ const ListingTable = ({
               <th
                 key={index}
                 onClick={() => handleSort(header)}
-                className="tablehead"
+                className="tablehead text"
               >
                 {header}
                 {sortColumn === header &&
                   (sortType === "asc" ? <FaCaretUp /> : <FaCaretDown />)}
               </th>
             ))}
-            <th  className="tablehead">Actions</th>
+            <th  className="tablehead text">Actions</th>
           </tr>
         </thead>
-        <tbody className="tablebody" >
+        <tbody className="tablebody text" >
           {data
             .slice(
               (activePage - 1) * itemsCountPerPage,
               activePage * itemsCountPerPage
             )
             .map((element) => (
-              <tr className="tableborder"
+              <tr className="tableborder text"
                 key={element.id}
                 onClick={() => {
                   setCurrentRowData(element);
@@ -175,7 +180,7 @@ const ListingTable = ({
                 {tableHeaders.map((header, index) => (
                   <td className="bodytext" key={index}>{element[header]}</td>
                 ))}
-                <td className="tablebody tableborder">
+                <td className="tablebody tableborder text">
                   <Button
                   style={ {width:'75px' ,paddingLeft:'2px'}}
                   variant="success"
@@ -185,17 +190,19 @@ const ListingTable = ({
                       toogleEdit();
                     }}
                   >
-                    Edit
+                  <FaUserEdit/>&nbsp;
+                 Edit
                   </Button>&nbsp;
                   <Button
                   variant="danger"
-                    style={ {width:'75px'}}
+                    style={ {width:'80px',paddingLeft:'2px'}}
                     onClick={(e) => {
                       e.stopPropagation();
                       setCurrentRowData(element);
                       toogleDelete();
                     }}
                   >
+                  <FaRegTrashAlt size={12} />&nbsp;
                     Delete
                   </Button>
                 </td>
@@ -215,6 +222,7 @@ const ListingTable = ({
 
 <Container className="d-flex justify-content-center mt-5  "  >
       <Pagination 
+   
         size="lg"
         activePage={activePage}
         itemsCountPerPage={itemsCountPerPage}

@@ -109,7 +109,20 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
-  
+  .sidebarcontainer{
+    position: fixed;
+    background-color: white ;
+    box-shadow: 2px 2px 2px 2px #f3f3f3;
+    height: 100%;
+   
+
+  }
+  #sidebar{
+    display: flex;
+    flex-direction: column;
+   
+  }
+
   h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -168,6 +181,7 @@ text-align: center;
       width: 20%;
    
 }
+
 .btnclose{
   background-color: blue;
     width: 100%;
@@ -186,6 +200,7 @@ text-align: center;
           margin-top: 100px;
       max-width: 300px;
     }
+    
   }
   
   .redirection-link {

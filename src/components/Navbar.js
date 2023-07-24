@@ -10,10 +10,11 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 // import DrawerComponent from "./drawer";
+import Panel from "./Panel";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: { marginLeft: theme.spacing(10), display: "flex" },
-  logo: { flexGrow: "1", cursor: "pointer" },
+  logo: { flexGrow: "1", cursor: "pointer",backgroundColor:"white" , color:"#4677c3 " },
   link: {
     textDecoration: "none",
     color: "white",
@@ -29,40 +30,21 @@ function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar position="static">
+    
+    <AppBar position="static" style={ {backgroundColor:"white" , position:"fixed"}} >
+    
       <CssBaseline />
+      
       <Toolbar>
+    
         <Typography variant="h4" className={classes.logo}>
           Admin Pannel
         </Typography>
-        {isMobile ? (
-          <div className={classes.navlinks}>
-            <Link to="/user" className={classes.link}>
-              User
-            </Link>
-            <Link to="/property" className={classes.link}>
-              Property
-            </Link>
-            <Link to="/master" className={classes.link}>
-              Master
-            </Link>
-          </div>
-        ) : (
-          <div className={classes.navlinks}>
-            <Link to="/user" className={classes.link}>
-              User
-            </Link>
-            <Link to="/property" className={classes.link}>
-              Property
-            </Link>
-            <Link to="/master" className={classes.link}>
-              Master
-            </Link>
-          </div>
-        )}
+        
       </Toolbar>
     </AppBar>
   );
 }
 
 export default Navbar;
+

@@ -5,6 +5,7 @@ import axios from "axios";
 import { Button } from "react-bootstrap";
 import ReusablePopup from "../reusables/ReusablePopup";
 import FormBuilder from "../reusables/FormBuilder";
+import {FaUserPlus , FaCloudUploadAlt ,FaCloudDownloadAlt} from "react-icons/fa"
 // import './../../css/UserStyle.css'
 
 const TableButtonHeader = ({ tableData, fieldConst }) => {
@@ -112,13 +113,16 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
           gap: "10px",
         }}
       >
-        <Button class="btn" onClick={toogleNewPopup}>
+        <Button class="btn" variant="success" onClick={toogleNewPopup}>
+        <FaUserPlus />&nbsp;&nbsp;
           ADD
         </Button>
         <Button class="btn" onClick={toogleUploadPopup}>
+        <FaCloudUploadAlt /> &nbsp;&nbsp;
           UPLOAD
         </Button>
         <Button class="btn" onClick={toogleExportPopup}>
+        <FaCloudDownloadAlt /> &nbsp;&nbsp;
           EXPORT
         </Button>
       </div>
