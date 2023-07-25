@@ -219,6 +219,45 @@ export const SEARCH_RESULT = {
   ],
 };
 
+export const MenuItems = [
+  {
+    name: "Home",
+    path: "/"
+  },
+  {
+    name: "Login Success",
+    path: "/login-success"
+  },
+  {
+    name: "Search Result",
+    path: "/searchResult"
+  },
+  {
+    name: "Builder Floor Details",
+    path: "/DetailedView"
+  },
+  {
+    name: "Login",
+    path: "/login"
+  },
+  {
+    name: "Admin Dashboard",
+    path: "/Dashboard"
+  },
+  {
+    name: "User",
+    path: "/user"
+  },
+  {
+    name: "Property",
+    path: "/property"
+  },
+  {
+    name: "Master",
+    path: "/Master"
+  }
+]
+
 export const SCREENS_TO_RENDER = [HOME_SCREEN];
 
 export const REDIRECTION = {
