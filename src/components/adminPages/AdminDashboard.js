@@ -1,19 +1,15 @@
-import React from 'react'
-import Navbar from './Navbar'
-import Panel from './Panel'
+import React from "react";
+import Navbar from "../../components/adminPages/Navbar";
+import Panel from "./Panel";
 function Dashboard() {
   return (
     <div>
-  
+      <Navbar />
+      <Panel />
 
-    <Navbar/>
-    <Panel />
-     
-      <p>
-        Admin Dashboard
-      </p>
+      <p>Admin Dashboard</p>
     </div>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

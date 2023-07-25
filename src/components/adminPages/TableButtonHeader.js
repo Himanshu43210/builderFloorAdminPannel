@@ -3,12 +3,13 @@ import React from "react";
 import * as XLSX from "xlsx";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-import ReusablePopup from "../reusables/ReusablePopup";
-import FormBuilder from "../reusables/FormBuilder";
-import {FaUserPlus , FaCloudUploadAlt ,FaCloudDownloadAlt} from "react-icons/fa"
-import ReusablePopup from "../utils/ReusablePopup";
+import {
+  FaUserPlus,
+  FaCloudUploadAlt,
+  FaCloudDownloadAlt,
+} from "react-icons/fa";
 import FormBuilder from "../utils/FormBuilder";
-// import './../../css/UserStyle.css'
+import ReusablePopup from "../utils/ReusablePopup";
 
 const TableButtonHeader = ({ tableData, fieldConst }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -93,18 +94,25 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
         <ReusablePopup onHide={toogleUploadPopup} onCancel={toogleUploadPopup}>
           <div className="container">
             <h2 className="lbel">You Can Upload Your Files over Here</h2>
-            <input className="inputtag" type="file" onChange={handleFileSelect} />
-            <Button variant="success" class="btnclass">Upload File</Button>
+            <input
+              className="inputtag"
+              type="file"
+              onChange={handleFileSelect}
+            />
+            <Button variant="success" class="btnclass">
+              Upload File
+            </Button>
           </div>
         </ReusablePopup>
       ) : null}
       {exportPopup ? (
         <ReusablePopup onHide={toogleExportPopup}>
-        <div class="container" >
-
-          <p className="lbel">Export Table Data into Excel</p>
-          <Button  variant="success" onClick={handleExportClick}>Export to Excel</Button>
-        </div>
+          <div class="container">
+            <p className="lbel">Export Table Data into Excel</p>
+            <Button variant="success" onClick={handleExportClick}>
+              Export to Excel
+            </Button>
+          </div>
         </ReusablePopup>
       ) : null}
       <div
@@ -116,16 +124,14 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
         }}
       >
         <Button class="btn" variant="success" onClick={toogleNewPopup}>
-        <FaUserPlus />&nbsp;&nbsp;
-          ADD
+          <FaUserPlus />
+          &nbsp;&nbsp; ADD
         </Button>
         <Button class="btn" onClick={toogleUploadPopup}>
-        <FaCloudUploadAlt /> &nbsp;&nbsp;
-          UPLOAD
+          <FaCloudUploadAlt /> &nbsp;&nbsp; UPLOAD
         </Button>
         <Button class="btn" onClick={toogleExportPopup}>
-        <FaCloudDownloadAlt /> &nbsp;&nbsp;
-          EXPORT
+          <FaCloudDownloadAlt /> &nbsp;&nbsp; EXPORT
         </Button>
       </div>
     </>

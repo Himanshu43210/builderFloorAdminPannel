@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import ListingTable from "../utils/ListingTable";
 import { Card } from "react-bootstrap";
 import "../css/AdminTable.css";
 import { masterTableData } from "../externalDataForTesting/sampleMasterTableData";
 import { newMasterConst } from "../fieldConsts/MasterFieldConst";
 import TableButtonHeader from "./TableButtonHeader";
-import Navbar from "../Navbar";
-import Panel from "../Panel";
+import Navbar from "../../components/adminPages/Navbar";
+import Panel from "./Panel";
 
 function MasterTable() {
   let tableData = [];
@@ -29,38 +29,46 @@ function MasterTable() {
 
   return (
     <>
-    <div style={ {backgroundColor:"#f6f7fc"}} >
-  
-    <Navbar />
-   <div style={ {display:"flex"}}>
-    
-    <div style={ {width :"200px"}}>
-          <Panel />
+      <div style={{ backgroundColor: "#f6f7fc" }}>
+        <Navbar />
+        <div style={{ display: "flex" }}>
+          <div style={{ width: "200px" }}>
+            <Panel />
+          </div>
 
-    </div>
-
-       
-
-    <div style={ {border:"none" ,marginLeft:'10px', width:"80%" , marginTop:"60px" }}>
-      <Card style={ {backgroundColor:"#f6f7fc" , border:"none"}} >
-        <Card.Header className="font"  style={ {backgroundColor:"#f6f7fc" , border:"none"}}>Master Details</Card.Header>
-        <Card.Body style={ {backgroundColor:"#f6f7fc" , padding:"20px"}}>
-          <TableButtonHeader fieldConst={fieldConst} tableData={tableData} />
-          <ListingTable
-            data={tableData}
-            headersDesktop={desktopHeaders}
-            headersMobile={mobileHeaders}
-            fieldConst={fieldConst}
-          />
-        </Card.Body>
-      </Card>
-      
+          <div
+            style={{
+              border: "none",
+              marginLeft: "10px",
+              width: "80%",
+              marginTop: "60px",
+            }}
+          >
+            <Card style={{ backgroundColor: "#f6f7fc", border: "none" }}>
+              <Card.Header
+                className="font"
+                style={{ backgroundColor: "#f6f7fc", border: "none" }}
+              >
+                Master Details
+              </Card.Header>
+              <Card.Body
+                style={{ backgroundColor: "#f6f7fc", padding: "20px" }}
+              >
+                <TableButtonHeader
+                  fieldConst={fieldConst}
+                  tableData={tableData}
+                />
+                <ListingTable
+                  data={tableData}
+                  headersDesktop={desktopHeaders}
+                  headersMobile={mobileHeaders}
+                  fieldConst={fieldConst}
+                />
+              </Card.Body>
+            </Card>
+          </div>
         </div>
-    </div>
-   
-
-
-</div>
+      </div>
     </>
   );
 }
