@@ -4,11 +4,13 @@ import {
   CONTAINER,
   DETAILED_VIEW,
   DYNAMIC_CARD_CONTAINER,
+  FILTERED_SEARCH,
   GET,
   HEADING,
   HOME_CARD,
   IMAGE_BANNER,
   NAVIGATE_BUTTON,
+  PAGE_FOOTER,
   SELECT,
   SLIDER,
 } from "./components/utils/Const";
@@ -42,6 +44,21 @@ const SEARCH_BAR_1 = {
     },
   ],
 };
+
+export const FOOTER = {
+  type: PAGE_FOOTER,
+  className: "default-home-cards",
+  HomeLinks:
+    { icon: "Home", url: "https://www.builderfloor.com/" }
+  ,
+  social_media: [
+    { icon: "facebook", url: "https://www.facebook.com/example" },
+    { icon: "twitter", url: "https://www.twitter.com/example" },
+    { icon: "linkedin", url: "https://www.linkedin.com/in/example" }
+  ],
+  copyright: "© Builder Floor Official 2022"
+}
+
 export const HOME_SCREEN = {
   name: "Home Screen",
   children: [
@@ -80,6 +97,7 @@ export const HOME_SCREEN = {
       className: "home-screen-card-section-bottom",
       text: "We are your trusted partner in finding your dream builder floor in Gurgaon",
     },
+    FOOTER
   ],
 };
 
@@ -125,26 +143,34 @@ export const SEARCH_RESULT = {
           ],
         },
         {
-          type: SELECT,
-          sliceName: "filter",
-          name: "location",
-          label: "Location",
-          options: [
-            { label: "DLF City Phase 1", value: "DLF City Phase 1" },
-            { label: "DLF City Phase 2", value: "DLF City Phase 2" },
-            { label: "DLF City Phase 3", value: "DLF City Phase 3" },
-            { label: "DLF City Phase 4", value: "DLF City Phase 4" },
-            { label: "Sector 15 Part 2", value: "Sector 15 Part 2" },
-            { label: "Sector 27", value: "Sector 27" },
-            { label: "Sector 28", value: "Sector 28" },
-            { label: "Sector 38", value: "Sector 38" },
-            { label: "Sector 42", value: "Sector 42" },
-            { label: "Sector 43", value: "Sector 43" },
-            { label: "Sector 45", value: "Sector 45" },
-            { label: "Sector 46", value: "Sector 46" },
-            { label: "South City 1", value: "South City 1" },
-            { label: "Sushant Lok 1", value: "Sushant Lok 1" },
-          ],
+
+          type: FILTERED_SEARCH,
+          className: "Drop-List",
+          DropData: {
+            id: "diacritics",
+            ignoreAccent: true,
+            dataSource: [
+              { label: "DLF City Phase 1", value: "DLF City Phase 1" },
+              { label: "DLF City Phase 2", value: "DLF City Phase 2" },
+              { label: "DLF City Phase 3", value: "DLF City Phase 3" },
+              { label: "DLF City Phase 4", value: "DLF City Phase 4" },
+              { label: "Sector 15 Part 2", value: "Sector 15 Part 2" },
+              { label: "Sector 27", value: "Sector 27" },
+              { label: "Sector 28", value: "Sector 28" },
+              { label: "Sector 38", value: "Sector 38" },
+              { label: "Sector 42", value: "Sector 42" },
+              { label: "Sector 43", value: "Sector 43" },
+              { label: "Sector 45", value: "Sector 45" },
+              { label: "Sector 46", value: "Sector 46" },
+              { label: "South City 1", value: "South City 1" },
+              { label: "Sushant Lok 1", value: "Sushant Lok 1" },
+            ],
+            allowFiltering: true,
+            placeholder: "Select a value",
+            filterBarPlaceholder: "e.g: Option 1"
+
+          }
+          ,
         },
         {
           type: SELECT,

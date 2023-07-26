@@ -20,6 +20,9 @@ export const DYNAMIC_CONTAINER = "DYNAMIC_CONTAINER";
 export const DYNAMIC_CARD_CONTAINER = "DYNAMIC_CARD_CONTAINER";
 export const AUTO_FETCH_API = "AUTO_FETCH_API";
 export const NAVIGATE_BUTTON = "NAVIGATE_BUTTON";
+export const PAGE_FOOTER = "PAGE_FOOTER";
+export const FILTERED_SEARCH = "FILTERED_SEARCH";
+export const SCROLL_TO_TOP = "SCROLL_TO_TOP";
 
 //
 export const LOADING = "loading";

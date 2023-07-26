@@ -5,10 +5,12 @@ import {
   CONTAINER,
   DETAILED_VIEW,
   DYNAMIC_CARD_CONTAINER,
+  FILTERED_SEARCH,
   GET,
   HEADING,
   IMAGE_BANNER,
   NAVIGATE_BUTTON,
+  PAGE_FOOTER,
   SELECT,
   SLIDER,
 } from "../utils/Const";
@@ -23,6 +25,9 @@ import DetailCard from "./detailedCard";
 import NavigateButton from "./navigateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { storeFilterData } from "../../redux/slice/filterSlice";
+import Footer from "./Footer";
+import { FilteredSelect } from "./FilteredSelect";
+
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -96,6 +101,12 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === NAVIGATE_BUTTON && (
         <NavigateButton to={component.navigate} label={component.buttonLabel} />
+      )}
+      {component.type === PAGE_FOOTER && (
+        <Footer component={component} />
+      )}
+      {component.type === FILTERED_SEARCH && (
+        <FilteredSelect component={component} />
       )}
     </>
   );
