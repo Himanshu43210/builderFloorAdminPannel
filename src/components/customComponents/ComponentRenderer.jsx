@@ -4,7 +4,11 @@ import ComponentSelector from "./ComponentSelector";
 export default function RenderComponent({ jsonToRender }) {
   const renderComponent = (componentList) => {
     return componentList?.map((component) => {
-      return <ComponentSelector key={component.name} component={component} />;
+      return (
+        <div className={component?.className}>
+          <ComponentSelector key={component.name} component={component} />
+        </div>
+      );
     });
   };
   return <>{renderComponent(jsonToRender.children)}</>;

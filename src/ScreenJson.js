@@ -20,6 +20,7 @@ const SEARCH_BAR_1 = {
   children: [
     {
       type: SELECT,
+      className: "select-city-button",
       sliceName: "filter",
       name: "city",
       defaultValue: { label: "Gurgaon", value: "Gurgaon" },
