@@ -20,6 +20,7 @@ export const DYNAMIC_CONTAINER = "DYNAMIC_CONTAINER";
 export const DYNAMIC_CARD_CONTAINER = "DYNAMIC_CARD_CONTAINER";
 export const AUTO_FETCH_API = "AUTO_FETCH_API";
 export const NAVIGATE_BUTTON = "NAVIGATE_BUTTON";
+export const HAMBURGER_MENU = "HAMBURGER_MENU";
 
 //
 export const LOADING = "loading";
