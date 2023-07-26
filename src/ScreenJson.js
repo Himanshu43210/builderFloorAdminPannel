@@ -242,7 +242,7 @@ export const MenuItems = [
   },
   {
     name: "Admin Dashboard",
-    path: "/Dashboard"
+    path: "/adminDashboard"
   },
   {
     name: "User",
