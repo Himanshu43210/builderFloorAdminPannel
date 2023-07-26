@@ -23,6 +23,7 @@ import DetailCard from "./detailedCard";
 import NavigateButton from "./navigateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { storeFilterData } from "../../redux/slice/filterSlice";
+import MenuState from "./MenuState"
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -96,6 +97,9 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === NAVIGATE_BUTTON && (
         <NavigateButton to={component.navigate} label={component.buttonLabel} />
+      )}
+       {component.type === HAMBURGER_MENU && (
+        <MenuState MenuItems={component.items}/>
       )}
     </>
   );
