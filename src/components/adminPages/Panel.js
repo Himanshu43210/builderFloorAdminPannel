@@ -33,7 +33,7 @@ function Panel() {
       <div className="sidebarcontainer">
         {isMobile ? (
           <div className={classes.navlinks} id="sidebar">
-            <Link to="/dashboard" className={classes.link}>
+            <Link to="/adminDashboard" className={classes.link}>
               <FaClipboardList />
               <h6>Dashboard</h6>
             </Link>
@@ -49,7 +49,7 @@ function Panel() {
           </div>
         ) : (
           <div className={classes.navlinks} id="sidebar">
-            <Link to="/dashboard" className={classes.link}>
+            <Link to="/adminDashboard" className={classes.link}>
               <FaClipboardList color="#4677c3 " /> &nbsp;
               <h6>Dashboard</h6>
             </Link>

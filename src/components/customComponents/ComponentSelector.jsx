@@ -27,7 +27,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { storeFilterData } from "../../redux/slice/filterSlice";
 import Footer from "./Footer";
 import { FilteredSelect } from "./FilteredSelect";
-
+import MenuState from "./MenuState"
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -106,7 +106,9 @@ const ComponentSelector = ({ component }) => {
         <Footer component={component} />
       )}
       {component.type === FILTERED_SEARCH && (
-        <FilteredSelect component={component} />
+        <FilteredSelect component={component} />)}
+      {component.type === HAMBURGER_MENU && (
+        <MenuState MenuItems={component.items} />
       )}
     </>
   );

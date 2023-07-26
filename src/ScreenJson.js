@@ -6,6 +6,7 @@ import {
   DYNAMIC_CARD_CONTAINER,
   FILTERED_SEARCH,
   GET,
+  HAMBURGER_MENU,
   HEADING,
   HOME_CARD,
   IMAGE_BANNER,
@@ -15,11 +16,13 @@ import {
   SLIDER,
 } from "./components/utils/Const";
 import { API_ENDPOINTS } from "./redux/utils/api";
+
 const SEARCH_BAR_1 = {
   type: CONTAINER,
   children: [
     {
       type: SELECT,
+      className: "select-city-button",
       sliceName: "filter",
       name: "city",
       defaultValue: { label: "Gurgaon", value: "Gurgaon" },
@@ -58,10 +61,52 @@ export const FOOTER = {
   ],
   copyright: "© Builder Floor Official 2022"
 }
+export const MENU_ITEMS = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "Login Success",
+    path: "/login-success",
+  },
+  {
+    name: "Search Result",
+    path: "/searchResult",
+  },
+  {
+    name: "Builder Floor Details",
+    path: "/DetailedView",
+  },
+  {
+    name: "Login",
+    path: "/login",
+  },
+  {
+    name: "Admin Dashboard",
+    path: "/adminDashboard",
+  },
+  {
+    name: "User",
+    path: "/user",
+  },
+  {
+    name: "Property",
+    path: "/property",
+  },
+  {
+    name: "Master",
+    path: "/Master",
+  },
+];
 
 export const HOME_SCREEN = {
   name: "Home Screen",
   children: [
+    {
+      type: HAMBURGER_MENU,
+      items: MENU_ITEMS,
+    },
     {
       type: AUTO_FETCH_API,
       api: API_ENDPOINTS["getHomeScreenData"],
@@ -244,45 +289,6 @@ export const SEARCH_RESULT = {
     },
   ],
 };
-
-export const MenuItems = [
-  {
-    name: "Home",
-    path: "/"
-  },
-  {
-    name: "Login Success",
-    path: "/login-success"
-  },
-  {
-    name: "Search Result",
-    path: "/searchResult"
-  },
-  {
-    name: "Builder Floor Details",
-    path: "/DetailedView"
-  },
-  {
-    name: "Login",
-    path: "/login"
-  },
-  {
-    name: "Admin Dashboard",
-    path: "/Dashboard"
-  },
-  {
-    name: "User",
-    path: "/user"
-  },
-  {
-    name: "Property",
-    path: "/property"
-  },
-  {
-    name: "Master",
-    path: "/Master"
-  }
-]
 
 export const SCREENS_TO_RENDER = [HOME_SCREEN];
 
