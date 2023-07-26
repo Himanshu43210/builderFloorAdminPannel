@@ -13,6 +13,7 @@ import {
   PAGE_FOOTER,
   SELECT,
   SLIDER,
+  HAMBURGER_MENU
 } from "../utils/Const";
 import Banner from "./banner";
 import SelectButton from "./selectButton";
@@ -27,7 +28,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { storeFilterData } from "../../redux/slice/filterSlice";
 import Footer from "./Footer";
 import { FilteredSelect } from "./FilteredSelect";
-import MenuState from "./MenuState"
+import MenuState from "./MenupState"
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
