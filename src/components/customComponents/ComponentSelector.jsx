@@ -5,7 +5,6 @@ import {
   CONTAINER,
   DETAILED_VIEW,
   DYNAMIC_CARD_CONTAINER,
-  FILTERED_SEARCH,
   GET,
   HEADING,
   IMAGE_BANNER,
@@ -14,30 +13,29 @@ import {
   SELECT,
   SLIDER,
   HAMBURGER_MENU,
-  SELECT_SLIDER
+  SELECT_SLIDER,
 } from "../utils/Const";
-import Banner from "./banner";
-import SelectButton from "./selectButton";
-import Slider from "./slider";
-import ApiButton from "./apiButton";
-import Heading from "./heading";
-import DynamicCardComponent from "./dynamicCardContainer";
-import AutoFetchApi from "./autoFetchApi";
-import DetailCard from "./detailedCard";
-import NavigateButton from "./navigateButton";
+import Banner from "./Banner";
+import SelectButton from "./SelectButton";
+import Slider from "./Slider";
+import ApiButton from "./ApiButton";
+import Heading from "./Heading";
+import DynamicCardComponent from "./DynamicCardContainer";
+import AutoFetchApi from "./AutoFetchApi";
+import DetailCard from "./DetailedCard";
+import NavigateButton from "./NavigateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { storeFilterData } from "../../redux/slice/filterSlice";
 import Footer from "./Footer";
-import { FilteredSelect } from "./FilteredSelect";
-import MenuState from "./MenupState"
+import MenuState from "./MenupState";
 import { SelectSlider } from "./SelectSlider";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
   const sliceData = useSelector((state) => state[component.sliceName]);
   const testAction = (key, value) => {
-    console.log(key, value)
-  }
+    console.log(key, value);
+  };
   return (
     <>
       {component.type === AUTO_FETCH_API && (
@@ -107,22 +105,19 @@ const ComponentSelector = ({ component }) => {
       {component.type === NAVIGATE_BUTTON && (
         <NavigateButton to={component.navigate} label={component.buttonLabel} />
       )}
-      {component.type === PAGE_FOOTER && (
-        <Footer component={component} />
-      )}
-      {component.type === FILTERED_SEARCH && (
-        <FilteredSelect component={component} />)}
+      {component.type === PAGE_FOOTER && <Footer component={component} />}
       {component.type === HAMBURGER_MENU && (
         <MenuState MenuItems={component.items} />
       )}
       {component.type === SELECT_SLIDER && (
-        <SelectSlider component={component}
+        <SelectSlider
+          component={component}
           handleValueChange={(value) => {
-            testAction({ key: component.name, value: value })
+            testAction({ key: component.name, value: value });
             // console.log(value)
             dispatch(storeFilterData({ key: component.name, value: value }));
           }}
-          stateValue  ={sliceData[component.name]}
+          stateValue={sliceData[component.name]}
         />
       )}
     </>
