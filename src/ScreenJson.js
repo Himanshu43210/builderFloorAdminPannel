@@ -43,6 +43,7 @@ const SEARCH_BAR_1 = {
       name: "size",
       minValue: 0.00,
       maxValue: 1000.00,
+      step: 0.1,
       defaultValue: [180.00, 360.00],
     },
     {

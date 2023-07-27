@@ -35,7 +35,9 @@ import { SelectSlider } from "./SelectSlider";
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
   const sliceData = useSelector((state) => state[component.sliceName]);
-
+  const testAction = (key, value) => {
+    console.log(key, value)
+  }
   return (
     <>
       {component.type === AUTO_FETCH_API && (
@@ -114,7 +116,14 @@ const ComponentSelector = ({ component }) => {
         <MenuState MenuItems={component.items} />
       )}
       {component.type === SELECT_SLIDER && (
-        <SelectSlider MenuItems={component.items} />
+        <SelectSlider component={component}
+          handleValueChange={(value) => {
+            testAction({ key: component.name, value: value })
+            // console.log(value)
+            dispatch(storeFilterData({ key: component.name, value: value }));
+          }}
+          stateValue  ={sliceData[component.name]}
+        />
       )}
     </>
   );
