@@ -13,7 +13,8 @@ import {
   PAGE_FOOTER,
   SELECT,
   SLIDER,
-  HAMBURGER_MENU
+  HAMBURGER_MENU,
+  SELECT_SLIDER
 } from "../utils/Const";
 import Banner from "./banner";
 import SelectButton from "./selectButton";
@@ -29,6 +30,7 @@ import { storeFilterData } from "../../redux/slice/filterSlice";
 import Footer from "./Footer";
 import { FilteredSelect } from "./FilteredSelect";
 import MenuState from "./MenupState"
+import { SelectSlider } from "./SelectSlider";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -110,6 +112,9 @@ const ComponentSelector = ({ component }) => {
         <FilteredSelect component={component} />)}
       {component.type === HAMBURGER_MENU && (
         <MenuState MenuItems={component.items} />
+      )}
+      {component.type === SELECT_SLIDER && (
+        <SelectSlider MenuItems={component.items} />
       )}
     </>
   );

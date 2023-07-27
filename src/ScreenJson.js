@@ -13,6 +13,7 @@ import {
   NAVIGATE_BUTTON,
   PAGE_FOOTER,
   SELECT,
+  SELECT_SLIDER,
   SLIDER,
 } from "./components/utils/Const";
 import { API_ENDPOINTS } from "./redux/utils/api";
@@ -35,6 +36,14 @@ const SEARCH_BAR_1 = {
       minValue: 2.5,
       maxValue: 3.5,
       defaultValue: [2.8, 3.0],
+    },
+    {
+      type: SELECT_SLIDER,
+      sliceName: "filter",
+      name: "size",
+      minValue: 0.00,
+      maxValue: 1000.00,
+      defaultValue: [180.00, 360.00],
     },
     {
       type: API_BUTTON,

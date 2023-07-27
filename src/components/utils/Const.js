@@ -24,7 +24,7 @@ export const PAGE_FOOTER = "PAGE_FOOTER";
 export const FILTERED_SEARCH = "FILTERED_SEARCH";
 export const SCROLL_TO_TOP = "SCROLL_TO_TOP";
 export const HAMBURGER_MENU = "HAMBURGER_MENU";
-
+export const SELECT_SLIDER = "SELECT_SLIDER";
 //
 export const LOADING = "loading";
 export const FAILED = "failed";
