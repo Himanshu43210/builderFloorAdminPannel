@@ -18,45 +18,7 @@ import {
 } from "./components/utils/Const";
 import { API_ENDPOINTS } from "./redux/utils/api";
 
-const SEARCH_BAR_1 = {
-  type: CONTAINER,
-  children: [
-    {
-      type: SELECT,
-      className: "select-city-button",
-      sliceName: "filter",
-      name: "city",
-      defaultValue: { label: "Gurgaon", value: "Gurgaon" },
-      options: [{ label: "Gurgaon", value: "Gurgaon" }],
-    },
-    {
-      type: SLIDER,
-      sliceName: "filter",
-      name: "budget",
-      minValue: 2.5,
-      maxValue: 3.5,
-      defaultValue: [2.8, 3.0],
-    },
-    {
-      type: SELECT_SLIDER,
-      sliceName: "filter",
-      name: "size",
-      minValue: 0.00,
-      maxValue: 1000.00,
-      step: 0.1,
-      defaultValue: [180.00, 360.00],
-    },
-    {
-      type: API_BUTTON,
-      sliceName: "filter",
-      name: "search",
-      buttonLabel: "Search",
-      apiType: GET,
-      navigate: "/searchResult",
-      api: API_ENDPOINTS["getSearchResult"],
-    },
-  ],
-};
+
 
 export const FOOTER = {
   type: PAGE_FOOTER,
@@ -129,7 +91,45 @@ export const HOME_SCREEN = {
       bgImage:
         "https://thumbs.dreamstime.com/b/mumbai-capital-india-mumbai-india-december-mumbai-financial-commercial-entertainment-capital-india-december-112388360.jpg",
     },
-    SEARCH_BAR_1,
+    {
+  type: CONTAINER,
+  children: [
+    {
+      type: SELECT,
+      className: "select-city-button",
+      sliceName: "filter",
+      name: "city",
+      defaultValue: { label: "Gurgaon", value: "Gurgaon" },
+      options: [{ label: "Gurgaon", value: "Gurgaon" }],
+    },
+    {
+      type: SLIDER,
+      sliceName: "filter",
+      name: "budget",
+      minValue: 2.5,
+      maxValue: 3.5,
+      defaultValue: [2.8, 3.0],
+    },
+    {
+      type: SELECT_SLIDER,
+      sliceName: "filter",
+      name: "size",
+      minValue: 0.00,
+      maxValue: 1000.00,
+      step: 0.1,
+      defaultValue: [180.00, 360.00],
+    },
+    {
+      type: API_BUTTON,
+      sliceName: "filter",
+      name: "search",
+      buttonLabel: "Search",
+      apiType: GET,
+      navigate: "/searchResult",
+      api: API_ENDPOINTS["getSearchResult"],
+    },
+  ],
+},
     {
       type: HEADING,
       name: "homeScreenHeading",
@@ -177,15 +177,56 @@ export const CARD_DETAILS_SCREEN = {
 export const SEARCH_RESULT = {
   name: "Search Result",
   children: [
-    SEARCH_BAR_1,
+    {
+  type: CONTAINER,
+  className:"actioncontainer",
+  children: [
+    {
+      type: SELECT,
+      className: "select-city-button",
+      sliceName: "filter",
+      name: "city",
+      defaultValue: { label: "Gurgaon", value: "Gurgaon" },
+      options: [{ label: "Gurgaon", value: "Gurgaon" }],
+    },
+    {
+      type: SLIDER,
+      sliceName: "filter",
+      name: "budget",
+      minValue: 2.5,
+      maxValue: 3.5,
+      defaultValue: [2.8, 3.0],
+    },
+    {
+      type: SELECT_SLIDER,
+      sliceName: "filter",
+      name: "size",
+      minValue: 0.00,
+      maxValue: 1000.00,
+      step: 0.1,
+      defaultValue: [180.00, 360.00],
+    },
+    {
+      type: API_BUTTON,
+      sliceName: "filter",
+      name: "search",
+      buttonLabel: "Search",
+      apiType: GET,
+      navigate: "/searchResult",
+      api: API_ENDPOINTS["getSearchResult"],
+    },
+  ],
+},
     {
       type: CONTAINER,
+      className:"filter-button-div",
       children: [
         {
           type: SELECT,
           sliceName: "filter",
           name: "floor",
           label: "Floors",
+          className:"filterbutton",
           options: [
             { label: "First Floor", value: "firstFloor" },
             { label: "Second Floor", value: "secondFloor" },
@@ -200,7 +241,7 @@ export const SEARCH_RESULT = {
         {
 
           type: FILTERED_SEARCH,
-          className: "Drop-List",
+          className:"filterbutton",
           DropData: {
             id: "diacritics",
             ignoreAccent: true,
@@ -230,6 +271,7 @@ export const SEARCH_RESULT = {
         {
           type: SELECT,
           sliceName: "filter",
+          className:"filterbutton",
           name: "size",
           defaultValue: { label: "Gurgaon", value: "Gurgaon" },
           options: [{ label: "Gurgaon", value: "Gurgaon" }],
@@ -239,6 +281,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "accomodation",
           label: "Accomodation",
+          className:"filterbutton",
           options: [
             { label: "2 BHK", value: "2 BHK" },
             { label: "3 BHK", value: "3 BHK" },
@@ -252,6 +295,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "possesion",
           label: "Possesion",
+          className:"filterbutton",
           options: [
             { label: "Ready", value: "Ready" },
             { label: "1 Months", value: "1 Months" },
@@ -266,6 +310,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "facing",
           label: "Facing",
+          className:"filterbutton",
           options: [
             { label: "North", value: "North" },
             { label: "South", value: "South" },
@@ -282,6 +327,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "sortBy",
           label: "Sort By",
+          
           options: [
             { label: "Price High to Low", value: "Price High to Low" },
             { label: "Price Low to High", value: "Price Low to High" },
