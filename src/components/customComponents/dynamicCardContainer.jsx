@@ -1,22 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectApiData } from "../../redux/utils/apiSelector";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Rating,
-  Typography,
-} from "@mui/material";
-import ApiButton from "./ApiButton";
-import { GET } from "../utils/Const";
+import HomeCard from "./HomeCard";
+import SearchCard from "./SearchCard";
+import { HOME_CARD, SEARCH_CARD } from "../utils/Const";
 
-export default function DynamicCardComponent({
-  apiName,
-  onClickApi,
-  onClickNavigate,
-}) {
+export default function DynamicCardComponent({ component }) {
+  const apiName = component.apiName;
+  const onClickApi = component.cardClickApi;
+  const onClickNavigate = component.cardClickNavigate;
+  let ComponentType = component.renderComponentsInLoop.type;
+
+  ComponentType = HOME_CARD ? HomeCard : SEARCH_CARD ? SearchCard : <></>;
+
   const dataToRender = useSelector((state) => selectApiData(state, apiName));
 
   useEffect(() => {}, [dataToRender]);
@@ -26,42 +22,11 @@ export default function DynamicCardComponent({
       {dataToRender?.map((element) => {
         return (
           <>
-            <Card sx={{ maxWidth: 345, width: "25%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="100"
-                  image={element.thumbnails?.[0]}
-                  alt={element.title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {element.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {element.sectorNumber}
-                  </Typography>
-                  <Typography variant="body2">
-                    {element.accommodation}
-                  </Typography>
-                  <Typography variant="body2">{element.floor}</Typography>
-                  <Typography variant="body2">{element.size}Sq.Yd.</Typography>
-                </CardContent>
-                <Rating
-                  name="home-card-fixed-rating"
-                  value={element.raiting || 5}
-                  precision={1}
-                  readOnly
-                />
-              </CardActionArea>
-              <ApiButton
-                apiType={GET}
-                api={onClickApi}
-                buttonLabel={`₹ ${element.price / 10000000} Cr.`}
-                queryParams={{ id: element._id }}
-                navigate={onClickNavigate}
-              />
-            </Card>
+            <ComponentType
+              element={element}
+              onClickApi={onClickApi}
+              onClickNavigate={onClickNavigate}
+            />
           </>
         );
       })}

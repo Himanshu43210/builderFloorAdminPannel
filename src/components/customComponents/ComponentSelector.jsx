@@ -93,11 +93,7 @@ const ComponentSelector = ({ component }) => {
         />
       )}
       {component.type === DYNAMIC_CARD_CONTAINER && (
-        <DynamicCardComponent
-          apiName={component.apiName}
-          onClickApi={component.cardClickApi}
-          onClickNavigate={component.cardClickNavigate}
-        />
+        <DynamicCardComponent component={component} />
       )}
       {component.type === DETAILED_VIEW && (
         <DetailCard apiName={component.apiName} />
