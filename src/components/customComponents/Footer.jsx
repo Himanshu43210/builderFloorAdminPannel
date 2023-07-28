@@ -3,8 +3,8 @@ import React from 'react';
 export default function Footer({ component }) {
     return (
         <footer>
-            <div >
-                <a href={component.HomeLinks.url}>{component.HomeLinks.icon}</a>
+            <div>
+                <a className='footerlink' href={component.HomeLinks.url}>{component.HomeLinks.icon}</a>
             </div>
             <div >
                 {component.social_media.map((social, index) => (
@@ -14,7 +14,7 @@ export default function Footer({ component }) {
                 ))}
             </div>
             <div >
-                <p>{component.copyright}</p>
+                <p className='copyright'>{component.copyright}</p>
             </div>
         </footer>
     );
