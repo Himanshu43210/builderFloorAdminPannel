@@ -18,7 +18,7 @@ export default function DynamicCardComponent({ component }) {
   useEffect(() => {}, [dataToRender]);
 
   return (
-    <div>
+    <div className="abc">
       {dataToRender?.map((element) => {
         return (
           <>

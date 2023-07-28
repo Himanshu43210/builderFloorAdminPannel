@@ -117,8 +117,6 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
       ) : null}
       <div
         style={{
-          justifyContent: "center",
-          textAlign: "center",
           display: "flex",
           gap: "10px",
         }}

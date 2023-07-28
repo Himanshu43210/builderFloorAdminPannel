@@ -27,25 +27,28 @@ function UserTable() {
 
   return (
     <>
-      <div style={{ backgroundColor: "#f6f7fc" }}>
-        <Navbar />
-        <div style={{ display: "flex" }}>
-          <div style={{ width: "200px" }}>
-            <Panel />
+      
+        <div style={{ display: "flex" , backgroundColor:"#f8f4fc"}}>
+          <div  className="abc" style={{ width: "200px" }}>
+          <Panel />
+     
           </div>
 
           <div
+
             style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}
           >
-            <Card style={{ backgroundColor: "#f6f7fc", border: "none" }}>
+          <div style={{ backgroundColor: "#f8f4fc" }}>
+               <Navbar />
+            <Card style={{ backgroundColor: "#f8f4fc", border: "none" }}>
               <Card.Header
                 className="font"
-                style={{ backgroundColor: "#f6f7fc", border: "none" }}
+                style={{ backgroundColor: "#f8f4fc", border: "none" }}
               >
                 User Details
               </Card.Header>
               <Card.Body
-                style={{ backgroundColor: "#f6f7fc", padding: "20px" }}
+                style={{ backgroundColor: "#f8f4fc", padding: "20px" }}
               >
                 <TableButtonHeader
                   fieldConst={fieldConst}

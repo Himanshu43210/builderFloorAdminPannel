@@ -6,7 +6,7 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import ApiButton from "./ApiButton";
+import ApiButton from "./apiButton";
 import { GET } from "../utils/Const";
 
 export default function SearchCard({
@@ -16,32 +16,37 @@ export default function SearchCard({
   classname,
 }) {
   return (
-    <Card className={classname} sx={{ maxWidth: 345, width: "25%" }}>
-      <CardActionArea>
+    
+    <Card className={classname} >
+      <CardActionArea >
         <CardMedia
           component="img"
           height="100"
           image={element.thumbnails?.[0]}
           alt={element.title}
         />
-        <CardContent>
+        <CardContent style={ {display:'flex' , flexDirection:"column"}}>
           <Typography gutterBottom variant="h5" component="div">
             {element.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {element.sectorNumber}
           </Typography>
+          <div style={ {display:"flex"}}>
           <Typography variant="body2">{element.accommodation}</Typography>
           <Typography variant="body2">{element.floor}</Typography>
           <Typography variant="body2">{element.size}Sq.Yd.</Typography>
+          </div>
         </CardContent>
+       <div style={ { display:"flex"}}>
+
         <Rating
           name="home-card-fixed-rating"
           value={element.raiting || 5}
           precision={1}
           readOnly
         />
-      </CardActionArea>
+  
       <ApiButton
         apiType={GET}
         api={onClickApi}
@@ -49,6 +54,8 @@ export default function SearchCard({
         queryParams={{ id: element._id }}
         navigate={onClickNavigate}
       />
+       </div>
+           </CardActionArea>
     </Card>
   );
 }

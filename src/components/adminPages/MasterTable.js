@@ -29,21 +29,18 @@ function MasterTable() {
 
   return (
     <>
-      <div style={{ backgroundColor: "#f6f7fc" }}>
-        <Navbar />
-        <div style={{ display: "flex" }}>
-          <div style={{ width: "200px" }}>
-            <Panel />
+      <div style={{ display: "flex" , backgroundColor:"#f8f4fc"}}>
+          <div  className="abc" style={{ width: "200px" }}>
+          <Panel />
+     
           </div>
 
           <div
-            style={{
-              border: "none",
-              marginLeft: "10px",
-              width: "80%",
-              marginTop: "60px",
-            }}
+
+            style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}
           >
+          <div style={{ backgroundColor: "#f8f4fc" }}>
+               <Navbar />
             <Card style={{ backgroundColor: "#f6f7fc", border: "none" }}>
               <Card.Header
                 className="font"

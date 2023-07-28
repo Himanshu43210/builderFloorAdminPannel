@@ -31,7 +31,7 @@ function Navbar() {
 
   return (
     
-    <AppBar position="static" style={ {backgroundColor:"white" , position:"fixed"}} >
+    <AppBar position="static" style={ {backgroundColor:"#f8f4fc" , border:"none"}} >
     
       <CssBaseline />
       

@@ -14,16 +14,16 @@ import {
   SLIDER,
   HAMBURGER_MENU,
   SELECT_SLIDER,
-} from "../utils/Const";
-import Banner from "./Banner";
-import SelectButton from "./SelectButton";
-import Slider from "./Slider";
-import ApiButton from "./ApiButton";
-import Heading from "./Heading";
-import DynamicCardComponent from "./DynamicCardContainer";
-import AutoFetchApi from "./AutoFetchApi";
-import DetailCard from "./DetailedCard";
-import NavigateButton from "./NavigateButton";
+} from "./../utils/Const";
+import Banner from "./banner";
+import SelectButton from "./selectButton";
+import Slider from "./slider";
+import ApiButton from "./apiButton";
+import Heading from "./heading";
+import DynamicCardComponent from "./dynamicCardContainer";
+import AutoFetchApi from "./autoFetchApi";
+import DetailCard from "./detailedCard";
+import NavigateButton from "./navigateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { storeFilterData } from "../../redux/slice/filterSlice";
 import Footer from "./Footer";

@@ -50,22 +50,22 @@ function Panel() {
         ) : (
           <div className={classes.navlinks} id="sidebar">
             <Link to="/adminDashboard" className={classes.link}>
-              <FaClipboardList color="#4677c3 " /> &nbsp;
+              <FaClipboardList color="#152c70 " size={24} /> &nbsp;
               <h6>Dashboard</h6>
             </Link>
             <Link to="/user" className={classes.link}>
-              <FaUsers color="#4677c3 " />
+              <FaUsers color="#152c70" size={24} />
               &nbsp;
               <h6>User</h6>
             </Link>
             <Link to="/property" className={classes.link}>
-              <FaCog color="#4677c3 " />
+              <FaCog color="#152c70" size={24}  />
               &nbsp;
               <h6>Property</h6>
             </Link>
             <Link to="/master" className={classes.link}>
-              <FaUserShield color="#4677c3 " />
-              &nbsp;
+              <FaUserShield color="#152c70" size={24}  />
+              &nbsp; &nbsp; 
               <h6>Master</h6>
             </Link>
           </div>

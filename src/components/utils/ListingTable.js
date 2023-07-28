@@ -145,7 +145,7 @@ const ListingTable = ({
     
 
       
-      <Table striped bordered hover responsive size="sm">
+      <Table>
         <thead  >
           <tr style={ { border:"none" }} >
             {tableHeaders.map((header, index) => (
@@ -191,7 +191,7 @@ const ListingTable = ({
                   >
                   <FaUserEdit/>&nbsp;
                  Edit
-                  </Button>&nbsp;
+                  </Button>
                   <Button
                   variant="danger"
                     style={ {width:'80px',paddingLeft:'2px'}}
@@ -203,7 +203,8 @@ const ListingTable = ({
                   >
                   <FaRegTrashAlt size={12} />&nbsp;
                     Delete
-                  </Button>
+                  </Button> 
+                  &nbsp;
                 </td>
               </tr>
             ))}

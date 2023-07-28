@@ -1,181 +1,167 @@
 .contain {
   margin: 0 auto;
   margin-top: 100px;
-    width: 50%; 
-  
-    
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-    display: flex;
-    gap: 10px;
-    
-  }
-  
-  label {
-    display: block; 
-    /* margin-bottom: 2px; */
-    width: 100px;
-  margin-top: 6px;
-  
-  }
+  width: 50%;
 
-.home-page-banner{
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  /* margin-bottom: 2px; */
+  width: 100px;
+  margin-top: 6px;
+}
+
+.home-page-banner {
   height: 350px;
   justify-content: center;
   text-align: center;
-
 }
-.home-page-banner h1{
+.home-page-banner h1 {
   font-size: 90px;
   margin-top: 10px;
   padding: 10px;
   color: #fff;
 }
 
-.home-screen div:nth-child(4){
+.home-screen div:nth-child(4) {
   display: flex;
   gap: 30px;
   justify-content: center;
-  margin-top:40px  ;
+  margin-top: 40px;
 }
 .select-range div {
   width: 300px;
- 
 }
-.select-range div div span{
- font-size: 15px;
- color: #006d77;
+.select-range div div span {
+  font-size: 15px;
+  color: #006d77;
 }
-.css-t3ipsp-control:target  {
+.css-t3ipsp-control:target {
   border-color: #006d77 !important;
-
 }
-.search-result-screen{
+.search-result-screen {
   gap: 39px;
   margin-top: 20px !important;
 }
-.select-city-button .css-b62m3t-container .css-13cymwt-control{
-  background-color:#006d77;
+.select-city-button .css-b62m3t-container .css-13cymwt-control {
+  background-color: #006d77;
   border: none;
   border-radius: 8px;
   height: 40px;
 }
-.css-1gv0vcd-MuiSlider-track{
+.css-1gv0vcd-MuiSlider-track {
   background-color: black !important;
   color: black !important;
   height: 1px !important;
 }
-.MuiSlider-thumb{
+.MuiSlider-thumb {
   color: black !important;
 }
-.MuiSlider-rail{
+.MuiSlider-rail {
   color: rgb(37, 37, 37) !important;
 }
-.css-1nmdiq5-menu{
+.css-1nmdiq5-menu {
   background-color: #006d77 !important ;
   color: white;
 }
 
-.css-1nmdiq5-menu div{
+.css-1nmdiq5-menu div {
   background-color: #006d77 !important;
-    color:white;
+  color: white;
 }
-.css-1u9des2-indicatorSeparator{
+.css-1u9des2-indicatorSeparator {
   display: none;
 }
- .css-1dimb5e-singleValue{
+.css-1dimb5e-singleValue {
   color: #fff !important;
   font-size: 15px !important;
- }
- .css-1xc3v61-indicatorContainer{
-  color: #fff !important;
- }
-.search button{
-width: 140px;
-background-color: #006d77;
 }
-.home-screen-card-section-heading{
+.css-1xc3v61-indicatorContainer {
+  color: #fff !important;
+}
+.search button {
+  width: 140px;
+  background-color: #006d77;
+}
+.home-screen-card-section-heading {
   font-size: 39px;
 }
- .default-home-cards{
+.default-home-cards {
   margin: 100px;
-
 }
 
-.div{
-
+.div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
- gap: 30px;
-}  
-.cardsdiv div{
-    margin: 0px !important;
+  gap: 30px;
+}
+.cardsdiv div {
+  margin: 0px !important;
 }
 
-
-
-.cardbottom button{
-  
+.cardbottom button {
   width: 100px;
-  margin :0% !important ;
+  margin: 0% !important ;
   margin-right: 2px !important;
-background-color: #006d77;
+  background-color: #006d77;
 }
-.cardheading{
+.cardheading {
   padding: 0%;
   font-size: 19px !important;
   font-weight: 800 !important   ;
 }
-.secondheading{
+.secondheading {
   margin-top: 30px !important;
-    font-size: 14px !important;
-      font-weight: 400 !important;
-      color: black !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: black !important;
 }
-.cardmiddle{
+.cardmiddle {
   margin-top: 40px !important;
   justify-content: center;
   display: flex;
   gap: 20px;
 }
 
-.cardbottom{
+.cardbottom {
   margin-top: 50px !important;
   gap: 70px;
-  margin-left:10px ;
+  margin-left: 10px;
 }
-.cardimg{
+.cardimg {
   height: 100px !important;
   width: 300px !important;
   margin-top: 0% !important;
   margin: auto !important;
-
 }
-.app button svg{
+.app button svg {
   margin-left: 0% !important;
   margin: auto !important ;
 }
-.home-screen-card-section-bottom{
+.home-screen-card-section-bottom {
   justify-content: center;
   text-align: center;
   align-items: center;
   align-content: center;
   width: 100%;
-  
 }
-.home-screen-card-section-bottom h2{
-
+.home-screen-card-section-bottom h2 {
   font-size: 45px !important;
   /* width: 300px !important; */
 }
@@ -187,49 +173,46 @@ background-color: #006d77;
   position: fixed;
   background-color: #fff !important;
 }
-.css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover{
-  background-color:#fff !important;
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover {
+  background-color: #fff !important;
   color: #fff !important;
 }
 
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root svg {
-
-margin: auto !important;
-margin-left: 1px !important;
-height: 50px;
-/* margin:auto !important; */
+  margin: auto !important;
+  margin-left: 1px !important;
+  height: 50px;
+  /* margin:auto !important; */
 }
 
-.css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper{
-left: 0px !important;
-width: 200px;
+.css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper {
+  left: 0px !important;
+  width: 200px;
 }
 
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover{
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover {
   background-color: #006d77 !important;
 }
 
-.css-13cymwt-control{
+.css-13cymwt-control {
   background-color: #006d77 !important;
   color: #fff !important;
 }
-.actioncontainer{
-display: flex;
-justify-content: center;
-gap: 30px;
-
+.actioncontainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
-.filter-button-div{
+.filter-button-div {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   justify-content: left;
   background-color: #f8f4f4;
-  height: 500px ;
+  height: 500px;
   border: 1px solid #d4d4d4;
   width: 250px;
-  
 }
 .filterbutton .css-b62m3t-container .css-13cymwt-control {
   background-color: white !important;
@@ -238,272 +221,293 @@ gap: 30px;
   border-radius: 8px;
   height: 40px;
   border: 1px solid #d4d4d4;
-    margin: auto;
-      margin-left: 1px;
-      margin-top: 10px;
-    width: 200px;
+  margin: auto;
+  margin-left: 1px;
+  margin-top: 10px;
+  width: 200px;
 }
-.filterbutton .css-b62m3t-container .css-13cymwt-control .css-1fdsijx-ValueContainer .css-1dimb5e-singleValue{
+.filterbutton
+  .css-b62m3t-container
+  .css-13cymwt-control
+  .css-1fdsijx-ValueContainer
+  .css-1dimb5e-singleValue {
   color: black !important;
-  font-weight:600 !important;
+  font-weight: 600 !important;
 }
- .filterbutton .css-b62m3t-container .css-13cymwt-control .css-1hb7zxy-IndicatorsContainer .css-1xc3v61-indicatorContainer{
+.filterbutton
+  .css-b62m3t-container
+  .css-13cymwt-control
+  .css-1hb7zxy-IndicatorsContainer
+  .css-1xc3v61-indicatorContainer {
   color: black !important ;
 }
 
-
-
-.filterbutton .css-b62m3t-container .css-t3ipsp-control .css-1nmdiq5-menu{
+.filterbutton .css-b62m3t-container .css-t3ipsp-control .css-1nmdiq5-menu {
   background-color: #ffffff !important;
   color: rgb(0, 0, 0) !important;
   width: 100px !important;
 }
-.css-t3ipsp-control{
+.css-t3ipsp-control {
   width: 200px;
 }
 
+.contentdiv {
+  display: flex !important;
+  flex-direction: row;
+  gap: 50px;
+}
+.detailimages {
+  margin-top: 40px;
+  height: 15%;
+  width: 30%;
+}
+.detailpagebutton {
+  margin-top: 45px !important;
+  height: 30px;
+  width: 50px;
+}
 
+.detailcardheadingdiv {
+  margin-top: 0% !important;
+  padding: 0%;
+  background-color: #d4d4d4;
+  display: flex;
+  border-bottom: 2px solid black;
+}
+#detailleftdiv {
+  padding-top: 0% !important;
+  padding-left: 0% !important;
+}
+.detailcardheading {
+  margin: auto;
+  margin-left: 10px !important;
+}
+.detailicondiv {
+  margin: auto;
+  margin-right: 10px;
+  display: flex;
+  gap: 40px;
+}
 
-
-.select-city-button{
+.select-city-button {
   width: 150px;
 }
 
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 90%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-.btn{
-  background-color: blue;
-    width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 20%;
-   
-}
-.btnclose{
-  background-color: blue;
-    width: 100%;
-    padding: 10px;
-    margin:auto;
-    margin-bottom: 10px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    /* width: 10%; */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-  @media (max-width: 768px) {
-    .container {
-          margin-top: 100px;
-      width: 300px;
-    }
-  }
-  
-  .redirection-link {
-    cursor: pointer;
-    color: blue;
-    text-align: center;
-  }
-  
-  .loading-class {
-    text-align: center;
-  }
-  @media only screen and (max-width: 600px) {
-    .container {
-      margin-top: 100px;
-    }
-  }
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: blue;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 20%;
+}
+.btnclose {
+  background-color: blue;
+  width: 100%;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* width: 10%; */
+}
+
+@media (max-width: 768px) {
   .container {
+    margin-top: 100px;
+    width: 300px;
+  }
+}
+
+.redirection-link {
+  cursor: pointer;
+  color: blue;
+  text-align: center;
+}
+
+.loading-class {
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    margin-top: 100px;
+  }
+}
+.container {
   margin: 0 auto;
   margin-top: 100px;
-    width: 40%; 
-  
-    
-    padding: 20px;
-    background-color:#172b4d;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  .sidebarcontainer{
-    position: fixed;
-    background-color: white ;
-    box-shadow: 2px 2px 2px 2px #f3f3f3;
-    height: 100%;
-   
+  width: 40%;
 
-  }
-  #sidebar{
-    display: flex;
-    flex-direction: column;
-   
-  }
+  padding: 20px;
+  background-color: #172b4d;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 90%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .addbtn{
-background-color: aliceblue  ;
-border-radius: 4px;
-padding: 1px;
-justify-content: center;
-text-align: center;
-  }
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-.inpt{
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.addbtn {
+  background-color: aliceblue;
+  border-radius: 4px;
+  padding: 1px;
+  justify-content: center;
+  text-align: center;
+}
+
+.inpt {
   width: 100px;
-}  
-  
-.btn{
-  background-color: blue;
-    width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 20%;
-   
 }
 
-.btnclose{
+.btn {
   background-color: blue;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 20%;
+}
+
+.btnclose {
+  background-color: blue;
+  width: 100%;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* width: 10%; */
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 100px;
+    max-width: 300px;
+  }
+}
+
+.redirection-link {
+  cursor: pointer;
+  color: blue;
+  text-align: center;
+}
+
+.loading-class {
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .filter-button-div {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    background-color: #f8f4f4;
+    height: 80px;
+    border: 1px solid #d4d4d4;
     width: 100%;
-    padding: 10px;
-    margin:auto;
-    margin-bottom: 10px;
-    color: #fff;
+    height: 200px;
+    border: 1px solid #ccc;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .filterbutton .css-b62m3t-container .css-13cymwt-control {
+    background-color: white !important;
+    color: black !important;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    /* width: 10%; */
+    border-radius: 8px;
+    height: 40px;
+    border: 1px solid #d4d4d4;
+  }
+
+  .filterbutton
+    .css-b62m3t-container
+    .css-13cymwt-control
+    .css-1fdsijx-ValueContainer
+    .css-1dimb5e-singleValue {
+    color: black !important;
+    font-weight: 600 !important;
+  }
+
+  .filterbutton
+    .css-b62m3t-container
+    .css-13cymwt-control
+    .css-1hb7zxy-IndicatorsContainer
+    .css-1xc3v61-indicatorContainer {
+    color: black !important;
+  }
+
+  .filterbutton .css-b62m3t-container .css-t3ipsp-control .css-1nmdiq5-menu {
+    background-color: #ffffff !important;
+    color: rgb(0, 0, 0) !important;
+    width: 100px !important;
+  }
 }
-
-
-  @media (max-width: 768px) {
-    .container {
-          margin-top: 100px;
-      max-width: 300px;
-    }
-    
-  }
-  
-  .redirection-link {
-    cursor: pointer;
-    color: blue;
-    text-align: center;
-  }
-  
-  .loading-class {
-    text-align: center;
-  }
-  @media only screen and (max-width: 600px) {
-    .container {
-      margin-top: 100px;
-    }
-   
-  }
-  
- @media only screen and (max-width: 720px) {
-
-    .filter-button-div {
-      margin-top: 40px;
-      display: flex;
-flex-direction: row;
-      /* justify-content: center; */
-      gap: 15px;
-      /* align-items: center; */
-      background-color: #f8f4f4;
-      height: 80px;
-      border: 1px solid #d4d4d4; 
-        width: 100%;
-          height: 200px;
-          /* Add a border to visualize the container */
-          border: 1px solid #ccc;
-          /* Enable horizontal scrolling */
-          overflow-x: auto;
-         overflow-y:hidden;
-         
-    }
-  
-    .filterbutton .css-b62m3t-container .css-13cymwt-control {
-      background-color: white !important;
-      color: black !important;
-      border: none;
-      border-radius: 8px;
-      height: 40px;
-      border: 1px solid #d4d4d4
-    }
-  
-    .filterbutton .css-b62m3t-container .css-13cymwt-control .css-1fdsijx-ValueContainer .css-1dimb5e-singleValue {
-      color: black !important;
-      font-weight: 600 !important;
-    }
-  
-    .filterbutton .css-b62m3t-container .css-13cymwt-control .css-1hb7zxy-IndicatorsContainer .css-1xc3v61-indicatorContainer {
-      color: black !important;
-    }
-  
-  
-  
-    .filterbutton .css-b62m3t-container .css-t3ipsp-control .css-1nmdiq5-menu {
-      background-color: #ffffff !important;
-      color: rgb(0, 0, 0) !important;
-      width: 100px !important;
-    }
-  }
