@@ -6,7 +6,7 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import ApiButton from "./apiButton";
+import ApiButton from "./ApiButton";
 import { GET } from "../utils/Const";
 
 export default function HomeCard({

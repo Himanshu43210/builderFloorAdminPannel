@@ -257,28 +257,40 @@ label {
   gap: 50px;
 }
 .detailimages {
-  margin-top: 40px;
-  height: 15%;
-  width: 30%;
+  margin-top: 30px;
+  height: 20% !important;
+  width: 35% !important;
+}
+.searchpagebuttondiv {
+  margin-top: 25px !important;
 }
 .detailpagebutton {
   margin-top: 45px !important;
   height: 30px;
-  width: 50px;
+  width: 30px;
+}
+.css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root {
+  -webkit-justify-content: left !important;
 }
 
 .detailcardheadingdiv {
-  margin-top: 0% !important;
+  margin: auto !important;
+  margin-top: 1px !important;
   padding: 0%;
   background-color: #d4d4d4;
   display: flex;
   border-bottom: 2px solid black;
 }
 #detailleftdiv {
-  padding-top: 0% !important;
-  padding-left: 0% !important;
+  padding: 0% !important;
 }
+.searchcardiv {
+  align-items: start !important;
+}
+
 .detailcardheading {
+  margin: auto !important;
+  margin-top: 1% !important;
   margin: auto;
   margin-left: 10px !important;
 }
