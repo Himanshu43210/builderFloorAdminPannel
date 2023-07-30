@@ -7,7 +7,6 @@ export const getApiName = (api) => {
 export const API_ENDPOINTS = {
   getHomeScreenData:
     "https://builder-floor-backend-n2ib.onrender.com/api/properties/list",
-  getBuilderFloorData:
-    "https://builder-floor-backend-n2ib.onrender.com/api/Users/list",
+  getCardData: "https://builder-floor-backend-n2ib.onrender.com/api/Users/list",
   getSearchResult: `https://builder-floor-backend-n2ib.onrender.com/api/properties/search?city=gur`,
 };

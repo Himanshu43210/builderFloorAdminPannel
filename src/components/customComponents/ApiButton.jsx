@@ -8,10 +8,9 @@ export default function ApiButton({
   api,
   data,
   buttonLabel,
-  queryParams,
   navigate,
 }) {
-  console.log(queryParams);
+  console.log("why Here?");
   const apiHeader = { "Content-Type": "application/json" };
   const navigateTo = useNavigate();
 
@@ -27,7 +26,7 @@ export default function ApiButton({
     <>
       {/* For GET request */}
       {apiType === GET && (
-        <ApiHandler method={GET} url={api} params={queryParams}>
+        <ApiHandler method={GET} url={api} params={data}>
           {(doFetch) => (
             <button onClick={() => handleApiCall(doFetch)}>
               {buttonLabel}

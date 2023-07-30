@@ -1,4 +1,4 @@
-import RenderComponent from "./ComponentRenderer";
+import { useDispatch, useSelector } from "react-redux";
 import {
   API_BUTTON,
   AUTO_FETCH_API,
@@ -14,27 +14,49 @@ import {
   SLIDER,
   HAMBURGER_MENU,
   SELECT_SLIDER,
-} from "./../utils/Const";
+  API_HEADING,
+} from "../utils/Const";
 import Banner from "./Banner";
-import SelectButton from "./SelectButton";
-import Slider from "./Slider";
-import ApiButton from "./ApiButton";
-import Heading from "./Heading";
-import DynamicCardComponent from "./DynamicCardContainer";
-import AutoFetchApi from "./AutoFetchApi";
-import DetailCard from "./DetailedCard";
-import NavigateButton from "./NavigateButton";
-import { useDispatch, useSelector } from "react-redux";
-import { storeFilterData } from "../../redux/slice/filterSlice";
 import Footer from "./Footer";
+import Slider from "./Slider";
+import Heading from "./Heading";
+import ApiButton from "./ApiButton";
 import MenuState from "./MenupState";
+import DetailCard from "./DetailedCard";
+import DynamicHeading from "./ApiHeading";
+import SelectButton from "./SelectButton";
+import AutoFetchApi from "./AutoFetchApi";
+import NavigateButton from "./NavigateButton";
 import { SelectSlider } from "./SelectSlider";
+import RenderComponent from "./ComponentRenderer";
+import DynamicCardContainer from "./DynamicCardContainer";
+import { storeFilterData } from "../../redux/slice/filterSlice";
+import { useCallback } from "react";
+import { callApi } from "../../redux/utils/apiActions";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
   const sliceData = useSelector((state) => state[component.sliceName]);
-  const testAction = (key, value) => {
-    console.log(key, value);
+
+  const doFetch = useCallback(() => {
+    const options = {
+      url: component.onClickApi,
+      method: component.onClickApiMethod,
+      headers: { "Content-Type": "application/json" },
+      data: sliceData,
+    };
+    console.log(sliceData, options.data);
+    dispatch(callApi(options));
+  }, [component.onClickApi, component.onClickApiMethod, dispatch, sliceData]);
+
+  const handleValueChange = (value) => {
+    dispatch(
+      storeFilterData({
+        key: component.paginatioName || component.name,
+        value: value,
+      })
+    );
+    if (component.onClickApi) doFetch();
   };
   return (
     <>
@@ -56,9 +78,7 @@ const ComponentSelector = ({ component }) => {
           name={component.name}
           options={component.options}
           defaultValue={component.defaultValue}
-          handleValueChange={(value) => {
-            dispatch(storeFilterData({ key: component.name, value: value }));
-          }}
+          handleValueChange={handleValueChange}
           label={component.label}
           value={sliceData[component.name]}
         />
@@ -69,9 +89,7 @@ const ComponentSelector = ({ component }) => {
           minValue={component.minValue}
           maxValue={component.maxValue}
           defaultValue={component.defaultValue}
-          handleValueChange={(value) => {
-            dispatch(storeFilterData({ key: component.name, value: value }));
-          }}
+          handleValueChange={handleValueChange}
           value={sliceData[component.name]}
         />
       )}
@@ -80,20 +98,19 @@ const ComponentSelector = ({ component }) => {
           apiType={component.apiType}
           api={component.api}
           buttonLabel={component.buttonLabel}
-          queryParams={sliceData}
           navigate={component.navigate}
+          data={sliceData}
         />
       )}
-      {component.type === HEADING && (
-        <Heading
-          tag={component.tag}
-          text={component.text}
-          name={component.name}
-          className={component.className}
-        />
+      {component.type === HEADING && <Heading component={component} />}
+      {component.type === API_HEADING && (
+        <DynamicHeading component={component} />
       )}
       {component.type === DYNAMIC_CARD_CONTAINER && (
-        <DynamicCardComponent component={component} />
+        <DynamicCardContainer
+          component={component}
+          handleValueChange={handleValueChange}
+        />
       )}
       {component.type === DETAILED_VIEW && (
         <DetailCard apiName={component.apiName} />
@@ -108,11 +125,7 @@ const ComponentSelector = ({ component }) => {
       {component.type === SELECT_SLIDER && (
         <SelectSlider
           component={component}
-          handleValueChange={(value) => {
-            testAction({ key: component.name, value: value });
-            // console.log(value)
-            dispatch(storeFilterData({ key: component.name, value: value }));
-          }}
+          handleValueChange={handleValueChange}
           stateValue={sliceData[component.name]}
         />
       )}
