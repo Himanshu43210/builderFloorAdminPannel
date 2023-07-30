@@ -14,34 +14,45 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
   let ComponentType = component.renderComponentsInLoop.type;
   const [page, setPage] = React.useState(defaultPage);
 
-  ComponentType = HOME_CARD ? HomeCard : SEARCH_CARD ? SearchCard : <></>;
-
   const dataToRender = useSelector((state) => selectApiData(state, apiName));
 
   useEffect(() => {}, [dataToRender]);
 
   return (
     <div className="abc">
+      {dataToRender?.map((element) => {
+        console.log(component.renderComponentsInLoop.type);
+        return (
+          <>
+            {ComponentType === HOME_CARD && (
+              <HomeCard
+                element={element}
+                onClickApi={onClickApi}
+                onClickNavigate={onClickNavigate}
+              />
+            )}
+            {ComponentType === SEARCH_CARD && (
+              <SearchCard
+                element={element}
+                onClickApi={onClickApi}
+                onClickNavigate={onClickNavigate}
+                classname={component.renderComponentsInLoop.className}
+                apiType={component.renderComponentsInLoop.apiType}
+              />
+            )}
+          </>
+        );
+      })}
       {component.paginatioName && (
         <BasicPagination
           handlePageChange={(e, newPage) => {
             handleValueChange(newPage);
             setPage(newPage);
           }}
-          page={page || defaultPage}
+          currentPage={page || defaultPage}
+          totalPages={dataToRender?.length / component.cardPerPage}
         />
       )}
-      {dataToRender?.map((element) => {
-        return (
-          <>
-            <ComponentType
-              element={element}
-              onClickApi={onClickApi}
-              onClickNavigate={onClickNavigate}
-            />
-          </>
-        );
-      })}
     </div>
   );
 }

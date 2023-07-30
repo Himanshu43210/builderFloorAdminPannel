@@ -31,23 +31,11 @@ import { SelectSlider } from "./SelectSlider";
 import RenderComponent from "./ComponentRenderer";
 import DynamicCardContainer from "./DynamicCardContainer";
 import { storeFilterData } from "../../redux/slice/filterSlice";
-import { useCallback } from "react";
 import { callApi } from "../../redux/utils/apiActions";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
   const sliceData = useSelector((state) => state[component.sliceName]);
-
-  const doFetch = useCallback(() => {
-    const options = {
-      url: component.onClickApi,
-      method: component.onClickApiMethod,
-      headers: { "Content-Type": "application/json" },
-      data: sliceData,
-    };
-    console.log(sliceData, options.data);
-    dispatch(callApi(options));
-  }, [component.onClickApi, component.onClickApiMethod, dispatch, sliceData]);
 
   const handleValueChange = (value) => {
     dispatch(
@@ -56,7 +44,18 @@ const ComponentSelector = ({ component }) => {
         value: value,
       })
     );
-    if (component.onClickApi) doFetch();
+    if (component.onClickApi) {
+      const options = {
+        url: component.onClickApi,
+        method: component.onClickApiMethod,
+        headers: { "Content-Type": "application/json" },
+        data: {
+          ...sliceData,
+          [component.paginatioName || component.name]: value,
+        },
+      };
+      dispatch(callApi(options));
+    }
   };
   return (
     <>
