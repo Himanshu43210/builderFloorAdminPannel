@@ -15,6 +15,7 @@ export default function HomeCard({
   onClickNavigate,
   classname,
 }) {
+  console.log("inside home card")
   return (
     <Card className={classname} sx={{ maxWidth: 345, width: "25%" }}>
       <CardActionArea>
