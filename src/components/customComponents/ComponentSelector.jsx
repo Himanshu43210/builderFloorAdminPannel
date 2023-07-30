@@ -15,6 +15,8 @@ import {
   HAMBURGER_MENU,
   SELECT_SLIDER,
   API_HEADING,
+  TOGGLE_BUTTON,
+  SCROLL_TO_TOP,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -33,6 +35,9 @@ import DynamicCardContainer from "./DynamicCardContainer";
 import { storeFilterData } from "../../redux/slice/filterSlice";
 import { useCallback } from "react";
 import { callApi } from "../../redux/utils/apiActions";
+import { ToggleButton } from "react-bootstrap";
+import { display } from "@mui/system";
+import { ScrollToTop } from "./ScrollToTop";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -128,6 +133,17 @@ const ComponentSelector = ({ component }) => {
           handleValueChange={handleValueChange}
           stateValue={sliceData[component.name]}
         />
+      )}
+      {component.type === TOGGLE_BUTTON && (
+        <ToggleButton
+          component = {component}
+          handleValueChange = {(value) => {
+            display(storeFilterData({ key: component.name, value: value }));
+          }}
+        />
+      )}
+      {component.type === SCROLL_TO_TOP && (
+        <ScrollToTop component = {component}/>
       )}
     </>
   );

@@ -15,10 +15,12 @@ import {
   NAVIGATE_BUTTON,
   PAGE_FOOTER,
   POST,
+  SCROLL_TO_TOP,
   SEARCH_CARD,
   SELECT,
   SELECT_SLIDER,
   SLIDER,
+  TOGGLE_BUTTON,
 } from "./components/utils/Const";
 import { API_ENDPOINTS } from "./redux/utils/api";
 
@@ -33,6 +35,8 @@ const FOOTER = {
   ],
   copyright: "© Builder Floor Official 2022",
 };
+
+
 
 const MENU_ITEMS = [
   {
@@ -146,6 +150,10 @@ export const HOME_SCREEN = {
       text: "We are your trusted partner in finding your dream builder floor in Gurgaon",
     },
     FOOTER,
+    {
+      type: SCROLL_TO_TOP,
+      name: "ScrollToTop"
+    }
   ],
 };
 
@@ -324,6 +332,11 @@ export const SEARCH_RESULT = {
             { label: "Price Low to High", value: "Price Low to High" },
           ],
         },
+        {
+          type: TOGGLE_BUTTON,
+          sliceName: "filter",
+          name: "Park"
+        }
       ],
     },
     {
@@ -347,3 +360,4 @@ export const REDIRECTION = {
   [HOME_SCREEN]: "/",
   [SEARCH_RESULT]: "/searchResult",
 };
+

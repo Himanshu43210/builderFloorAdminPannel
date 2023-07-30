@@ -29,6 +29,7 @@ export const SEARCH_CARD = "SEARCH_CARD";
 export const API_HEADING = "API_HEADING";
 export const GET_SEARCH_RESULT = "getSearchResult";
 export const GET_CARD_DATA = "getCardData";
+export const TOGGLE_BUTTON = "TOGGLE_BUTTON";
 //
 export const LOADING = "loading";
 export const FAILED = "failed";
