@@ -43,17 +43,17 @@ function UserTable() {
         </div>
 
         <div style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}>
-          <div style={{ backgroundColor: "#f5f6f8" }}>
+          <div style={{ backgroundColor: "#f8f4fc" }}>
             <Navbar />
-            <Card style={{ backgroundColor: "#f5f6f8", border: "none" }}>
+            <Card style={{ backgroundColor: "#f8f4fc", border: "none" }}>
               <Card.Header
                 className="font"
-                style={{ backgroundColor: "#f5f6f8", border: "none" }}
+                style={{ backgroundColor: "#f8f4fc", border: "none" }}
               >
                 User Details
               </Card.Header>
               <Card.Body
-                style={{ backgroundColor: "#f5f6f8", padding: "20px" }}
+                style={{ backgroundColor: "#f8f4fc", padding: "20px" }}
               >
                 <TableButtonHeader
                   fieldConst={fieldConst}

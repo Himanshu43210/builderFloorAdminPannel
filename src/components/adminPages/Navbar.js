@@ -14,12 +14,7 @@ import Panel from "./Panel";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: { marginLeft: theme.spacing(10), display: "flex" },
-  logo: {
-    flexGrow: "1",
-    cursor: "pointer",
-    backgroundColor: "white",
-    color: "#4677c3 ",
-  },
+  logo: { flexGrow: "1", cursor: "pointer",backgroundColor:"white" , color:"#4677c3 " },
   link: {
     textDecoration: "none",
     color: "white",
@@ -35,19 +30,21 @@ function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar
-      position="static"
-      style={{ backgroundColor: "#f5f6f8", border: "none" }}
-    >
+    
+    <AppBar position="static" style={ {backgroundColor:"#f8f4fc" , border:"none"}} >
+    
       <CssBaseline />
-
+      
       <Toolbar>
+    
         <Typography variant="h4" className={classes.logo}>
           Admin Pannel
         </Typography>
+        
       </Toolbar>
     </AppBar>
   );
 }
 
 export default Navbar;
+

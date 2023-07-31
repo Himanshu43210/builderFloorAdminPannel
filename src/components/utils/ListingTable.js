@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table, Button, Container, Badge } from "react-bootstrap";
+import { Table, Button, Container } from "react-bootstrap";
 import Pagination from "react-js-pagination";
 import Select from "react-select";
 import ReusablePopup from "./ReusablePopup";
@@ -175,9 +175,9 @@ const ListingTable = ({
       ) : null}
 
       <div className="tablediv ">
-        <Table>
+        <Table striped bordered hover responsive size="sm">
           <thead>
-            <tr>
+            <tr style={{ border: "none" }}>
               {tableHeaders.map((header, index) => (
                 <th
                   key={index}
@@ -225,6 +225,7 @@ const ListingTable = ({
                       <FaUserEdit />
                       &nbsp; Edit
                     </Button>
+                    &nbsp;
                     <Button
                       variant="danger"
                       style={{ width: "80px", paddingLeft: "2px" }}
@@ -237,7 +238,6 @@ const ListingTable = ({
                       <FaRegTrashAlt size={12} />
                       &nbsp; Delete
                     </Button>
-                    &nbsp;
                   </td>
                 </tr>
               ))}
@@ -245,15 +245,14 @@ const ListingTable = ({
         </Table>
       </div>
       <p className="font">Records Per Page</p>
-      <div className="selectbox">
-        <Select
-          value={selectedOption}
-          onChange={handleRecordPerPage}
-          options={options}
-        />
-      </div>
 
-      <div className="paginationcontainer">
+      <Select
+        value={selectedOption}
+        onChange={handleRecordPerPage}
+        options={options}
+      />
+
+      <Container className="d-flex justify-content-center mt-5  ">
         <Pagination
           size="lg"
           activePage={activePage}
@@ -262,7 +261,7 @@ const ListingTable = ({
           pageRangeDisplayed={itemCount}
           onChange={handlePageChange}
         />
-      </div>
+      </Container>
     </>
   );
 };
