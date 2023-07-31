@@ -86,6 +86,7 @@ const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
           onHide={toogleNewPopup}
           onCancel={toogleNewPopup}
         >
+          <div className="formheadingcontainer">Add Users</div>
           <FormBuilder
             fields={fieldConst}
             onFormDataChange={handleFormDataChange}

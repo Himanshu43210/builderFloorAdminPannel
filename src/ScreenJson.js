@@ -36,8 +36,6 @@ const FOOTER = {
   copyright: "© Builder Floor Official 2022",
 };
 
-
-
 const MENU_ITEMS = [
   {
     name: "Home",
@@ -153,8 +151,8 @@ export const HOME_SCREEN = {
     FOOTER,
     {
       type: SCROLL_TO_TOP,
-      name: "ScrollToTop"
-    }
+      name: "ScrollToTop",
+    },
   ],
 };
 
@@ -351,8 +349,9 @@ export const SEARCH_RESULT = {
         {
           type: TOGGLE_BUTTON,
           sliceName: "filter",
-          name: "Park"
-        }
+          className: "filterbutton toggle",
+          name: "Park",
+        },
       ],
     },
     {
@@ -382,4 +381,3 @@ export const REDIRECTION = {
   [HOME_SCREEN]: "/",
   [SEARCH_RESULT]: "/searchResult",
 };
-

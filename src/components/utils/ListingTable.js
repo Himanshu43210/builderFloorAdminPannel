@@ -144,6 +144,7 @@ const ListingTable = ({
           onHide={toogleEdit}
           onCancel={toogleEdit}
         >
+          <div className="formheadingcontainer">Edit User</div>
           <FormBuilder
             propsFormData={currentRowData}
             fields={fieldConst}

@@ -39,7 +39,13 @@ function PropertyTable() {
       {!tableData && (
         <AutoFetchApi url={API_ENDPOINTS[GET_PROPERTY_DATA]} method={GET} />
       )}
-      <div style={{ display: "flex", backgroundColor: "##f5f6f8" }}>
+      <div
+        style={{
+          display: "flex",
+          backgroundColor: "##f5f6f8",
+          minWidth: "100%",
+        }}
+      >
         <div className="abc" style={{ width: "200px" }}>
           <Panel />
         </div>

@@ -5,10 +5,11 @@
 }
 
 .text {
-  font-family: "Times New Roman";
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .selectbox .css-b62m3t-container .css-t3ipsp-control {
-  width: 996.965px !important;
+  width: 100% !important;
   background-color: #202c74 !important;
   color: white !important;
   border: none;
@@ -30,6 +31,7 @@
 .selectbox .css-b62m3t-container .css-1nmdiq5-menu div {
   background-color: #202c74 !important;
   color: white !important;
+  /* width: 784.705px !important; */
 }
 .pagination li {
   width: 30px;
@@ -50,9 +52,13 @@ div .container ul {
   color: red !important;
   font: red !important;
 }
+.modal-content {
+  background-color: #f5f6f8;
+}
 
 .modal-content .modal-body .container {
   width: fit-content !important;
+  background-color: white;
 }
 
 .modal-content .modal-body .container button {
@@ -64,7 +70,7 @@ div .container ul {
 }
 
 .inputdiv .css-b62m3t-container .css-1nmdiq5-menu div {
-  background-color:#172b4d !important;
+  background-color: #172b4d !important;
 }
 
 .cardhead {
@@ -82,15 +88,12 @@ div .container ul {
 .tablehead {
   background-color: white !important ;
   color: #4677c3 !important;
+  text-transform: capitalize;
   border: 2px solid #ebeff2 !important;
   border-right: none !important;
   border-left: none !important;
   padding: 0% !important;
   height: 50px !important;
-}
-.bodytext {
-  border-right: none !important;
-  border-left: none !important;
 }
 
 .tablebody {
@@ -103,13 +106,13 @@ div .container ul {
   border-left: none !important;
 }
 
-.tableborder td {
-}
 .bodytext {
   background-color: white !important;
   color: black !important;
   border-color: #ebeff2 !important;
-  font-weight: 600 !important;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500 !important;
   border: 2px solid #ebeff2;
   border-top: none !important;
   border-right: none !important;
@@ -127,20 +130,20 @@ div .container ul {
 }
 
 .formcontainer {
-  border: 2px solid #1c345d;
   padding: 10px;
-  background-color: #172b4d;
+  background-color: white !important;
 }
 .subform {
   display: flex;
   flex-direction: row;
-  background-color: #172b4d;
+  background-color: white;
 }
 .lbel {
   color: #4677c3;
-
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500 !important;
   margin: 9px;
-  font-weight: 500;
 }
 
 .labediv {
@@ -181,11 +184,26 @@ div .container ul {
   margin-top: 20px !important;
   top: 90%;
 }
+.formheadingcontainer {
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: larger;
+  color: #172b4d;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
 .makeStyles-link-3 h6 {
   margin-top: 3px;
   margin: auto;
   font-size: large;
   color: #1ea2f2;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .sidebarcontainer {
   position: fixed;

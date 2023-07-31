@@ -437,7 +437,7 @@ input[type="password"] {
 }
 
 .addbtn {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   border-radius: 4px;
   padding: 1px;
   justify-content: center;
@@ -510,6 +510,10 @@ input[type="password"] {
     overflow-x: auto;
     overflow-y: hidden;
   }
+  .search-result-screen {
+    width: 100% !important;
+  }
+
   .select-city-button
     .css-b62m3t-container
     .css-13cymwt-control
@@ -527,6 +531,17 @@ input[type="password"] {
     height: 40px;
     border: 1px solid #d4d4d4;
     margin-top: 0% !important ;
+    width: 100px !important;
+  }
+  .filterbutton .css-b62m3t-container .css-t3ipsp-control {
+    background-color: white !important;
+    color: black !important;
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+    border: 1px solid #d4d4d4;
+    margin-top: 0% !important ;
+    width: 100px !important;
   }
 
   .filterbutton
