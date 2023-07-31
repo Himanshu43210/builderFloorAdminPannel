@@ -13,11 +13,11 @@ export const API_ENDPOINTS = {
   getUserData: `https://builder-floor-backend-n2ib.onrender.com/api/Users/list`,
   getPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/properties/list`,
   getMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/Masters/list`,
-  alterUserData: `https://builder-floor-backend-n2ib.onrender.com/api/alterUser`,
+  alterUserData: `https://builder-floor-backend-n2ib.onrender.com/api/users/EditUpdate`,
   deleteUserData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteUser`,
-  alterPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/alterProperty`,
+  alterPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/properties/EditUpdate`,
   deletePropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteProperty`,
-  alterMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/alterMaster`,
+  alterMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/masters/EditUpdate`,
   deleteMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteMaster`,
 };
   
