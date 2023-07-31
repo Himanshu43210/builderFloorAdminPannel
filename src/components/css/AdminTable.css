@@ -356,7 +356,6 @@ div .container ul {
   }
   .default-home-cards {
     margin: 0% !important;
-
     width: 635px !important  ;
   }
   .home-page-banner {
@@ -366,6 +365,9 @@ div .container ul {
     width: 635px !important  ;
   }
   .home-screen-card-section-heading {
+    width: 635px !important  ;
+  }
+  .home-screen-card-section-bottom {
     width: 635px !important  ;
   }
 }
