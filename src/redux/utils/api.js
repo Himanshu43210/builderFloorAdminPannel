@@ -5,17 +5,16 @@ export const getApiName = (api) => {
 };
 
 export const API_ENDPOINTS = {
-  getHomeScreenData:
-    "https://builder-floor-backend-n2ib.onrender.com/api/properties/list",
-  getCardData: "https://builder-floor-backend-n2ib.onrender.com/api/Users/list",
-  getSearchResult: `http://localhost:8000/getSearchResult`,
-  getUserData: `http://localhost:8000/getUserData`,
-  getPropertyData: `http://localhost:8000/getPropertyData`,
-  getMasterData: `http://localhost:8000/getMasterData`,
+  getHomeScreenData:"https://builder-floor-backend-n2ib.onrender.com/api/properties/list",
+  getCardData: "https://builder-floor-backend-n2ib.onrender.com/api/properties/list?limit=8",
+  getSearchResult: `https://builder-floor-backend-n2ib.onrender.com/api/properties/search?city=gur`,
+  getUserData: `https://builder-floor-backend-n2ib.onrender.com/api/Users/list`,
+  getPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/properties/list`,
+  getMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/Masters/list`,
   alterUserData: `https://builder-floor-backend-n2ib.onrender.com/api/alterUser`,
-  deleteUserData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteUser`,
+  deleteUserData: `https://builder-floor-backend-n2ib.onrender.com/api/Users/deleteUser?id=64ae7e10a3083d9580317a73`,
   alterPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/alterProperty`,
-  deletePropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteProperty`,
+  deletePropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/Properties?id=64afc549a2296dbf7be6efe8`,
   alterMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/alterMaster`,
-  deleteMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteMaster`,
+  deleteMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/Masters?id=64afc549a2296dbf7be6efe8`,
 };
