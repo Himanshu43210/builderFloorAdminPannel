@@ -108,6 +108,7 @@ export const HOME_SCREEN = {
         {
           type: SLIDER,
           sliceName: "filter",
+          className: "select-range",
           name: "budget",
           minValue: 2.0,
           maxValue: 3.5,
@@ -118,6 +119,7 @@ export const HOME_SCREEN = {
           sliceName: "filter",
           name: "search",
           buttonLabel: "Search",
+          className: "home-search-button",
           apiType: POST,
           navigate: "/searchResult",
           api: API_ENDPOINTS[GET_SEARCH_RESULT],
@@ -202,6 +204,7 @@ export const SEARCH_RESULT = {
         {
           type: SLIDER,
           sliceName: "filter",
+          className: "select-range",
           name: "budget",
           minValue: 2.5,
           maxValue: 3.5,
@@ -212,6 +215,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "search",
           buttonLabel: "Search",
+          className: "home-search-button",
           apiType: POST,
           navigate: "/searchResult",
           api: API_ENDPOINTS[GET_SEARCH_RESULT],
@@ -271,7 +275,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "size",
           buttonLabel: "Size",
-          className: "",
+          className: "filterbutton",
           minValue: 0.0,
           maxValue: 1000.0,
           onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
@@ -336,6 +340,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "sortBy",
           label: "Sort By",
+          className: "filterbutton",
           onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
           onClickApiMethod: POST,
           options: [

@@ -18,3 +18,4 @@ export const API_ENDPOINTS = {
   alterMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/alterMaster`,
   deleteMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteMaster`,
 };
+  
