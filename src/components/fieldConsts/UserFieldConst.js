@@ -61,7 +61,7 @@ export const newUserConst = [
   {
     name: "parentId",
     label: "Parent Id",
-    type: "parentId",
+    type: "text",
     isRequired: true,
     requiredErrorMessage: "Please enter Parent Id.",
   },

@@ -249,21 +249,31 @@ div .container ul {
   margin-left: 230px !important;
 }
 
-.abc {
+.searchdiv {
   width: 100%;
   display: grid !important;
   grid-template-columns: 1fr 1fr 1fr !important;
   gap: 30px;
 }
+
+.result-searchdiv .searchdiv {
+  width: 70% !important;
+  display: flex !important;
+  flex-direction: column;
+}
+.result-searchdiv .searchdiv div button {
+  display: flex !important;
+}
 .default-home-cards div {
   width: 100%;
-
   gap: 50px;
-  width: 220px !important;
+  width: 260px !important;
 }
-
+.default-home-cards .searchdiv div {
+  margin-top: 0% !important;
+}
 .default-home-cards {
-  width: 220px !important;
+  width: 20px !important;
 }
 .MuiCardContent-root .css-46bh2p-MuiCardContent-root {
   display: flex !important;

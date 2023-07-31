@@ -90,10 +90,7 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === SLIDER && (
         <Slider
-          name={component.text}
-          minValue={component.minValue}
-          maxValue={component.maxValue}
-          defaultValue={component.defaultValue}
+          component={component}
           handleValueChange={handleValueChange}
           value={sliceData[component.name]}
         />

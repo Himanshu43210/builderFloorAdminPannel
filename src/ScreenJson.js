@@ -110,9 +110,10 @@ export const HOME_SCREEN = {
           sliceName: "filter",
           className: "select-range",
           name: "budget",
-          minValue: 2.0,
-          maxValue: 3.5,
-          defaultValue: [2.5, 3.0],
+          minValue: 20000000,
+          maxValue: 35000000,
+          step: 5000000,
+          defaultValue: [20000000, 30000000],
         },
         {
           type: API_BUTTON,
@@ -141,6 +142,8 @@ export const HOME_SCREEN = {
       renderComponentsInLoop: { type: HOME_CARD, className: "homeCards" },
       cardClickApi: API_ENDPOINTS[GET_CARD_DATA],
       cardClickNavigate: "/builderFloorDetails",
+      addQueryParam: "{title}-{id}",
+      cardClickApiType: GET,
     },
     {
       type: HEADING,
@@ -177,6 +180,7 @@ export const CARD_DETAILS_SCREEN = {
 
 export const SEARCH_RESULT = {
   name: "Search Result",
+  className: "klk",
   children: [
     {
       type: API_HEADING,
@@ -206,9 +210,10 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           className: "select-range",
           name: "budget",
-          minValue: 2.5,
-          maxValue: 3.5,
-          defaultValue: [2.8, 3.0],
+          minValue: 20000000,
+          maxValue: 35000000,
+          step: 5000000,
+          defaultValue: [20000000, 30000000],
         },
         {
           type: API_BUTTON,
@@ -359,7 +364,7 @@ export const SEARCH_RESULT = {
     {
       type: DYNAMIC_CARD_CONTAINER,
       sliceName: "filter",
-      className: "default-home-cards",
+      className: "result-searchdiv",
       apiName: GET_SEARCH_RESULT,
       paginatioName: "searchPage",
       defaultPage: 1,
@@ -369,10 +374,10 @@ export const SEARCH_RESULT = {
       renderComponentsInLoop: {
         type: SEARCH_CARD,
         className: "homeCards",
-        apiType: GET,
       },
       cardClickApi: API_ENDPOINTS[GET_CARD_DATA],
       cardClickNavigate: "/builderFloorDetails",
+      cardClickApiType: GET,
     },
   ],
 };
@@ -383,3 +388,9 @@ export const REDIRECTION = {
   [HOME_SCREEN]: "/",
   [SEARCH_RESULT]: "/searchResult",
 };
+// export const SCREENS_TO_RENDER = [HOME_SCREEN];
+
+// export const REDIRECTION = {
+//   [HOME_SCREEN]: "/",
+//   [SEARCH_RESULT]: "/searchResult",
+// };

@@ -15,11 +15,9 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
   const [page, setPage] = React.useState(defaultPage);
 
   const dataToRender = useSelector((state) => selectApiData(state, apiName));
-
   useEffect(() => {}, [dataToRender]);
-
   return (
-    <div className="abc">
+    <div className="searchdiv">
       {console.log(dataToRender)}
       {dataToRender?.map((element) => {
         console.log(component.renderComponentsInLoop.type);
@@ -30,6 +28,7 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
                 element={element}
                 onClickApi={onClickApi}
                 onClickNavigate={onClickNavigate}
+                apiType={component.cardClickApiType}
               />
             )}
             {ComponentType === SEARCH_CARD && (
@@ -38,7 +37,7 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
                 onClickApi={onClickApi}
                 onClickNavigate={onClickNavigate}
                 classname={component.renderComponentsInLoop.className}
-                apiType={component.renderComponentsInLoop.apiType}
+                apiType={component.cardClickApiType}
               />
             )}
           </>

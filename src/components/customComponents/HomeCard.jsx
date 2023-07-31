@@ -7,17 +7,25 @@ import {
   Typography,
 } from "@mui/material";
 import ApiButton from "./ApiButton";
-import { GET } from "../utils/Const";
+import { convertToCr } from "../utils/HelperMethods";
 
 export default function HomeCard({
   element,
   onClickApi,
   onClickNavigate,
   classname,
+  apiType,
 }) {
-  console.log("inside home card")
   return (
-    <Card className={classname} sx={{ maxWidth: 345, width: "25%" }}>
+    <Card
+      className={classname}
+      sx={{
+        maxWidth: "345px",
+        width: "auto",
+        height: "300px",
+        marginTop: "0px",
+      }}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -26,30 +34,67 @@ export default function HomeCard({
           alt={element.title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div">
             {element.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {element.sectorNumber}
           </Typography>
-          <Typography variant="body2">{element.accommodation}</Typography>
-          <Typography variant="body2">{element.floor}</Typography>
-          <Typography variant="body2">{element.size}Sq.Yd.</Typography>
+          <div style={{ display: "flex", gap: "10px" }}>
+            <div style={{ display: "flex", gap: "5px" }}>
+              <img
+                src="https://builder-floor-flax.vercel.app/assets/imgs/icons/home.svg"
+                alt="img"
+                className="homecardicon"
+                height="20px"
+                width="20px"
+              />
+              <Typography variant="body2" className="homecardtext">
+                {element.accommodation}{" "}
+              </Typography>
+            </div>
+            <div style={{ display: "flex", gap: "5px" }}>
+              <img
+                src="https://builder-floor-flax.vercel.app/assets/imgs/page/homepage5/floor.svg"
+                alt="img"
+                className="homecardicon"
+                height="20px"
+                width="20px"
+              />
+              <Typography variant="body2">{element.floor}</Typography>
+            </div>
+            <div style={{ display: "flex", gap: "5px" }}>
+              <img
+                src="https://builder-floor-flax.vercel.app/assets/imgs/icons/area-svg.svg"
+                alt="img"
+                className="homecardicon"
+                height="20px"
+                width="20px"
+              />
+              <Typography variant="body2">{element.size}Sq.Yd.</Typography>
+            </div>
+          </div>
         </CardContent>
-        <Rating
-          name="home-card-fixed-rating"
-          value={element.raiting || 5}
-          precision={1}
-          readOnly
-        />
+
+        <div style={{ display: "flex", gap: "20px", marginTop: "10px" }}>
+          <Rating
+            name="home-card-fixed-rating"
+            value={element.raiting || 5}
+            precision={1}
+            readOnly
+          />
+          <ApiButton
+            apiType={apiType}
+            api={onClickApi}
+            buttonLabel={`₹ ${convertToCr(element.price)} Cr.`}
+            queryParams={{ id: element._id }}
+            navigate={`${onClickNavigate}?title=${element.title?.replaceAll(
+              " ",
+              "-"
+            )}&id=${element._id}`}
+          />
+        </div>
       </CardActionArea>
-      <ApiButton
-        apiType={GET}
-        api={onClickApi}
-        buttonLabel={`₹ ${element.price / 10000000} Cr.`}
-        queryParams={{ id: element._id }}
-        navigate={onClickNavigate}
-      />
     </Card>
   );
 }

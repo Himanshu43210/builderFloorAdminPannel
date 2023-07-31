@@ -2,13 +2,16 @@ import React from "react";
 import { Slider, Typography } from "@mui/material";
 
 export default function SliderComponent({
+  component,
   value,
-  name,
-  minValue,
-  maxValue,
-  defaultValue,
   handleValueChange,
 }) {
+  const name = component.text;
+  const minValue = component.minValue;
+  const maxValue = component.maxValue;
+  const defaultValue = component.defaultValue;
+  const step = component.step;
+
   if (!value && defaultValue) handleValueChange(defaultValue);
 
   const handleChange = (event, newValue) => {
@@ -27,7 +30,7 @@ export default function SliderComponent({
         value={value || defaultValue}
         min={parseFloat(minValue)}
         max={parseFloat(maxValue)}
-        step={0.1}
+        step={parseFloat(step)}
         onChange={handleChange}
         valueLabelDisplay="auto"
         valueLabelFormat={(value) => value.toFixed(1)}
