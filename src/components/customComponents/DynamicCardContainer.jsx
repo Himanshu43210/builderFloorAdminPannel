@@ -20,9 +20,8 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
 
   return (
     <div className="abc">
-      
       {console.log(dataToRender)}
-      {dataToRender||[].map((element) => {
+      {dataToRender.map((element) => {
         console.log(component.renderComponentsInLoop.type);
         return (
           <>
