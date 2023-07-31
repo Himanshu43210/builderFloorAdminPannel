@@ -37,6 +37,7 @@ import { callApi } from "../../redux/utils/apiActions";
 import { ToggleButton } from "react-bootstrap";
 import { display } from "@mui/system";
 import { ScrollToTop } from "./ScrollToTop";
+import DetailDataCard from "./DetailedDataCard";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -117,7 +118,8 @@ const ComponentSelector = ({ component }) => {
         />
       )}
       {component.type === DETAILED_VIEW && (
-        <DetailCard apiName={component.apiName} />
+        // <DetailCard apiName={component.apiName} />
+        <DetailDataCard apiName={component.apiName}/>
       )}
       {component.type === NAVIGATE_BUTTON && (
         <NavigateButton to={component.navigate} label={component.buttonLabel} />
