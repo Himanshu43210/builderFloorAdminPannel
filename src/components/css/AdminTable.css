@@ -347,6 +347,7 @@ div .container ul {
   .home-screen {
     width: 100%;
   }
+
   .searchdiv {
     width: 100% !important;
     gap: 30px !important;
@@ -355,5 +356,6 @@ div .container ul {
   }
   .default-home-cards {
     margin: 0% !important;
+    margin-left: 50px;
   }
 }
