@@ -7,15 +7,15 @@ import {
   Typography,
 } from "@mui/material";
 import ApiButton from "./ApiButton";
-import { GET } from "../utils/Const";
+import { convertToCr } from "../utils/HelperMethods";
 
 export default function HomeCard({
   element,
   onClickApi,
   onClickNavigate,
   classname,
+  apiType,
 }) {
-  console.log("inside home card")
   return (
     <Card className={classname} sx={{ maxWidth: 345, width: "25%" }}>
       <CardActionArea>
@@ -44,11 +44,14 @@ export default function HomeCard({
         />
       </CardActionArea>
       <ApiButton
-        apiType={GET}
+        apiType={apiType}
         api={onClickApi}
-        buttonLabel={`₹ ${element.price / 10000000} Cr.`}
+        buttonLabel={`₹ ${convertToCr(element.price)} Cr.`}
         queryParams={{ id: element._id }}
-        navigate={onClickNavigate}
+        navigate={`${onClickNavigate}?title=${element.title?.replaceAll(
+          " ",
+          "-"
+        )}&id=${element._id}`}
       />
     </Card>
   );

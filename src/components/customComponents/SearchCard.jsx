@@ -105,7 +105,10 @@ export default function SearchCard({
                     api={onClickApi}
                     buttonLabel={`₹ ${element.price / 10000000} Cr.`}
                     queryParams={{ id: element._id }}
-                    navigate={onClickNavigate}
+                    navigate={`${onClickNavigate}?title=${element.title?.replaceAll(
+                      " ",
+                      "-"
+                    )}&id=${element._id}`}
                   />
                   &nbsp;
                   <Typography fontWeight="lg"> View Details </Typography>

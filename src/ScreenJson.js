@@ -36,8 +36,6 @@ const FOOTER = {
   copyright: "© Builder Floor Official 2022",
 };
 
-
-
 const MENU_ITEMS = [
   {
     name: "Home",
@@ -111,9 +109,10 @@ export const HOME_SCREEN = {
           type: SLIDER,
           sliceName: "filter",
           name: "budget",
-          minValue: 2.0,
-          maxValue: 3.5,
-          defaultValue: [2.5, 3.0],
+          minValue: 20000000,
+          maxValue: 35000000,
+          step: 5000000,
+          defaultValue: [20000000, 30000000],
         },
         {
           type: API_BUTTON,
@@ -141,6 +140,8 @@ export const HOME_SCREEN = {
       renderComponentsInLoop: { type: HOME_CARD, className: "homeCards" },
       cardClickApi: API_ENDPOINTS[GET_CARD_DATA],
       cardClickNavigate: "/builderFloorDetails",
+      addQueryParam: "{title}-{id}",
+      cardClickApiType: GET,
     },
     {
       type: HEADING,
@@ -152,8 +153,8 @@ export const HOME_SCREEN = {
     FOOTER,
     {
       type: SCROLL_TO_TOP,
-      name: "ScrollToTop"
-    }
+      name: "ScrollToTop",
+    },
   ],
 };
 
@@ -205,9 +206,10 @@ export const SEARCH_RESULT = {
           type: SLIDER,
           sliceName: "filter",
           name: "budget",
-          minValue: 2.5,
-          maxValue: 3.5,
-          defaultValue: [2.8, 3.0],
+          minValue: 20000000,
+          maxValue: 35000000,
+          step: 5000000,
+          defaultValue: [20000000, 30000000],
         },
         {
           type: API_BUTTON,
@@ -348,8 +350,8 @@ export const SEARCH_RESULT = {
         {
           type: TOGGLE_BUTTON,
           sliceName: "filter",
-          name: "Park"
-        }
+          name: "Park",
+        },
       ],
     },
     {
@@ -365,18 +367,17 @@ export const SEARCH_RESULT = {
       renderComponentsInLoop: {
         type: SEARCH_CARD,
         className: "homeCards",
-        apiType: GET,
       },
       cardClickApi: API_ENDPOINTS[GET_CARD_DATA],
       cardClickNavigate: "/builderFloorDetails",
+      cardClickApiType: GET,
     },
   ],
 };
 
-export const SCREENS_TO_RENDER = [HOME_SCREEN];
+// export const SCREENS_TO_RENDER = [HOME_SCREEN];
 
-export const REDIRECTION = {
-  [HOME_SCREEN]: "/",
-  [SEARCH_RESULT]: "/searchResult",
-};
-
+// export const REDIRECTION = {
+//   [HOME_SCREEN]: "/",
+//   [SEARCH_RESULT]: "/searchResult",
+// };

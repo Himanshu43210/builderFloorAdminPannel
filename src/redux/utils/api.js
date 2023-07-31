@@ -5,9 +5,11 @@ export const getApiName = (api) => {
 };
 
 export const API_ENDPOINTS = {
-  getHomeScreenData:"https://builder-floor-backend-n2ib.onrender.com/api/properties/getHomeData",
-  getCardData: "https://builder-floor-backend-n2ib.onrender.com/api/properties/list?limit=8",
-  getSearchResult: `https://builder-floor-backend-n2ib.onrender.com/api/properties/search`,
+  getHomeScreenData:
+    "https://builder-floor-backend-n2ib.onrender.com/api/properties/getHomeData",
+  getCardData:
+    "https://builder-floor-backend-n2ib.onrender.com/api/properties/list?limit=8",
+  getSearchResult: `https://builder-floor-backend-n2ib.onrender.com/api/properties/searchPropertiesData`,
   getUserData: `https://builder-floor-backend-n2ib.onrender.com/api/Users/list`,
   getPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/properties/list`,
   getMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/Masters/list`,

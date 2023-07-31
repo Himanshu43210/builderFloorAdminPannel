@@ -90,10 +90,7 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === SLIDER && (
         <Slider
-          name={component.text}
-          minValue={component.minValue}
-          maxValue={component.maxValue}
-          defaultValue={component.defaultValue}
+          component={component}
           handleValueChange={handleValueChange}
           value={sliceData[component.name]}
         />
@@ -119,7 +116,7 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === DETAILED_VIEW && (
         // <DetailCard apiName={component.apiName} />
-        <DetailDataCard apiName={component.apiName}/>
+        <DetailDataCard apiName={component.apiName} />
       )}
       {component.type === NAVIGATE_BUTTON && (
         <NavigateButton to={component.navigate} label={component.buttonLabel} />
@@ -137,14 +134,14 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === TOGGLE_BUTTON && (
         <ToggleButton
-          component = {component}
-          handleValueChange = {(value) => {
+          component={component}
+          handleValueChange={(value) => {
             display(storeFilterData({ key: component.name, value: value }));
           }}
         />
       )}
       {component.type === SCROLL_TO_TOP && (
-        <ScrollToTop component = {component}/>
+        <ScrollToTop component={component} />
       )}
     </>
   );
