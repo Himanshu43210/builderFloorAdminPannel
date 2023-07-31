@@ -6,25 +6,28 @@ import { callApi } from "../../redux/utils/apiActions";
 import { useDispatch } from "react-redux";
 import { GET } from "../utils/Const";
 import { selectApiData } from "../../redux/utils/apiSelector";
+import { API_ENDPOINTS } from "../../redux/utils/api";
 
-export default function DetailDataCard({ getApiEndpoint = "https://builder-floor-backend-n2ib.onrender.com/api/properties" }) {
-    const { title, id } = useParams();
-    const apiEndpoint = getApiEndpoint + `?id=${id}`
+export default function DetailDataCard({ component }) {
+    const pathname = window.location.href;
+    const id = pathname.split('id=').pop();
+    const getApiEndpoint = component.apiSliceName
+    const apiEndpoint = API_ENDPOINTS[getApiEndpoint] + `?id=${id}`
+
     const dispatch = useDispatch();
-    dispatch(callApi({
-        url: apiEndpoint,
-        method: GET,
-        headers: { "Content-Type": "application/json" },
-    }));
+    useEffect(() => {
+        dispatch(callApi({
+            url: apiEndpoint,
+            method: GET,
+            headers: { "Content-Type": "application/json" },
+            queryParams: { "id": "helos" }
+        }));
+        console.log(id)
+    }, [])
 
-    const apiDataFromSlice = useSelector((state) => selectApiData(state, apiEndpoint));
 
+    const cardData = useSelector((state) => selectApiData(state, getApiEndpoint)?.data);
     const [ShowNumber, setShowNumber] = useState();
-    const [cardData, setCardData] = useState()
-    const [buttonValue, setButtonValue] = useState("Call");
-    const handleButtonClick = () => {
-        setButtonValue(cardData?.builderContact);
-    };
     // const cardDetail = useSelector((state) => selectApiData(state, apiName));
     // useEffect(() => {
     //     setCardData(cardDetail?.data)
@@ -71,8 +74,13 @@ export default function DetailDataCard({ getApiEndpoint = "https://builder-floor
                         <img src="https://www.builderfloor.com/assets/imgs/icons/check.png" alt="" />{cardData?.possession}
                         <img src="https://www.builderfloor.com/assets/imgs/icons/park.png" alt="" />{cardData?.parkFacing}
                         <img src="https://www.builderfloor.com/assets/imgs/icons/right.png" alt="" />{cardData?.corner}
-                        <Button variant="contained" onClick={handleButtonClick}>{buttonValue}</Button>
-                        <Button variant="contained">WhatsApp</Button>
+                        <Button variant="contained" onClick={() => { setShowNumber(!ShowNumber) }}>{ShowNumber ? component.phoneToDisplay : "Phone"}</Button>
+                        <Button variant="contained" onClick={() => {
+                            window.open(
+                                `https://wa.me/${component.whatsappToDisplay}?text=${component.whatsappText?.replace("{link}", pathname)}`,
+                                "_blank"
+                            )
+                        }}>WhatsApp</Button>
                     </div>
                 </div>
             </div>
@@ -82,7 +90,7 @@ export default function DetailDataCard({ getApiEndpoint = "https://builder-floor
             </div>
             <div>
                 <div>
-                    
+
                 </div>
             </div>
         </>

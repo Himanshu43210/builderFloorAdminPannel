@@ -116,7 +116,7 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === DETAILED_VIEW && (
         // <DetailCard apiName={component.apiName} />
-        <DetailDataCard apiName={component.apiName} />
+        <DetailDataCard component={component} />
       )}
       {component.type === NAVIGATE_BUTTON && (
         <NavigateButton to={component.navigate} label={component.buttonLabel} />

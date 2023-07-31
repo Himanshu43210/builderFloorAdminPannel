@@ -96,7 +96,7 @@ export const HOME_SCREEN = {
     },
     {
       type: CONTAINER,
-      className:"homeselect",
+      className: "homeselect",
       children: [
         {
           type: SELECT,
@@ -174,8 +174,21 @@ export const CARD_DETAILS_SCREEN = {
       type: DETAILED_VIEW,
       name: "detailedViewImage",
       className: "home-page-banner",
-      apiName: GET_CARD_DATA,
+      apiSliceName: GET_CARD_DATA,
+      phoneToDisplay: "+91 9818215215",
+      whatsappToDisplay: "9818215215",
+      whatsappText: `Hi! I saw a property {link} on BuilderFloor.com and i am interested in it. Is it available?`
     },
+    // {
+    //   type: DYNAMIC_CARD_CONTAINER,
+    //   className: "default-home-cards",
+    //   apiName: "getHomeScreenData",
+    //   renderComponentsInLoop: { type: HOME_CARD, className: "homeCards" },
+    //   cardClickApi: API_ENDPOINTS[GET_CARD_DATA],
+    //   cardClickNavigate: "/builderFloorDetails",
+    //   addQueryParam: "{title}-{id}",
+    //   cardClickApiType: GET,
+    // },
   ],
 };
 
