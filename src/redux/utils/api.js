@@ -5,13 +5,12 @@ export const getApiName = (api) => {
 };
 
 export const API_ENDPOINTS = {
-  getHomeScreenData:
-    "https://builder-floor-backend-n2ib.onrender.com/api/properties/list",
-  getCardData: "https://builder-floor-backend-n2ib.onrender.com/api/properties",
-  getSearchResult: `http://localhost:8000/getSearchResult`,
-  getUserData: `http://localhost:8000/getUserData`,
-  getPropertyData: `http://localhost:8000/getPropertyData`,
-  getMasterData: `http://localhost:8000/getMasterData`,
+  getHomeScreenData:"https://builder-floor-backend-n2ib.onrender.com/api/properties/getHomeData",
+  getCardData: "https://builder-floor-backend-n2ib.onrender.com/api/properties/list?limit=8",
+  getSearchResult: `https://builder-floor-backend-n2ib.onrender.com/api/properties/search`,
+  getUserData: `https://builder-floor-backend-n2ib.onrender.com/api/Users/list`,
+  getPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/properties/list`,
+  getMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/Masters/list`,
   alterUserData: `https://builder-floor-backend-n2ib.onrender.com/api/alterUser`,
   deleteUserData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteUser`,
   alterPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/alterProperty`,
