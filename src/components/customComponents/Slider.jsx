@@ -14,7 +14,7 @@ export default function SliderComponent({
   };
 
   return (
-    <div>
+    <div className="sliderdiv">
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Typography variant="caption">{minValue}</Typography>
         <Typography variant="caption">{maxValue}</Typography>

@@ -29,27 +29,23 @@ function MasterTable() {
 
   return (
     <>
-      <div style={{ display: "flex" , backgroundColor:"#f8f4fc"}}>
-          <div  className="abc" style={{ width: "200px" }}>
+      <div style={{ display: "flex", backgroundColor: "#f5f6f8" }}>
+        <div className="abc" style={{ width: "200px" }}>
           <Panel />
-     
-          </div>
+        </div>
 
-          <div
-
-            style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}
-          >
-          <div style={{ backgroundColor: "#f8f4fc" }}>
-               <Navbar />
-            <Card style={{ backgroundColor: "#f6f7fc", border: "none" }}>
+        <div style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}>
+          <div style={{ backgroundColor: "#f5f6f8" }}>
+            <Navbar />
+            <Card style={{ backgroundColor: "#f5f6f8", border: "none" }}>
               <Card.Header
                 className="font"
-                style={{ backgroundColor: "#f6f7fc", border: "none" }}
+                style={{ backgroundColor: "#f5f6f8", border: "none" }}
               >
                 Master Details
               </Card.Header>
               <Card.Body
-                style={{ backgroundColor: "#f6f7fc", padding: "20px" }}
+                style={{ backgroundColor: "#f5f6f8  ", padding: "20px" }}
               >
                 <TableButtonHeader
                   fieldConst={fieldConst}

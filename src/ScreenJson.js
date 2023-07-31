@@ -112,6 +112,7 @@ export const HOME_SCREEN = {
           sliceName: "filter",
           name: "search",
           buttonLabel: "Search",
+          className: "home-search-button",
           apiType: GET,
           navigate: "/searchResult",
           api: API_ENDPOINTS["getSearchResult"],
@@ -190,6 +191,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "search",
           buttonLabel: "Search",
+          className: "home-search-button",
           apiType: GET,
           navigate: "/searchResult",
           api: API_ENDPOINTS["getSearchResult"],
@@ -245,7 +247,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "size",
           buttonLabel: "Size",
-          className: "",
+          className: "filterbutton",
           minValue: 0.0,
           maxValue: 1000.0,
           step: 0.1,
@@ -302,6 +304,7 @@ export const SEARCH_RESULT = {
           sliceName: "filter",
           name: "sortBy",
           label: "Sort By",
+          className: "filterbutton",
 
           options: [
             { label: "Price High to Low", value: "Price High to Low" },

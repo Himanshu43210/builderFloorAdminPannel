@@ -8,6 +8,17 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 h2 {
   text-align: center;
@@ -52,18 +63,40 @@ label {
   font-size: 15px;
   color: #006d77;
 }
-.css-t3ipsp-control:target {
-  border-color: #006d77 !important;
+.filterbutton .css-b62m3t-container .css-t3ipsp-control {
+  width: 248.5px !important;
+}
+
+.select-city-button .css-b62m3t-container .css-t3ipsp-control {
+  background-color: #006d77 !important;
+  width: 150px !important;
 }
 .search-result-screen {
   gap: 39px;
   margin-top: 20px !important;
 }
 .select-city-button .css-b62m3t-container .css-13cymwt-control {
-  background-color: #006d77;
+  background-color: #006d77 !important;
   border: none;
   border-radius: 8px;
   height: 40px;
+}
+.select-city-button
+  .css-b62m3t-container
+  .css-13cymwt-control
+  .css-1fdsijx-ValueContainer
+  .css-1dimb5e-singleValue {
+  color: white !important
+    ;
+}
+.home-search-button button {
+  background-color: #006d77 !important;
+  height: 40px;
+  width: 80px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: medium;
 }
 .css-1gv0vcd-MuiSlider-track {
   background-color: black !important;
@@ -77,12 +110,12 @@ label {
   color: rgb(37, 37, 37) !important;
 }
 .css-1nmdiq5-menu {
-  background-color: #006d77 !important ;
+  background-color: #086c74 !important ;
   color: white;
 }
 
 .css-1nmdiq5-menu div {
-  background-color: #006d77 !important;
+  background-color: #086c74 !important;
   color: white;
 }
 .css-1u9des2-indicatorSeparator {
@@ -97,7 +130,7 @@ label {
 }
 .search button {
   width: 140px;
-  background-color: #006d77;
+  background-color: #006d77 !important;
 }
 .home-screen-card-section-heading {
   font-size: 39px;
@@ -195,14 +228,21 @@ label {
 }
 
 .css-13cymwt-control {
-  background-color: #006d77 !important;
-  color: #fff !important;
+  background-color: white !important;
+}
+.css-1dimb5e-singleValue {
+  color: black !important;
+  font-weight: 600;
 }
 .actioncontainer {
   display: flex;
   justify-content: center;
   gap: 30px;
 }
+.sliderdiv {
+  width: 290px;
+}
+
 .filter-button-div {
   margin-top: 40px;
   display: flex;
@@ -221,10 +261,6 @@ label {
   border-radius: 8px;
   height: 40px;
   border: 1px solid #d4d4d4;
-  margin: auto;
-  margin-left: 1px;
-  margin-top: 10px;
-  width: 200px;
 }
 .filterbutton
   .css-b62m3t-container
@@ -249,6 +285,13 @@ label {
 }
 .css-t3ipsp-control {
   width: 200px;
+}
+.filterbutton {
+  background-color: white !important;
+  color: black !important;
+  border-radius: 8px;
+  height: fit-content!;
+  font-weight: 600 !important;
 }
 
 .contentdiv {
@@ -314,18 +357,6 @@ input[type="password"] {
   border: 1px solid #ccc;
 }
 
-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .btn {
   background-color: blue;
   width: 100%;
@@ -353,7 +384,7 @@ button {
 @media (max-width: 768px) {
   .container {
     margin-top: 100px;
-    width: 300px;
+    width: fit-content;
   }
 }
 
@@ -405,17 +436,6 @@ input[type="password"] {
   border: 1px solid #ccc;
 }
 
-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
 .addbtn {
   background-color: aliceblue;
   border-radius: 4px;
@@ -490,6 +510,14 @@ button {
     overflow-x: auto;
     overflow-y: hidden;
   }
+  .select-city-button
+    .css-b62m3t-container
+    .css-13cymwt-control
+    .css-1fdsijx-ValueContainer
+    .css-1dimb5e-singleValue {
+    color: white !important
+    ;
+  }
 
   .filterbutton .css-b62m3t-container .css-13cymwt-control {
     background-color: white !important;
@@ -498,6 +526,7 @@ button {
     border-radius: 8px;
     height: 40px;
     border: 1px solid #d4d4d4;
+    margin-top: 0% !important ;
   }
 
   .filterbutton
@@ -521,5 +550,12 @@ button {
     background-color: #ffffff !important;
     color: rgb(0, 0, 0) !important;
     width: 100px !important;
+  }
+  .filterbutton {
+    background-color: white !important;
+    color: black !important;
+    border-radius: 8px;
+    height: 40px;
+    font-weight: 600 !important;
   }
 }

@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { Table, Button ,Container, Badge} from "react-bootstrap";
+import { Table, Button, Container, Badge } from "react-bootstrap";
 import Pagination from "react-js-pagination";
 import Select from "react-select";
 import ReusablePopup from "./ReusablePopup";
 import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
-import './../css/AdminTable.css'
-import {FaUserEdit ,FaRegTrashAlt} from "react-icons/fa"
-
-
+import "./../css/AdminTable.css";
+import { FaUserEdit, FaRegTrashAlt } from "react-icons/fa";
 
 const options = [
   { value: 5, label: "5" },
@@ -124,8 +122,6 @@ const ListingTable = ({
           onCancel={toogleDelete}
         >
           <p className="lbel">Are you sure want to Delete?</p>
-
-     
         </ReusablePopup>
       ) : null}
       {showRowModal ? (
@@ -138,100 +134,95 @@ const ListingTable = ({
         </ReusablePopup>
       ) : null}
 
-
-        
- 
-      <div className="tablediv "  >
-    
-
-      
-      <Table>
-        <thead  >
-          <tr style={ { border:"none" }} >
-            {tableHeaders.map((header, index) => (
-              <th
-                key={index}
-                onClick={() => handleSort(header)}
-                className="tablehead text"
-              >
-                {header}
-                {sortColumn === header &&
-                  (sortType === "asc" ? <FaCaretUp /> : <FaCaretDown />)}
-              </th>
-            ))}
-            <th  className="tablehead text">Actions</th>
-          </tr>
-        </thead>
-        <tbody className="tablebody text" >
-          {data
-            .slice(
-              (activePage - 1) * itemsCountPerPage,
-              activePage * itemsCountPerPage
-            )
-            .map((element) => (
-              <tr className="tableborder text"
-                key={element.id}
-                onClick={() => {
-                  setCurrentRowData(element);
-                  toogleRowClick();
-                }}
-              >
-                {tableHeaders.map((header, index) => (
-                  <td className="bodytext" key={index}>{element[header]}</td>
-                ))}
-                <td className="tablebody tableborder text">
-                  <Button
-                  style={ {width:'75px' ,paddingLeft:'2px'}}
-                  variant="success"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentRowData(element);
-                      toogleEdit();
-                    }}
-                  >
-                  <FaUserEdit/>&nbsp;
-                 Edit
-                  </Button>
-                  <Button
-                  variant="danger"
-                    style={ {width:'80px',paddingLeft:'2px'}}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentRowData(element);
-                      toogleDelete();
-                    }}
-                  >
-                  <FaRegTrashAlt size={12} />&nbsp;
-                    Delete
-                  </Button> 
-                  &nbsp;
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </Table>
-
+      <div className="tablediv ">
+        <Table>
+          <thead>
+            <tr>
+              {tableHeaders.map((header, index) => (
+                <th
+                  key={index}
+                  onClick={() => handleSort(header)}
+                  className="tablehead text"
+                >
+                  {header}
+                  {sortColumn === header &&
+                    (sortType === "asc" ? <FaCaretUp /> : <FaCaretDown />)}
+                </th>
+              ))}
+              <th className="tablehead text">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="tablebody text">
+            {data
+              .slice(
+                (activePage - 1) * itemsCountPerPage,
+                activePage * itemsCountPerPage
+              )
+              .map((element) => (
+                <tr
+                  className="tableborder text"
+                  key={element.id}
+                  onClick={() => {
+                    setCurrentRowData(element);
+                    toogleRowClick();
+                  }}
+                >
+                  {tableHeaders.map((header, index) => (
+                    <td className="bodytext" key={index}>
+                      {element[header]}
+                    </td>
+                  ))}
+                  <td className="tablebody tableborder text">
+                    <Button
+                      style={{ width: "75px", paddingLeft: "2px" }}
+                      variant="success"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentRowData(element);
+                        toogleEdit();
+                      }}
+                    >
+                      <FaUserEdit />
+                      &nbsp; Edit
+                    </Button>
+                    <Button
+                      variant="danger"
+                      style={{ width: "80px", paddingLeft: "2px" }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentRowData(element);
+                        toogleDelete();
+                      }}
+                    >
+                      <FaRegTrashAlt size={12} />
+                      &nbsp; Delete
+                    </Button>
+                    &nbsp;
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </Table>
       </div>
       <p className="font">Records Per Page</p>
+      <div className="selectbox">
+        <Select
+          value={selectedOption}
+          onChange={handleRecordPerPage}
+          options={options}
+        />
+      </div>
 
-      <Select 
-        value={selectedOption}
-        onChange={handleRecordPerPage}
-        options={options}
-      />
-
-<Container className="d-flex justify-content-center mt-5  "  >
-      <Pagination 
-   
-        size="lg"
-        activePage={activePage}
-        itemsCountPerPage={itemsCountPerPage}
-        totalItemsCount={data.length}
-        pageRangeDisplayed={5}
-        onChange={handlePageChange}
-      />
-   </Container>
-
+      <div className="paginationcontainer">
+        <Pagination
+          size="lg"
+          activePage={activePage}
+          itemsCountPerPage={itemsCountPerPage}
+          totalItemsCount={data.length}
+          pageRangeDisplayed={5}
+          onChange={handlePageChange}
+        />
+      </div>
     </>
   );
 };
