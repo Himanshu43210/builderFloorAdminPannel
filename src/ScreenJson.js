@@ -96,6 +96,7 @@ export const HOME_SCREEN = {
     },
     {
       type: CONTAINER,
+      className:"homeselect",
       children: [
         {
           type: SELECT,

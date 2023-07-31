@@ -351,11 +351,21 @@ div .container ul {
   .searchdiv {
     width: 100% !important;
     gap: 30px !important;
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
   }
   .default-home-cards {
     margin: 0% !important;
-    margin-left: 50px;
+
+    width: 635px !important  ;
+  }
+  .home-page-banner {
+    width: 635px !important  ;
+  }
+  .homeselect {
+    width: 635px !important  ;
+  }
+  .home-screen-card-section-heading {
+    width: 635px !important  ;
   }
 }
