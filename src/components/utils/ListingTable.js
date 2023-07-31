@@ -7,6 +7,10 @@ import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import "./../css/AdminTable.css";
 import { FaUserEdit, FaRegTrashAlt } from "react-icons/fa";
+import { API_ENDPOINTS } from "../../redux/utils/api";
+import { GET, POST, REMOVE, SAVE } from "./Const";
+import { useDispatch } from "react-redux";
+import { callApi } from "../../redux/utils/apiActions";
 
 const options = [
   { value: 5, label: "5" },
@@ -15,11 +19,16 @@ const options = [
 ];
 
 const ListingTable = ({
-  data,
+  data = [],
   headersDesktop = [],
   headersMobile = [],
   fieldConst,
+  editApi,
+  deleteApi,
+  getDataApi,
+  itemCount,
 }) => {
+  console.log(data);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showRowModal, setShowRowModal] = useState(false);
@@ -34,14 +43,35 @@ const ListingTable = ({
   const isMobile = window.innerWidth <= 768; // Adjust the breakpoint as per your needs
 
   const tableHeaders = isMobile ? headersMobile : headersDesktop;
+  const dispatch = useDispatch();
 
-  const handleSave = () => {
-    // if (/*validation succeeds*/) {
-    //   // use formData for sav ing
-    // }
-    console.log(formData);
+  const handleSave = (action) => {
+    console.log(formData, action);
+    const apiEndpoint = action === SAVE ? editApi : deleteApi;
+    try {
+      const options = {
+        url: API_ENDPOINTS[apiEndpoint],
+        method: POST,
+        headers: { "Content-Type": "application/json" },
+        data: currentRowData,
+      };
+      dispatch(callApi(options));
+      console.log(formData);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+  const filterData = () => {
+    dispatch(
+      callApi({
+        url: API_ENDPOINTS[getDataApi],
+        method: GET,
+        headers: { "Content-Type": "application/json" },
+        data: { sortType, sortColumn, activePage, itemsCountPerPage },
+      })
+    );
+  };
   const handleFormDataChange = (newFormData) => {
     setFormData(newFormData);
     console.log(formData);
@@ -66,6 +96,7 @@ const ListingTable = ({
     const newSortType = sortType === "asc" ? "desc" : "asc";
     setSortType(newSortType);
     setSortColumn(column);
+    filterData();
     console.log(
       `Sort type: ${newSortType}, Sort column: ${column}, Active page: ${activePage}, Records per page: ${itemsCountPerPage}`
     );
@@ -73,6 +104,7 @@ const ListingTable = ({
 
   const handlePageChange = (pageNumber) => {
     setActivePage(pageNumber);
+    filterData();
     console.log(
       `Sort type: ${sortType}, Sort column: ${sortColumn}, Active page: ${pageNumber}, Records per page: ${itemsCountPerPage}`
     );
@@ -81,6 +113,7 @@ const ListingTable = ({
   const handleRecordPerPage = (selectedOption) => {
     setSelectedOption(selectedOption);
     setItemsCountPerPage(selectedOption.value);
+    filterData();
     console.log(
       `Sort type: ${sortType}, Sort column: ${sortColumn}, Active page: ${activePage}, Records per page: ${selectedOption.value}`
     );
@@ -104,7 +137,10 @@ const ListingTable = ({
     <>
       {showEditModal ? (
         <ReusablePopup
-          onSave={() => handleSave("SAVE")}
+          onSave={() => {
+            handleSave(SAVE);
+            toogleEdit();
+          }}
           onHide={toogleEdit}
           onCancel={toogleEdit}
         >
@@ -117,7 +153,10 @@ const ListingTable = ({
       ) : null}
       {showDeleteModal ? (
         <ReusablePopup
-          onYes={() => handleSave("DELETE")}
+          onYes={() => {
+            handleSave(REMOVE);
+            toogleDelete();
+          }}
           onHide={toogleDelete}
           onCancel={toogleDelete}
         >
@@ -219,7 +258,7 @@ const ListingTable = ({
           activePage={activePage}
           itemsCountPerPage={itemsCountPerPage}
           totalItemsCount={data.length}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={itemCount}
           onChange={handlePageChange}
         />
       </div>

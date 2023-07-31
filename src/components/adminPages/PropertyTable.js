@@ -1,29 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ListingTable from "../utils/ListingTable";
-import { userTableData } from "../externalDataForTesting/sampleUserTableData";
-import { newUserConst } from "../fieldConsts/UserFieldConst";
 import { Card } from "react-bootstrap";
 import "../css/AdminTable.css";
 import Panel from "./Panel";
 import Navbar from "./Navbar";
 import TableButtonHeader from "./TableButtonHeader";
+import { newPropertyConst } from "../fieldConsts/PropertiesFieldConst";
+import {
+  ALTER_PROPERTY_DATA,
+  DELETE_PROPERTY_DATA,
+  GET,
+  GET_PROPERTY_DATA,
+} from "../utils/Const";
+import { useSelector } from "react-redux";
+import AutoFetchApi from "../customComponents/AutoFetchApi";
+import { API_ENDPOINTS } from "../../redux/utils/api";
+import { selectApiData } from "../../redux/utils/apiSelector";
+import _ from "lodash";
 
 function PropertyTable() {
-  const tableData = userTableData;
   const desktopHeaders = [
-    "name",
-    "PhoneNumber",
-    "address",
-    "email",
-    "password",
-    "role",
+    "title",
+    "accommodation",
+    "possession",
+    "sectorNumber",
+    "facing",
+    "builderName",
+    "channelPartner",
   ];
   const mobileHeaders = ["name", "role"];
-  const fieldConst = newUserConst;
+  const fieldConst = newPropertyConst;
+  const tableData = useSelector((state) =>
+    selectApiData(state, GET_PROPERTY_DATA)
+  );
 
   return (
     <>
-      <div style={{ display: "flex", backgroundColor: "#f5f6f8" }}>
+      {!tableData && (
+        <AutoFetchApi url={API_ENDPOINTS[GET_PROPERTY_DATA]} method={GET} />
+      )}
+      <div style={{ display: "flex", backgroundColor: "##f5f6f8" }}>
         <div className="abc" style={{ width: "200px" }}>
           <Panel />
         </div>
@@ -36,20 +52,25 @@ function PropertyTable() {
                 className="font"
                 style={{ backgroundColor: "#f5f6f8", border: "none" }}
               >
-                User Details
+                Property Details
               </Card.Header>
               <Card.Body
                 style={{ backgroundColor: "#f5f6f8", padding: "20px" }}
               >
                 <TableButtonHeader
                   fieldConst={fieldConst}
-                  tableData={tableData}
+                  tableData={_.cloneDeep(tableData?.data || [])}
+                  saveDataApi={ALTER_PROPERTY_DATA}
                 />
                 <ListingTable
-                  data={tableData}
+                  data={_.cloneDeep(tableData?.data || [])}
                   headersDesktop={desktopHeaders}
                   headersMobile={mobileHeaders}
                   fieldConst={fieldConst}
+                  editApi={ALTER_PROPERTY_DATA}
+                  deleteApi={DELETE_PROPERTY_DATA}
+                  getDataApi={GET_PROPERTY_DATA}
+                  itemCount={tableData?.itemCount}
                 />
               </Card.Body>
             </Card>

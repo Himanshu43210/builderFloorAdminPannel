@@ -1,7 +1,6 @@
 import { useState } from "react";
 import React from "react";
 import * as XLSX from "xlsx";
-import axios from "axios";
 import { Button } from "react-bootstrap";
 import {
   FaUserPlus,
@@ -10,14 +9,20 @@ import {
 } from "react-icons/fa";
 import FormBuilder from "../utils/FormBuilder";
 import ReusablePopup from "../utils/ReusablePopup";
+import { POST } from "../utils/Const";
+import { API_ENDPOINTS } from "../../redux/utils/api";
+import { useDispatch } from "react-redux";
+import { callApi } from "../../redux/utils/apiActions";
 
-const TableButtonHeader = ({ tableData, fieldConst }) => {
+const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
+  console.log(tableData);
   const [selectedFile, setSelectedFile] = useState(null);
   const [newPopup, setNewPopup] = useState(null);
   const [importPopup, setImportPopup] = useState(null);
   const [exportPopup, setExportPopup] = useState(null);
   const [formData, setFormData] = useState({});
 
+  const dispatch = useDispatch();
   const convertArrayToExcel = (dataArray, filename) => {
     const worksheet = XLSX.utils.json_to_sheet(dataArray);
     const workbook = XLSX.utils.book_new();
@@ -28,7 +33,6 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
     });
     const data = new Blob([excelBuffer], { type: "application/octet-stream" });
 
-    // Create a temporary anchor element to download the Excel file
     const anchor = document.createElement("a");
     const url = window.URL.createObjectURL(data);
     anchor.href = url;
@@ -52,18 +56,16 @@ const TableButtonHeader = ({ tableData, fieldConst }) => {
 
   const handleSubmit = async () => {
     try {
-      await axios.post(
-        "https://builder-floor-backend-n2ib.onrender.com/api/Users",
-        formData
-      );
+      const options = {
+        url: API_ENDPOINTS[saveDataApi],
+        method: POST,
+        headers: { "Content-Type": "application/json" },
+        data: formData,
+      };
+      dispatch(callApi(options));
       console.log(formData);
-      // const jsondata =JSON.stringify(formData)
-      // call the API to add the data
-
-      // handle success (e.g., clear form, show success message)
     } catch (error) {
       console.log(error);
-      // handle error (e.g., show error message)
     }
   };
 

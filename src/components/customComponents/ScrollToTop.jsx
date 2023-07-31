@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ScrollToTop = () => {
+export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {

@@ -1,20 +1,26 @@
 import {
   API_BUTTON,
+  API_HEADING,
   AUTO_FETCH_API,
   CONTAINER,
   DETAILED_VIEW,
   DYNAMIC_CARD_CONTAINER,
   GET,
+  GET_CARD_DATA,
+  GET_SEARCH_RESULT,
   HAMBURGER_MENU,
   HEADING,
   HOME_CARD,
   IMAGE_BANNER,
   NAVIGATE_BUTTON,
   PAGE_FOOTER,
+  POST,
+  SCROLL_TO_TOP,
   SEARCH_CARD,
   SELECT,
   SELECT_SLIDER,
   SLIDER,
+  TOGGLE_BUTTON,
 } from "./components/utils/Const";
 import { API_ENDPOINTS } from "./redux/utils/api";
 
@@ -29,6 +35,8 @@ const FOOTER = {
   ],
   copyright: "© Builder Floor Official 2022",
 };
+
+
 
 const MENU_ITEMS = [
   {
@@ -103,9 +111,9 @@ export const HOME_SCREEN = {
           type: SLIDER,
           sliceName: "filter",
           name: "budget",
-          minValue: 2.5,
+          minValue: 2.0,
           maxValue: 3.5,
-          defaultValue: [2.8, 3.0],
+          defaultValue: [2.5, 3.0],
         },
         {
           type: API_BUTTON,
@@ -113,9 +121,10 @@ export const HOME_SCREEN = {
           name: "search",
           buttonLabel: "Search",
           className: "home-search-button",
-          apiType: GET,
+          apiType: POST,
           navigate: "/searchResult",
-          api: API_ENDPOINTS["getSearchResult"],
+          api: API_ENDPOINTS[GET_SEARCH_RESULT],
+          searchWithQueryParams: true,
         },
       ],
     },
@@ -131,7 +140,7 @@ export const HOME_SCREEN = {
       className: "default-home-cards",
       apiName: "getHomeScreenData",
       renderComponentsInLoop: { type: HOME_CARD, className: "homeCards" },
-      cardClickApi: API_ENDPOINTS["getBuilderFloorData"],
+      cardClickApi: API_ENDPOINTS[GET_CARD_DATA],
       cardClickNavigate: "/builderFloorDetails",
     },
     {
@@ -142,6 +151,10 @@ export const HOME_SCREEN = {
       text: "We are your trusted partner in finding your dream builder floor in Gurgaon",
     },
     FOOTER,
+    {
+      type: SCROLL_TO_TOP,
+      name: "ScrollToTop"
+    }
   ],
 };
 
@@ -158,7 +171,7 @@ export const CARD_DETAILS_SCREEN = {
       type: DETAILED_VIEW,
       name: "detailedViewImage",
       className: "home-page-banner",
-      apiName: "getBuilderFloorData",
+      apiName: GET_CARD_DATA,
     },
   ],
 };
@@ -166,6 +179,17 @@ export const CARD_DETAILS_SCREEN = {
 export const SEARCH_RESULT = {
   name: "Search Result",
   children: [
+    {
+      type: API_HEADING,
+      name: "matchFoundHeading",
+      tag: "h2",
+      className: "match-found-heading",
+      dynamicDetails: {
+        api: GET_SEARCH_RESULT,
+        textReplace: "_TEXT_TO_REPLACE_",
+      },
+      text: "_TEXT_TO_REPLACE_ Mathces Found",
+    },
     {
       type: CONTAINER,
       className: "actioncontainer",
@@ -192,9 +216,9 @@ export const SEARCH_RESULT = {
           name: "search",
           buttonLabel: "Search",
           className: "home-search-button",
-          apiType: GET,
+          apiType: POST,
           navigate: "/searchResult",
-          api: API_ENDPOINTS["getSearchResult"],
+          api: API_ENDPOINTS[GET_SEARCH_RESULT],
         },
       ],
     },
@@ -208,6 +232,8 @@ export const SEARCH_RESULT = {
           name: "floor",
           label: "Floors",
           className: "filterbutton",
+          onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
+          onClickApiMethod: POST,
           options: [
             { label: "First Floor", value: "firstFloor" },
             { label: "Second Floor", value: "secondFloor" },
@@ -225,6 +251,8 @@ export const SEARCH_RESULT = {
           name: "location",
           label: "Location",
           className: "filterbutton",
+          onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
+          onClickApiMethod: POST,
           options: [
             { label: "DLF City Phase 1", value: "DLF City Phase 1" },
             { label: "DLF City Phase 2", value: "DLF City Phase 2" },
@@ -250,6 +278,8 @@ export const SEARCH_RESULT = {
           className: "filterbutton",
           minValue: 0.0,
           maxValue: 1000.0,
+          onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
+          onClickApiMethod: POST,
           step: 0.1,
           defaultValue: [180.0, 360.0],
         },
@@ -259,6 +289,8 @@ export const SEARCH_RESULT = {
           name: "accomodation",
           label: "Accomodation",
           className: "filterbutton",
+          onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
+          onClickApiMethod: POST,
           options: [
             { label: "2 BHK", value: "2 BHK" },
             { label: "3 BHK", value: "3 BHK" },
@@ -273,6 +305,8 @@ export const SEARCH_RESULT = {
           name: "possesion",
           label: "Possesion",
           className: "filterbutton",
+          onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
+          onClickApiMethod: POST,
           options: [
             { label: "Ready", value: "Ready" },
             { label: "1 Months", value: "1 Months" },
@@ -288,6 +322,8 @@ export const SEARCH_RESULT = {
           name: "facing",
           label: "Facing",
           className: "filterbutton",
+          onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
+          onClickApiMethod: POST,
           options: [
             { label: "North", value: "North" },
             { label: "South", value: "South" },
@@ -305,20 +341,36 @@ export const SEARCH_RESULT = {
           name: "sortBy",
           label: "Sort By",
           className: "filterbutton",
-
+          onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
+          onClickApiMethod: POST,
           options: [
             { label: "Price High to Low", value: "Price High to Low" },
             { label: "Price Low to High", value: "Price Low to High" },
           ],
         },
+        {
+          type: TOGGLE_BUTTON,
+          sliceName: "filter",
+          name: "Park"
+        }
       ],
     },
     {
       type: DYNAMIC_CARD_CONTAINER,
+      sliceName: "filter",
       className: "default-home-cards",
-      apiName: "getSearchResult",
-      renderComponentsInLoop: { type: SEARCH_CARD, className: "homeCards" },
-      cardClickApi: API_ENDPOINTS["getBuilderFloorData"],
+      apiName: GET_SEARCH_RESULT,
+      paginatioName: "searchPage",
+      defaultPage: 1,
+      cardPerPage: 5,
+      onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
+      onClickApiMethod: POST,
+      renderComponentsInLoop: {
+        type: SEARCH_CARD,
+        className: "homeCards",
+        apiType: GET,
+      },
+      cardClickApi: API_ENDPOINTS[GET_CARD_DATA],
       cardClickNavigate: "/builderFloorDetails",
     },
   ],
@@ -330,3 +382,4 @@ export const REDIRECTION = {
   [HOME_SCREEN]: "/",
   [SEARCH_RESULT]: "/searchResult",
 };
+

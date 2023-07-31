@@ -9,6 +9,7 @@ export default function SelectButton({
   label, //from json
   value, //from screen
 }) {
+  if (defaultValue) handleValueChange(defaultValue);
   return (
     <Select
       key={name}

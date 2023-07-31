@@ -6,9 +6,11 @@ export default function SliderComponent({
   name,
   minValue,
   maxValue,
-  defaultValue = [2.8, 3.0],
+  defaultValue,
   handleValueChange,
 }) {
+  if (!value && defaultValue) handleValueChange(defaultValue);
+
   const handleChange = (event, newValue) => {
     handleValueChange(newValue);
   };
