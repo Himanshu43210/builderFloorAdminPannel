@@ -249,8 +249,7 @@ label {
 .sliderdiv {
   width: 290px;
 }
-
-.filter-button-div {
+.cardBodyContainer .filter-button-div .filter-button-div {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -278,8 +277,8 @@ label {
   font-weight: 600 !important;
 }
 .css-1hw9j7s {
-  background-color: #fff;
-  color: black;
+  background-color: #fff !important;
+  color: black !important;
 }
 
 .filterbutton

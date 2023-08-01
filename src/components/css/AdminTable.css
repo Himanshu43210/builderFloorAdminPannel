@@ -274,6 +274,7 @@ div .container ul {
 .cardBodyContainer {
   display: flex;
   gap: 50px;
+  background-color: #ececec !important;
 }
 
 .default-home-cards div {

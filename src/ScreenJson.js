@@ -153,7 +153,7 @@ export const CARD_DETAILS_SCREEN = {
       apiSliceName: GET_CARD_DATA,
       phoneToDisplay: "+91 9818215215",
       whatsappToDisplay: "9818215215",
-      whatsappText: `Hi! I saw a property {link} on BuilderFloor.com and i am interested in it. Is it available?`
+      whatsappText: `Hi! I saw a property {link} on BuilderFloor.com and i am interested in it. Is it available?`,
     },
     // {
     //   type: DYNAMIC_CARD_CONTAINER,
@@ -340,6 +340,7 @@ export const SEARCH_RESULT = {
             {
               type: SELECT,
               sliceName: "filter",
+              className: "filterbutton",
               name: "sortBy",
               label: "Sort By",
               onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
