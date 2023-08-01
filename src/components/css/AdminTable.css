@@ -363,8 +363,13 @@ div .container ul {
   }
   .result-searchdiv .searchdiv div button {
     display: flex !important;
-
+    flex-direction: column !important;
     width: auto !important;
+  }
+  .contentdiv {
+    display: block !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
   }
   .result-searchdiv {
     margin-top: 50px;
