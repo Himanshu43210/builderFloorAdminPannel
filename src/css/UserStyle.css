@@ -108,6 +108,7 @@ label {
   border-radius: 6px !important;
   color: #fff;
   font-size: medium;
+  margin-top: 0px !important;
 }
 .css-1gv0vcd-MuiSlider-track {
   background-color: black !important;
