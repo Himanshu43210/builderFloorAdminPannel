@@ -272,11 +272,16 @@ label {
 .filterbutton
   .css-b62m3t-container
   .css-13cymwt-control
-  .css-1fdsijx-ValueContainer
+  .css-hlgwow
   .css-1dimb5e-singleValue {
   color: black !important;
   font-weight: 600 !important;
 }
+.css-1hw9j7s {
+  background-color: #fff;
+  color: black;
+}
+
 .filterbutton
   .css-b62m3t-container
   .css-13cymwt-control
