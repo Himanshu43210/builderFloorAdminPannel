@@ -367,6 +367,12 @@ div .container ul {
   border-radius: 4px;
   border: 1px solid black;
 }
+.home-page-banner h1 {
+  font-size: 600% !important;
+  margin-top: 10px;
+  padding: 10px;
+  color: #fff;
+}
 
 @media only screen and (max-width: 600px) {
   .cardBodyContainer {
