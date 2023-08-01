@@ -14,6 +14,7 @@ import {
   IMAGE_BANNER,
   NAVIGATE_BUTTON,
   PAGE_FOOTER,
+  PAGE_HEADER,
   POST,
   SCROLL_TO_TOP,
   SEARCH_CARD,
@@ -27,11 +28,10 @@ import { API_ENDPOINTS } from "./redux/utils/api";
 const FOOTER = {
   type: PAGE_FOOTER,
   className: "default-home-footer-div",
-  HomeLinks: { icon: "Home", url: "https://www.builderfloor.com/" },
+  HomeLinks: { icon: "https://www.builderfloor.com/assets/imgs/template/BUILDER.png", url: "https://www.builderfloor.com/" },
   social_media: [
-    { icon: "facebook", url: "https://www.facebook.com/example" },
-    { icon: "twitter", url: "https://www.twitter.com/example" },
-    { icon: "linkedin", url: "https://www.linkedin.com/in/example" },
+    { name: "instagram",icon: "https://wilde-signs.com/wp-content/uploads/2018/05/Instagram-Blue-Logo-400x400.png", url: "https://www.twitter.com/example" }, //for instagram
+    { name: "linkedin",icon: "https://www.shareicon.net/data/2015/08/29/92755_linkedin_606x606.png", url: "https://www.linkedin.com/in/example" },
   ],
   copyright: "© Builder Floor Official 2022",
 };
@@ -134,6 +134,10 @@ export const HOME_SCREEN = {
       type: SCROLL_TO_TOP,
       name: "ScrollToTop",
     },
+    {
+      type: PAGE_HEADER,
+      url: "https://www.builderfloor.com/",
+    }
   ],
 };
 

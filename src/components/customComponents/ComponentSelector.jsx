@@ -17,6 +17,7 @@ import {
   API_HEADING,
   TOGGLE_BUTTON,
   SCROLL_TO_TOP,
+  PAGE_HEADER,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -38,6 +39,7 @@ import { ToggleButton } from "react-bootstrap";
 import { display } from "@mui/system";
 import { ScrollToTop } from "./ScrollToTop";
 import DetailDataCard from "./DetailedDataCard";
+import Header from "./Header";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -122,6 +124,7 @@ const ComponentSelector = ({ component }) => {
         <NavigateButton to={component.navigate} label={component.buttonLabel} />
       )}
       {component.type === PAGE_FOOTER && <Footer component={component} />}
+      {component.type === PAGE_HEADER && <Header component={component} />}
       {component.type === HAMBURGER_MENU && (
         <MenuState MenuItems={component.items} />
       )}

@@ -31,6 +31,7 @@ export const SELECT_SLIDER = "SELECT_SLIDER";
 export const SEARCH_CARD = "SEARCH_CARD";
 export const API_HEADING = "API_HEADING";
 export const TOGGLE_BUTTON = "TOGGLE_BUTTON";
+export const PAGE_HEADER = "PAGE_HEADER";
 //
 export const LOADING = "loading";
 export const FAILED = "failed";
