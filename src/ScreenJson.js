@@ -42,36 +42,12 @@ const MENU_ITEMS = [
     path: "/",
   },
   {
-    name: "Login Success",
-    path: "/login-success",
-  },
-  {
-    name: "Search Result",
-    path: "/searchResult",
-  },
-  {
-    name: "Builder Floor Details",
-    path: "/DetailedView",
-  },
-  {
     name: "Login",
     path: "/login",
   },
   {
     name: "Admin Dashboard",
     path: "/adminDashboard",
-  },
-  {
-    name: "User",
-    path: "/user",
-  },
-  {
-    name: "Property",
-    path: "/property",
-  },
-  {
-    name: "Master",
-    path: "/Master",
   },
 ];
 
@@ -196,6 +172,10 @@ export const SEARCH_RESULT = {
   name: "Search Result",
   className: "klk",
   children: [
+    {
+      type: HAMBURGER_MENU,
+      items: MENU_ITEMS,
+    },
     {
       type: API_HEADING,
       name: "matchFoundHeading",
