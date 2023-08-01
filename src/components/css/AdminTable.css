@@ -420,8 +420,8 @@ div .container ul {
     margin: 0% !important;
     width: 635px !important  ;
   }
-  .home-page-banner {
-    width: 635px !important  ;
+  .home-page-banner h1 {
+    font-size: 6vw;
   }
   .homeselect {
     width: 635px !important  ;
