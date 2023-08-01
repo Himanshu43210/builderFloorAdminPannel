@@ -388,7 +388,6 @@ div .container ul {
     gap: 30px;
   }
   .result-searchdiv .searchdiv {
-    width: auto !important;
     display: flex !important;
     flex-direction: column;
   }
@@ -401,11 +400,6 @@ div .container ul {
     display: block !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-  }
-  .result-searchdiv {
-    margin-top: 50px;
-
-    width: auto !important;
   }
   .contentdiv {
     display: flexbox !important;
