@@ -241,12 +241,16 @@ div .container ul {
 
 .default-home-cards {
   padding: 0% !important;
-  margin: auto !important;
-  margin-left: 330px !important;
+  display: flex !important;
+  justify-content: center !important;
+  width: 50% !important;
 }
 .default-home-cards footer {
   margin: auto !important;
-  margin-left: 230px !important;
+  margin-left: 50% !important;
+}
+.search-result-screen div .css-1ujsas3 {
+  display: none !important;
 }
 
 .searchdiv {
@@ -261,7 +265,11 @@ div .container ul {
   display: flex !important;
   flex-direction: column;
 }
-.result-searchdiv .searchdiv div button {
+.searchdiv .css-s18byi {
+  width: 140% !important;
+}
+
+.searchdiv .css-s18byi .css-1m5f78l {
   display: flex !important;
 }
 .result-searchdiv {
@@ -270,6 +278,7 @@ div .container ul {
 .cardBodyContainer {
   display: flex;
   gap: 50px;
+  background-color: #ececec !important;
 }
 
 .default-home-cards div {
@@ -284,15 +293,14 @@ div .container ul {
   transition: transform 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;
 }
-
+.css-1dimb5e-singleValue {
+  color: white !important;
+}
 .default-home-cards .searchdiv .css-d9xncm:hover {
   -webkit-transform: scale(1.05); /* Increase size by 5% on hover */
   transform: scale(1.05); /* Increase size by 5% on hover */
 }
 
-.default-home-cards {
-  width: 20px !important;
-}
 .MuiCardContent-root .css-46bh2p-MuiCardContent-root {
   display: flex !important;
   flex-direction: column !important;
@@ -359,6 +367,12 @@ div .container ul {
   border-radius: 4px;
   border: 1px solid black;
 }
+.home-page-banner h1 {
+  font-size: 600% !important;
+  margin-top: 10px;
+  padding: 10px;
+  color: #fff;
+}
 
 @media only screen and (max-width: 600px) {
   .cardBodyContainer {
@@ -366,8 +380,20 @@ div .container ul {
     flex-direction: column;
     gap: 50px;
   }
+  .cardBodyContainer .filter-button-div {
+    background-color: rgb(248, 244, 244);
+    display: flex;
+    flex-direction: row !important;
+    margin-top: 40px;
+    width: 100%;
+    padding-top: 50px !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(212, 212, 212);
+    border-image: initial;
+    gap: 30px;
+  }
   .result-searchdiv .searchdiv {
-    width: auto !important;
     display: flex !important;
     flex-direction: column;
   }
@@ -381,10 +407,8 @@ div .container ul {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
   }
-  .result-searchdiv {
-    margin-top: 50px;
-
-    width: auto !important;
+  default-home-footer-div {
+    width: 100% !important;
   }
   .contentdiv {
     display: flexbox !important;
@@ -396,17 +420,24 @@ div .container ul {
   }
 
   .searchdiv {
-    width: 100% !important;
+    width: 240px !important;
     gap: 30px !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
   }
   .default-home-cards {
     margin: 0% !important;
-    width: 635px !important  ;
+    width: auto !important;
+  }
+  .default-home-cards .searchdiv {
+    width: 240px !important;
+  }
+
+  .home-page-banner h1 {
+    font-size: 6vw !important;
   }
   .home-page-banner {
-    width: 635px !important  ;
+    width: 150vw !important;
   }
   .homeselect {
     width: 635px !important  ;

@@ -42,12 +42,7 @@ label {
   justify-content: center;
   text-align: center;
 }
-.home-page-banner h1 {
-  font-size: 600% !important;
-  margin-top: 10px;
-  padding: 10px;
-  color: #fff;
-}
+
 .css-19bb58m {
   color: white !important;
 }
@@ -99,6 +94,16 @@ label {
   border-radius: 6px;
   color: #fff;
   font-size: medium;
+}
+.actioncontainer div:nth-child(3) button {
+  background-color: #006d77 !important;
+  height: 40px !important;
+  width: 80px !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: #fff;
+  font-size: medium;
+  margin-top: 0px !important;
 }
 .css-1gv0vcd-MuiSlider-track {
   background-color: black !important;
@@ -225,16 +230,12 @@ label {
   width: 200px;
 }
 
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover {
+.css-1km1ehz:hover {
   background-color: #006d77 !important;
 }
 
 .css-13cymwt-control {
   background-color: white !important;
-}
-.css-1dimb5e-singleValue {
-  color: black !important;
-  font-weight: 600;
 }
 .actioncontainer {
   display: flex;
@@ -244,17 +245,18 @@ label {
 .sliderdiv {
   width: 290px;
 }
-
-.filter-button-div {
+.cardBodyContainer .filter-button-div {
   margin-top: 40px;
+  padding-top: 50px !important;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
   justify-content: left;
   background-color: #f8f4f4;
   height: 500px;
   border: 1px solid #d4d4d4;
   width: 250px;
+  height: 100%;
 }
 .filterbutton .css-b62m3t-container .css-13cymwt-control {
   background-color: white !important;
@@ -263,15 +265,21 @@ label {
   border-radius: 8px;
   height: 40px;
   border: 1px solid #d4d4d4;
+  width: 248.5px !important;
 }
 .filterbutton
   .css-b62m3t-container
   .css-13cymwt-control
-  .css-1fdsijx-ValueContainer
+  .css-hlgwow
   .css-1dimb5e-singleValue {
   color: black !important;
   font-weight: 600 !important;
 }
+.css-1hw9j7s {
+  background-color: #fff !important;
+  color: black !important;
+}
+
 .filterbutton
   .css-b62m3t-container
   .css-13cymwt-control
@@ -304,10 +312,10 @@ label {
 .detailimages {
   margin-top: 30px;
   height: 20% !important;
-  width: 35% !important;
 }
 .searchpagebuttondiv {
   margin-top: 25px !important;
+  width: 100px;
 }
 .detailpagebutton {
   margin-top: 45px !important;
@@ -495,9 +503,37 @@ input[type="password"] {
   .container {
     margin-top: 100px;
   }
+  .cardBodyContainer .filter-button-div {
+    background-color: rgb(248, 244, 244);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-top: 40px;
+    width: 100%;
+    padding-top: 50px !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(212, 212, 212);
+    border-image: initial;
+    gap: 30px;
+  }
 }
 
 @media only screen and (max-width: 720px) {
+  .cardBodyContainer .filter-button-div {
+    background-color: rgb(248, 244, 244);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-top: 40px;
+    width: 100%;
+    padding-top: 50px !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(212, 212, 212);
+    border-image: initial;
+    gap: 30px;
+  }
   .filter-button-div {
     margin-top: 40px;
     display: flex;
