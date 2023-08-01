@@ -252,6 +252,7 @@ label {
 }
 .cardBodyContainer .filter-button-div {
   margin-top: 40px;
+  padding-top: 50px !important;
   display: flex;
   flex-direction: column;
   gap: 30px;
