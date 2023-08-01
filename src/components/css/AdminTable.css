@@ -411,7 +411,7 @@ div .container ul {
   }
 
   .searchdiv {
-    width: 100% !important;
+    width: 240px !important;
     gap: 30px !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -420,11 +420,12 @@ div .container ul {
     margin: 0% !important;
     width: auto !important;
   }
+
   .home-page-banner h1 {
     font-size: 6vw !important;
   }
   .home-page-banner {
-    width: 130vw !important;
+    width: 147vw !important;
   }
   .homeselect {
     width: 635px !important  ;
