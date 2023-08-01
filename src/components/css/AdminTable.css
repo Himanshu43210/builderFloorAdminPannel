@@ -265,11 +265,13 @@ div .container ul {
   display: flex !important;
   flex-direction: column;
 }
-.result-searchdiv .searchdiv div button {
-  display: flex !important;
+.searchdiv div {
+  width: 120% !important;
 }
+
 .result-searchdiv {
   margin-top: 50px;
+  margin-left: 300px;
 }
 .cardBodyContainer {
   display: flex;

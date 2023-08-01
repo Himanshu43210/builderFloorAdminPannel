@@ -253,12 +253,14 @@ label {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
   justify-content: left;
   background-color: #f8f4f4;
   height: 500px;
   border: 1px solid #d4d4d4;
   width: 250px;
+  position: fixed;
+  height: 100%;
 }
 .filterbutton .css-b62m3t-container .css-13cymwt-control {
   background-color: white !important;
