@@ -401,6 +401,9 @@ div .container ul {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
   }
+  default-home-footer-div {
+    width: 100% !important;
+  }
   .contentdiv {
     display: flexbox !important;
     flex-direction: row;
@@ -420,12 +423,15 @@ div .container ul {
     margin: 0% !important;
     width: auto !important;
   }
+  .default-home-cards .searchdiv {
+    width: 240px !important;
+  }
 
   .home-page-banner h1 {
     font-size: 6vw !important;
   }
   .home-page-banner {
-    width: 147vw !important;
+    width: 150vw !important;
   }
   .homeselect {
     width: 635px !important  ;
