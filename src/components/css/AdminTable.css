@@ -241,8 +241,9 @@ div .container ul {
 
 .default-home-cards {
   padding: 0% !important;
-  margin: auto !important;
-  margin-left: 330px !important;
+  display: flex !important;
+  justify-content: center !important;
+  width: 60% !important;
 }
 .default-home-cards footer {
   margin: auto !important;
@@ -284,15 +285,14 @@ div .container ul {
   transition: transform 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;
 }
-
+.css-1dimb5e-singleValue {
+  color: white !important;
+}
 .default-home-cards .searchdiv .css-d9xncm:hover {
   -webkit-transform: scale(1.05); /* Increase size by 5% on hover */
   transform: scale(1.05); /* Increase size by 5% on hover */
 }
 
-.default-home-cards {
-  width: 20px !important;
-}
 .MuiCardContent-root .css-46bh2p-MuiCardContent-root {
   display: flex !important;
   flex-direction: column !important;
