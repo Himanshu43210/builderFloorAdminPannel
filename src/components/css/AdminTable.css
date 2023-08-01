@@ -265,10 +265,13 @@ div .container ul {
   display: flex !important;
   flex-direction: column;
 }
-.searchdiv div {
+.searchdiv .css-s18byi {
   width: 120% !important;
 }
 
+.searchdiv .css-s18byi .css-1m5f78l {
+  display: flex !important;
+}
 .result-searchdiv {
   margin-top: 50px;
   margin-left: 300px;
