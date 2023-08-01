@@ -418,10 +418,13 @@ div .container ul {
   }
   .default-home-cards {
     margin: 0% !important;
-    width: 635px !important  ;
+    width: auto !important;
   }
   .home-page-banner h1 {
-    font-size: 6vw;
+    font-size: 6vw !important;
+  }
+  .home-page-banner {
+    width: 146em !important;
   }
   .homeselect {
     width: 635px !important  ;
