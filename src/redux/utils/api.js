@@ -1,6 +1,8 @@
 import _ from "lodash";
 
 export const getApiName = (api) => {
+  api = api.split("?")[0] //remove any qurey params
+  console.log(_.findKey(API_ENDPOINTS, (value) => value === api), api)
   return _.findKey(API_ENDPOINTS, (value) => value === api);
 };
 
@@ -8,7 +10,7 @@ export const API_ENDPOINTS = {
   getHomeScreenData:
     "https://builder-floor-backend-n2ib.onrender.com/api/properties/getHomeData",
   getCardData:
-    "https://builder-floor-backend-n2ib.onrender.com/api/properties/list?limit=8",
+    "https://builder-floor-backend-n2ib.onrender.com/api/properties",
   getSearchResult: `https://builder-floor-backend-n2ib.onrender.com/api/properties/searchPropertiesData`,
   getUserData: `https://builder-floor-backend-n2ib.onrender.com/api/Users/list`,
   getPropertyData: `https://builder-floor-backend-n2ib.onrender.com/api/properties/list`,
@@ -20,4 +22,4 @@ export const API_ENDPOINTS = {
   alterMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/masters/EditUpdate`,
   deleteMasterData: `https://builder-floor-backend-n2ib.onrender.com/api/deleteMaster`,
 };
-  
+

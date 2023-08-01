@@ -330,20 +330,20 @@ div .container ul {
   font-size: large;
   justify-content: left;
   text-align: left;
-  
 }
 .rowicon {
   display: flex;
-  gap: 100px;
+  gap: 50px;
   margin-top: 20px;
   width: 600px !important;
+  margin-left: 10px;
 }
-.rowicon img {
-  margin-right: 50px;
+.rowicon div {
+  gap: 20px;
 }
 .detail-icon-div {
   flex: 1;
-  height: 350px !important;
+  height: 400px !important;
   width: 600px !important;
   background-color: #f4f4f4;
   border-radius: 4px;

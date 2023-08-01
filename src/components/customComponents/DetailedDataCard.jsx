@@ -6,27 +6,32 @@ import { callApi } from "../../redux/utils/apiActions";
 import { useDispatch } from "react-redux";
 import { GET } from "../utils/Const";
 import { selectApiData } from "../../redux/utils/apiSelector";
+import { API_ENDPOINTS } from "../../redux/utils/api";
 
-export default function DetailDataCard({
-  getApiEndpoint = "https://builder-floor-backend-n2ib.onrender.com/api/properties",
-}) {
-  const { title, id } = useParams();
-  const apiEndpoint = getApiEndpoint + `?id=${id}`;
+export default function DetailDataCard({ component }) {
+  const pathname = window.location.href;
+  const id = pathname.split("id=").pop();
+  const getApiEndpoint = component.apiSliceName;
+  const apiEndpoint = API_ENDPOINTS[getApiEndpoint] + `?id=${id}`;
   const dispatch = useDispatch();
-  dispatch(
-    callApi({
-      url: apiEndpoint,
-      method: GET,
-      headers: { "Content-Type": "application/json" },
-    })
-  );
 
-  const apiDataFromSlice = useSelector((state) =>
-    selectApiData(state, apiEndpoint)
+  useEffect(() => {
+    dispatch(
+      callApi({
+        url: apiEndpoint,
+        method: GET,
+        headers: { "Content-Type": "application/json" },
+        queryParams: { id: "helos" },
+      })
+    );
+    console.log(id);
+  }, []);
+  const cardData = useSelector(
+    (state) => selectApiData(state, getApiEndpoint)?.data
   );
 
   const [ShowNumber, setShowNumber] = useState();
-  const [cardData, setCardData] = useState();
+  // const [cardData, setCardData] = useState()
   const [buttonValue, setButtonValue] = useState("Call");
   const handleButtonClick = () => {
     setButtonValue(cardData?.builderContact);
@@ -117,60 +122,77 @@ export default function DetailDataCard({
         <div className="lowercontainer">
           <div className="detail-info-div">
             {/* Deatils & Button */}
-            detailTitle : {cardData?.detailTitle}
+            <h3>DetailTitle : {cardData?.detailTitle}</h3>
             <br />
-            description : {cardData?.description}
+            Description : {cardData?.description}
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             <Button variant="contained">{cardData?.price}</Button>
           </div>
           <div className="detail-icon-div">
             <div className="rowicon">
-              <img
-                src="https://www.builderfloor.com/assets/imgs/icons/location.png"
-                alt=""
-              />
-              {cardData?.sectorNumber}
-              <img
-                src="https://www.builderfloor.com/assets/imgs/icons/area.png"
-                alt=""
-              />
-              {cardData?.size}
-              <img
-                src="https://www.builderfloor.com/assets/imgs/icons/home.png"
-                alt=""
-              />
-              {cardData?.accommodation}
+              <div>
+                <img
+                  src="https://www.builderfloor.com/assets/imgs/icons/location.png"
+                  alt=""
+                />
+                {cardData?.sectorNumber}
+              </div>
+              <div>
+                <img
+                  src="https://www.builderfloor.com/assets/imgs/icons/area.png"
+                  alt=""
+                />
+                {cardData?.size}
+              </div>
+              <div>
+                <img
+                  src="https://www.builderfloor.com/assets/imgs/icons/home.png"
+                  alt=""
+                />
+                {cardData?.accommodation}
+              </div>
             </div>
 
             <div className="rowicon">
-              <img
-                src="https://www.builderfloor.com/assets/imgs/icons/stairs.png"
-                alt=""
-              />
-              {cardData?.floor}
-              <img
-                src="https://www.builderfloor.com/assets/imgs/icons/compass.png"
-                alt=""
-              />
-              {cardData?.facing}
-              <img
-                src="https://www.builderfloor.com/assets/imgs/icons/check.png"
-                alt=""
-              />
-              {cardData?.possession}
+              <div>
+                <img
+                  src="https://www.builderfloor.com/assets/imgs/icons/stairs.png"
+                  alt=""
+                />
+                {cardData?.floor}
+              </div>
+              <div>
+                <img
+                  src="https://www.builderfloor.com/assets/imgs/icons/compass.png"
+                  alt=""
+                />
+                {cardData?.facing}
+              </div>
+              <div>
+                <img
+                  src="https://www.builderfloor.com/assets/imgs/icons/check.png"
+                  alt=""
+                />
+                {cardData?.possession}
+              </div>
             </div>
 
             <div className="rowicon">
-              <img
-                src="https://www.builderfloor.com/assets/imgs/icons/park.png"
-                alt=""
-              />
-              {cardData?.parkFacing}
-              <img
-                src="https://www.builderfloor.com/assets/imgs/icons/right.png"
-                alt=""
-              />
-              {cardData?.corner}
+              <div>
+                <img
+                  src="https://www.builderfloor.com/assets/imgs/icons/park.png"
+                  alt=""
+                />
+                {cardData?.parkFacing}
+              </div>
+
+              <div>
+                <img
+                  src="https://www.builderfloor.com/assets/imgs/icons/right.png"
+                  alt=""
+                />
+                {cardData?.corner}
+              </div>
             </div>
 
             <div className="rowicon">
