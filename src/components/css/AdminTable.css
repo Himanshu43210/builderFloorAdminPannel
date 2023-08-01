@@ -318,6 +318,38 @@ div .container ul {
   background-color: black !important;
 }
 
+.lowercontainer {
+  display: flex;
+  gap: 100px;
+  height: fit-content;
+  width: fit-content;
+}
+.detail-info-div {
+  flex: 2;
+  width: 400px;
+  font-size: large;
+  justify-content: left;
+  text-align: left;
+  
+}
+.rowicon {
+  display: flex;
+  gap: 100px;
+  margin-top: 20px;
+  width: 600px !important;
+}
+.rowicon img {
+  margin-right: 50px;
+}
+.detail-icon-div {
+  flex: 1;
+  height: 350px !important;
+  width: 600px !important;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
 @media only screen and (max-width: 600px) {
   .cardBodyContainer {
     display: flex;
