@@ -249,6 +249,9 @@ div .container ul {
   margin: auto !important;
   margin-left: 50% !important;
 }
+.search-result-screen div .css-1ujsas3 {
+  display: none !important;
+}
 
 .searchdiv {
   width: 100%;
