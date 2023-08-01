@@ -243,11 +243,11 @@ div .container ul {
   padding: 0% !important;
   display: flex !important;
   justify-content: center !important;
-  width: 60% !important;
+  width: 50% !important;
 }
 .default-home-cards footer {
   margin: auto !important;
-  margin-left: 230px !important;
+  margin-left: 50% !important;
 }
 
 .searchdiv {
