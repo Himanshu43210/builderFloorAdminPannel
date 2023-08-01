@@ -320,6 +320,7 @@ label {
 }
 .searchpagebuttondiv {
   margin-top: 25px !important;
+  width: 100px;
 }
 .detailpagebutton {
   margin-top: 45px !important;
