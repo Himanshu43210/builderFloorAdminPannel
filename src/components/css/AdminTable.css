@@ -277,9 +277,19 @@ div .container ul {
   gap: 50px;
   width: 260px !important;
 }
-.default-home-cards .searchdiv div {
+.default-home-cards .searchdiv .css-d9xncm {
   margin-top: 0% !important;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
 }
+
+.default-home-cards .searchdiv .css-d9xncm:hover {
+  -webkit-transform: scale(1.05); /* Increase size by 5% on hover */
+  transform: scale(1.05); /* Increase size by 5% on hover */
+}
+
 .default-home-cards {
   width: 20px !important;
 }
