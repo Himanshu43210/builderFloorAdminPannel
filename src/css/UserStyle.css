@@ -249,7 +249,7 @@ label {
 .sliderdiv {
   width: 290px;
 }
-.cardBodyContainer .filter-button-div .filter-button-div {
+.cardBodyContainer .filter-button-div {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -267,6 +267,7 @@ label {
   border-radius: 8px;
   height: 40px;
   border: 1px solid #d4d4d4;
+  width: 248.5px !important;
 }
 .filterbutton
   .css-b62m3t-container
