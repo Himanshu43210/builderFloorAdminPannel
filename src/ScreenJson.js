@@ -26,7 +26,7 @@ import { API_ENDPOINTS } from "./redux/utils/api";
 
 const FOOTER = {
   type: PAGE_FOOTER,
-  className: "default-home-cards",
+  className: "default-home-footer-div",
   HomeLinks: { icon: "Home", url: "https://www.builderfloor.com/" },
   social_media: [
     { icon: "facebook", url: "https://www.facebook.com/example" },
