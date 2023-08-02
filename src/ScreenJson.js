@@ -85,12 +85,12 @@ const SCROLLTOP = {
 };
 export const HOME_SCREEN = {
   name: "Home Screen",
-  className: "headerr",
   children: [
     HEADER,
     {
       type: AUTO_FETCH_API,
       api: API_ENDPOINTS["getHomeScreenData"],
+      className: "header",
     },
     {
       type: IMAGE_BANNER,
