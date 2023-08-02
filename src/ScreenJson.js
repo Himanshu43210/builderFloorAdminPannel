@@ -25,17 +25,6 @@ import {
 } from "./components/utils/Const";
 import { API_ENDPOINTS } from "./redux/utils/api";
 
-const FOOTER = {
-  type: PAGE_FOOTER,
-  className: "default-home-footer-div",
-  HomeLinks: { icon: "https://www.builderfloor.com/assets/imgs/template/BUILDER.png", url: "https://www.builderfloor.com/" },
-  social_media: [
-    { name: "instagram",icon: "https://wilde-signs.com/wp-content/uploads/2018/05/Instagram-Blue-Logo-400x400.png", url: "https://www.twitter.com/example" }, //for instagram
-    { name: "linkedin",icon: "https://www.shareicon.net/data/2015/08/29/92755_linkedin_606x606.png", url: "https://www.linkedin.com/in/example" },
-  ],
-  copyright: "© Builder Floor Official 2022",
-};
-
 const MENU_ITEMS = [
   {
     name: "Home",
@@ -51,13 +40,53 @@ const MENU_ITEMS = [
   },
 ];
 
-export const HOME_SCREEN = {
-  name: "Home Screen",
+const FOOTER = {
+  type: PAGE_FOOTER,
+  className: "default-home-footer-div",
+  HomeLinks: {
+    icon: "https://www.builderfloor.com/assets/imgs/template/BUILDER.png",
+    url: "https://www.builderfloor.com/",
+  },
+  social_media: [
+    {
+      name: "instagram",
+      icon: "https://wilde-signs.com/wp-content/uploads/2018/05/Instagram-Blue-Logo-400x400.png",
+      url: "https://www.twitter.com/example",
+    }, //for instagram
+    {
+      name: "linkedin",
+      icon: "https://www.shareicon.net/data/2015/08/29/92755_linkedin_606x606.png",
+      url: "https://www.linkedin.com/in/example",
+    },
+  ],
+  copyright: "© Builder Floor Official 2022",
+};
+
+const HEADER = {
+  type: CONTAINER,
+  className: "homeHeader",
   children: [
     {
       type: HAMBURGER_MENU,
       items: MENU_ITEMS,
     },
+    {
+      type: PAGE_HEADER,
+      url: "https://www.builderfloor.com/",
+      image: "https://www.builderfloor.com/assets/imgs/template/BUILDER.png",
+      title: "BuilderFloor.com",
+    },
+  ],
+};
+
+const SCROLLTOP = {
+  type: SCROLL_TO_TOP,
+  name: "ScrollToTop",
+};
+export const HOME_SCREEN = {
+  name: "Home Screen",
+  children: [
+    HEADER,
     {
       type: AUTO_FETCH_API,
       api: API_ENDPOINTS["getHomeScreenData"],
@@ -130,20 +159,14 @@ export const HOME_SCREEN = {
       text: "We are your trusted partner in finding your dream builder floor in Gurgaon",
     },
     FOOTER,
-    {
-      type: SCROLL_TO_TOP,
-      name: "ScrollToTop",
-    },
-    {
-      type: PAGE_HEADER,
-      url: "https://www.builderfloor.com/",
-    }
+    SCROLLTOP,
   ],
 };
 
 export const CARD_DETAILS_SCREEN = {
   name: "Home Screen",
   children: [
+    HEADER,
     {
       type: NAVIGATE_BUTTON,
       name: "navigateBackToHome",
@@ -158,6 +181,19 @@ export const CARD_DETAILS_SCREEN = {
       phoneToDisplay: "+91 9818215215",
       whatsappToDisplay: "9818215215",
       whatsappText: `Hi! I saw a property {link} on BuilderFloor.com and i am interested in it. Is it available?`,
+      icone: {
+        sectorNumber:
+          "https://www.builderfloor.com/assets/imgs/icons/location.png",
+        size: "https://www.builderfloor.com/assets/imgs/icons/area.png",
+        accommodation:
+          "https://www.builderfloor.com/assets/imgs/icons/home.png",
+        floor: "https://www.builderfloor.com/assets/imgs/icons/stairs.png",
+        facing: "https://www.builderfloor.com/assets/imgs/icons/compass.png",
+        possession: "https://www.builderfloor.com/assets/imgs/icons/check.png",
+        parkFacing: "https://www.builderfloor.com/assets/imgs/icons/park.png",
+        corner: "https://www.builderfloor.com/assets/imgs/icons/right.png",
+      },
+      moreOptionText: "Explore similar options to match your choice",
     },
     // {
     //   type: DYNAMIC_CARD_CONTAINER,
@@ -169,6 +205,8 @@ export const CARD_DETAILS_SCREEN = {
     //   addQueryParam: "{title}-{id}",
     //   cardClickApiType: GET,
     // },
+    FOOTER,
+    SCROLLTOP,
   ],
 };
 
@@ -176,10 +214,7 @@ export const SEARCH_RESULT = {
   name: "Search Result",
   className: "klk",
   children: [
-    {
-      type: HAMBURGER_MENU,
-      items: MENU_ITEMS,
-    },
+    HEADER,
     {
       type: API_HEADING,
       name: "matchFoundHeading",
@@ -381,6 +416,8 @@ export const SEARCH_RESULT = {
         },
       ],
     },
+    FOOTER,
+    SCROLLTOP,
   ],
 };
 
