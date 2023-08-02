@@ -392,6 +392,9 @@ div .container ul {
   font-size: medium;
   font-weight: 600;
 }
+.footer-copyright {
+  width: 60%;
+}
 
 .logodiv {
   width: 95vw;
