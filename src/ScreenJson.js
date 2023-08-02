@@ -393,7 +393,21 @@ export const SEARCH_RESULT = {
             {
               type: TOGGLE_BUTTON,
               sliceName: "filter",
-              name: "Park",
+              label: "Park",
+              name: "Park"
+            },
+            {
+              type: TOGGLE_BUTTON,
+              sliceName: "filter",
+              label: "Corner",
+              name: "Corner"
+            },
+            {
+              type: TOGGLE_BUTTON,
+              sliceName: "filter",
+              label: "Reset",
+              name: "Reset",
+              isReset: true
             },
           ],
         },

@@ -35,11 +35,11 @@ import RenderComponent from "./ComponentRenderer";
 import DynamicCardContainer from "./DynamicCardContainer";
 import { storeFilterData } from "../../redux/slice/filterSlice";
 import { callApi } from "../../redux/utils/apiActions";
-import { ToggleButton } from "react-bootstrap";
 import { display } from "@mui/system";
 import { ScrollToTop } from "./ScrollToTop";
 import DetailDataCard from "./DetailedDataCard";
 import Header from "./Header";
+import CustomToogleButton from "./ToggleButton";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -136,11 +136,10 @@ const ComponentSelector = ({ component }) => {
         />
       )}
       {component.type === TOGGLE_BUTTON && (
-        <ToggleButton
+        <CustomToogleButton
           component={component}
-          handleValueChange={(value) => {
-            display(storeFilterData({ key: component.name, value: value }));
-          }}
+          handleValueChange={handleValueChange}
+          value={sliceData[component.name]}
         />
       )}
       {component.type === SCROLL_TO_TOP && (
