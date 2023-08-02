@@ -356,8 +356,15 @@ div .container ul {
 .homeHeader {
   display: flex;
 }
-.homeHeader:nth-last-of-type(div) {
-  width: 100%;
+.logodiv .headerlink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+
+.logodiv {
+  width: 95vw;
 }
 
 .other-images {
