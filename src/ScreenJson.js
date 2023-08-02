@@ -85,6 +85,7 @@ const SCROLLTOP = {
 };
 export const HOME_SCREEN = {
   name: "Home Screen",
+  className: "headerr",
   children: [
     HEADER,
     {
