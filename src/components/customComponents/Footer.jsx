@@ -12,8 +12,8 @@ export default function Footer({ component }) {
           <img
             src="https://www.builderfloor.com/assets/imgs/template/BUILDER.png"
             alt=""
-            width="40px"
-            height="50px"
+            width="80px"
+            height="90px"
           />
         </a>
       </div>
