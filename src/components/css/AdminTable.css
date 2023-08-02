@@ -363,9 +363,8 @@ div .container ul {
   height: 30%;
 }
 
-.detail-screen .default-home-footer-div {
-  margin: auto;
-  margin-bottom: 0%;
+.detail-screen .home-page-banner {
+  height: fit-content !important;
 }
 
 .detail-info-div {
