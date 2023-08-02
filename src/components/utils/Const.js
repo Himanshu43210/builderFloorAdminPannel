@@ -48,3 +48,7 @@ export const DELETE_MASTER_DATA = "deleteMasterData";
 export const GET_USER_DATA = "getUserData";
 export const GET_PROPERTY_DATA = "getPropertyData";
 export const GET_MASTER_DATA = "getMasterData";
+
+
+export const LINKEDIN_ICON = "LINKEDIN_ICON";
+export const INSTAGRAM_ICON = "INSTAGARAM_ICON";
