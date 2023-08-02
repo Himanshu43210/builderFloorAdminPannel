@@ -363,12 +363,15 @@ div .container ul {
   font-size: larger;
   font-weight: 600;
 }
- .footerlogo .footerlink {
-    float: left;
-    width: 100%;
-    display: flex;
- }
-
+.footerlogo .footerlink {
+  float: left;
+  width: 100%;
+  display: flex;
+}
+.footerlowerdiv {
+  display: flex;
+  flex-direction: row-reverse;
+}
 
 .logodiv {
   width: 95vw;

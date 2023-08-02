@@ -19,6 +19,7 @@ export default function Footer({ component }) {
       </div>
       <hr />
       <hr />
+      <div className="footerlowerdiv">
       <div className="footer-social-icon">
         {component.social_media.map((social, index) => {
           const SocialIcon =
@@ -32,6 +33,7 @@ export default function Footer({ component }) {
       </div>
       <div className="footer-copyright">
         <p className="copyright">{component.copyright}</p>
+      </div>
       </div>
     </footer>
   );
