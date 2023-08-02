@@ -389,7 +389,8 @@ div .container ul {
 }
 .footer-copyright p.copyright {
   float: left;
-  font-size: x-large;
+  font-size: medium;
+  font-weight: 600;
 }
 
 .logodiv {
