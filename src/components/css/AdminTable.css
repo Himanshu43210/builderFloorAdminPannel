@@ -358,6 +358,10 @@ div .container ul {
   overflow-y: auto;
   height: 100%;
 }
+.detail-screen .default-home-footer-div {
+  margin: auto;
+  margin-bottom: 0%;
+}
 
 .detail-info-div {
   flex: 2;
