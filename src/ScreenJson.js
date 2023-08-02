@@ -12,6 +12,8 @@ import {
   HEADING,
   HOME_CARD,
   IMAGE_BANNER,
+  INSTAGRAM_ICON,
+  LINKEDIN_ICON,
   NAVIGATE_BUTTON,
   PAGE_FOOTER,
   PAGE_HEADER,
@@ -45,18 +47,16 @@ const FOOTER = {
   className: "default-home-footer-div",
   HomeLinks: {
     icon: "https://www.builderfloor.com/assets/imgs/template/BUILDER.png",
-    url: "https://www.builderfloor.com/",
+    url: "https://builder-floor-admin-pannel.vercel.app/",
   },
   social_media: [
     {
-      name: "instagram",
-      icon: "https://wilde-signs.com/wp-content/uploads/2018/05/Instagram-Blue-Logo-400x400.png",
-      url: "https://www.twitter.com/example",
+      name: INSTAGRAM_ICON,
+      url: "https://www.instagram.com/",
     }, //for instagram
     {
-      name: "linkedin",
-      icon: "https://www.shareicon.net/data/2015/08/29/92755_linkedin_606x606.png",
-      url: "https://www.linkedin.com/in/example",
+      name: LINKEDIN_ICON,
+      url: "https://www.linkedin.com/",
     },
   ],
   copyright: "© Builder Floor Official 2022",
@@ -72,7 +72,7 @@ const HEADER = {
     },
     {
       type: PAGE_HEADER,
-      url: "https://www.builderfloor.com/",
+      url: "https://builder-floor-admin-pannel.vercel.app/",
       image: "https://www.builderfloor.com/assets/imgs/template/BUILDER.png",
       title: "BuilderFloor.com",
     },
