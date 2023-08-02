@@ -371,6 +371,25 @@ div .container ul {
 .footerlowerdiv {
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
+  margin-top: 0% !important;
+}
+
+.footer-social-icon a svg {
+  height: 80px;
+  width: 50px;
+  color: #509c9c;
+}
+.footer-social-icon a {
+  float: right;
+}
+.footer-social-icon {
+  float: right;
+  width: 60%;
+}
+.footer-copyright p.copyright {
+  float: left;
+  font-size: x-large;
 }
 
 .logodiv {
