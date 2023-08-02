@@ -356,7 +356,7 @@ div .container ul {
 .homeHeader {
   display: flex;
 }
-.homeHeader:nth-child(2) {
+.homeHeader:nth-last-of-type(div) {
   width: 100%;
 }
 
