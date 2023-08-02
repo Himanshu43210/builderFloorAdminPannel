@@ -51,14 +51,14 @@ export default function DetailDataCard({ component }) {
       <div className="detailcomponent">
         {cardData?.title}
         <div className="detail-image-div">
-          <div>
+          <div className="img360">
             <IframeComponent
               src="https://fascinating-queijadas-53a09a.netlify.app/?image=https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/C973SL1/1st%20Floor/360/IMG_20221010_114838_00_merged.jpg?not-from-cache-please"
               title="Example Website"
               allowFullScreen
             />
           </div>
-          <div>
+          <div className="other-images">
             <img
               src="https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/B473SL1/3rd%20Floor/360/Copy%20of%20IMG_20221010_121926_00_merged.jpg"
               alt=""

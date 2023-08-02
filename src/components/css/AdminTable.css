@@ -342,6 +342,10 @@ div .container ul {
   height: fit-content;
   width: fit-content;
 }
+.detail-image-div {
+  display: flex;
+}
+
 .detail-info-div {
   flex: 2;
   width: 400px;
