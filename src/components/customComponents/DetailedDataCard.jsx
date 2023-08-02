@@ -49,7 +49,7 @@ export default function DetailDataCard({ component }) {
     <>
       {console.log(cardData)}
       <div className="detailcomponent">
-        {cardData?.title}
+        <p>{cardData?.title}</p>
         <div className="detail-image-div">
           <div className="img360">
             <IframeComponent

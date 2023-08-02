@@ -347,16 +347,16 @@ div .container ul {
   height: 36em;
 }
 .img360 {
-  width: 80%;
+  width: 75%;
 }
 .img360 iframe {
   width: 100%;
   height: 100%;
 }
 .other-images {
-  width: 20%;
+  width: 25%;
   overflow-y: auto;
-  height: 100%;
+  height: 100%; 
 }
 .other-images img {
   width: 100%;
@@ -365,6 +365,10 @@ div .container ul {
 
 .detail-screen .home-page-banner {
   height: fit-content !important;
+}
+.detailcomponent p {
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .detail-info-div {
