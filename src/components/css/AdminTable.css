@@ -395,6 +395,10 @@ div .container ul {
 .footer-copyright {
   width: 60%;
 }
+footer.footerdiv hr {
+  margin-top: 4em;
+  border-top: 2px solid #868181;
+}
 
 .logodiv {
   width: 95vw;
