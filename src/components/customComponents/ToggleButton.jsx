@@ -1,14 +1,16 @@
 import React from "react";
-import { ToggleButtonGroup } from "react-bootstrap";
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-export const ToggleButton = ({ value, component, handleValueChange }) => {
+export default function CustomToogleButton({ value, component, handleValueChange }) {
   return (
     <>
-      {/* <ToggleButtonGroup> */}
-      <ToggleButton value={value} onClick={handleValueChange}>
-        {component.name}
-      </ToggleButton>
-      {/* </ToggleButtonGroup> */}
+      <ToggleButtonGroup value={value && component.name}>
+        <ToggleButton value={component.name}
+          onClick={() => handleValueChange(!value)}>
+          {component.label}
+        </ToggleButton>
+      </ToggleButtonGroup >
     </>
   );
 };
