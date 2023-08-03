@@ -709,4 +709,7 @@ footer.footerdiv hr {
   .default-home-cards {
     width: 60vw !important;
   }
+  .logodiv {
+    width: 180vw;
+  }
 }
