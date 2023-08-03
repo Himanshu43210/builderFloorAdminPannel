@@ -8,8 +8,6 @@ export default function SliderComponent({
   handleValueChange,
 }) {
   const name = component.text;
-  const minValue = convertToCr(component.minValue);
-  const maxValue = convertToCr(component.maxValue);
   const minVal = component.minValue;
   const maxVal = component.maxValue;
   const defaultValue = component.defaultValue;
@@ -20,6 +18,9 @@ export default function SliderComponent({
   const handleChange = (event, newValue) => {
     handleValueChange(newValue);
   };
+  const getVal = value || defaultValue;
+  const minValue = convertToCr(getVal[0]);
+  const maxValue = convertToCr(getVal[1]);
 
   return (
     <div>
@@ -35,7 +36,7 @@ export default function SliderComponent({
         max={parseFloat(maxVal)}
         step={parseFloat(step)}
         onChange={handleChange}
-        valueLabelDisplay="auto"
+        valueLabelDisplay="off"
         valueLabelFormat={(value) => (convertToCr(value.toFixed(1)) + " Cr.")}
       />
     </div>
