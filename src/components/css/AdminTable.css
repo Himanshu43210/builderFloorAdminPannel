@@ -474,6 +474,7 @@ footer.footerdiv hr {
 .rowicon button {
   width: 30vh;
   height: 8vh;
+  font-size: x-large;
 }
 .detail-icon-div {
   background-color: #f4f4f4;
