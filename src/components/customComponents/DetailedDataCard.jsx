@@ -94,9 +94,9 @@ export default function DetailDataCard({ component }) {
           <div className="detail-info-div">
             {/* Deatils & Button */}
             <div className="infodiv">
-              <h3>DetailTitle : {cardData?.detailTitle}</h3>
+              <h3>{cardData?.detailTitle}</h3>
               <br />
-              Description : {cardData?.description}
+              {cardData?.description}
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <Button variant="contained" className="detail-button">
                 {cardData?.price}
