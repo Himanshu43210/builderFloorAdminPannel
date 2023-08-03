@@ -182,7 +182,7 @@ export const CARD_DETAILS_SCREEN = {
       phoneToDisplay: "+91 9818215215",
       whatsappToDisplay: "9818215215",
       whatsappText: `Hi! I saw a property {link} on BuilderFloor.com and i am interested in it. Is it available?`,
-      icone: {
+      icons: {
         sectorNumber:
           "https://www.builderfloor.com/assets/imgs/icons/location.png",
         size: "https://www.builderfloor.com/assets/imgs/icons/area.png",
