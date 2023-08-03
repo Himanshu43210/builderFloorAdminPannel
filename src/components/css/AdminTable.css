@@ -414,6 +414,9 @@ footer.footerdiv hr {
   font-size: 0.8em;
   font-weight: 600;
 }
+.detail-button {
+  background-color: #086c74 !important;
+}
 
 .logodiv {
   width: 95vw;

@@ -86,7 +86,9 @@ export default function DetailDataCard({ component }) {
           </div>
         </div>
         <div>
-          <Button variant="outlined">{nu} Images</Button>
+          <Button variant="outlined" className="detail-button">
+            {nu} Images
+          </Button>
         </div>
         <div className="lowercontainer">
           <div className="detail-info-div">
@@ -96,7 +98,9 @@ export default function DetailDataCard({ component }) {
               <br />
               Description : {cardData?.description}
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              <Button variant="contained">{cardData?.price}</Button>
+              <Button variant="contained" className="detail-button">
+                {cardData?.price}
+              </Button>
             </div>
           </div>
           <div className="detail-icon-div">
@@ -144,6 +148,7 @@ export default function DetailDataCard({ component }) {
 
             <div className="rowicon">
               <Button
+                className="detail-button"
                 variant="contained"
                 onClick={() => {
                   setShowNumber(!ShowNumber);
@@ -152,6 +157,7 @@ export default function DetailDataCard({ component }) {
                 {ShowNumber ? component.phoneToDisplay : "Phone"}
               </Button>
               <Button
+                className="detail-button"
                 variant="contained"
                 onClick={() => {
                   window.open(
