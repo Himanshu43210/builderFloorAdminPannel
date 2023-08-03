@@ -338,7 +338,7 @@ div .container ul {
 
 .lowercontainer {
   display: flex;
-  gap: 100px;
+  gap: 10em;
   height: fit-content;
   width: fit-content;
 }
@@ -447,22 +447,21 @@ footer.footerdiv hr {
   text-align: left;
 }
 .infodiv {
-  width: 40em;
+  width: 30em;
 }
 .rowicon {
   display: flex;
-  gap: 50px;
-  margin-top: 20px;
+  gap: 8em;
+  margin-left: 1em;
+  margin-top: 1em;
   width: 600px !important;
-  margin-left: 10px;
 }
 .rowicon div {
   gap: 20px;
 }
 .detail-icon-div {
-  flex: 1;
   height: 400px !important;
-  width: 600px !important;
+  width: 50vw !important;
   background-color: #f4f4f4;
   border-radius: 4px;
   border: 1px solid black;
