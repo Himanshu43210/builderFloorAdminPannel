@@ -101,7 +101,7 @@ export default function SearchCard({
 
                 <div className="searchpagebuttondiv">
                   <ApiButton
-                    className="searchcardbtn"
+                    
                     apiType={apiType}
                     api={onClickApi}
                     buttonLabel={`₹ ${element.price / 10000000} Cr.`}

@@ -305,7 +305,7 @@ div .container ul {
   display: flex !important;
   flex-direction: column !important;
 }
-.searchcardbtn {
+.searchpagebuttondiv button {
   width: 6em;
   background-color: #086c74;
 }
