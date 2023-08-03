@@ -17,7 +17,7 @@ export default function SearchCard({
   classname,
 }) {
   return (
-    <Card className={classname }>
+    <Card className={classname}>
       <CardActionArea className="searchcardiv">
         <CardMedia
           component="img"
@@ -101,6 +101,7 @@ export default function SearchCard({
 
                 <div className="searchpagebuttondiv">
                   <ApiButton
+                    className="searchcardbtn"
                     apiType={apiType}
                     api={onClickApi}
                     buttonLabel={`₹ ${element.price / 10000000} Cr.`}
@@ -111,7 +112,7 @@ export default function SearchCard({
                     )}&id=${element._id}`}
                   />
                   &nbsp;
-                  <Typography fontWeight="lg"> View Details </Typography>
+                  <Typography fontWeight="lg"> View Details >>>> </Typography>
                 </div>
               </div>
             </div>

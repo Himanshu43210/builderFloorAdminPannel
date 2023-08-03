@@ -305,6 +305,10 @@ div .container ul {
   display: flex !important;
   flex-direction: column !important;
 }
+.searchcardbtn {
+  width: 6em;
+  background-color: #086c74;
+}
 
 .pagination {
   display: flex;
