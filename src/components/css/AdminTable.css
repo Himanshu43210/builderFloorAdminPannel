@@ -309,6 +309,9 @@ div .container ul {
   width: 6em;
   background-color: #086c74;
 }
+.searchpagebuttondiv p {
+  font-size: small;
+}
 
 .pagination {
   display: flex;
@@ -454,7 +457,8 @@ footer.footerdiv hr {
   width: 30em;
 }
 .rowicon {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 8em;
   margin-left: 1em;
   margin-top: 1em;
@@ -462,13 +466,19 @@ footer.footerdiv hr {
 }
 .rowicon div {
   gap: 20px;
+  font-size: x-small;
+  display: grid;
+  width: 30%;
+}
+.rowicon button {
+  width: 100%;
 }
 .detail-icon-div {
-  height: 400px !important;
-  width: 50vw !important;
   background-color: #f4f4f4;
+  border: 1px solid #000;
   border-radius: 4px;
-  border: 1px solid black;
+  height: 30vw !important;
+  width: 50vw !important;
 }
 .home-page-banner h1 {
   font-size: 600% !important;
