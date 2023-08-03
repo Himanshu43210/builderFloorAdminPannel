@@ -146,7 +146,7 @@ export default function DetailDataCard({ component }) {
               </div>
             </div>
 
-            <div className="rowicon">
+            <div className="rowicon" id="rowicon-btn">
               <Button
                 className="detail-button"
                 variant="contained"

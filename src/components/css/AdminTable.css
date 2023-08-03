@@ -465,14 +465,15 @@ footer.footerdiv hr {
   width: 600px !important;
 }
 .rowicon div {
-  gap: 20px;
   font-size: small;
   font-weight: 600;
   display: grid;
+  grid-gap: 0px !important;
   width: 30%;
 }
 .rowicon button {
-  width: 100%;
+  width: 30vh;
+  height: 8vh;
 }
 .detail-icon-div {
   background-color: #f4f4f4;
