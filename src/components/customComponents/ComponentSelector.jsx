@@ -18,6 +18,7 @@ import {
   TOGGLE_BUTTON,
   SCROLL_TO_TOP,
   PAGE_HEADER,
+  HORIZONtAL_LINE,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -144,6 +145,9 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === SCROLL_TO_TOP && (
         <ScrollToTop component={component} />
+      )}
+      {component.type === HORIZONtAL_LINE && (
+        <hr />
       )}
     </>
   );

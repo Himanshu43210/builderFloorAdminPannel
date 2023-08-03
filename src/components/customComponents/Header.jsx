@@ -7,6 +7,7 @@ export default function Header({ component }) {
         <img src={component.image} alt="" width="40px" height="50px" />
         {component.title}
       </a>
+      <hr />
     </div>
   );
 }

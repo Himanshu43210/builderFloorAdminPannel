@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import { callApi } from "../../redux/utils/apiActions";
 import { useDispatch } from "react-redux";
-import { GET } from "../utils/Const";
+import { GET, HORIZONtAL_LINE } from "../utils/Const";
 import { selectApiData } from "../../redux/utils/apiSelector";
 import { API_ENDPOINTS } from "../../redux/utils/api";
+import { convertToCr } from "../utils/HelperMethods";
 
 export default function DetailDataCard({ component }) {
   const pathname = window.location.href;
@@ -32,19 +33,22 @@ export default function DetailDataCard({ component }) {
       ></iframe>
     );
   };
-
+  
   const cardData = useSelector(
     (state) => selectApiData(state, getApiEndpoint)?.data
   );
+  
   const [ShowNumber, setShowNumber] = useState();
   // const cardDetail = useSelector((state) => selectApiData(state, apiName));
   // useEffect(() => {
   //     setCardData(cardDetail?.data)
   // }, [cardDetail]);
   // console.log(cardDetail)
-  let urlfirst = "https://builderfloors.s3.ap-south-1.amazonaws.com/";
-  urlfirst += cardData?.images[0];
+  // let urlfirst = "https://builderfloors.s3.ap-south-1.amazonaws.com/";
+  // urlfirst += cardData?.images[0];
   let nu = cardData?.images?.length;
+  const price = convertToCr(cardData?.price);
+  
   return (
     <>
       {console.log(cardData)}
@@ -99,7 +103,7 @@ export default function DetailDataCard({ component }) {
               {cardData?.description}
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <Button variant="contained" className="detail-button">
-                {cardData?.price}
+                {price + " Cr."}
               </Button>
             </div>
           </div>
@@ -178,7 +182,10 @@ export default function DetailDataCard({ component }) {
         </div>
       </div>
       <hr />
-      <div>{component.moreOptionText}</div>
+      <div>
+        {component.moreOptionText}
+      </div>
+        <HORIZONtAL_LINE/>
       <div>
         <div></div>
       </div>

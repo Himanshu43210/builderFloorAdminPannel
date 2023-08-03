@@ -1,5 +1,6 @@
 import React from "react";
 import { Slider, Typography } from "@mui/material";
+import { convertToCr } from "../utils/HelperMethods";
 
 export default function SliderComponent({
   component,
@@ -7,8 +8,10 @@ export default function SliderComponent({
   handleValueChange,
 }) {
   const name = component.text;
-  const minValue = component.minValue;
-  const maxValue = component.maxValue;
+  const minValue = convertToCr(component.minValue);
+  const maxValue = convertToCr(component.maxValue);
+  const minVal = component.minValue;
+  const maxVal = component.maxValue;
   const defaultValue = component.defaultValue;
   const step = component.step;
 
@@ -21,19 +24,19 @@ export default function SliderComponent({
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="caption">{minValue}</Typography>
-        <Typography variant="caption">{maxValue}</Typography>
+        <Typography variant="caption">{minValue + " Cr."}</Typography>
+        <Typography variant="caption">{maxValue + " Cr."}</Typography>
       </div>
       <Slider
         key={name}
         name={name}
         value={value || defaultValue}
-        min={parseFloat(minValue)}
-        max={parseFloat(maxValue)}
+        min={parseFloat(minVal)}
+        max={parseFloat(maxVal)}
         step={parseFloat(step)}
         onChange={handleChange}
         valueLabelDisplay="auto"
-        valueLabelFormat={(value) => value.toFixed(1)}
+        valueLabelFormat={(value) => (convertToCr(value.toFixed(1)) + " Cr.")}
       />
     </div>
   );

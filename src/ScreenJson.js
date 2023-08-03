@@ -11,6 +11,7 @@ import {
   HAMBURGER_MENU,
   HEADING,
   HOME_CARD,
+  HORIZONtAL_LINE,
   IMAGE_BANNER,
   INSTAGRAM_ICON,
   LINKEDIN_ICON,
@@ -152,6 +153,7 @@ export const HOME_SCREEN = {
       addQueryParam: "{title}-{id}",
       cardClickApiType: GET,
     },
+    { type: HORIZONtAL_LINE },
     {
       type: HEADING,
       name: "homeScreenBottom",
@@ -168,12 +170,7 @@ export const CARD_DETAILS_SCREEN = {
   name: "Home Screen",
   children: [
     HEADER,
-    {
-      type: NAVIGATE_BUTTON,
-      name: "navigateBackToHome",
-      navigate: "/",
-      buttonLabel: "Go Back",
-    },
+
     {
       type: DETAILED_VIEW,
       name: "detailedViewImage",
