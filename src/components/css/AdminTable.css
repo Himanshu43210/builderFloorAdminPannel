@@ -466,7 +466,8 @@ footer.footerdiv hr {
 }
 .rowicon div {
   gap: 20px;
-  font-size: x-small;
+  font-size: small;
+  font-weight: 600;
   display: grid;
   width: 30%;
 }
