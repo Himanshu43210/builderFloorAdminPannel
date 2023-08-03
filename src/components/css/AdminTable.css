@@ -836,13 +836,6 @@ footer.footerdiv hr {
     width: 100vw;
   }
 
-  .searchdiv {
-    width: 240px !important;
-    gap: 30px !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
-  }
-
   .default-home-cards .searchdiv {
     width: 240px !important;
   }
