@@ -169,7 +169,6 @@ export default function DetailDataCard({ component }) {
           </div>
         </div>
       </div>
-      <hr />
       <div>{component.moreOptionText}</div>
       <div>
         <div></div>
