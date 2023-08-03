@@ -392,6 +392,7 @@ export const SEARCH_RESULT = {
             },
             {
               type: TOGGLE_BUTTON,
+              className: "toogle-filter",
               sliceName: "filter",
               name: "Park",
             },
