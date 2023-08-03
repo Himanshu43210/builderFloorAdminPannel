@@ -106,42 +106,42 @@ export default function DetailDataCard({ component }) {
           <div className="detail-icon-div">
             <div className="rowicon">
               <div>
-                <img src={component.sectorNumber} alt="" />
+                <img src={component?.icons.sectorNumber} alt="" />
                 {cardData?.sectorNumber}
               </div>
               <div>
-                <img src={component.size} alt="" />
+                <img src={component?.icons.size} alt="" />
                 {cardData?.size}
               </div>
               <div>
-                <img src={component.accommodation} alt="" />
+                <img src={component?.icons.accommodation} alt="" />
                 {cardData?.accommodation}
               </div>
             </div>
 
             <div className="rowicon">
               <div>
-                <img src={component.floor} alt="" />
+                <img src={component?.icons.floor} alt="" />
                 {cardData?.floor}
               </div>
               <div>
-                <img src={component.facing} alt="" />
+                <img src={component?.icons.facing} alt="" />
                 {cardData?.facing}
               </div>
               <div>
-                <img src={component.possession} alt="" />
+                <img src={component?.icons.possession} alt="" />
                 {cardData?.possession}
               </div>
             </div>
 
             <div className="rowicon">
               <div>
-                <img src={component.parkFacing} alt="" />
+                <img src={component?.icons.parkFacing} alt="" />
                 {cardData?.parkFacing}
               </div>
 
               <div>
-                <img src={component.corner} alt="" />
+                <img src={component?.icons.corner} alt="" />
                 {cardData?.corner}
               </div>
             </div>
