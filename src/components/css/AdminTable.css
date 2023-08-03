@@ -613,7 +613,7 @@ footer.footerdiv hr {
     font-size: 6vw !important;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw;
   }
   .homeselect {
     width: 635px !important  ;
@@ -628,7 +628,7 @@ footer.footerdiv hr {
     width: max-content;
   }
   .default-home-cards {
-    width: 60vw !important;
+    width: 60vw;
   }
   .logodiv {
     width: 180vw;
@@ -694,7 +694,7 @@ footer.footerdiv hr {
     font-size: 6vw !important;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw;
   }
   .homeselect {
     width: 190vw !important;
@@ -709,7 +709,7 @@ footer.footerdiv hr {
     width: max-content;
   }
   .default-home-cards {
-    width: 30vw !important;
+    width: 30vw;
   }
 }
 
@@ -773,7 +773,7 @@ footer.footerdiv hr {
     font-size: 6vw !important;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw;
   }
   .homeselect {
     width: 190vw !important;
@@ -788,7 +788,7 @@ footer.footerdiv hr {
     width: max-content;
   }
   .default-home-cards {
-    width: 30vw !important;
+    width: 30vw;
   }
 }
 @media only screen and (max-width: 1120px) {
@@ -851,7 +851,7 @@ footer.footerdiv hr {
     font-size: 6vw !important;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw;
   }
   .homeselect {
     width: 190vw !important;
@@ -866,6 +866,6 @@ footer.footerdiv hr {
     width: max-content;
   }
   .default-home-cards {
-    width: 30vw !important;
+    width: 30vw;
   }
 }
