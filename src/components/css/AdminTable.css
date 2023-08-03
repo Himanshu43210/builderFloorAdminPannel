@@ -473,7 +473,7 @@ footer.footerdiv hr {
   color: #fff;
 }
 
-@media only screen and (max-width: 360px) {
+@media (max-width: 360px) {
   .cardBodyContainer {
     display: flex;
     flex-direction: column;
@@ -552,7 +552,7 @@ footer.footerdiv hr {
   }
 }
 
-@media only screen and (max-width: 414px) {
+@media (min-width: 361px) and (max-width: 414px) {
   .cardBodyContainer {
     display: flex;
     flex-direction: column;
@@ -633,7 +633,7 @@ footer.footerdiv hr {
     width: 180vw;
   }
 }
-@media only screen and (max-width: 600px) {
+@media (min-width: 415px) and (max-width: 600px) {
   .cardBodyContainer {
     display: flex;
     flex-direction: column;
@@ -712,7 +712,7 @@ footer.footerdiv hr {
   }
 }
 
-@media only screen and (max-width: 720px) {
+@media (min-width: 601px) and (max-width: 720px) {
   .cardBodyContainer {
     display: flex;
     flex-direction: column;
@@ -790,7 +790,7 @@ footer.footerdiv hr {
     width: 30vw;
   }
 }
-@media only screen and (max-width: 1120px) {
+@media (min-width: 721px) and (max-width: 1120px) {
   .cardBodyContainer {
     display: flex;
     flex-direction: column;
