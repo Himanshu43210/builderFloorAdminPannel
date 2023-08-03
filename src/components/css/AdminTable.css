@@ -613,7 +613,7 @@ footer.footerdiv hr {
     font-size: 6vw !important;
   }
   .home-page-banner {
-    width: 150vw !important;
+    width: 200vw !important;
   }
   .homeselect {
     width: 635px !important  ;
@@ -628,6 +628,6 @@ footer.footerdiv hr {
     width: max-content;
   }
   .default-home-cards {
-    width: 30vw !important;
+    width: 40vw !important;
   }
 }
