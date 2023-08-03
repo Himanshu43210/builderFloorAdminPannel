@@ -627,7 +627,7 @@ footer.footerdiv hr {
     width: max-content;
   }
   .default-home-cards {
-    width: 60vw;
+    width: 60vw !important;
   }
   .logodiv {
     width: 180vw;
