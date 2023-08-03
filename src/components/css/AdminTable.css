@@ -440,6 +440,9 @@ footer.footerdiv hr {
   justify-content: left;
   text-align: left;
 }
+.infodiv {
+  width: 40em;
+}
 .rowicon {
   display: flex;
   gap: 50px;

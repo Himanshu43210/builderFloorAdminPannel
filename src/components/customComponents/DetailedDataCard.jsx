@@ -91,11 +91,13 @@ export default function DetailDataCard({ component }) {
         <div className="lowercontainer">
           <div className="detail-info-div">
             {/* Deatils & Button */}
-            <h3>DetailTitle : {cardData?.detailTitle}</h3>
-            <br />
-            Description : {cardData?.description}
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            <Button variant="contained">{cardData?.price}</Button>
+            <div className="infodiv">
+              <h3>DetailTitle : {cardData?.detailTitle}</h3>
+              <br />
+              Description : {cardData?.description}
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <Button variant="contained">{cardData?.price}</Button>
+            </div>
           </div>
           <div className="detail-icon-div">
             <div className="rowicon">
@@ -169,6 +171,7 @@ export default function DetailDataCard({ component }) {
           </div>
         </div>
       </div>
+      <hr />
       <div>{component.moreOptionText}</div>
       <div>
         <div></div>
