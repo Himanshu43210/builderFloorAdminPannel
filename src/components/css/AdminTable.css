@@ -476,6 +476,14 @@ footer.footerdiv hr {
   height: 8vh;
   font-size: x-large;
 }
+.filterbutton
+  .css-b62m3t-container
+  .css-t3ipsp-control
+  .css-hlgwow
+  .css-1dimb5e-singleValue {
+  color: #000 !important;
+  font-weight: 600 !important;
+}
 .detail-icon-div {
   background-color: #f4f4f4;
   border: 1px solid #000;
