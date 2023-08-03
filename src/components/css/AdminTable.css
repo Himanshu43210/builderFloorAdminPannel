@@ -399,6 +399,17 @@ footer.footerdiv hr {
   margin-top: 4em;
   border-top: 2px solid #868181;
 }
+.toogle-filter div {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(181, 180, 180, 0.788);
+  height: 2.5em;
+}
+.toogle-filter div button {
+  color: black;
+  font-size: medium;
+  font-weight: 600;
+}
 
 .logodiv {
   width: 95vw;
