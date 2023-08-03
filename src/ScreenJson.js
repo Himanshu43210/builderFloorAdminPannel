@@ -395,20 +395,22 @@ export const SEARCH_RESULT = {
               className: "toogle-filter",
               sliceName: "filter",
               label: "Park",
-              name: "Park"
+              name: "Park",
             },
             {
               type: TOGGLE_BUTTON,
+              className: "toogle-filter",
               sliceName: "filter",
               label: "Corner",
-              name: "Corner"
+              name: "Corner",
             },
             {
               type: TOGGLE_BUTTON,
+              className: "toogle-filter",
               sliceName: "filter",
               label: "Reset",
               name: "Reset",
-              isReset: true
+              isReset: true,
             },
           ],
         },
