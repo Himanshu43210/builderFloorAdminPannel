@@ -508,7 +508,7 @@ footer.footerdiv hr {
     grid-template-columns: 1fr 1fr !important;
   }
   .default-home-footer-div {
-    width: 100% !important;
+    width: 70vmax !important;
   }
   .contentdiv {
     display: flexbox !important;
@@ -516,7 +516,7 @@ footer.footerdiv hr {
     gap: 10px !important;
   }
   .home-screen {
-    width: 100%;
+    width: 100vw;
   }
 
   .searchdiv {
@@ -547,5 +547,8 @@ footer.footerdiv hr {
   }
   .home-screen {
     width: max-content;
+  }
+  .default-home-cards {
+    width: 30vw !important;
   }
 }
