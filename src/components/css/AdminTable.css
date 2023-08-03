@@ -483,10 +483,10 @@ footer.footerdiv hr {
   .cardBodyContainer .filter-button-div {
     background-color: rgb(248, 244, 244);
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row ;
     margin-top: 40px;
     width: 100%;
-    padding-top: 50px !important;
+    padding-top: 50px ;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(212, 212, 212);
@@ -494,62 +494,62 @@ footer.footerdiv hr {
     gap: 30px;
   }
   .result-searchdiv .searchdiv {
-    display: flex !important;
+    display: flex ;
     flex-direction: column;
   }
   .result-searchdiv .searchdiv div button {
-    display: flex !important;
-    flex-direction: column !important;
-    width: auto !important;
+    display: flex ;
+    flex-direction: column ;
+    width: auto ;
   }
   .contentdiv {
-    display: block !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: block ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
   }
   .default-home-footer-div {
-    width: 78vmax !important;
+    width: 78vmax ;
   }
   .contentdiv {
-    display: flexbox !important;
+    display: flexbox ;
     flex-direction: row;
-    gap: 10px !important;
+    gap: 10px ;
   }
   .home-screen {
     width: 100vw;
   }
 
   .searchdiv {
-    width: 240px !important;
-    gap: 30px !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    width: 240px ;
+    gap: 30px ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
   }
 
   .default-home-cards .searchdiv {
-    width: 240px !important;
+    width: 240px ;
   }
 
   .home-page-banner h1 {
-    font-size: 6vw !important;
+    font-size: 6vw ;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw ;
   }
   .homeselect {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen-card-section-heading {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen-card-section-bottom {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen {
     width: max-content;
   }
   .default-home-cards {
-    width: 55vw !important;
+    width: 55vw ;
   }
 }
 
@@ -562,10 +562,10 @@ footer.footerdiv hr {
   .cardBodyContainer .filter-button-div {
     background-color: rgb(248, 244, 244);
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row ;
     margin-top: 40px;
     width: 100%;
-    padding-top: 50px !important;
+    padding-top: 50px ;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(212, 212, 212);
@@ -573,62 +573,62 @@ footer.footerdiv hr {
     gap: 30px;
   }
   .result-searchdiv .searchdiv {
-    display: flex !important;
+    display: flex ;
     flex-direction: column;
   }
   .result-searchdiv .searchdiv div button {
-    display: flex !important;
-    flex-direction: column !important;
-    width: auto !important;
+    display: flex ;
+    flex-direction: column ;
+    width: auto ;
   }
   .contentdiv {
-    display: block !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: block ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
   }
   .default-home-footer-div {
-    width: 83vmax !important;
+    width: 83vmax ;
   }
   .contentdiv {
-    display: flexbox !important;
+    display: flexbox ;
     flex-direction: row;
-    gap: 10px !important;
+    gap: 10px ;
   }
   .home-screen {
     width: 100vw;
   }
 
   .searchdiv {
-    width: 240px !important;
-    gap: 30px !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    width: 240px ;
+    gap: 30px ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
   }
 
   .default-home-cards .searchdiv {
-    width: 240px !important;
+    width: 240px ;
   }
 
   .home-page-banner h1 {
-    font-size: 6vw !important;
+    font-size: 6vw ;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw ;
   }
   .homeselect {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen-card-section-heading {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen-card-section-bottom {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen {
     width: max-content;
   }
   .default-home-cards {
-    width: 60vw !important;
+    width: 60vw ;
   }
   .logodiv {
     width: 180vw;
@@ -643,10 +643,10 @@ footer.footerdiv hr {
   .cardBodyContainer .filter-button-div {
     background-color: rgb(248, 244, 244);
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row ;
     margin-top: 40px;
     width: 100%;
-    padding-top: 50px !important;
+    padding-top: 50px ;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(212, 212, 212);
@@ -654,62 +654,62 @@ footer.footerdiv hr {
     gap: 30px;
   }
   .result-searchdiv .searchdiv {
-    display: flex !important;
+    display: flex ;
     flex-direction: column;
   }
   .result-searchdiv .searchdiv div button {
-    display: flex !important;
-    flex-direction: column !important;
-    width: auto !important;
+    display: flex ;
+    flex-direction: column ;
+    width: auto ;
   }
   .contentdiv {
-    display: block !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: block ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
   }
   .default-home-footer-div {
-    width: 120vmax !important;
+    width: 120vmax ;
   }
   .contentdiv {
-    display: flexbox !important;
+    display: flexbox ;
     flex-direction: row;
-    gap: 10px !important;
+    gap: 10px ;
   }
   .home-screen {
     width: 100vw;
   }
 
   .searchdiv {
-    width: 240px !important;
-    gap: 30px !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    width: 240px ;
+    gap: 30px ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
   }
 
   .default-home-cards .searchdiv {
-    width: 240px !important;
+    width: 240px ;
   }
 
   .home-page-banner h1 {
-    font-size: 6vw !important;
+    font-size: 6vw ;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw ;
   }
   .homeselect {
-    width: 190vw !important;
+    width: 190vw ;
   }
   .home-screen-card-section-heading {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen-card-section-bottom {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen {
     width: max-content;
   }
   .default-home-cards {
-    width: 30vw !important;
+    width: 30vw ;
   }
 }
 
@@ -722,10 +722,10 @@ footer.footerdiv hr {
   .cardBodyContainer .filter-button-div {
     background-color: rgb(248, 244, 244);
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row ;
     margin-top: 40px;
     width: 100%;
-    padding-top: 50px !important;
+    padding-top: 50px ;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(212, 212, 212);
@@ -733,62 +733,62 @@ footer.footerdiv hr {
     gap: 30px;
   }
   .result-searchdiv .searchdiv {
-    display: flex !important;
+    display: flex ;
     flex-direction: column;
   }
   .result-searchdiv .searchdiv div button {
-    display: flex !important;
-    flex-direction: column !important;
-    width: auto !important;
+    display: flex ;
+    flex-direction: column ;
+    width: auto ;
   }
   .contentdiv {
-    display: block !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: block ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
   }
   .default-home-footer-div {
-    width: 120vmax !important;
+    width: 120vmax ;
   }
   .contentdiv {
-    display: flexbox !important;
+    display: flexbox ;
     flex-direction: row;
-    gap: 10px !important;
+    gap: 10px ;
   }
   .home-screen {
     width: 100vw;
   }
 
   .searchdiv {
-    width: 240px !important;
-    gap: 30px !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
+    width: 240px;
+    gap: 30px;
+    display: grid ;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .default-home-cards .searchdiv {
-    width: 240px !important;
+    width: 240px ;
   }
 
   .home-page-banner h1 {
-    font-size: 6vw !important;
+    font-size: 6vw ;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw ;
   }
   .homeselect {
-    width: 190vw !important;
+    width: 190vw ;
   }
   .home-screen-card-section-heading {
-    width: 145vh !important;
+    width: 145vh ;
   }
   .home-screen-card-section-bottom {
-    width: 635px !important  ;
+    width: 635px;
   }
   .home-screen {
     width: max-content;
   }
   .default-home-cards {
-    width: 30vw !important;
+    width: 30vw ;
   }
 }
 @media only screen and (max-width: 1120px) {
@@ -800,10 +800,10 @@ footer.footerdiv hr {
   .cardBodyContainer .filter-button-div {
     background-color: rgb(248, 244, 244);
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row ;
     margin-top: 40px;
     width: 100%;
-    padding-top: 50px !important;
+    padding-top: 50px;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(212, 212, 212);
@@ -811,54 +811,61 @@ footer.footerdiv hr {
     gap: 30px;
   }
   .result-searchdiv .searchdiv {
-    display: flex !important;
+    display: flex ;
     flex-direction: column;
   }
   .result-searchdiv .searchdiv div button {
-    display: flex !important;
-    flex-direction: column !important;
-    width: auto !important;
+    display: flex ;
+    flex-direction: column ;
+    width: auto ;
   }
   .contentdiv {
-    display: block !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: block ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr ;
   }
   .default-home-footer-div {
-    width: 120vmax !important;
+    width: 120vmax ;
   }
   .contentdiv {
-    display: flexbox !important;
+    display: flexbox ;
     flex-direction: row;
-    gap: 10px !important;
+    gap: 10px ;
   }
   .home-screen {
     width: 100vw;
   }
 
+  .searchdiv {
+    width: 240px ;
+    gap: 30px ;
+    display: grid ;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .default-home-cards .searchdiv {
-    width: 240px !important;
+    width: 240px ;
   }
 
   .home-page-banner h1 {
-    font-size: 6vw !important;
+    font-size: 6vw ;
   }
   .home-page-banner {
-    width: 200vw !important;
+    width: 200vw ;
   }
   .homeselect {
-    width: 190vw !important;
+    width: 190vw ;
   }
   .home-screen-card-section-heading {
-    width: 145vh !important;
+    width: 635px   ;
   }
   .home-screen-card-section-bottom {
-    width: 635px !important  ;
+    width: 635px   ;
   }
   .home-screen {
     width: max-content;
   }
   .default-home-cards {
-    width: 30vw !important;
+    width: 30vw ;
   }
 }
