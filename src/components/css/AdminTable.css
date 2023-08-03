@@ -402,9 +402,12 @@ footer.footerdiv hr {
 .toogle-filter div {
   width: 100%;
   border-radius: 8px;
-  border: 1px solid rgba(181, 180, 180, 0.788);
+  border: 1px solid hsl(0deg 0% 99.7% / 78.8%);
   height: 2.5em;
   background-color: white;
+}
+.toogle-filter {
+  border-radius: 8px;
 }
 .toogle-filter div button {
   color: black;
