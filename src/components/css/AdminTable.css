@@ -507,7 +507,7 @@ footer.footerdiv hr {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
   }
-  default-home-footer-div {
+  .default-home-footer-div {
     width: 100% !important;
   }
   .contentdiv {
@@ -525,10 +525,7 @@ footer.footerdiv hr {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
   }
-  .default-home-cards {
-    margin: 0% !important;
-    width: auto !important;
-  }
+
   .default-home-cards .searchdiv {
     width: 240px !important;
   }
@@ -547,5 +544,8 @@ footer.footerdiv hr {
   }
   .home-screen-card-section-bottom {
     width: 635px !important  ;
+  }
+  .home-screen {
+    width: max-content;
   }
 }
