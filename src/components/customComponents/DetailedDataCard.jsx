@@ -3,12 +3,15 @@ import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import { callApi } from "../../redux/utils/apiActions";
 import { useDispatch } from "react-redux";
-import { GET, HORIZONtAL_LINE } from "../utils/Const";
+import { GET, HORIZONTAL_LINE, SAMPLE_CARD_DATA } from "../utils/Const";
 import { selectApiData } from "../../redux/utils/apiSelector";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { convertToCr } from "../utils/HelperMethods";
+import IframeBuilder from "./IframeBuilder"
+
 
 export default function DetailDataCard({ component }) {
+  // get id from url and make a api call to fetch data for that url
   const pathname = window.location.href;
   const id = pathname.split("id=").pop();
   const getApiEndpoint = component.apiSliceName;
@@ -24,31 +27,28 @@ export default function DetailDataCard({ component }) {
     );
     console.log(id);
   }, []);
-  const IframeComponent = ({ src, title, allowFullScreen = false }) => {
-    return (
-      <iframe
-        src={src}
-        title={title}
-        allowFullScreen={allowFullScreen}
-      ></iframe>
-    );
-  };
-  
-  const cardData = useSelector(
-    (state) => selectApiData(state, getApiEndpoint)?.data
-  );
-  
+
+  // basic screen components 
+  const cardData = SAMPLE_CARD_DATA
   const [ShowNumber, setShowNumber] = useState();
-  // const cardDetail = useSelector((state) => selectApiData(state, apiName));
-  // useEffect(() => {
-  //     setCardData(cardDetail?.data)
-  // }, [cardDetail]);
-  // console.log(cardDetail)
-  // let urlfirst = "https://builderfloors.s3.ap-south-1.amazonaws.com/";
-  // urlfirst += cardData?.images[0];
-  let nu = cardData?.images?.length;
+  const [imageLink, setImageLink] = useState(cardData.images[0]);
+  const image360 = cardData?.images?.length;
+  const imageNormal = cardData?.normalImages?.length;
   const price = convertToCr(cardData?.price);
-  
+
+
+  // useSelector(
+  //   (state) => selectApiData(state, getApiEndpoint)?.data
+  // );
+
+
+
+  // const [remainingImages, setRemainingImages] = useState(SAMPLE_CARD_DATA.images);
+
+  const handleImageChange = newImageLink => {
+    setImageLink(newImageLink);
+  };
+
   return (
     <>
       {console.log(cardData)}
@@ -56,43 +56,35 @@ export default function DetailDataCard({ component }) {
         <p>{cardData?.title}</p>
         <div className="detail-image-div">
           <div className="img360">
-            <IframeComponent
-              src="https://fascinating-queijadas-53a09a.netlify.app/?image=https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/C973SL1/1st%20Floor/360/IMG_20221010_114838_00_merged.jpg?not-from-cache-please"
+            {console.log(imageLink)}
+            {console.log(cardData.images[0])}
+            <IframeBuilder
+              src={imageLink}
               title="Example Website"
               allowFullScreen
+
             />
           </div>
-          <div className="other-images">
-            <img
-              src="https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/B473SL1/3rd%20Floor/360/Copy%20of%20IMG_20221010_121926_00_merged.jpg"
-              alt=""
-            />
-            <img
-              src="https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/B473SL1/3rd%20Floor/360/Copy%20of%20IMG_20221010_122038_00_merged.jpg"
-              alt=""
-            />
-            <img
-              src="https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/B473SL1/3rd%20Floor/360/Copy%20of%20IMG_20221010_122114_00_merged.jpg"
-              alt=""
-            />
-            <img
-              src="https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/B473SL1/3rd%20Floor/360/Copy%20of%20IMG_20221010_122137_00_merged.jpg"
-              alt=""
-            />
-            <img
-              src="https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/B473SL1/3rd%20Floor/360/Copy%20of%20IMG_20221010_122708_00_merged.jpg"
-              alt=""
-            />
-            <img
-              src="https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/B473SL1/3rd%20Floor/NORMAL/THUMBNAIL.jpg"
-              alt=""
-            />
-          </div>
+          {cardData.images.map((imglink) => {
+            return (
+              imageLink !== imglink &&
+              (<div className="other-images">
+                <img
+                  src={imglink}
+                  alt={component.title}
+                  onClick={() => handleImageChange(imglink)}
+                />
+              </div>)
+            )
+          })
+          }
+
         </div>
         <div>
-          <Button variant="outlined" className="detail-button">
-            {nu} Images
-          </Button>
+          <div variant="outlined" className="detail-button">
+            {image360} Images
+            {imageNormal > 0 ? `|| ${imageNormal} Normal` : ""}
+          </div>
         </div>
         <div className="lowercontainer">
           <div className="detail-info-div">
@@ -103,7 +95,7 @@ export default function DetailDataCard({ component }) {
               {cardData?.description}
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <Button variant="contained" className="detail-button">
-                {price + " Cr."}
+                {"₹ " + price + " Cr."}
               </Button>
             </div>
           </div>
@@ -165,8 +157,7 @@ export default function DetailDataCard({ component }) {
                 variant="contained"
                 onClick={() => {
                   window.open(
-                    `https://wa.me/${
-                      component.whatsappToDisplay
+                    `https://wa.me/${component.whatsappToDisplay
                     }?text=${component.whatsappText?.replace(
                       "{link}",
                       pathname
@@ -181,11 +172,10 @@ export default function DetailDataCard({ component }) {
           </div>
         </div>
       </div>
-      <hr />
       <div>
         {component.moreOptionText}
       </div>
-        <HORIZONtAL_LINE/>
+      <HORIZONTAL_LINE />
       <div>
         <div></div>
       </div>

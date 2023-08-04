@@ -18,7 +18,6 @@ export default function Footer({ component }) {
         </a>
       </div>
       <hr />
-      <hr />
       <div className="footerlowerdiv">
       <div className="footer-social-icon">
         {component.social_media.map((social, index) => {
