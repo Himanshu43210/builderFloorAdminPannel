@@ -502,6 +502,9 @@ footer.footerdiv hr {
   .home-page-banner {
     width: 100%;
   }
+  .homeHeader div:nth-child(2) {
+    width: 100%;
+  }
   .logodiv {
     width: 100% !important;
   }
@@ -538,6 +541,9 @@ footer.footerdiv hr {
 @media (min-width: 460px) and (max-width: 767px) {
   .home-page-banner {
     width: 100% !important;
+  }
+  .homeHeader div:nth-child(2) {
+    width: 100%;
   }
   .logodiv {
     width: 100%;
@@ -598,6 +604,9 @@ footer.footerdiv hr {
   .default-home-cards {
     width: 100% !important;
     margin: 0% !important;
+  }
+  .homeHeader div:nth-child(2) {
+    width: 100%;
   }
   .default-home-cards .searchdiv {
     gap: 50px;
