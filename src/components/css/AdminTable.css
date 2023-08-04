@@ -505,6 +505,11 @@ footer.footerdiv hr {
   .home-page-banner {
     width: 100%;
   }
+  .contentdiv {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   .homeHeader div:nth-child(2) {
     width: 100%;
   }
