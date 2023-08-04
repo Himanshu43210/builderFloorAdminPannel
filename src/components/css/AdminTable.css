@@ -498,7 +498,7 @@ footer.footerdiv hr {
   color: #fff;
 }
 
-@media (min-width: 321px) and (max-width: 767px) {
+@media (min-width: 321px) and (max-width: 460px) {
   .home-page-banner {
     width: 100%;
   }
@@ -507,13 +507,16 @@ footer.footerdiv hr {
     font-size: 100% !important;
   }
   .select-city-button {
-    width: 20%;
+    width: 20% !important;
   }
   .select-range {
-    width: 40%;
+    width: 40% !important;
   }
   .select-range div {
-    width: 100%;
+    width: 100% !important;
+  }
+  .home-search-button {
+    width: 20%;
   }
   .default-home-cards {
     width: 100% !important;
@@ -525,8 +528,42 @@ footer.footerdiv hr {
     justify-content: center;
     display: flex;
     flex-direction: column;
-        display: grid!important;
+    display: grid !important;
     grid-template-columns: 1fr !important;
+  }
+}
+@media (min-width: 460px) and (max-width: 767px) {
+  .home-page-banner {
+    width: 100%;
+  }
+
+  .home-page-banner h1 {
+    font-size: 100% !important;
+  }
+  .select-city-button {
+    width: 20% !important;
+  }
+  .select-range {
+    width: 40% !important;
+  }
+  .select-range div {
+    width: 100% !important;
+  }
+  .home-search-button {
+    width: 20%;
+  }
+  .default-home-cards {
+    width: 100% !important;
+    margin: 0% !important;
+  }
+  .default-home-cards .searchdiv {
+    gap: 50px;
+    width: 60% !important;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
   }
 }
 

@@ -54,7 +54,7 @@ label {
   margin-top: 40px;
 }
 .select-range div {
-  width: 300px;
+  width: 200%;
 }
 .select-range div div span {
   font-size: 15px;
