@@ -86,6 +86,7 @@ const SCROLLTOP = {
 };
 export const HOME_SCREEN = {
   name: "Home Screen",
+  loading: "getHomeScreenData",
   children: [
     HEADER,
     {
