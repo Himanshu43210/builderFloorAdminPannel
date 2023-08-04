@@ -1,4 +1,4 @@
-.contain {
+/* .contain { 
   margin: 0 auto;
   margin-top: 100px;
   width: 50%;
@@ -32,7 +32,7 @@ h2 {
 
 label {
   display: block;
-  /* margin-bottom: 2px; */
+  /* margin-bottom: 2px; 
   width: 100px;
   margin-top: 6px;
 }
@@ -203,7 +203,7 @@ label {
 }
 .home-screen-card-section-bottom h2 {
   font-size: 45px !important;
-  /* width: 300px !important; */
+  /* width: 300px !important; 
 }
 
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
@@ -222,7 +222,7 @@ label {
   margin: auto !important;
   margin-left: 1px !important;
   height: 50px;
-  /* margin:auto !important; */
+  /* margin:auto !important; 
 }
 
 .css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper {
@@ -389,7 +389,7 @@ input[type="password"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  /* width: 10%; */
+  /* width: 10%; 
 }
 
 @media (max-width: 768px) {
@@ -448,7 +448,7 @@ input[type="password"] {
 }
 
 .addbtn {
-  /* background-color: aliceblue; */
+  /* background-color: aliceblue; 
   border-radius: 4px;
   padding: 1px;
   justify-content: center;
@@ -481,7 +481,7 @@ input[type="password"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  /* width: 10%; */
+  /* width: 10%; 
 }
 
 @media (max-width: 768px) {
@@ -613,3 +613,4 @@ input[type="password"] {
     font-weight: 600 !important;
   }
 }
+*/

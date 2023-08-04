@@ -1,4 +1,4 @@
-.admin-table-card {
+/* .admin-table-card {
   width: 100%;
   justify-content: center;
   text-align: center;
@@ -31,7 +31,7 @@
 .selectbox .css-b62m3t-container .css-1nmdiq5-menu div {
   background-color: #202c74 !important;
   color: white !important;
-  /* width: 784.705px !important; */
+  /* width: 784.705px !important; 
 }
 .pagination li {
   width: 30px;
@@ -176,7 +176,7 @@ div .container ul {
   font-weight: 600;
   width: fit-content !important ;
   display: inline;
-  /* margin-left: 20px; */
+  /* margin-left: 20px; 
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .App div {
@@ -301,7 +301,9 @@ div .container ul {
 }
 .default-home-cards .searchdiv .css-d9xncm:hover {
   -webkit-transform: scale(1.05); /* Increase size by 5% on hover */
-  transform: scale(1.05); /* Increase size by 5% on hover */
+transform: scale(
+  1.05
+); /* Increase size by 5% on hover 
 }
 
 .MuiCardContent-root .css-46bh2p-MuiCardContent-root {

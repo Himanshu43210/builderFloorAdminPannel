@@ -1,4 +1,4 @@
-.custom-modal {
+/* .custom-modal { 
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -25,8 +25,8 @@
   right: 10px;
   background: none;
   border: none;
-  font-size: 24px; /* adjust as needed */
-  color: #000; /* adjust as needed */
+  font-size: 24px; /* adjust as needed 
+  color: #000; adjust as needed 
   width: 5%;
   height: 1%;
 }
@@ -39,3 +39,4 @@
 .modal-body {
   padding: 10px;
 }
+*/
