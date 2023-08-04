@@ -502,6 +502,9 @@ footer.footerdiv hr {
   .home-page-banner {
     width: 100%;
   }
+  .logodiv {
+    width: 100% !important;
+  }
 
   .home-page-banner h1 {
     font-size: 100% !important;
@@ -534,6 +537,9 @@ footer.footerdiv hr {
 }
 @media (min-width: 460px) and (max-width: 767px) {
   .home-page-banner {
+    width: 100% !important;
+  }
+  .logodiv {
     width: 100%;
   }
 
@@ -581,6 +587,9 @@ footer.footerdiv hr {
     width: 40% !important;
   }
   .select-range div {
+    width: 100% !important;
+  }
+  .logodiv {
     width: 100% !important;
   }
   .home-search-button {
