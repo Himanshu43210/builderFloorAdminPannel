@@ -32,7 +32,7 @@ export const SEARCH_CARD = "SEARCH_CARD";
 export const API_HEADING = "API_HEADING";
 export const TOGGLE_BUTTON = "TOGGLE_BUTTON";
 export const PAGE_HEADER = "PAGE_HEADER";
-export const HORIZONtAL_LINE = "HORIZONtAL_LINE";
+export const HORIZONTAL_LINE = "HORIZONTAL_LINE";
 
 //
 export const LOADING = "loading";
@@ -54,3 +54,63 @@ export const GET_MASTER_DATA = "getMasterData";
 
 export const LINKEDIN_ICON = "LINKEDIN_ICON";
 export const INSTAGRAM_ICON = "INSTAGARAM_ICON";
+
+
+
+
+// to remove
+export const SAMPLE_CARD_DATA = {
+    "_id": {
+        "$oid": "649ebe8a33b8e5742e13b0ed"
+    },
+    "sectorNumber": "Sushant Lok 1",
+    "plotNumber": "A329A",
+    "size": 360,
+    "facing": "WEST",
+    "accommodation": "4 BHK",
+    "parkFacing": false,
+    "corner": false,
+    "floor": "1st Floor",
+    "possession": "READY",
+    "title": "Beautifully Designed Builder Floor in Gurgaon",
+    "detailTitle": "4 BHK Beautifully Designed Builder Floor For Sale In Sushant Lok 1 Gurgaon",
+    "description": "• Modular Kitchen with Attached Utility Balcony\n • Dedicated and Separate Washing Area\n • Spacious Running Balconies\n • Walking distance from DLF Galleria, The City Club, Vyapar Kendra and Metro station\n • On Call Plumber and Electrical Services\n • Electrical: Wires Fire resistant Polycab, Led lights, fans, exhaust fans\n • False ceiling : High quality heavy duty frames with branded POP on entire floor\n • Parking-area & staircase: Designer railing , granite stone\n • Wall paint: Premium quality paint, polish texture, imported wallpapers.. Designer panelling work",
+    "builderName": null,
+    "builderContact": null,
+    "price": 39000000,
+    "address": null,
+    "category": "PLOT",
+    "normalImages": [
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/NORMAL/THUMBNAIL.jpg"
+    ],
+    "images": [
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_155607_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_155728_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_155801_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_155828_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_155932_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_155957_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160021_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160046_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160127_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160143_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160203_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160217_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160239_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160256_00_merged.jpg",
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/360/IMG_20221010_160312_00_merged.jpg"
+    ],
+    "videos": [],
+    "floorImages": [],
+    "thumbnails": [
+        "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/NORMAL/THUMBNAIL.jpg"
+    ],
+    "imageType": null,
+    "folder": "A329ASL1",
+    "channelPartner": "ARUN ARORA",
+    "channelContact": {
+        "$numberLong": "9818215215"
+    },
+    "thumbnailName": "THUMBNAIL",
+    "sortData": 1
+}

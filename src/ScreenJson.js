@@ -11,7 +11,7 @@ import {
   HAMBURGER_MENU,
   HEADING,
   HOME_CARD,
-  HORIZONtAL_LINE,
+  HORIZONTAL_LINE,
   IMAGE_BANNER,
   INSTAGRAM_ICON,
   LINKEDIN_ICON,
@@ -89,6 +89,7 @@ export const HOME_SCREEN = {
   loading: "getHomeScreenData",
   children: [
     HEADER,
+    { type: HORIZONTAL_LINE },
     {
       type: AUTO_FETCH_API,
       api: API_ENDPOINTS["getHomeScreenData"],
@@ -154,7 +155,7 @@ export const HOME_SCREEN = {
       addQueryParam: "{title}-{id}",
       cardClickApiType: GET,
     },
-    { type: HORIZONtAL_LINE },
+    { type: HORIZONTAL_LINE },
     {
       type: HEADING,
       name: "homeScreenBottom",
@@ -171,7 +172,7 @@ export const CARD_DETAILS_SCREEN = {
   name: "Home Screen",
   children: [
     HEADER,
-
+    { type: HORIZONTAL_LINE },
     {
       type: DETAILED_VIEW,
       name: "detailedViewImage",
@@ -194,6 +195,7 @@ export const CARD_DETAILS_SCREEN = {
       },
       moreOptionText: "Explore similar options to match your choice",
     },
+    { type: HORIZONTAL_LINE },
     // {
     //   type: DYNAMIC_CARD_CONTAINER,
     //   className: "default-home-cards",
@@ -214,6 +216,7 @@ export const SEARCH_RESULT = {
   className: "klk",
   children: [
     HEADER,
+    { type: HORIZONTAL_LINE },
     {
       type: API_HEADING,
       name: "matchFoundHeading",
