@@ -498,7 +498,7 @@ footer.footerdiv hr {
   color: #fff;
 }
 
-@media (max-width: 320px) {
+/* @media (max-width: 320px) {
   .cardBodyContainer {
     display: flex;
     flex-direction: column;
@@ -817,4 +817,4 @@ footer.footerdiv hr {
   .default-home-cards {
     width: 30vw;
   }
-}
+} */
