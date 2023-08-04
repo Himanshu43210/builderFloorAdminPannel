@@ -157,7 +157,7 @@ div .container ul {
   padding: 1px;
 }
 .inputtag {
-  width: 100%;
+  width: 100% !important;
   margin: 5px;
   outline: none;
   color: #4677c3;
