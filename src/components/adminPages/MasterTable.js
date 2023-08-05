@@ -27,7 +27,7 @@ function MasterTable() {
   );
 
   dataToRender?.data?.map((element) => {
-    element.value.map((value) => {
+    element.value?.map((value) => {
       tableData.push({
         masterId: element.id,
         field: element.field,
