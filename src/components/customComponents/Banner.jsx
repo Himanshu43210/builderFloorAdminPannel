@@ -8,9 +8,8 @@ export default function Banner({ component }) {
       >
         <h1>
           {component.text}
+          {component.spanText && <span>{component.spanText}</span>}
         </h1>
-        {component.spanText && <span>{component.spanText}</span>}
-
       </article>
     </>
   );
