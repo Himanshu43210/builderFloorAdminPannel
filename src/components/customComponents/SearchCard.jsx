@@ -23,7 +23,7 @@ export default function SearchCard({
           component="img"
           height="100"
           // image={element.thumbnails?.[0]}
-          src={element}
+          src={"https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/NORMAL/THUMBNAIL.jpg"}
           // alt="Left_Image"
 
           alt={element.title}
