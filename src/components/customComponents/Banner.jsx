@@ -1,5 +1,3 @@
-import { SPAN_TEXT } from "../utils/Const";
-
 export default function Banner({ component }) {
   return (
     <>
@@ -9,10 +7,10 @@ export default function Banner({ component }) {
         style={{ backgroundImage: `url(${component.bgImage})` }}
       >
         <h1>
-          {component.spanTextToReplace
-            ? component.text?.replace(SPAN_TEXT, component.spanTextToReplace)
-            : component.text}
+          {component.text}
         </h1>
+        {component.spanText && <span>{component.spanText}</span>}
+
       </article>
     </>
   );

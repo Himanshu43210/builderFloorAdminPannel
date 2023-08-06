@@ -15,7 +15,6 @@ import {
   IMAGE_BANNER,
   INSTAGRAM_ICON,
   LINKEDIN_ICON,
-  NAVIGATE_BUTTON,
   PAGE_FOOTER,
   PAGE_HEADER,
   POST,
@@ -24,7 +23,6 @@ import {
   SELECT,
   SELECT_SLIDER,
   SLIDER,
-  SPAN_TEXT,
   TOGGLE_BUTTON,
 } from "./components/utils/Const";
 import { API_ENDPOINTS } from "./redux/utils/api";
@@ -100,8 +98,8 @@ export const HOME_SCREEN = {
       type: IMAGE_BANNER,
       name: "homeImageBanner",
       className: "home-page-banner",
-      text: "Start Exploring Your Dream " + SPAN_TEXT,
-      spanTextToReplace: "Builder Floor now",
+      text: "Start Exploring Your Dream ",
+      spanText: "Builder Floor now",
       bgImage:
         "https://thumbs.dreamstime.com/b/mumbai-capital-india-mumbai-india-december-mumbai-financial-commercial-entertainment-capital-india-december-112388360.jpg",
     },
