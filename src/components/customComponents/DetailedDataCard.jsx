@@ -15,6 +15,7 @@ export default function DetailDataCard({ component }) {
   const id = pathname.split("id=").pop();
   const getApiEndpoint = component.apiSliceName;
   const apiEndpoint = API_ENDPOINTS[getApiEndpoint] + `?id=${id}`;
+  console.log(apiEndpoint)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
@@ -28,16 +29,16 @@ export default function DetailDataCard({ component }) {
   }, []);
 
   // basic screen components
-  const cardData = SAMPLE_CARD_DATA;
+  const cardData = useSelector(
+    (state) => selectApiData(state, getApiEndpoint)?.data
+  ) || {};
   const [ShowNumber, setShowNumber] = useState();
-  const [imageLink, setImageLink] = useState(cardData.images[0]);
+  const [imageLink, setImageLink] = useState(cardData.images?.[0]);
   const image360 = cardData?.images?.length;
   const imageNormal = cardData?.normalImages?.length;
   const price = convertToCr(cardData?.price);
 
-  // useSelector(
-  //   (state) => selectApiData(state, getApiEndpoint)?.data
-  // );
+
 
   // const [remainingImages, setRemainingImages] = useState(SAMPLE_CARD_DATA.images);
 
@@ -54,7 +55,7 @@ export default function DetailDataCard({ component }) {
           <div classname="main-images">
             <div className="img360">
               {console.log(imageLink)}
-              {console.log(cardData.images[0])}
+              {console.log(cardData.images?.[0])}
               <IframeBuilder
                 src={imageLink}
                 title="Example Website"
@@ -63,7 +64,7 @@ export default function DetailDataCard({ component }) {
             </div>
           </div>
           <div classname="side-images">
-            {cardData.images.map((imglink) => {
+            {cardData.images?.map((imglink) => {
               return (
                 imageLink !== imglink && (
                   <div className="other-images">
@@ -155,8 +156,7 @@ export default function DetailDataCard({ component }) {
                 variant="contained"
                 onClick={() => {
                   window.open(
-                    `https://wa.me/${
-                      component.whatsappToDisplay
+                    `https://wa.me/${component.whatsappToDisplay
                     }?text=${component.whatsappText?.replace(
                       "{link}",
                       pathname
