@@ -7,8 +7,7 @@ import { GET, HORIZONTAL_LINE, SAMPLE_CARD_DATA } from "../utils/Const";
 import { selectApiData } from "../../redux/utils/apiSelector";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { convertToCr } from "../utils/HelperMethods";
-import IframeBuilder from "./IframeBuilder"
-
+import IframeBuilder from "./IframeBuilder";
 
 export default function DetailDataCard({ component }) {
   // get id from url and make a api call to fetch data for that url
@@ -28,24 +27,21 @@ export default function DetailDataCard({ component }) {
     console.log(id);
   }, []);
 
-  // basic screen components 
-  const cardData = SAMPLE_CARD_DATA
+  // basic screen components
+  const cardData = SAMPLE_CARD_DATA;
   const [ShowNumber, setShowNumber] = useState();
   const [imageLink, setImageLink] = useState(cardData.images[0]);
   const image360 = cardData?.images?.length;
   const imageNormal = cardData?.normalImages?.length;
   const price = convertToCr(cardData?.price);
 
-
   // useSelector(
   //   (state) => selectApiData(state, getApiEndpoint)?.data
   // );
 
-
-
   // const [remainingImages, setRemainingImages] = useState(SAMPLE_CARD_DATA.images);
 
-  const handleImageChange = newImageLink => {
+  const handleImageChange = (newImageLink) => {
     setImageLink(newImageLink);
   };
 
@@ -55,30 +51,32 @@ export default function DetailDataCard({ component }) {
       <div className="detailcomponent">
         <p>{cardData?.title}</p>
         <div className="detail-image-div">
-          <div className="img360">
-            {console.log(imageLink)}
-            {console.log(cardData.images[0])}
-            <IframeBuilder
-              src={imageLink}
-              title="Example Website"
-              allowFullScreen
-
-            />
+          <div classname="main-images">
+            <div className="img360">
+              {console.log(imageLink)}
+              {console.log(cardData.images[0])}
+              <IframeBuilder
+                src={imageLink}
+                title="Example Website"
+                allowFullScreen
+              />
+            </div>
           </div>
-          {cardData.images.map((imglink) => {
-            return (
-              imageLink !== imglink &&
-              (<div className="other-images">
-                <img
-                  src={imglink}
-                  alt={component.title}
-                  onClick={() => handleImageChange(imglink)}
-                />
-              </div>)
-            )
-          })
-          }
-
+          <div classname="side-images">
+            {cardData.images.map((imglink) => {
+              return (
+                imageLink !== imglink && (
+                  <div className="other-images">
+                    <img
+                      src={imglink}
+                      alt={component.title}
+                      onClick={() => handleImageChange(imglink)}
+                    />
+                  </div>
+                )
+              );
+            })}
+          </div>
         </div>
         <div>
           <div variant="outlined" className="detail-button">
@@ -157,7 +155,8 @@ export default function DetailDataCard({ component }) {
                 variant="contained"
                 onClick={() => {
                   window.open(
-                    `https://wa.me/${component.whatsappToDisplay
+                    `https://wa.me/${
+                      component.whatsappToDisplay
                     }?text=${component.whatsappText?.replace(
                       "{link}",
                       pathname
@@ -172,9 +171,7 @@ export default function DetailDataCard({ component }) {
           </div>
         </div>
       </div>
-      <div>
-        {component.moreOptionText}
-      </div>
+      <div>{component.moreOptionText}</div>
       <HORIZONTAL_LINE />
       <div>
         <div></div>
