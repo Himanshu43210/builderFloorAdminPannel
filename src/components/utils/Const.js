@@ -33,6 +33,7 @@ export const API_HEADING = "API_HEADING";
 export const TOGGLE_BUTTON = "TOGGLE_BUTTON";
 export const PAGE_HEADER = "PAGE_HEADER";
 export const HORIZONTAL_LINE = "HORIZONTAL_LINE";
+export const SPAN_TEXT = "SPAN_TEXT";
 
 //
 export const LOADING = "loading";
