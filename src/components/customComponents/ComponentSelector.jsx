@@ -74,13 +74,7 @@ const ComponentSelector = ({ component }) => {
       {component.type === CONTAINER && (
         <RenderComponent jsonToRender={component} />
       )}
-      {component.type === IMAGE_BANNER && (
-        <Banner
-          text={component.text}
-          bgImage={component.bgImage}
-          className={component.className}
-        />
-      )}
+      {component.type === IMAGE_BANNER && <Banner component={component} />}
       {component.type === SELECT && (
         <SelectButton
           name={component.name}
@@ -146,9 +140,7 @@ const ComponentSelector = ({ component }) => {
       {component.type === SCROLL_TO_TOP && (
         <ScrollToTop component={component} />
       )}
-      {component.type === HORIZONTAL_LINE && (
-        <hr />
-      )}
+      {component.type === HORIZONTAL_LINE && <hr />}
     </>
   );
 };
