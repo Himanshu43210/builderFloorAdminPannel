@@ -15,7 +15,7 @@ export default function DetailDataCard({ component }) {
   const id = pathname.split("id=").pop();
   const getApiEndpoint = component.apiSliceName;
   const apiEndpoint = API_ENDPOINTS[getApiEndpoint] + `?id=${id}`;
-  console.log(apiEndpoint)
+  console.log(apiEndpoint);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
@@ -29,16 +29,13 @@ export default function DetailDataCard({ component }) {
   }, []);
 
   // basic screen components
-  const cardData = useSelector(
-    (state) => selectApiData(state, getApiEndpoint)?.data
-  ) || {};
+  const cardData =
+    useSelector((state) => selectApiData(state, getApiEndpoint)?.data) || {};
   const [ShowNumber, setShowNumber] = useState();
   const [imageLink, setImageLink] = useState(cardData.images?.[0]);
   const image360 = cardData?.images?.length;
   const imageNormal = cardData?.normalImages?.length;
   const price = convertToCr(cardData?.price);
-
-
 
   // const [remainingImages, setRemainingImages] = useState(SAMPLE_CARD_DATA.images);
 
@@ -78,8 +75,6 @@ export default function DetailDataCard({ component }) {
               );
             })}
           </div>
-        </div>
-        <div>
           <div variant="outlined" className="detail-button">
             {image360} Images
             {imageNormal > 0 ? `|| ${imageNormal} Normal` : ""}
@@ -156,7 +151,8 @@ export default function DetailDataCard({ component }) {
                 variant="contained"
                 onClick={() => {
                   window.open(
-                    `https://wa.me/${component.whatsappToDisplay
+                    `https://wa.me/${
+                      component.whatsappToDisplay
                     }?text=${component.whatsappText?.replace(
                       "{link}",
                       pathname
