@@ -36,7 +36,7 @@ function UserTable() {
         <AutoFetchApi url={API_ENDPOINTS[GET_USER_DATA]} method={GET} />
       )}
       <div>
-        <div className="abc">
+        <div className="admin-dashboard-home">
           <Panel />
         </div>
 
