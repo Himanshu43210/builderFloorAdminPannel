@@ -231,7 +231,7 @@ export const SEARCH_RESULT = {
         api: GET_SEARCH_RESULT,
         textReplace: "_TEXT_TO_REPLACE_",
       },
-      text: "_TEXT_TO_REPLACE_ Mathces Found",
+      text: "_TEXT_TO_REPLACE_ Mathches Found",
     },
     {
       type: CONTAINER,
