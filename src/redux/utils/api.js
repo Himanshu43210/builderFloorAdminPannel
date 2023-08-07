@@ -15,7 +15,7 @@ export const API_ENDPOINTS = {
   getHomeScreenData:
     "https://builder-floor-backend-n2ib.onrender.com/api/properties/getHomeData",
   getSimilarPropertyData:
-    "https://builder-floor-backend-n2ib.onrender.com/api/properties/getHomeData?limit=5",
+    "https://builder-floor-backend-n2ib.onrender.com/api/properties/getSimilarProperties?limit=5",
   getCardData: "https://builder-floor-backend-n2ib.onrender.com/api/properties",
   getSearchResult: `https://builder-floor-backend-n2ib.onrender.com/api/properties/searchPropertiesData`,
   getUserData: `https://builder-floor-backend-n2ib.onrender.com/api/users/list`,
