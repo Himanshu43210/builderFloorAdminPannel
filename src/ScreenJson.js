@@ -169,10 +169,15 @@ export const HOME_SCREEN = {
 };
 
 export const CARD_DETAILS_SCREEN = {
-  name: "Home Screen",
+  name: "Card Detail Screen",
   children: [
     HEADER,
     { type: HORIZONTAL_LINE },
+    {
+      type: AUTO_FETCH_API,
+      api: API_ENDPOINTS[GET_SIMILAR_PROPERTY_DATA],
+      className: "header",
+    },
     {
       type: DETAILED_VIEW,
       name: "detailedViewImage",
