@@ -8,7 +8,7 @@ import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import "./../css/AdminTable.css";
 import { FaUserEdit, FaRegTrashAlt } from "react-icons/fa";
 import { API_ENDPOINTS } from "../../redux/utils/api";
-import { GET, POST, REMOVE, SAVE } from "./Const";
+import { DELETE, GET, POST, REMOVE, SAVE } from "./Const";
 import { useDispatch } from "react-redux";
 import { callApi } from "../../redux/utils/apiActions";
 
@@ -45,15 +45,26 @@ const ListingTable = ({
   const tableHeaders = isMobile ? headersMobile : headersDesktop;
   const dispatch = useDispatch();
 
-  const handleSave = (action) => {
-    console.log(formData, action);
-    const apiEndpoint = action === SAVE ? editApi : deleteApi;
+  const handleSave = () => {
     try {
       const options = {
-        url: API_ENDPOINTS[apiEndpoint],
+        url: API_ENDPOINTS[editApi],
         method: POST,
         headers: { "Content-Type": "application/json" },
-        data: currentRowData,
+        data: formData,
+      };
+      dispatch(callApi(options));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = () => {
+    try {
+      const options = {
+        url: API_ENDPOINTS[deleteApi] + "?id=" + currentRowData._id,
+        method: DELETE,
+        headers: { "Content-Type": "application/json" },
       };
       dispatch(callApi(options));
       console.log(formData);
@@ -138,8 +149,8 @@ const ListingTable = ({
       {showEditModal ? (
         <ReusablePopup
           onSave={() => {
-            handleSave(SAVE);
-            toogleEdit();
+            handleSave();
+            // toogleEdit();
           }}
           onHide={toogleEdit}
           onCancel={toogleEdit}
@@ -155,8 +166,8 @@ const ListingTable = ({
       {showDeleteModal ? (
         <ReusablePopup
           onYes={() => {
-            handleSave(REMOVE);
-            toogleDelete();
+            handleDelete();
+            // toogleDelete();
           }}
           onHide={toogleDelete}
           onCancel={toogleDelete}

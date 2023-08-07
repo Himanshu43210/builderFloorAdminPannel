@@ -24,7 +24,6 @@ function UserTable() {
     "PhoneNumber",
     "address",
     "email",
-    "password",
     "role",
     "parentId",
   ];
@@ -37,24 +36,17 @@ function UserTable() {
       {!tableData && (
         <AutoFetchApi url={API_ENDPOINTS[GET_USER_DATA]} method={GET} />
       )}
-      <div style={{ display: "flex", backgroundColor: "#f5f6f8" }}>
-        <div className="abc" style={{ width: "200px" }}>
+      <div>
+        <div className="abc">
           <Panel />
         </div>
 
-        <div style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}>
-          <div style={{ backgroundColor: "#f8f4fc" }}>
+        <div>
+          <div>
             <Navbar />
-            <Card style={{ backgroundColor: "#f8f4fc", border: "none" }}>
-              <Card.Header
-                className="font"
-                style={{ backgroundColor: "#f8f4fc", border: "none" }}
-              >
-                User Details
-              </Card.Header>
-              <Card.Body
-                style={{ backgroundColor: "#f8f4fc", padding: "20px" }}
-              >
+            <Card>
+              <Card.Header className="font">User Details</Card.Header>
+              <Card.Body>
                 <TableButtonHeader
                   fieldConst={fieldConst}
                   tableData={_.cloneDeep(tableData?.data || [])}

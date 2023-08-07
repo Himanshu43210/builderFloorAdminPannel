@@ -27,12 +27,11 @@ function MasterTable() {
   );
 
   dataToRender?.data?.map((element) => {
-    element.value?.map((value) => {
+    element.fieldValue?.map((value) => {
       tableData.push({
         masterId: element.id,
-        field: element.field,
+        field: element.fieldName,
         value: value,
-        parentId: element.parentId,
       });
     });
   });
@@ -45,7 +44,6 @@ function MasterTable() {
         <div className="abc" style={{ width: "200px" }}>
           <Panel />
         </div>
-
         <div style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}>
           <div style={{ backgroundColor: "#f8f4fc" }}>
             <Navbar />

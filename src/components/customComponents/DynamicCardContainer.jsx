@@ -43,7 +43,7 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
           </>
         );
       })}
-      {component.paginatioName && (
+      {component.paginatioName && dataToRender && (
         <BasicPagination
           handlePageChange={(e, newPage) => {
             handleValueChange(newPage);
