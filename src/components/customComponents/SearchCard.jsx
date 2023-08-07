@@ -113,8 +113,7 @@ export default function SearchCard({
                       "-"
                     )}&id=${element._id}`}
                   />
-                  &nbsp;
-                  <Typography fontWeight="lg"> View Details >>>> </Typography>
+                  <Typography fontWeight="lg"> View Details >> </Typography>
                 </div>
               </div>
             </div>

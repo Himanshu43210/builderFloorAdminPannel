@@ -155,7 +155,6 @@ export const HOME_SCREEN = {
       addQueryParam: "{title}-{id}",
       cardClickApiType: GET,
     },
-    { type: HORIZONTAL_LINE },
     {
       type: HEADING,
       name: "homeScreenBottom",
@@ -163,7 +162,6 @@ export const HOME_SCREEN = {
       className: "home-screen-card-section-bottom",
       text: "We are your trusted partner in finding your dream builder floor in Gurgaon",
     },
-    { type: HORIZONTAL_LINE },
     FOOTER,
     SCROLLTOP,
   ],

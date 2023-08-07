@@ -52,7 +52,7 @@ export default function DetailDataCard({ component }) {
       <div className="detailcomponent">
         <p>{cardData?.title}</p>
         <div className="detail-image-div">
-          <div classname="main-images">
+          <div className="main-images">
             <div className="img360">
               {console.log(imageLink)}
               {console.log(cardData.images?.[0])}
@@ -63,7 +63,7 @@ export default function DetailDataCard({ component }) {
               />
             </div>
           </div>
-          <div classname="side-images">
+          <div className="side-images">
             {cardData.images?.map((imglink) => {
               return (
                 imageLink !== imglink && (
