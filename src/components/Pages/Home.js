@@ -3,9 +3,6 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { HOME_SCREEN } from "../../ScreenJson";
 import RenderComponent from "../customComponents/ComponentRenderer";
-import MenupState from "../customComponents/MenupState";
-import { MENU_ITEMS } from "../../ScreenJson";
-import './../../css/UserStyle.css'
 
 export default function Home() {
   return (

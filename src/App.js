@@ -6,7 +6,6 @@ import LoginSuccess from "./components/Pages/LoginSuccess";
 import UserTable from "./components/adminPages/UserTable";
 import PropertyTable from "./components/adminPages/PropertyTable";
 import MasterTable from "./components/adminPages/MasterTable";
-import "./App.css";
 import Home from "./components/Pages/Home";
 import DetailedView from "./components/Pages/DetailedView";
 import SearchResult from "./components/Pages/SearchResult";

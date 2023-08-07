@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { saveProfile } from '../redux/slice/authSlice';
 import { clearLoginStatus, loginUser } from '../redux/slice/userSlice';
 import { PASSWORD, USER_RESPONSE_DATA } from './Consts';
-import "../css/UserStyle.css"
 
 const Login = () => {
     const navigate = useNavigate();

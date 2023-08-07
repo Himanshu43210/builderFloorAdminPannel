@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
-import { backdropClasses } from "@mui/material";
-import './../../css/UserStyle.css'
-import { brown } from "@mui/material/colors";
-import './../css/AdminTable.css'
 
 const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
   const [formData, setFormData] = useState(propsFormData || {});

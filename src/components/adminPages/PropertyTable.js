@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import ListingTable from "../utils/ListingTable";
 import { Card } from "react-bootstrap";
-import "../css/AdminTable.css";
 import Panel from "./Panel";
 import Navbar from "./Navbar";
 import TableButtonHeader from "./TableButtonHeader";

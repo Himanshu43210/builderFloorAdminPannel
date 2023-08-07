@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 import ApiButton from "./ApiButton";
 import { FaShareAlt, FaRegHeart } from "react-icons/fa";
-import "./../../css/UserStyle.css";
 
 export default function SearchCard({
   element = {},

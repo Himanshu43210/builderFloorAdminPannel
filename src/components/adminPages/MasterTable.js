@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import ListingTable from "../utils/ListingTable";
 import { Card } from "react-bootstrap";
-import "../css/AdminTable.css";
 import { newMasterConst } from "../fieldConsts/MasterFieldConst";
 import TableButtonHeader from "./TableButtonHeader";
 import Navbar from "../../components/adminPages/Navbar";

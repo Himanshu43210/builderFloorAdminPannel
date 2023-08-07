@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ListingTable from "../utils/ListingTable";
 import { newUserConst } from "../fieldConsts/UserFieldConst";
 import { Card } from "react-bootstrap";
-import "../css/AdminTable.css";
 import TableButtonHeader from "./TableButtonHeader";
 import Navbar from "./Navbar";
 import Panel from "./Panel";

@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { AiOutlineClose } from "react-icons/ai";
 import { Modal } from "react-overlays";
-import "../css/ReusablePopup.css";
 const ReusablePopup = ({
   onHide,
   children,

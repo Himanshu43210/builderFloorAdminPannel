@@ -5,7 +5,6 @@ import Select from "react-select";
 import ReusablePopup from "./ReusablePopup";
 import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
-import "./../css/AdminTable.css";
 import { FaUserEdit, FaRegTrashAlt } from "react-icons/fa";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { DELETE, GET, POST, REMOVE, SAVE } from "./Const";
