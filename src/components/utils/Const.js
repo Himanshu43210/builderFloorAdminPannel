@@ -52,13 +52,10 @@ export const GET_USER_DATA = "getUserData";
 export const GET_PROPERTY_DATA = "getPropertyData";
 export const GET_MASTER_DATA = "getMasterData";
 export const ADMIN_DASHBOARD_LOGIN = "adminDashboardLogin";
-
+export const GET_SIMILAR_PROPERTY_DATA = "getSimilarPropertyData";
 
 export const LINKEDIN_ICON = "LINKEDIN_ICON";
 export const INSTAGRAM_ICON = "INSTAGARAM_ICON";
-
-
-
 
 // to remove
 export const SAMPLE_CARD_DATA = "SAMPLE_CARD_DATA";
