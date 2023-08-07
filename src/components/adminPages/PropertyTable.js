@@ -38,30 +38,16 @@ function PropertyTable() {
       {!tableData && (
         <AutoFetchApi url={API_ENDPOINTS[GET_PROPERTY_DATA]} method={GET} />
       )}
-      <div
-        style={{
-          display: "flex",
-          backgroundColor: "##f5f6f8",
-          minWidth: "100%",
-        }}
-      >
-        <div className="abc" style={{ width: "200px" }}>
+      <div>
+        <div className="admin-dashboard-home">
           <Panel />
         </div>
-
-        <div style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}>
-          <div style={{ backgroundColor: "#f8f4fc" }}>
+        <div>
+          <div>
             <Navbar />
-            <Card style={{ backgroundColor: "#f6f7fc", border: "none" }}>
-              <Card.Header
-                className="font"
-                style={{ backgroundColor: "#f6f7fc", border: "none" }}
-              >
-                Property Details
-              </Card.Header>
-              <Card.Body
-                style={{ backgroundColor: "#f6f7fc", padding: "20px" }}
-              >
+            <Card>
+              <Card.Header className="font">Property Details</Card.Header>
+              <Card.Body>
                 <TableButtonHeader
                   fieldConst={fieldConst}
                   tableData={_.cloneDeep(tableData?.data || [])}

@@ -39,23 +39,16 @@ function MasterTable() {
       {!dataToRender && (
         <AutoFetchApi url={API_ENDPOINTS[GET_MASTER_DATA]} method={GET} />
       )}
-      <div style={{ display: "flex", backgroundColor: "#f8f4fc" }}>
-        <div className="abc" style={{ width: "200px" }}>
+      <div>
+        <div className="admin-dashboard-home">
           <Panel />
         </div>
-        <div style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}>
-          <div style={{ backgroundColor: "#f8f4fc" }}>
+        <div>
+          <div>
             <Navbar />
-            <Card style={{ backgroundColor: "#f6f7fc", border: "none" }}>
-              <Card.Header
-                className="font"
-                style={{ backgroundColor: "#f6f7fc", border: "none" }}
-              >
-                Master Details
-              </Card.Header>
-              <Card.Body
-                style={{ backgroundColor: "#f6f7fc", padding: "20px" }}
-              >
+            <Card>
+              <Card.Header className="font">Master Details</Card.Header>
+              <Card.Body>
                 <TableButtonHeader
                   fieldConst={fieldConst}
                   tableData={tableData}

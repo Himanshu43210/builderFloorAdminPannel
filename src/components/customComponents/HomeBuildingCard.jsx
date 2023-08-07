@@ -7,7 +7,7 @@ const HomeBuildingCard = ({ reduxDataVar }) => {
   return (
     <>
       {
-        <div data-wow-delay=".2s" style={{ height: "100%" }}>
+        <div data-wow-delay=".2s">
           <Link href={`/shop/${dataVar?._id}`}>
             <div className="relative">
               <a>
@@ -37,10 +37,7 @@ const HomeBuildingCard = ({ reduxDataVar }) => {
           <div className="product-info px-2 pt-[10px] w-100">
             <Link href={`/shop/${dataVar?._id}`}>
               <a>
-                <h3
-                  className="text-body-lead color-gray-700  text-center"
-                  style={{ lineHeight: "25px" }}
-                >
+                <h3 className="text-body-lead color-gray-700  text-center">
                   {dataVar?.title}
                 </h3>
               </a>
@@ -79,12 +76,7 @@ const HomeBuildingCard = ({ reduxDataVar }) => {
               </div>
               <div className="flex justify-between px-2 items-center">
                 <div>
-                  <Rating
-                    value={5}
-                    readOnly
-                    size="medium"
-                    style={{ marginTop: "15px" }}
-                  />
+                  <Rating value={5} readOnly size="medium" />
                 </div>
                 <div>
                   <button

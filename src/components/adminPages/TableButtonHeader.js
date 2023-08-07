@@ -118,12 +118,7 @@ const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
           </div>
         </ReusablePopup>
       ) : null}
-      <div
-        style={{
-          display: "flex",
-          gap: "10px",
-        }}
-      >
+      <div>
         <Button class="btn" variant="success" onClick={toogleNewPopup}>
           <FaUserPlus />
           &nbsp;&nbsp; ADD

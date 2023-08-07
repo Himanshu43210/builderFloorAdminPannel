@@ -41,8 +41,8 @@ export default function HomeCard({
           <Typography variant="body2" color="text.secondary">
             {element.sectorNumber}
           </Typography>
-          <div style={{ display: "flex", gap: "10px" }}>
-            <div style={{ display: "flex", gap: "5px" }}>
+          <div>
+            <div>
               <img
                 src="https://builder-floor-flax.vercel.app/assets/imgs/icons/home.svg"
                 alt="img"
@@ -54,7 +54,7 @@ export default function HomeCard({
                 {element.accommodation}{" "}
               </Typography>
             </div>
-            <div style={{ display: "flex", gap: "5px" }}>
+            <div>
               <img
                 src="https://builder-floor-flax.vercel.app/assets/imgs/page/homepage5/floor.svg"
                 alt="img"
@@ -64,7 +64,7 @@ export default function HomeCard({
               />
               <Typography variant="body2">{element.floor}</Typography>
             </div>
-            <div style={{ display: "flex", gap: "5px" }}>
+            <div>
               <img
                 src="https://builder-floor-flax.vercel.app/assets/imgs/icons/area-svg.svg"
                 alt="img"
@@ -77,7 +77,7 @@ export default function HomeCard({
           </div>
         </CardContent>
 
-        <div style={{ display: "flex", gap: "20px", marginTop: "10px" }}>
+        <div>
           <Rating
             name="home-card-fixed-rating"
             value={element.raiting || 5}

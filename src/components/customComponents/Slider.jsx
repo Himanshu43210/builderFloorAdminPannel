@@ -24,7 +24,7 @@ export default function SliderComponent({
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div>
         <Typography variant="caption">{minValue + " Cr."}</Typography>
         <Typography variant="caption">{maxValue + " Cr."}</Typography>
       </div>
@@ -37,7 +37,7 @@ export default function SliderComponent({
         step={parseFloat(step)}
         onChange={handleChange}
         valueLabelDisplay="off"
-        valueLabelFormat={(value) => (convertToCr(value.toFixed(1)) + " Cr.")}
+        valueLabelFormat={(value) => convertToCr(value.toFixed(1)) + " Cr."}
       />
     </div>
   );

@@ -187,7 +187,7 @@ const ListingTable = ({
       <div className="tablediv ">
         <Table striped bordered hover responsive size="sm">
           <thead>
-            <tr style={{ border: "none" }}>
+            <tr>
               {tableHeaders.map((header, index) => (
                 <th
                   key={index}
@@ -224,7 +224,6 @@ const ListingTable = ({
                   ))}
                   <td className="tablebody tableborder text">
                     <Button
-                      style={{ width: "75px", paddingLeft: "2px" }}
                       variant="success"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -238,7 +237,6 @@ const ListingTable = ({
                     &nbsp;
                     <Button
                       variant="danger"
-                      style={{ width: "80px", paddingLeft: "2px" }}
                       onClick={(e) => {
                         e.stopPropagation();
                         setCurrentRowData(element);

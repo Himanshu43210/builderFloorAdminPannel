@@ -4,21 +4,16 @@ import Panel from "./Panel";
 function Dashboard() {
   return (
     <div>
-          <div style={{ display: "flex" , backgroundColor:"#f8f4fc"}}>
-          <div  className="abc" style={{ width: "200px" }}>
+      <div>
+        <div className="admin-dashboard-home">
           <Panel />
-     
+        </div>
+        <div>
+          <div>
+            <Navbar />
           </div>
-
-          <div
-
-            style={{ border: "none", marginLeft: "10px", marginTop: "60px" }}
-          >
-          <div style={{ backgroundColor: "#f8f4fc" }}>
-               <Navbar />
-            </div>
-            </div>   
-              </div>   
+        </div>
+      </div>
       <p>Admin Dashboard</p>
     </div>
   );
