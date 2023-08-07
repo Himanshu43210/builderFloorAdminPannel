@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from "react";
+import { AiOutlineArrowUp } from "react-icons/ai";
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -13,21 +13,23 @@ export const ScrollToTop = () => {
     // Scroll to the top of the page when the button is clicked
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <div className={`scroll-to-top ${isVisible ? 'show' : ''}`} onClick={scrollToTop}>
-      <i className="fa fa-arrow-up" />
+    <div
+      className={`scroll-to-top ${isVisible ? "show" : ""}`}
+      onClick={scrollToTop}
+    >
+      <AiOutlineArrowUp />
     </div>
   );
 };
-
