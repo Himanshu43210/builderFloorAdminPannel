@@ -3,9 +3,8 @@ import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ListingTable from "../../utils/ListingTable";
 import { newMasterConst } from "../../fieldConsts/MasterFieldConst";
-import TableButtonHeader from "./TableButtonHeader";
-import Navbar from "./Navbar";
-import Panel from "./Panel";
+import TableButtonHeader from "../../utils/TableButtonHeader";
+import Navbar from "../../utils/Navbar";
 import {
   ALTER_MASTER_DATA,
   DELETE_MASTER_DATA,
@@ -18,8 +17,16 @@ import { selectApiData } from "../../../redux/utils/selectors";
 
 export default function MasterManagement() {
   let tableData = [];
-  const desktopHeaders = ["field", "value", "parentId"];
-  const mobileHeaders = ["field", "value", "parentId"];
+  const desktopHeaders = {
+    Field: "field",
+    Value: "value",
+    "Parent Id": "parentId",
+  };
+  const mobileHeaders = {
+    Field: "field",
+    Value: "value",
+    "Parent Id": "parentId",
+  };
   const fieldConst = newMasterConst;
   const dataToRender = useSelector((state) =>
     selectApiData(state, GET_MASTER_DATA)
@@ -27,6 +34,7 @@ export default function MasterManagement() {
 
   dataToRender?.data?.map((element) => {
     element.fieldValue?.map((value) => {
+      console.log(element, value);
       tableData.push({
         masterId: element.id,
         field: element.fieldName,
@@ -34,6 +42,7 @@ export default function MasterManagement() {
       });
     });
   });
+  console.log(tableData);
   return (
     <>
       {!dataToRender && (
@@ -49,6 +58,7 @@ export default function MasterManagement() {
                 fieldConst={fieldConst}
                 tableData={tableData}
                 saveDataApi={ALTER_MASTER_DATA}
+                refreshDataApi={GET_MASTER_DATA}
               />
               <ListingTable
                 data={tableData}

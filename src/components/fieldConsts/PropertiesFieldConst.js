@@ -69,10 +69,11 @@ export const newPropertyConst = [
     name: "parkFacing",
     label: "Park Facing",
     type: "radio",
+    dataKey: "parkFacing",
     isRequired: true,
     options: [
-      { value: "yes", label: "Yes" },
-      { value: "no", label: "No" },
+      { value: true, label: "Yes" },
+      { value: false, label: "No" },
     ],
     requiredErrorMessage: "Please select an option for park facing.",
   },
@@ -81,9 +82,10 @@ export const newPropertyConst = [
     label: "Corner",
     type: "radio",
     isRequired: true,
+    dataKey: "corner",
     options: [
-      { value: "yes", label: "Yes" },
-      { value: "no", label: "No" },
+      { value: true, label: "Yes" },
+      { value: false, label: "No" },
     ],
     requiredErrorMessage: "Please select an option for corner.",
   },
@@ -166,17 +168,6 @@ export const newPropertyConst = [
     requiredErrorMessage: "Please enter an address.",
   },
   {
-    name: "editor_choice",
-    label: "Editor Choice",
-    type: "radio",
-    isRequired: true,
-    options: [
-      { value: "yes", label: "Yes" },
-      { value: "no", label: "No" },
-    ],
-    requiredErrorMessage: "Please select an option for editor choice.",
-  },
-  {
     name: "category",
     label: "Category",
     type: "select",
@@ -192,9 +183,7 @@ export const newPropertyConst = [
     label: "State",
     type: "select",
     isRequired: true,
-    options: [
-      { value: "Haryana", label: "Haryana" },
-    ],
+    options: [{ value: "Haryana", label: "Haryana" }],
     requiredErrorMessage: "Please select a state.",
   },
   {

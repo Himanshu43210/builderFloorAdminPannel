@@ -39,6 +39,7 @@ export const SPAN_TEXT = "SPAN_TEXT";
 export const LOADING = "loading";
 export const FAILED = "failed";
 export const SUCCESS = "succeeded";
+export const APPROVED = "Approved";
 
 export const GET_CARD_DATA = "getCardData";
 export const GET_SEARCH_RESULT = "getSearchResult";
@@ -53,6 +54,7 @@ export const GET_PROPERTY_DATA = "getPropertyData";
 export const GET_MASTER_DATA = "getMasterData";
 export const ADMIN_DASHBOARD_LOGIN = "adminDashboardLogin";
 export const GET_SIMILAR_PROPERTY_DATA = "getSimilarPropertyData";
+export const APPROVE_PROPERTY_DATA = "approvePropertyData";
 
 export const LINKEDIN_ICON = "LINKEDIN_ICON";
 export const INSTAGRAM_ICON = "INSTAGRAM_ICON";
@@ -66,3 +68,8 @@ export const ADMIN_DASHBOARD = "ADMIN_DASHBOARD";
 export const USER_MANAGEMENT = "USER_MANAGEMENT";
 export const PROPERTY_MANAGEMENT = "PROPERTY_MANAGEMENT";
 export const MASTER_MANAGEMENT = "MASTER_MANAGEMENT";
+
+// options
+export const YES = "yes";
+export const PROFILE = "profile";
+export const NEED_APPROVAL_BY = "needApprovalBy";

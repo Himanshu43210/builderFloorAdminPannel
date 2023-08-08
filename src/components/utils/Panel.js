@@ -6,7 +6,7 @@ import {
   MASTER_MANAGEMENT,
   PROPERTY_MANAGEMENT,
   USER_MANAGEMENT,
-} from "../../utils/Const";
+} from "./Const";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 function Panel({ isSuperAdmin, handlePageClick }) {
@@ -25,24 +25,24 @@ function Panel({ isSuperAdmin, handlePageClick }) {
             <FaClipboardList className="admin-panel-icons" /> &nbsp;
             <h6>Dashboard</h6>
           </Button>
-          {isSuperAdmin && (
-            <>
-              <Button
-                onClick={() => handlePageClick(USER_MANAGEMENT)}
-                className="panel-link"
-              >
-                <FaUsers className="admin-panel-icons" />
-                <h6>User</h6>
-              </Button>
-              <Button
-                onClick={() => handlePageClick(MASTER_MANAGEMENT)}
-                className="panel-link"
-              >
-                <FaUserShield className="admin-panel-icons" />
-                <h6>Master</h6>
-              </Button>
-            </>
-          )}
+          {/* {!isSuperAdmin && ( */}
+          <>
+            <Button
+              onClick={() => handlePageClick(USER_MANAGEMENT)}
+              className="panel-link"
+            >
+              <FaUsers className="admin-panel-icons" />
+              <h6>User</h6>
+            </Button>
+            <Button
+              onClick={() => handlePageClick(MASTER_MANAGEMENT)}
+              className="panel-link"
+            >
+              <FaUserShield className="admin-panel-icons" />
+              <h6>Master</h6>
+            </Button>
+          </>
+          {/* )} */}
           <Button
             onClick={() => handlePageClick(PROPERTY_MANAGEMENT)}
             className="panel-link"

@@ -2,24 +2,32 @@ import { useState } from "react";
 import React from "react";
 import * as XLSX from "xlsx";
 import { Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   FaUserPlus,
   FaCloudUploadAlt,
   FaCloudDownloadAlt,
 } from "react-icons/fa";
-import FormBuilder from "../../utils/FormBuilder";
-import ReusablePopup from "../../utils/ReusablePopup";
-import { POST } from "../../utils/Const";
-import { API_ENDPOINTS } from "../../../redux/utils/api";
-import { callApi } from "../../../redux/utils/apiActions";
+import { FiRefreshCcw } from "react-icons/fi";
+import FormBuilder from "./FormBuilder";
+import ReusablePopup from "./ReusablePopup";
+import { GET, NEED_APPROVAL_BY, POST, PROFILE } from "./Const";
+import { API_ENDPOINTS } from "../../redux/utils/api";
+import { callApi } from "../../redux/utils/apiActions";
 
-const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
+const TableButtonHeader = ({
+  tableData = [],
+  fieldConst,
+  saveDataApi,
+  refreshDataApi,
+  s,
+}) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [newPopup, setNewPopup] = useState(null);
   const [importPopup, setImportPopup] = useState(null);
   const [exportPopup, setExportPopup] = useState(null);
   const [formData, setFormData] = useState({});
+  const userProfile = useSelector((state) => state[PROFILE]);
 
   const dispatch = useDispatch();
   const convertArrayToExcel = (dataArray, filename) => {
@@ -54,15 +62,19 @@ const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
 
   const handleSubmit = async () => {
     try {
+      console.log({ ...formData, parentId: userProfile._id }, userProfile._id);
       const options = {
         url: API_ENDPOINTS[saveDataApi],
         method: POST,
         headers: { "Content-Type": "application/json" },
-        data: formData,
+        data: {
+          ...formData,
+          parentId: userProfile._id,
+          [NEED_APPROVAL_BY]: userProfile.parentId,
+        },
       };
       dispatch(callApi(options));
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const toogleNewPopup = () => {
@@ -73,6 +85,18 @@ const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
   };
   const toogleExportPopup = () => {
     setExportPopup(!exportPopup);
+  };
+  const handleRefreshClick = () => {
+    console.log(refreshDataApi);
+    try {
+      const options = {
+        url: API_ENDPOINTS[refreshDataApi],
+        method: GET,
+        headers: { "Content-Type": "application/json" },
+        data: formData,
+      };
+      dispatch(callApi(options));
+    } catch (error) {}
   };
   return (
     <>
@@ -124,6 +148,9 @@ const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
         </Button>
         <Button class="btn" onClick={toogleExportPopup}>
           <FaCloudDownloadAlt /> &nbsp;&nbsp; EXPORT
+        </Button>
+        <Button class="btn" onClick={handleRefreshClick}>
+          <FiRefreshCcw /> &nbsp;&nbsp; REFRESH
         </Button>
       </div>
     </>

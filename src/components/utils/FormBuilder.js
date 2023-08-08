@@ -33,6 +33,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
   };
 
   const handleRadioChange = (name, value) => {
+    console.log(formData);
     handleChange(name, value);
   };
 
@@ -114,13 +115,23 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                 <div>
                   {field.options.map((option) => (
                     <label key={option.value}>
+                      {console.log(
+                        formData[field.name],
+                        formData[field.name] === option.value
+                      )}
+                      {console.log(
+                        formData[field.name] &&
+                          formData[field.name] === option.value,
+                        formData[field.dataKey] === option.value
+                      )}
                       <input
                         className="inputtag"
                         type="radio"
                         name={field.name}
                         value={option.value}
                         checked={
-                          formData[field.name] ||
+                          (formData[field.name] &&
+                            formData[field.name] === option.value) ||
                           formData[field.dataKey] === option.value
                         }
                         onChange={() =>

@@ -4,8 +4,8 @@ import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ListingTable from "../../utils/ListingTable";
 import { newUserConst } from "../../fieldConsts/UserFieldConst";
-import TableButtonHeader from "./TableButtonHeader";
-import Navbar from "./Navbar";
+import TableButtonHeader from "../../utils/TableButtonHeader";
+import Navbar from "../../utils/Navbar";
 import {
   ALTER_USER_DATA,
   DELETE_USER_DATA,
@@ -17,15 +17,15 @@ import { API_ENDPOINTS } from "../../../redux/utils/api";
 import { selectApiData } from "../../../redux/utils/selectors";
 
 export default function UserManagement() {
-  const desktopHeaders = [
-    "name",
-    "PhoneNumber",
-    "address",
-    "email",
-    "role",
-    "parentId",
-  ];
-  const mobileHeaders = ["name", "role"];
+  const desktopHeaders = {
+    Name: "name",
+    "Phone Number": "PhoneNumber",
+    Address: "address",
+    Email: "email",
+    Role: "role",
+    "Parent Id": "parentId",
+  };
+  const mobileHeaders = [{ Name: "name" }, { Role: "role" }];
   const fieldConst = newUserConst;
   let tableData = useSelector((state) => selectApiData(state, GET_USER_DATA));
 
@@ -44,9 +44,9 @@ export default function UserManagement() {
                 fieldConst={fieldConst}
                 tableData={_.cloneDeep(tableData?.data || [])}
                 saveDataApi={ALTER_USER_DATA}
+                refreshDataApi={GET_USER_DATA}
               />
               <ListingTable
-                data={_.cloneDeep(tableData?.data || [])}
                 headersDesktop={desktopHeaders}
                 headersMobile={mobileHeaders}
                 fieldConst={fieldConst}

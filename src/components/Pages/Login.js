@@ -17,7 +17,7 @@ const Login = () => {
   const userProfile = useSelector((state) =>
     selectApiData(state, ADMIN_DASHBOARD_LOGIN)
   );
-  const [email, setEmail] = useState("adm@adm.com");
+  const [email, setEmail] = useState("ad@ad.com");
   const [password, setPassword] = useState("123");
 
   useEffect(() => {
