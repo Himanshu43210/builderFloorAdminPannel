@@ -1,20 +1,20 @@
-import React, { useEffect } from "react";
-import ListingTable from "../utils/ListingTable";
+import React from "react";
 import { Card } from "react-bootstrap";
-import { newMasterConst } from "../fieldConsts/MasterFieldConst";
+import { useSelector } from "react-redux";
+import ListingTable from "../../utils/ListingTable";
+import { newMasterConst } from "../../fieldConsts/MasterFieldConst";
 import TableButtonHeader from "./TableButtonHeader";
-import Navbar from "../../components/adminPages/Navbar";
+import Navbar from "./Navbar";
 import Panel from "./Panel";
 import {
   ALTER_MASTER_DATA,
   DELETE_MASTER_DATA,
   GET,
   GET_MASTER_DATA,
-} from "../utils/Const";
-import AutoFetchApi from "../customComponents/AutoFetchApi";
-import { API_ENDPOINTS } from "../../redux/utils/api";
-import { useSelector } from "react-redux";
-import { selectApiData } from "../../redux/utils/apiSelector";
+} from "../../utils/Const";
+import AutoFetchApi from "../../customComponents/AutoFetchApi";
+import { API_ENDPOINTS } from "../../../redux/utils/api";
+import { selectApiData } from "../../../redux/utils/apiSelector";
 
 function MasterTable() {
   let tableData = [];

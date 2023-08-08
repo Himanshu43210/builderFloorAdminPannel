@@ -6,7 +6,7 @@ function Navbar() {
     <AppBar>
       <CssBaseline />
       <Toolbar>
-        <Typography className="navbar-banner">Admin Pannel</Typography>
+        <Typography className="navbar-banner">Admin Dashboard</Typography>
       </Toolbar>
     </AppBar>
   );

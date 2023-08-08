@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import ListingTable from "../utils/ListingTable";
+import React from "react";
 import { Card } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import ListingTable from "../../utils/ListingTable";
 import Panel from "./Panel";
 import Navbar from "./Navbar";
 import TableButtonHeader from "./TableButtonHeader";
-import { newPropertyConst } from "../fieldConsts/PropertiesFieldConst";
+import { newPropertyConst } from "../../fieldConsts/PropertiesFieldConst";
+import AutoFetchApi from "../../customComponents/AutoFetchApi";
+import { API_ENDPOINTS } from "../../../redux/utils/api";
+import { selectApiData } from "../../../redux/utils/apiSelector";
+import _ from "lodash";
 import {
   ALTER_PROPERTY_DATA,
   DELETE_PROPERTY_DATA,
   GET,
   GET_PROPERTY_DATA,
-} from "../utils/Const";
-import { useSelector } from "react-redux";
-import AutoFetchApi from "../customComponents/AutoFetchApi";
-import { API_ENDPOINTS } from "../../redux/utils/api";
-import { selectApiData } from "../../redux/utils/apiSelector";
-import _ from "lodash";
+} from "../../utils/Const";
 
 function PropertyTable() {
   const desktopHeaders = [

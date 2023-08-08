@@ -1,22 +1,33 @@
 import React from "react";
-import Navbar from "../../components/adminPages/Navbar";
+import { useState } from "react";
+import { Button } from "@mui/material";
+import { BsMenuButtonWide } from "react-icons/bs";
 import Panel from "./Panel";
-function Dashboard() {
+import Navbar from "./Navbar";
+
+export default function AdminDashboard() {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div>
+      <Button
+        className="admin-menu-button"
+        onClick={() => setShowMenu(!showMenu)}
+      >
+        <BsMenuButtonWide />
+      </Button>
       <div>
-        <div className="admin-dashboard-home">
-          <Panel />
-        </div>
+        {showMenu && (
+          <div className="admin-dashboard-home">
+            <Panel />
+          </div>
+        )}
         <div>
           <div>
             <Navbar />
           </div>
         </div>
       </div>
-      <p>Admin Dashboard</p>
     </div>
   );
 }
-
-export default Dashboard;

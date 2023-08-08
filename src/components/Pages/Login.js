@@ -2,23 +2,19 @@ import { CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { PASSWORD, USER_RESPONSE_DATA } from "../Consts";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { ADMIN_DASHBOARD_LOGIN, LOADING, POST, SUCCESS } from "../utils/Const";
 import { callApi } from "../../redux/utils/apiActions";
-import { selectApiData, selectApiStatus } from "../../redux/utils/apiSelector";
+import { selectApiStatus } from "../../redux/utils/apiSelector";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const profile = useSelector((state) =>
-    selectApiData(state, ADMIN_DASHBOARD_LOGIN)
-  );
   const loginStatus = useSelector((state) =>
     selectApiStatus(state, ADMIN_DASHBOARD_LOGIN)
   );
-  const [email, setEmail] = useState(USER_RESPONSE_DATA.email);
-  const [password, setPassword] = useState(PASSWORD);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   useEffect(() => {
     if (loginStatus === SUCCESS) navigate("/adminDashboard");

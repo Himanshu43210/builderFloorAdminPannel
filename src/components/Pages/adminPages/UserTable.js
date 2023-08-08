@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
-import ListingTable from "../utils/ListingTable";
-import { newUserConst } from "../fieldConsts/UserFieldConst";
+import _ from "lodash";
+import React from "react";
 import { Card } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import ListingTable from "../../utils/ListingTable";
+import { newUserConst } from "../../fieldConsts/UserFieldConst";
 import TableButtonHeader from "./TableButtonHeader";
 import Navbar from "./Navbar";
 import Panel from "./Panel";
@@ -10,12 +12,10 @@ import {
   DELETE_USER_DATA,
   GET,
   GET_USER_DATA,
-} from "../utils/Const";
-import { useSelector } from "react-redux";
-import AutoFetchApi from "../customComponents/AutoFetchApi";
-import { API_ENDPOINTS } from "../../redux/utils/api";
-import { selectApiData } from "../../redux/utils/apiSelector";
-import _ from "lodash";
+} from "../../utils/Const";
+import AutoFetchApi from "../../customComponents/AutoFetchApi";
+import { API_ENDPOINTS } from "../../../redux/utils/api";
+import { selectApiData } from "../../../redux/utils/apiSelector";
 
 function UserTable() {
   const desktopHeaders = [

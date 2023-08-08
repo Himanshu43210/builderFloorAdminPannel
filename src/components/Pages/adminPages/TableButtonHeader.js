@@ -2,17 +2,17 @@ import { useState } from "react";
 import React from "react";
 import * as XLSX from "xlsx";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import {
   FaUserPlus,
   FaCloudUploadAlt,
   FaCloudDownloadAlt,
 } from "react-icons/fa";
-import FormBuilder from "../utils/FormBuilder";
-import ReusablePopup from "../utils/ReusablePopup";
-import { POST } from "../utils/Const";
-import { API_ENDPOINTS } from "../../redux/utils/api";
-import { useDispatch } from "react-redux";
-import { callApi } from "../../redux/utils/apiActions";
+import FormBuilder from "../../utils/FormBuilder";
+import ReusablePopup from "../../utils/ReusablePopup";
+import { POST } from "../../utils/Const";
+import { API_ENDPOINTS } from "../../../redux/utils/api";
+import { callApi } from "../../../redux/utils/apiActions";
 
 const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
   console.log(tableData);

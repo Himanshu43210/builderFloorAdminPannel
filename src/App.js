@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./components/adminPages/AdminDashboard";
+import Dashboard from "./components/Pages/adminPages/AdminDashboard";
 import Login from "./components/Pages/Login";
-import UserTable from "./components/adminPages/UserTable";
-import PropertyTable from "./components/adminPages/PropertyTable";
-import MasterTable from "./components/adminPages/MasterTable";
+import UserTable from "./components/Pages/adminPages/UserTable";
+import PropertyTable from "./components/Pages/adminPages/PropertyTable";
+import MasterTable from "./components/Pages/adminPages/MasterTable";
 import Home from "./components/Pages/Home";
 import DetailedView from "./components/Pages/DetailedView";
 import SearchResult from "./components/Pages/SearchResult";
