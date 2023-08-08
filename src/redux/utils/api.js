@@ -1,7 +1,7 @@
 import _ from "lodash";
 
-// const API_DOMAIN = "https://builder-floor-backend-n2ib.onrender.com/api/";
-const API_DOMAIN = "http://localhost:5000/api/";
+const API_DOMAIN = "https://builder-floor-backend-n2ib.onrender.com/api/";
+// const API_DOMAIN = "http://localhost:5000/api/";
 
 export const getApiName = (api) => {
   console.log(api);
@@ -28,7 +28,7 @@ export const API_ENDPOINTS = {
   addPropertyData: API_DOMAIN + "properties/addProperty",
   alterPropertyData: API_DOMAIN + "properties/editProperty",
   deletePropertyData: API_DOMAIN + "properties/deleteProperty",
-approvePropertyData: API_DOMAIN + "properties/approveProperty",
+  approvePropertyData: API_DOMAIN + "properties/approveProperty",
   getMasterData: API_DOMAIN + "masters/list",
   addMasterData: API_DOMAIN + "masters/addMaster",
   alterMasterData: API_DOMAIN + "masters/editMaster",
