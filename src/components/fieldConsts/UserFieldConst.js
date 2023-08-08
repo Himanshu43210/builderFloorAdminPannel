@@ -52,17 +52,10 @@ export const newUserConst = [
     type: "select",
     isRequired: true,
     options: [
-      { value: "admin", label: "Admin" },
-      { value: "channelPartner", label: "Channel Partner" },
-      { value: "user", label: "User" },
+      { value: "BuilderFloorAdmin", label: "Builder Floor Admin" },
+      { value: "ChannelPartner", label: "Channel Partner" },
+      { value: "PropertyDealer", label: "Property Dealer" },
     ],
     requiredErrorMessage: "Please select a role.",
-  },
-  {
-    name: "parentId",
-    label: "Parent Id",
-    type: "text",
-    isRequired: true,
-    requiredErrorMessage: "Please enter Parent Id.",
   },
 ];

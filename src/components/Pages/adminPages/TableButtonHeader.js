@@ -15,7 +15,6 @@ import { API_ENDPOINTS } from "../../../redux/utils/api";
 import { callApi } from "../../../redux/utils/apiActions";
 
 const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
-  console.log(tableData);
   const [selectedFile, setSelectedFile] = useState(null);
   const [newPopup, setNewPopup] = useState(null);
   const [importPopup, setImportPopup] = useState(null);
@@ -43,7 +42,6 @@ const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
 
   const handleFormDataChange = (newFormData) => {
     setFormData(newFormData);
-    console.log(formData);
   };
 
   const handleExportClick = () => {
@@ -63,9 +61,7 @@ const TableButtonHeader = ({ tableData = [], fieldConst, saveDataApi }) => {
         data: formData,
       };
       dispatch(callApi(options));
-      console.log(formData);
     } catch (error) {
-      console.log(error);
     }
   };
 

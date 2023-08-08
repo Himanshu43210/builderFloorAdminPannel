@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { ADMIN_DASHBOARD_LOGIN, LOADING, POST, SUCCESS } from "../utils/Const";
 import { callApi } from "../../redux/utils/apiActions";
-import { selectApiStatus } from "../../redux/utils/apiSelector";
+import { selectApiData, selectApiStatus } from "../../redux/utils/selectors";
+import { storeUserData } from "../../redux/slice/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,11 +14,17 @@ const Login = () => {
   const loginStatus = useSelector((state) =>
     selectApiStatus(state, ADMIN_DASHBOARD_LOGIN)
   );
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const userProfile = useSelector((state) =>
+    selectApiData(state, ADMIN_DASHBOARD_LOGIN)
+  );
+  const [email, setEmail] = useState("adm@adm.com");
+  const [password, setPassword] = useState("123");
 
   useEffect(() => {
-    if (loginStatus === SUCCESS) navigate("/adminDashboard");
+    if (loginStatus === SUCCESS) {
+      dispatch(storeUserData(userProfile?.profile));
+      navigate("/admin");
+    }
   }, [loginStatus]);
 
   const handleEmailChange = (e) => {
@@ -40,7 +47,6 @@ const Login = () => {
       };
       dispatch(callApi(options));
     } catch (error) {
-      console.log(error);
     }
   };
   return (

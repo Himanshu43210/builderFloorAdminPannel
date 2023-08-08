@@ -10,7 +10,6 @@ const apiSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(callApi.pending, (state, action) => {
-        console.log(getApiName(action.meta.arg.url));
         state.status[getApiName(action.meta.arg.url)] = LOADING;
       })
       .addCase(callApi.fulfilled, (state, action) => {

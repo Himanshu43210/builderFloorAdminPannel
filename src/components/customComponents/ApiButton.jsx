@@ -10,7 +10,6 @@ export default function ApiButton({
   buttonLabel,
   navigate,
 }) {
-  console.log("why Here?");
   const apiHeader = { "Content-Type": "application/json" };
   const navigateTo = useNavigate();
 

@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import { callApi } from "../../redux/utils/apiActions";
 import { useDispatch } from "react-redux";
 import { GET, HORIZONTAL_LINE, SAMPLE_CARD_DATA } from "../utils/Const";
-import { selectApiData } from "../../redux/utils/apiSelector";
+import { selectApiData } from "../../redux/utils/selectors";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { convertToCr } from "../utils/HelperMethods";
 import IframeBuilder from "./IframeBuilder";
@@ -15,7 +15,6 @@ export default function DetailDataCard({ component }) {
   const id = pathname.split("id=").pop();
   const getApiEndpoint = component.apiSliceName;
   const apiEndpoint = API_ENDPOINTS[getApiEndpoint] + `?id=${id}`;
-  console.log(apiEndpoint);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
@@ -25,7 +24,6 @@ export default function DetailDataCard({ component }) {
         headers: { "Content-Type": "application/json" },
       })
     );
-    console.log(id);
   }, []);
 
   // basic screen components
@@ -45,14 +43,11 @@ export default function DetailDataCard({ component }) {
 
   return (
     <>
-      {console.log(cardData)}
       <div className="detailcomponent">
         <p>{cardData?.title}</p>
         <div className="detail-image-div">
           <div className="main-images">
             <div className="img360">
-              {console.log(imageLink)}
-              {console.log(cardData.images?.[0])}
               <IframeBuilder
                 src={imageLink}
                 title="Example Website"

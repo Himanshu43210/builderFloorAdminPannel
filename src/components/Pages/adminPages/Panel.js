@@ -1,30 +1,55 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaClipboardList, FaUsers, FaCog, FaUserShield } from "react-icons/fa";
-function Panel() {
+import { AiFillHome } from "react-icons/ai";
+import {
+  ADMIN_DASHBOARD,
+  MASTER_MANAGEMENT,
+  PROPERTY_MANAGEMENT,
+  USER_MANAGEMENT,
+} from "../../utils/Const";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+function Panel({ isSuperAdmin, handlePageClick }) {
   return (
     <div>
       <div className="sidebarcontainer">
         <div className="panel-nav-link" id="sidebar">
-          <Link to="./adminPages/AdminDashboard.js" className="panel-link">
-            <FaClipboardList color="#4677c3 " /> &nbsp;
+          <Link to="/" className="panel-link">
+            <AiFillHome className="admin-panel-icons" /> &nbsp;
+            <h6>BuilderFloor</h6>
+          </Link>
+          <Button
+            onClick={() => handlePageClick(ADMIN_DASHBOARD)}
+            className="panel-link"
+          >
+            <FaClipboardList className="admin-panel-icons" /> &nbsp;
             <h6>Dashboard</h6>
-          </Link>
-          <Link to="./adminPages/UserTable.js" className="panel-link">
-            <FaUsers color="#4677c3 " />
-            &nbsp;
-            <h6>User</h6>
-          </Link>
-          <Link to="./adminPages/PropertyTable.js" className="panel-link">
-            <FaCog color="#4677c3 " />
-            &nbsp;
+          </Button>
+          {isSuperAdmin && (
+            <>
+              <Button
+                onClick={() => handlePageClick(USER_MANAGEMENT)}
+                className="panel-link"
+              >
+                <FaUsers className="admin-panel-icons" />
+                <h6>User</h6>
+              </Button>
+              <Button
+                onClick={() => handlePageClick(MASTER_MANAGEMENT)}
+                className="panel-link"
+              >
+                <FaUserShield className="admin-panel-icons" />
+                <h6>Master</h6>
+              </Button>
+            </>
+          )}
+          <Button
+            onClick={() => handlePageClick(PROPERTY_MANAGEMENT)}
+            className="panel-link"
+          >
+            <FaCog className="admin-panel-icons" />
             <h6>Property</h6>
-          </Link>
-          <Link to="./adminPages/MasterTable.js" className="panel-link">
-            <FaUserShield color="#4677c3 " />
-            &nbsp;
-            <h6>Master</h6>
-          </Link>
+          </Button>
         </div>
       </div>
     </div>

@@ -55,7 +55,14 @@ export const ADMIN_DASHBOARD_LOGIN = "adminDashboardLogin";
 export const GET_SIMILAR_PROPERTY_DATA = "getSimilarPropertyData";
 
 export const LINKEDIN_ICON = "LINKEDIN_ICON";
-export const INSTAGRAM_ICON = "INSTAGARAM_ICON";
+export const INSTAGRAM_ICON = "INSTAGRAM_ICON";
 
-// to remove
-export const SAMPLE_CARD_DATA = "SAMPLE_CARD_DATA";
+export const BF_ADMIN = "bfAdmin";
+export const CHANNEL_PARTNER = "channelPartner";
+export const PROPERTY_DEALER = "propertyDealer";
+
+// Pages
+export const ADMIN_DASHBOARD = "ADMIN_DASHBOARD";
+export const USER_MANAGEMENT = "USER_MANAGEMENT";
+export const PROPERTY_MANAGEMENT = "PROPERTY_MANAGEMENT";
+export const MASTER_MANAGEMENT = "MASTER_MANAGEMENT";

@@ -46,7 +46,6 @@ export const SelectSlider = ({
               max={parseFloat(component.maxValue)}
               step={component.step}
               onChange={(action, value) => {
-                console.log(value);
                 handleValueChange(value);
               }}
               valueLabelDisplay="auto"

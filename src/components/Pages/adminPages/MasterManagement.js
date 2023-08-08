@@ -14,9 +14,9 @@ import {
 } from "../../utils/Const";
 import AutoFetchApi from "../../customComponents/AutoFetchApi";
 import { API_ENDPOINTS } from "../../../redux/utils/api";
-import { selectApiData } from "../../../redux/utils/apiSelector";
+import { selectApiData } from "../../../redux/utils/selectors";
 
-function MasterTable() {
+export default function MasterManagement() {
   let tableData = [];
   const desktopHeaders = ["field", "value", "parentId"];
   const mobileHeaders = ["field", "value", "parentId"];
@@ -40,37 +40,30 @@ function MasterTable() {
         <AutoFetchApi url={API_ENDPOINTS[GET_MASTER_DATA]} method={GET} />
       )}
       <div>
-        <div className="admin-dashboard-home">
-          <Panel />
-        </div>
         <div>
-          <div>
-            <Navbar />
-            <Card>
-              <Card.Header className="font">Master Details</Card.Header>
-              <Card.Body>
-                <TableButtonHeader
-                  fieldConst={fieldConst}
-                  tableData={tableData}
-                  saveDataApi={ALTER_MASTER_DATA}
-                />
-                <ListingTable
-                  data={tableData}
-                  headersDesktop={desktopHeaders}
-                  headersMobile={mobileHeaders}
-                  fieldConst={fieldConst}
-                  editApi={ALTER_MASTER_DATA}
-                  deleteApi={DELETE_MASTER_DATA}
-                  getDataApi={GET_MASTER_DATA}
-                  itemCount={dataToRender?.itemCount}
-                />
-              </Card.Body>
-            </Card>
-          </div>
+          <Navbar />
+          <Card>
+            <Card.Header className="font">Master Details</Card.Header>
+            <Card.Body>
+              <TableButtonHeader
+                fieldConst={fieldConst}
+                tableData={tableData}
+                saveDataApi={ALTER_MASTER_DATA}
+              />
+              <ListingTable
+                data={tableData}
+                headersDesktop={desktopHeaders}
+                headersMobile={mobileHeaders}
+                fieldConst={fieldConst}
+                editApi={ALTER_MASTER_DATA}
+                deleteApi={DELETE_MASTER_DATA}
+                getDataApi={GET_MASTER_DATA}
+                itemCount={dataToRender?.itemCount}
+              />
+            </Card.Body>
+          </Card>
         </div>
       </div>
     </>
   );
 }
-
-export default MasterTable;

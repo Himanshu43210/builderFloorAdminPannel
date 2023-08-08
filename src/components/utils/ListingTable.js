@@ -27,7 +27,6 @@ const ListingTable = ({
   getDataApi,
   itemCount,
 }) => {
-  console.log(data);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showRowModal, setShowRowModal] = useState(false);
@@ -66,7 +65,6 @@ const ListingTable = ({
         headers: { "Content-Type": "application/json" },
       };
       dispatch(callApi(options));
-      console.log(formData);
     } catch (error) {
       console.log(error);
     }
@@ -84,21 +82,17 @@ const ListingTable = ({
   };
   const handleFormDataChange = (newFormData) => {
     setFormData(newFormData);
-    console.log(formData);
   };
 
   const toogleRowClick = () => {
-    console.log(currentRowData);
     setShowRowModal(!showRowModal);
   };
 
   const toogleEdit = () => {
-    console.log(currentRowData);
     setShowEditModal(!showEditModal);
   };
 
   const toogleDelete = () => {
-    console.log(currentRowData);
     setShowDeleteModal(!showDeleteModal);
   };
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectApiData } from "../../redux/utils/apiSelector";
+import { selectApiData } from "../../redux/utils/selectors";
 import HomeCard from "./HomeCard";
 import SearchCard from "./SearchCard";
 import { HOME_CARD, SEARCH_CARD } from "../utils/Const";
@@ -18,9 +18,7 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
   useEffect(() => {}, [dataToRender]);
   return (
     <div className="searchdiv">
-      {console.log(dataToRender)}
       {dataToRender?.map((element) => {
-        console.log(component.renderComponentsInLoop.type);
         return (
           <>
             {ComponentType === HOME_CARD && (

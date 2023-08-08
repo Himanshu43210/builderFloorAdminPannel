@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { BiMenuAltLeft } from 'react-icons/bi';
 
 const  MenupState = (MenuItems) => {
-    console.log(MenuItems,"adadad")
     const navigate = useNavigate();
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
