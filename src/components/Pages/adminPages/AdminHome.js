@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "@mui/material";
-import { BsMenuButtonWide } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi";
 import Panel from "./Panel";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
@@ -21,7 +21,7 @@ export default function AdminHome() {
           className="admin-menu-button"
           onClick={() => setShowMenu(!showMenu)}
         >
-          <BsMenuButtonWide />
+          <GiHamburgerMenu />
         </Button>
         <Navbar />
       </div>
