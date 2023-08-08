@@ -209,7 +209,7 @@ const ListingTable = ({
         <ReusablePopup
           onSave={() => {
             handleSave();
-            // toogleEdit();
+            toogleEdit();
           }}
           onHide={toogleEdit}
           onCancel={toogleEdit}
@@ -226,7 +226,7 @@ const ListingTable = ({
         <ReusablePopup
           onYes={() => {
             handleDelete();
-            // toogleDelete();
+            toogleDelete();
           }}
           onHide={toogleDelete}
           onCancel={toogleDelete}
@@ -246,9 +246,8 @@ const ListingTable = ({
       {showApprovalModal && (
         <ReusablePopup
           onYes={() => {
-            // console.log(currentRowData);
             handleApprove(currentRowData._id);
-            // toogleDelete();
+            toogleDelete();
           }}
           onHide={toogleApproval}
           onCancel={toogleApproval}
