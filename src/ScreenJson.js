@@ -42,7 +42,11 @@ const MENU_ITEMS = [
     path: "/adminDashboard",
   },
 ];
-
+export const userRoles = {
+  bfAdmin: "BuilderFloorAdmin",
+  channelPartner: "ChannelPartner",
+  propertyDealer: "PropertyDealer",
+};
 const FOOTER = {
   type: PAGE_FOOTER,
   className: "default-home-footer-div",

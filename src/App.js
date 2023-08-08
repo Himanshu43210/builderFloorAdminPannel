@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/adminPages/AdminDashboard";
 import Login from "./components/Pages/Login";
-import LoginSuccess from "./components/Pages/LoginSuccess";
 import UserTable from "./components/adminPages/UserTable";
 import PropertyTable from "./components/adminPages/PropertyTable";
 import MasterTable from "./components/adminPages/MasterTable";
@@ -13,10 +12,9 @@ import SearchResult from "./components/Pages/SearchResult";
 function App() {
   return (
     <Router>
-      <div className="App" >
+      <div className="App">
         <Routes>
           <Route path="/adminDashboard" element={<Dashboard />} />
-          <Route path="/login-success" element={<LoginSuccess />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user" element={<UserTable />} />
           <Route path="/property" element={<PropertyTable />} />
