@@ -112,7 +112,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                 />
               )}
               {field.type === "radio" && (
-                <div>
+                <div  className="radio-button-styling">
                   {field.options.map((option) => (
                     <label key={option.value}>
                       {console.log(
