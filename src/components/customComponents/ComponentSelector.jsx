@@ -19,6 +19,7 @@ import {
   SCROLL_TO_TOP,
   PAGE_HEADER,
   HORIZONTAL_LINE,
+  LOADING,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -39,11 +40,15 @@ import { ScrollToTop } from "./ScrollToTop";
 import DetailDataCard from "./DetailedDataCard";
 import Header from "./Header";
 import CustomToogleButton from "./ToggleButton";
+import { CircularProgress } from "@material-ui/core";
+import { selectApiStatus } from "../../redux/utils/selectors";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
   const sliceData = useSelector((state) => state[component.sliceName]);
-
+  const apiStatus = useSelector((state) =>
+    selectApiStatus(state, component.loadingApi || "")
+  );
   const handleValueChange = (value) => {
     dispatch(
       storeFilterData({
@@ -66,6 +71,9 @@ const ComponentSelector = ({ component }) => {
   };
   return (
     <>
+      {component.loadingApi && apiStatus === LOADING && (
+        <CircularProgress className="loader-class" />
+      )}
       {component.type === AUTO_FETCH_API && (
         <AutoFetchApi url={component.api} method={GET} />
       )}

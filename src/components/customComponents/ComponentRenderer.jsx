@@ -1,14 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import ComponentSelector from "./ComponentSelector";
-import { CircularProgress } from "@mui/material";
-import { selectApiStatus } from "./../../redux/utils/selectors"; // Replace with the correct path to your selector file
 
 export default function RenderComponent({ jsonToRender }) {
-  const loadingStatus = useSelector((state) =>
-    selectApiStatus(state, "getSearchResult")
-  );
-
   const renderComponent = (componentList) => {
     return componentList?.map((component) => {
       return (
@@ -18,13 +11,5 @@ export default function RenderComponent({ jsonToRender }) {
       );
     });
   };
-  return (
-    <>
-      {loadingStatus === "loading" ? (
-        <CircularProgress />
-      ) : (
-        renderComponent(jsonToRender.children)
-      )}
-    </>
-  );
+  return renderComponent(jsonToRender.children);
 }

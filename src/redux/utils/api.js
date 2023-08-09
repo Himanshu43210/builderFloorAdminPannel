@@ -4,13 +4,10 @@ const API_DOMAIN = "https://builder-floor-backend-n2ib.onrender.com/api/";
 // const API_DOMAIN = "http://localhost:5000/api/";
 
 export const getApiName = (api) => {
-  console.log(api);
-  api = api.split("?")[0]; //remove any qurey params
-  console.log(
-    _.findKey(API_ENDPOINTS, (value) => value === api),
-    api
-  );
-  return _.findKey(API_ENDPOINTS, (value) => value === api);
+  const apiWithoutParams = api.split("?")[0]; //remove any qurey params
+  return _.findKey(API_ENDPOINTS, (value) => {
+    return value === api || value === apiWithoutParams;
+  });
 };
 
 export const API_ENDPOINTS = {

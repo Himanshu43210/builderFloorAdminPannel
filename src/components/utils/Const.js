@@ -55,6 +55,7 @@ export const GET_MASTER_DATA = "getMasterData";
 export const ADMIN_DASHBOARD_LOGIN = "adminDashboardLogin";
 export const GET_SIMILAR_PROPERTY_DATA = "getSimilarPropertyData";
 export const APPROVE_PROPERTY_DATA = "approvePropertyData";
+export const GET_HOME_SCREEN_DATA = "getHomeScreenData";
 
 export const LINKEDIN_ICON = "LINKEDIN_ICON";
 export const INSTAGRAM_ICON = "INSTAGRAM_ICON";

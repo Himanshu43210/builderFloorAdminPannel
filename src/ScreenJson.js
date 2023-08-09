@@ -7,6 +7,7 @@ import {
   DYNAMIC_CARD_CONTAINER,
   GET,
   GET_CARD_DATA,
+  GET_HOME_SCREEN_DATA,
   GET_SEARCH_RESULT,
   GET_SIMILAR_PROPERTY_DATA,
   HAMBURGER_MENU,
@@ -92,13 +93,12 @@ const SCROLLTOP = {
 };
 export const HOME_SCREEN = {
   name: "Home Screen",
-  loading: "getHomeScreenData",
   children: [
     HEADER,
     { type: HORIZONTAL_LINE },
     {
       type: AUTO_FETCH_API,
-      api: API_ENDPOINTS["getHomeScreenData"],
+      api: API_ENDPOINTS[GET_HOME_SCREEN_DATA],
       className: "header",
     },
     {
@@ -154,8 +154,9 @@ export const HOME_SCREEN = {
     },
     {
       type: DYNAMIC_CARD_CONTAINER,
+      loadingApi: GET_HOME_SCREEN_DATA,
       className: "default-home-cards",
-      apiName: "getHomeScreenData",
+      apiName: GET_HOME_SCREEN_DATA,
       renderComponentsInLoop: { type: HOME_CARD, className: "homeCards" },
       cardClickApi: API_ENDPOINTS[GET_CARD_DATA],
       cardClickNavigate: "/builderFloorDetails",
@@ -186,7 +187,9 @@ export const CARD_DETAILS_SCREEN = {
     },
     {
       type: DETAILED_VIEW,
+
       name: "detailedViewImage",
+      loadingApi: GET_CARD_DATA,
       className: "home-page-banner",
       apiSliceName: GET_CARD_DATA,
       phoneToDisplay: "+91 9818215215",
@@ -209,6 +212,7 @@ export const CARD_DETAILS_SCREEN = {
     { type: HORIZONTAL_LINE },
     {
       type: DYNAMIC_CARD_CONTAINER,
+      loadingApi: GET_SIMILAR_PROPERTY_DATA,
       className: "default-home-cards",
       apiName: GET_SIMILAR_PROPERTY_DATA,
       renderComponentsInLoop: { type: HOME_CARD, className: "homeCards" },
@@ -428,6 +432,7 @@ export const SEARCH_RESULT = {
         },
         {
           type: DYNAMIC_CARD_CONTAINER,
+          loadingApi: GET_SEARCH_RESULT,
           sliceName: "filter",
           className: "result-searchdiv",
           apiName: GET_SEARCH_RESULT,

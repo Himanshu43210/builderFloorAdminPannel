@@ -162,7 +162,7 @@ export default function DetailDataCard({ component }) {
           </div>
         </div>
       </div>
-      <div>{component.moreOptionText}</div>
+      <div className="similar-option-title">{component.moreOptionText}</div>
       <HORIZONTAL_LINE />
       <div>
         <div></div>
