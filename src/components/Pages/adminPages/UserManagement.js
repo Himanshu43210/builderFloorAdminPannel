@@ -45,6 +45,7 @@ export default function UserManagement() {
                 tableData={_.cloneDeep(tableData?.data || [])}
                 saveDataApi={ALTER_USER_DATA}
                 refreshDataApi={GET_USER_DATA}
+                addHeader="Add User"
               />
               <ListingTable
                 headersDesktop={desktopHeaders}

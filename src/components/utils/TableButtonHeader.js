@@ -20,7 +20,7 @@ const TableButtonHeader = ({
   fieldConst,
   saveDataApi,
   refreshDataApi,
-  s,
+  addHeader,
 }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [newPopup, setNewPopup] = useState(null);
@@ -63,18 +63,35 @@ const TableButtonHeader = ({
   const handleSubmit = async () => {
     try {
       console.log({ ...formData, parentId: userProfile._id }, userProfile._id);
+      const newFormData = new FormData();
+      for (const file of formData?.images || []) {
+        newFormData.append("files", file);
+      }
+      newFormData.append("parentId", userProfile._id);
+      newFormData.append([NEED_APPROVAL_BY], userProfile.parentId);
+      newFormData.append("formData", { ...formData });
+      Object.keys(formData).map((element) => {
+        newFormData.append(
+          element,
+          formData[element]?.value
+            ? formData[element]?.value
+            : formData[element]
+        );
+      });
       const options = {
         url: API_ENDPOINTS[saveDataApi],
         method: POST,
-        headers: { "Content-Type": "application/json" },
-        data: {
-          ...formData,
-          parentId: userProfile._id,
-          [NEED_APPROVAL_BY]: userProfile.parentId,
+        headers: {
+          "Content-Type": formData.images
+            ? "multipart/form-data"
+            : "application/json",
         },
+        data: formData.images ? newFormData : formData,
       };
       dispatch(callApi(options));
-    } catch (error) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const toogleNewPopup = () => {
@@ -106,7 +123,7 @@ const TableButtonHeader = ({
           onHide={toogleNewPopup}
           onCancel={toogleNewPopup}
         >
-          <div className="formheadingcontainer">Add Users</div>
+          <div className="formheadingcontainer">{addHeader}</div>
           <FormBuilder
             fields={fieldConst}
             onFormDataChange={handleFormDataChange}

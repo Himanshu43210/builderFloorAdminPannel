@@ -247,7 +247,7 @@ const ListingTable = ({
         <ReusablePopup
           onYes={() => {
             handleApprove(currentRowData._id);
-            toogleDelete();
+            toogleApproval();
           }}
           onHide={toogleApproval}
           onCancel={toogleApproval}

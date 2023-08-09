@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
+import { EMAIL, TEXT } from "./Const";
 
 const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
   const [formData, setFormData] = useState(propsFormData || {});
@@ -14,11 +15,11 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
     const field = fields.find((f) => f.name === name);
     const errors = { ...fieldErrors };
 
-    if (field.regex && !field.regex.test(value)) {
-      errors[name] = field.regexErrorMessage;
-    } else {
-      delete errors[name];
-    }
+    // if (field.regex && !field.regex.test(value)) {
+    //   errors[name] = field.regexErrorMessage;
+    // } else {
+    //   delete errors[name];
+    // }
 
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -27,18 +28,14 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
     setFieldErrors(errors);
   };
 
-  const handleSelectChange = (name, selectedOption) => {
-    const value = selectedOption ? selectedOption : null;
-    handleChange(name, value);
-  };
-
-  const handleRadioChange = (name, value) => {
-    console.log(formData);
-    handleChange(name, value);
-  };
-
-  const handleTextareaChange = (name, value) => {
-    handleChange(name, value);
+  const handleFileChange = (key, value) => {
+    const allFiles = [];
+    console.log(value);
+    for (const file of value) {
+      allFiles.push(file);
+    }
+    handleChange(key, allFiles);
+    console.log(allFiles);
   };
 
   return (
@@ -53,10 +50,10 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
             </div>
 
             <div className="inputdiv">
-              {field.type === "text" && (
+              {field.type === TEXT && (
                 <input
                   className="inputtag"
-                  type="text"
+                  type={TEXT}
                   id={field.name}
                   name={field.name}
                   value={formData[field.name] || formData[field.dataKey] || ""}
@@ -64,10 +61,10 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   required={field.isRequired}
                 />
               )}
-              {field.type === "email" && (
+              {field.type === EMAIL && (
                 <input
                   className="inputtag"
-                  type="email"
+                  type={EMAIL}
                   id={field.name}
                   name={field.name}
                   value={formData[field.name] || formData[field.dataKey] || ""}
@@ -92,9 +89,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   id={field.name}
                   name={field.name}
                   value={formData[field.name] || formData[field.dataKey] || ""}
-                  onChange={(e) =>
-                    handleTextareaChange(field.name, e.target.value)
-                  }
+                  onChange={(e) => handleChange(field.name, e.target.value)}
                   required={field.isRequired}
                 />
               )}
@@ -106,7 +101,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   value={formData[field.name] || formData[field.dataKey] || ""}
                   options={field.options}
                   onChange={(selectedOption) =>
-                    handleSelectChange(field.name, selectedOption)
+                    handleChange(field.name, selectedOption || null)
                   }
                   required={field.isRequired}
                 />
@@ -134,15 +129,20 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                             formData[field.name] === option.value) ||
                           formData[field.dataKey] === option.value
                         }
-                        onChange={() =>
-                          handleRadioChange(field.name, option.value)
-                        }
+                        onChange={() => handleChange(field.name, option.value)}
                         required={field.isRequired}
                       />
                       {option.label}
                     </label>
                   ))}
                 </div>
+              )}
+              {field.type === "file" && (
+                <input
+                  type="file"
+                  multiple
+                  onChange={(e) => handleChange("images", e.target.files)}
+                />
               )}
               {fieldErrors[field.name] && <p>{fieldErrors[field.name]}</p>}
             </div>
@@ -159,12 +159,13 @@ FormBuilder.propTypes = {
       name: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       type: PropTypes.oneOf([
-        "text",
-        "email",
+        TEXT,
+        EMAIL,
         "password",
         "textarea",
         "select",
         "radio",
+        "file",
       ]).isRequired,
       isRequired: PropTypes.bool.isRequired,
       regex: PropTypes.instanceOf(RegExp),

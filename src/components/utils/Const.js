@@ -7,6 +7,9 @@ export const DELETE = "delete";
 export const SAVE = "SAVE";
 export const REMOVE = "REMOVE";
 
+// fieldType
+export const TEXT = "text";
+export const EMAIL = "email";
 // components
 export const SELECT = "SELECT";
 export const IMAGE = "IMAGE";

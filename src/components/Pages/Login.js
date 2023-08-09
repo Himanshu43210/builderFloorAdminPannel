@@ -3,7 +3,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { API_ENDPOINTS } from "../../redux/utils/api";
-import { ADMIN_DASHBOARD_LOGIN, LOADING, POST, SUCCESS } from "../utils/Const";
+import {
+  ADMIN_DASHBOARD_LOGIN,
+  EMAIL,
+  LOADING,
+  POST,
+  SUCCESS,
+} from "../utils/Const";
 import { callApi } from "../../redux/utils/apiActions";
 import { selectApiData, selectApiStatus } from "../../redux/utils/selectors";
 import { storeUserData } from "../../redux/slice/userSlice";
@@ -46,8 +52,7 @@ const Login = () => {
         },
       };
       dispatch(callApi(options));
-    } catch (error) {
-    }
+    } catch (error) {}
   };
   return (
     <div className="contain">
@@ -57,7 +62,7 @@ const Login = () => {
           <label className="lab-class">Email</label>
 
           <input
-            type="email"
+            type={EMAIL}
             value={email}
             onChange={handleEmailChange}
             required

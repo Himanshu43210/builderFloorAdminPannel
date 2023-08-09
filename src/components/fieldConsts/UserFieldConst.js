@@ -1,9 +1,11 @@
+import { EMAIL, TEXT } from "../utils/Const";
+
 export const newUserConst = [
   {
     name: "name",
     label: "Name",
     dataKey: "name",
-    type: "text",
+    type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter your name.",
   },
@@ -11,7 +13,7 @@ export const newUserConst = [
     name: "phoneNumber",
     label: "Phone Number",
     dataKey: "PhoneNumber",
-    type: "text",
+    type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter your phone number.",
   },
@@ -19,15 +21,15 @@ export const newUserConst = [
     name: "address",
     label: "Address",
     dataKey: "address",
-    type: "text",
+    type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter your address.",
   },
   {
-    name: "email",
+    name: EMAIL,
     label: "Email",
     dataKey: "email",
-    type: "email",
+    type: EMAIL,
     isRequired: true,
     requiredErrorMessage: "Please enter your email.",
   },

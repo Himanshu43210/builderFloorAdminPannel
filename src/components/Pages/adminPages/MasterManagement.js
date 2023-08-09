@@ -59,6 +59,7 @@ export default function MasterManagement() {
                 tableData={tableData}
                 saveDataApi={ALTER_MASTER_DATA}
                 refreshDataApi={GET_MASTER_DATA}
+                addHeader="Add Masters"
               />
               <ListingTable
                 data={tableData}
