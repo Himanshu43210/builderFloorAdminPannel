@@ -86,7 +86,13 @@ const TableButtonHeader = ({
             ? "multipart/form-data"
             : "application/json",
         },
-        data: formData.images ? newFormData : formData,
+        data: formData.images
+          ? newFormData
+          : {
+              ...formData,
+              parentId: userProfile._id,
+              [NEED_APPROVAL_BY]: userProfile.parentId,
+            },
       };
       dispatch(callApi(options));
     } catch (err) {
