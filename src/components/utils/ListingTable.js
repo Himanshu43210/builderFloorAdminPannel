@@ -260,6 +260,7 @@ const ListingTable = ({
           <thead>
             <tr>
               {Object.keys(tableHeaders).map((headerLabel, index) => (
+                
                 <th
                   key={index}
                   onClick={() => handleSort(tableHeaders[headerLabel])}

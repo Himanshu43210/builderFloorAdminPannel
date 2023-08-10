@@ -18,8 +18,8 @@ import { selectApiData } from "../../../redux/utils/selectors";
 export default function MasterManagement() {
   let tableData = [];
   const desktopHeaders = {
-    Field: "field",
-    Value: "value",
+    Field: "fieldName",
+    Value: "fieldValue",
     "Parent Id": "parentId",
   };
   const mobileHeaders = {
