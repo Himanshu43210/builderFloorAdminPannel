@@ -42,7 +42,7 @@ export default function DetailDataCard({ component, onClickNavigate }) {
     setImageLink(newImageLink);
   };
 
-  const cardDetailUrl = `${onClickNavigate}?title=${component.title?.replaceAll(" ","-")}&id=${component._id}`
+  const cardDetailUrl = window.location.href;
   const handleShareClick = () => {
     navigator.share({
       title: "WebShare",
