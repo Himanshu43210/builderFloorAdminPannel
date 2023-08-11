@@ -8,8 +8,9 @@ import { selectApiData } from "../../redux/utils/selectors";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { convertToCr } from "../utils/HelperMethods";
 import IframeBuilder from "./IframeBuilder";
+import { FaShareAlt, FaRegHeart } from "react-icons/fa";
 
-export default function DetailDataCard({ component }) {
+export default function DetailDataCard({ component, onClickNavigate }) {
   // get id from url and make a api call to fetch data for that url
   const pathname = window.location.href;
   const id = pathname.split("id=").pop();
@@ -41,10 +42,22 @@ export default function DetailDataCard({ component }) {
     setImageLink(newImageLink);
   };
 
+  const cardDetailUrl = `${onClickNavigate}?title=${component.title?.replaceAll(" ","-")}&id=${component._id}`
+  const handleShareClick = () => {
+    navigator.share({
+      title: "WebShare",
+      url: cardDetailUrl,
+    });
+  };
+
   return (
     <>
       <div className="detailcomponent">
         <p>{cardData?.title}</p>
+        <div className="detailicondiv">
+          <FaShareAlt size={"23px"} onClick={handleShareClick} />
+          <FaRegHeart size={"23px"} />
+        </div>
         <div className="detail-image-div">
           <div className="main-images">
             <div className="img360">
@@ -146,8 +159,7 @@ export default function DetailDataCard({ component }) {
                 variant="contained"
                 onClick={() => {
                   window.open(
-                    `https://wa.me/${
-                      component.whatsappToDisplay
+                    `https://wa.me/${component.whatsappToDisplay
                     }?text=${component.whatsappText?.replace(
                       "{link}",
                       pathname

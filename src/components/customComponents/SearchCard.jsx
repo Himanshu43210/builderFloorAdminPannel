@@ -14,9 +14,14 @@ export default function SearchCard({
   onClickApi,
   onClickNavigate,
   classname,
-}) 
-  
-{
+}) {
+  const cardDetailUrl = `${onClickNavigate}?title=${element.title?.replaceAll(" ","-")}&id=${element._id}`
+  const handleShareClick = () => {
+    navigator.share({
+      title: "WebShare",
+      url: cardDetailUrl,
+    });
+  };
   return (
     <Card className={classname}>
       <CardActionArea className="searchcardiv">
@@ -40,7 +45,7 @@ export default function SearchCard({
                 {element.title}
               </Typography>
               <div className="detailicondiv">
-                <FaShareAlt size={"23px"} />
+                <FaShareAlt size={"23px"} onClick={handleShareClick} />
                 <FaRegHeart size={"23px"} />
               </div>
             </div>
@@ -102,15 +107,12 @@ export default function SearchCard({
 
                 <div className="searchpagebuttondiv">
                   <ApiButton
-                    
+
                     apiType={apiType}
                     api={onClickApi}
                     buttonLabel={`₹ ${element.price / 10000000} Cr.`}
                     queryParams={{ id: element._id }}
-                    navigate={`${onClickNavigate}?title=${element.title?.replaceAll(
-                      " ",
-                      "-"
-                    )}&id=${element._id}`}
+                    navigate={cardDetailUrl}
                   />
                   <Typography fontWeight="lg"> View Details >> </Typography>
                 </div>
