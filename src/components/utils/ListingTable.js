@@ -5,6 +5,8 @@ import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import { FaUserEdit, FaRegTrashAlt, FaRegEye } from "react-icons/fa";
 import { API_ENDPOINTS } from "../../redux/utils/api";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 import {
   APPROVED,
   DELETE,
@@ -25,7 +27,7 @@ import HomeCard from "../customComponents/HomeCard";
 import SearchCard from "../customComponents/SearchCard";
 import DetailDataCard from "../customComponents/DetailedDataCard";
 import { components } from "react-select";
-
+import { selectApiStatus } from "./../../redux/utils/selectors";
 const ListingTable = ({
   headersDesktop = [],
   headersMobile = [],
@@ -53,6 +55,7 @@ const ListingTable = ({
   const [sortColumn, setSortColumn] = useState("id");
   const [tableData, setTableData] = useState([]);
   const [formData, setFormData] = useState({});
+  const apiStatus = useSelector((state) => selectApiStatus(state, getDataApi));
 
   const isMobile = window.innerWidth <= 768; // Adjust the breakpoint as per your needs
 
@@ -408,14 +411,27 @@ const ListingTable = ({
           </tbody>
         </Table>
       </div>
-      {tableData.length > 0 && (
-        <BasicTablePagination
-          dataLength={totalItems}
-          currentPage={activePage}
-          handlePageChange={handlePageChange}
-          rowPerPage={itemsCountPerPage}
-          handleRowPerPagChange={handleRecordPerPage}
-        />
+      {apiStatus === "loading" ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "50px",
+          }}
+        >
+          <CircularProgress />
+        </div>
+      ) : (
+        tableData.length > 0 && (
+          <BasicTablePagination
+            dataLength={totalItems}
+            currentPage={activePage}
+            handlePageChange={handlePageChange}
+            rowPerPage={itemsCountPerPage}
+            handleRowPerPagChange={handleRecordPerPage}
+          />
+        )
       )}
     </>
   );
