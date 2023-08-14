@@ -68,6 +68,7 @@ export default function PropertyManagement() {
                 getDataApi={GET_PROPERTY_DATA}
                 approveApi={APPROVE_PROPERTY_DATA}
                 itemCount={tableData?.itemCount}
+                isproperty={true}
               />
             </Card.Body>
           </Card>

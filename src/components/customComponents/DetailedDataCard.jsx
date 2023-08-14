@@ -9,37 +9,46 @@ import { API_ENDPOINTS } from "../../redux/utils/api";
 import { convertToCr } from "../utils/HelperMethods";
 import IframeBuilder from "./IframeBuilder";
 
-export default function DetailDataCard({ component }) {
-  // get id from url and make a api call to fetch data for that url
+export default function DetailDataCard({ component, singledata }) {
+  // Prioritize singledata if available
+  const data = singledata || component;
+
+  // If using component prop, fetch additional data from API
   const pathname = window.location.href;
   const id = pathname.split("id=").pop();
-  const getApiEndpoint = component.apiSliceName;
+  const getApiEndpoint = data.apiSliceName;
   const apiEndpoint = API_ENDPOINTS[getApiEndpoint] + `?id=${id}`;
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(
-      callApi({
-        url: apiEndpoint,
-        method: GET,
-        headers: { "Content-Type": "application/json" },
-      })
-    );
+    if (!singledata) {
+      dispatch(
+        callApi({
+          url: apiEndpoint,
+          method: GET,
+          headers: { "Content-Type": "application/json" },
+        })
+      );
+    }
   }, []);
 
-  // basic screen components
-  const cardData =
-    useSelector((state) => selectApiData(state, getApiEndpoint)?.data) || {};
+  const apiData = useSelector(
+    (state) => selectApiData(state, getApiEndpoint)?.data
+  );
+  const cardData = singledata || apiData || {};
+  console.log("cardData", cardData?.title);
+
   const [ShowNumber, setShowNumber] = useState();
   const [imageLink, setImageLink] = useState(cardData.images?.[0]);
   const image360 = cardData?.images?.length;
   const imageNormal = cardData?.normalImages?.length;
   const price = convertToCr(cardData?.price);
 
-  // const [remainingImages, setRemainingImages] = useState(SAMPLE_CARD_DATA.images);
-
   const handleImageChange = (newImageLink) => {
     setImageLink(newImageLink);
   };
+
+  //... Rest of the code remains the same
 
   return (
     <>
@@ -62,7 +71,7 @@ export default function DetailDataCard({ component }) {
                   <div className="other-images">
                     <img
                       src={imglink}
-                      alt={component.title}
+                      alt={component ? component.title : singledata.title}
                       onClick={() => handleImageChange(imglink)}
                     />
                   </div>
@@ -162,7 +171,9 @@ export default function DetailDataCard({ component }) {
           </div>
         </div>
       </div>
-      <div className="similar-option-title">{component.moreOptionText}</div>
+      <div className="similar-option-title">
+        {component ? component.moreOptionText : singledata.moreOptionText}
+      </div>
       <HORIZONTAL_LINE />
       <div>
         <div></div>

@@ -10,6 +10,9 @@ const ReusablePopup = ({
   onNo,
   onCancel,
   onClose,
+  onHomePreview,
+  onDetailPreview,
+  onSearchResultPreview,
 }) => {
   return (
     <Modal show={true} onHide={onHide} className="custom-modal">
@@ -44,6 +47,21 @@ const ReusablePopup = ({
           {onNo && (
             <Button variant="secondary" onClick={onNo}>
               No
+            </Button>
+          )}
+          {onHomePreview && (
+            <Button variant="secondary" onClick={onHomePreview}>
+              Home
+            </Button>
+          )}
+          {onDetailPreview && (
+            <Button variant="secondary" onClick={onDetailPreview}>
+              Detail
+            </Button>
+          )}
+          {onSearchResultPreview && (
+            <Button variant="secondary" onClick={onSearchResultPreview}>
+              searchResult
             </Button>
           )}
         </div>

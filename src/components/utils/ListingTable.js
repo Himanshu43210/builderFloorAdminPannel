@@ -21,6 +21,10 @@ import { selectApiData } from "../../redux/utils/selectors";
 import { useEffect } from "react";
 import { FcApproval } from "react-icons/fc";
 import _ from "lodash";
+import HomeCard from "../customComponents/HomeCard";
+import SearchCard from "../customComponents/SearchCard";
+import DetailDataCard from "../customComponents/DetailedDataCard";
+import { components } from "react-select";
 
 const ListingTable = ({
   headersDesktop = [],
@@ -31,9 +35,14 @@ const ListingTable = ({
   getDataApi,
   approveApi,
   itemCount,
+  isproperty,
 }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showPreviewModal, setShowPreviewModal] = useState(false);
+  const [showHomePreviewModal, setShowHomePreviewModal] = useState(false);
+  const [showSearchPreviewModal, setShowSearchPreviewModal] = useState(false);
+  const [showDetailPreviewModal, setShowDetailPreviewModal] = useState(false);
   const [showApprovalModal, setShowApprovalModal] = useState(false);
   const [showRowModal, setShowRowModal] = useState(false);
   const [currentRowData, setCurrentRowData] = useState({});
@@ -142,6 +151,19 @@ const ListingTable = ({
   const toogleDelete = () => {
     setShowDeleteModal(!showDeleteModal);
   };
+  const tooglePreview = () => {
+    setShowPreviewModal(!showPreviewModal);
+  };
+  const toggleHomePreview = () => {
+    setShowHomePreviewModal(!showHomePreviewModal);
+    console.log(showPreviewModal);
+  };
+  const toggleSearchpreview = () => {
+    setShowSearchPreviewModal(!showSearchPreviewModal);
+  };
+  const toggleDetailPreview = () => {
+    setShowDetailPreviewModal(!showDetailPreviewModal);
+  };
   const toogleApproval = () => {
     setShowApprovalModal(!showApprovalModal);
   };
@@ -222,6 +244,7 @@ const ListingTable = ({
           />
         </ReusablePopup>
       )}
+
       {showDeleteModal && (
         <ReusablePopup
           onYes={() => {
@@ -234,6 +257,47 @@ const ListingTable = ({
           <p className="lbel">Are you sure want to Delete?</p>
         </ReusablePopup>
       )}
+      {showHomePreviewModal && (
+        <ReusablePopup onHide={toggleHomePreview} onCancel={toggleHomePreview}>
+          <HomeCard element={currentRowData}></HomeCard>
+        </ReusablePopup>
+      )}
+      {showSearchPreviewModal && (
+        <ReusablePopup
+          onHide={toggleSearchpreview}
+          onCancel={toggleSearchpreview}
+        >
+          <SearchCard element={currentRowData}></SearchCard>
+        </ReusablePopup>
+      )}
+      {showDetailPreviewModal && (
+        <ReusablePopup
+          onHide={toggleDetailPreview}
+          onCancel={toggleDetailPreview}
+        >
+          <DetailDataCard singledata={currentRowData}></DetailDataCard>
+        </ReusablePopup>
+      )}
+
+      {showPreviewModal && (
+        <ReusablePopup
+          onHomePreview={() => {
+            toggleHomePreview();
+            tooglePreview();
+          }}
+          onDetailPreview={() => {
+            console.log(currentRowData);
+            toggleDetailPreview();
+            tooglePreview();
+          }}
+          onSearchResultPreview={() => {
+            console.log("Search Clicked");
+            toggleSearchpreview();
+            tooglePreview();
+          }}
+        ></ReusablePopup>
+      )}
+
       {showRowModal && (
         <ReusablePopup onHide={toogleRowClick} onClose={toogleRowClick}>
           <FormBuilder
@@ -260,7 +324,6 @@ const ListingTable = ({
           <thead>
             <tr>
               {Object.keys(tableHeaders).map((headerLabel, index) => (
-                
                 <th
                   key={index}
                   onClick={() => handleSort(tableHeaders[headerLabel])}
@@ -313,6 +376,18 @@ const ListingTable = ({
                     <FaRegTrashAlt size={12} />
                     &nbsp; Delete
                   </Button>
+                  &nbsp;
+                  {isproperty && ( // Conditionally render the Preview button
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentRowData(element);
+                        tooglePreview(); // Add a function to handle the preview logic
+                      }}
+                    >
+                      Preview
+                    </Button>
+                  )}
                   &nbsp;
                   {approveApi &&
                     element[NEED_APPROVAL_BY] &&
