@@ -358,6 +358,7 @@ const ListingTable = ({
                 ))}
                 <td className="tablebody tableborder text actionColumn">
                   <Button
+                    className="ListingEditbtn"
                     variant="success"
                     onClick={(e) => {
                       e.stopPropagation();
@@ -369,6 +370,7 @@ const ListingTable = ({
                   </Button>
                   &nbsp;
                   <Button
+                    className="ListingDeletebtn"
                     variant="danger"
                     onClick={(e) => {
                       e.stopPropagation();
@@ -381,6 +383,7 @@ const ListingTable = ({
                   &nbsp;
                   {isproperty && ( // Conditionally render the Preview button
                     <Button
+                      className="ListingPreviewbtn"
                       onClick={(e) => {
                         e.stopPropagation();
                         setCurrentRowData(element);
