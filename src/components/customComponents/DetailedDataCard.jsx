@@ -60,7 +60,7 @@ export default function DetailDataCard({
       <div className="detailcomponent">
         <p>{cardData?.title}</p>
         <div className="detailicondiv">
-          <FaShareAlt size={"23px"} onClick={handleShareClick} />
+          <FaShareAlt size={"23px"} />
           <FaRegHeart size={"23px"} />
         </div>
         <div className="detail-image-div">
