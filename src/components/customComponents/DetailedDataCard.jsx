@@ -8,8 +8,13 @@ import { selectApiData } from "../../redux/utils/selectors";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { convertToCr } from "../utils/HelperMethods";
 import IframeBuilder from "./IframeBuilder";
+import { FaShareAlt, FaRegHeart } from "react-icons/fa";
 
-export default function DetailDataCard({ component, singledata }) {
+export default function DetailDataCard({
+  component,
+  singledata,
+  onClickNavigate,
+}) {
   // Prioritize singledata if available
   const data = singledata || component;
 
@@ -54,6 +59,10 @@ export default function DetailDataCard({ component, singledata }) {
     <>
       <div className="detailcomponent">
         <p>{cardData?.title}</p>
+        <div className="detailicondiv">
+          <FaShareAlt size={"23px"} onClick={handleShareClick} />
+          <FaRegHeart size={"23px"} />
+        </div>
         <div className="detail-image-div">
           <div className="main-images">
             <div className="img360">
