@@ -3,7 +3,7 @@ import { Table, Button, Container } from "react-bootstrap";
 import ReusablePopup from "./ReusablePopup";
 import FormBuilder from "./FormBuilder";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
-import { FaUserEdit, FaRegTrashAlt } from "react-icons/fa";
+import { FaUserEdit, FaRegTrashAlt, FaRegEye } from "react-icons/fa";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import {
   APPROVED,
@@ -295,6 +295,7 @@ const ListingTable = ({
             toggleSearchpreview();
             tooglePreview();
           }}
+          onHide={tooglePreview}
         ></ReusablePopup>
       )}
 
@@ -361,8 +362,7 @@ const ListingTable = ({
                       toogleEdit();
                     }}
                   >
-                    <FaUserEdit />
-                    &nbsp; Edit
+                    <FaUserEdit size={20} />
                   </Button>
                   &nbsp;
                   <Button
@@ -373,8 +373,7 @@ const ListingTable = ({
                       toogleDelete();
                     }}
                   >
-                    <FaRegTrashAlt size={12} />
-                    &nbsp; Delete
+                    <FaRegTrashAlt size={20} />
                   </Button>
                   &nbsp;
                   {isproperty && ( // Conditionally render the Preview button
@@ -385,7 +384,7 @@ const ListingTable = ({
                         tooglePreview(); // Add a function to handle the preview logic
                       }}
                     >
-                      Preview
+                      <FaRegEye size={20} />
                     </Button>
                   )}
                   &nbsp;
