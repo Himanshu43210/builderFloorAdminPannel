@@ -61,6 +61,23 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   required={field.isRequired}
                 />
               )}
+              {field.type === "phoneOTP" && (
+                <div className="phone-otp-button">
+                  <label>Send Otp</label>
+                  <input
+                    className="inputtag"
+                    type={TEXT}
+                    id={field.name}
+                    name={field.name}
+                    value={
+                      formData[field.name] || formData[field.dataKey] || ""
+                    }
+                    onChange={(e) => handleChange(field.name, e.target.value)}
+                    required={field.isRequired}
+                  />
+                </div>
+              )}
+
               {field.type === EMAIL && (
                 <input
                   className="inputtag"
@@ -107,7 +124,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                 />
               )}
               {field.type === "radio" && (
-                <div  className="radio-button-styling">
+                <div className="radio-button-styling">
                   {field.options.map((option) => (
                     <label key={option.value}>
                       {console.log(
@@ -140,10 +157,12 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
               {field.type === "file" && (
                 <input
                   type="file"
+                  name={field.name}
                   multiple
-                  onChange={(e) => handleChange("images", e.target.files)}
+                  onChange={(e) => handleChange(field.name, e.target.files)}
                 />
               )}
+
               {fieldErrors[field.name] && <p>{fieldErrors[field.name]}</p>}
             </div>
           </div>

@@ -13,7 +13,7 @@ export const newUserConst = [
     name: "phoneNumber",
     label: "Phone Number",
     dataKey: "PhoneNumber",
-    type: TEXT,
+    type: "phoneOTP",
     isRequired: true,
     requiredErrorMessage: "Please enter your phone number.",
   },
@@ -47,6 +47,7 @@ export const newUserConst = [
     isRequired: true,
     requiredErrorMessage: "Please confirm your password.",
   },
+
   {
     name: "role",
     label: "Role",
