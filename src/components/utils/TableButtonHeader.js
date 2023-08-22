@@ -70,27 +70,21 @@ const TableButtonHeader = ({
       //   newFormData.append("files", file);
       // }
       for (const file of formData?.thumbnailFile || []) {
-        console.log(file, 341154);
         newFormData.append("thumbnailFile", file);
       }
       for (const file of formData?.normalImageFile || []) {
-        console.log(file, 341154);
         newFormData.append("normalImageFile", file);
       }
       for (const file of formData?.threeSixtyImages || []) {
-        console.log(file, 341154);
         newFormData.append("threeSixtyImages", file);
       }
       for (const file of formData?.layoutFile || []) {
-        console.log(file, 341154);
         newFormData.append("layoutFile", file);
       }
       for (const file of formData?.VideoFile || []) {
-        console.log(file, 341154);
         newFormData.append("videoFile", file);
       }
       for (const file of formData?.virtualFile || []) {
-        console.log(file, 341154);
         newFormData.append("virtualFile", file);
       }
       newFormData.append("parentId", userProfile._id);
@@ -130,13 +124,11 @@ const TableButtonHeader = ({
         "virtualFile",
       ]);
 
-      console.log(imagesCheck, 3412);
       let checked = false;
       function isFileList(value) {
         return value instanceof FileList;
       }
       Object.keys(formData).map((element) => {
-        console.log(isFileList(formData[element]));
         if (!isFileList(formData[element])) {
           if (isObjectNotString(formData[element])) {
             checked = true;
