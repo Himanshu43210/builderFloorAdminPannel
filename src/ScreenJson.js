@@ -232,17 +232,7 @@ export const SEARCH_RESULT = {
   children: [
     HEADER,
     { type: HORIZONTAL_LINE },
-    {
-      type: API_HEADING,
-      name: "matchFoundHeading",
-      tag: "h2",
-      className: "match-found-heading",
-      dynamicDetails: {
-        api: GET_SEARCH_RESULT,
-        textReplace: "_TEXT_TO_REPLACE_",
-      },
-      text: "_TEXT_TO_REPLACE_ Matches Found",
-    },
+    
     {
       type: CONTAINER,
       className: "actioncontainer",
@@ -274,6 +264,17 @@ export const SEARCH_RESULT = {
           api: API_ENDPOINTS[GET_SEARCH_RESULT],
         },
       ],
+    },
+    {
+      type: API_HEADING,
+      name: "matchFoundHeading",
+      tag: "h2",
+      className: "match-found-heading",
+      dynamicDetails: {
+        api: GET_SEARCH_RESULT,
+        textReplace: "_TEXT_TO_REPLACE_",
+      },
+      text: "_TEXT_TO_REPLACE_ Matches Found",
     },
     {
       type: CONTAINER,
@@ -361,7 +362,7 @@ export const SEARCH_RESULT = {
               type: SELECT,
               sliceName: "filter",
               name: "possesion",
-              label: "Possesion",
+              label: "Possession",
               className: "filterbutton",
               onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
               onClickApiMethod: POST,

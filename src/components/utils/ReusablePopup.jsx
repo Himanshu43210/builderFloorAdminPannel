@@ -14,10 +14,15 @@ const ReusablePopup = ({
   onHomePreview,
   onDetailPreview,
   onSearchResultPreview,
+  className,
 }) => {
   return (
-    <Modal show={true} onHide={onHide} className="custom-modal">
-      <div className="modal-content">
+    <Modal
+      show={true}
+      onHide={onHide}
+      className={"custom-modal" + " " + className}
+    >
+      <div id="check" className="modal-content">
         <div className="modal-header">
           <Button className="close-button" variant="none" onClick={onHide}>
             <AiOutlineClose size={20} />

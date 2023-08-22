@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
 import { EMAIL, TEXT } from "./Const";
+import firebase, { app, auth } from "../../firebase";
 
 const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
   const [formData, setFormData] = useState(propsFormData || {});
@@ -38,6 +39,61 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
     console.log(allFiles);
   };
 
+  const [verificationId, setVerificationId] = useState("");
+  
+  const handleSendOtp = async () => {
+    const field = fields.find((f) => f.name === "phoneNumber");
+    console.log();
+    try {
+      const confirmation = await auth.signInWithPhoneNumber(formData.phoneNumber);
+      console.log(confirmation);
+      // setVerificationId(confirmation.verificationId);
+      // OTP sent successfully
+    } catch (error) {
+      // Handle error
+      console.error("Error sending OTP:", error);
+    }
+  };
+
+  const configureCaptcha = async () => {
+    // handleSendOtp();
+    try {
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+        "sign-in-button",
+        {
+          size: "invisible",
+          callback: (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            handleSendOtp();
+            console.log("Recaptcha verified");
+          },
+          defaultCountry: "IN",
+        },
+        auth
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSendOtpMail = () => {};
+
+  console.log(verificationId);
+
+  const handleVerifyOtp = async () => {
+    // try {
+    //   const credential = firebase.auth.PhoneAuthProvider.credential(
+    //     verificationId,
+    //     otp
+    //   );
+    //   await firebase.auth().signInWithCredential(credential);
+    //   // User is authenticated
+    // } catch (error) {
+    //   // Handle error
+    //   console.error("Error verifying OTP:", error);
+    // }
+  };
+
   return (
     <form className="addbtn">
       <div className="formcontainer">
@@ -61,6 +117,31 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   required={field.isRequired}
                 />
               )}
+              {field.type === "phoneOTP" && (
+                <div className="phone-otp-button">
+                  <label
+                    onClick={() => {
+                      // handleSendOtp();
+                      configureCaptcha();
+                    }}
+                  >
+                    Send Otp
+                  </label>
+                  <div id="recaptcha-container"></div>
+                  <input
+                    className="inputtag"
+                    type={TEXT}
+                    id={field.name}
+                    name={field.name}
+                    value={
+                      formData[field.name] || formData[field.dataKey] || ""
+                    }
+                    onChange={(e) => handleChange(field.name, e.target.value)}
+                    required={field.isRequired}
+                  />
+                </div>
+              )}
+
               {field.type === EMAIL && (
                 <input
                   className="inputtag"
@@ -71,6 +152,28 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   onChange={(e) => handleChange(field.name, e.target.value)}
                   required={field.isRequired}
                 />
+              )}
+              {field.type === "emailOtp" && (
+                <div className="phone-otp-button">
+                  <label
+                    onClick={() => {
+                      handleSendOtpMail();
+                    }}
+                  >
+                    Send Otp on Mail
+                  </label>
+                  <input
+                    className="inputtag"
+                    type={EMAIL}
+                    id={field.name}
+                    name={field.name}
+                    value={
+                      formData[field.name] || formData[field.dataKey] || ""
+                    }
+                    onChange={(e) => handleChange(EMAIL, e.target.value)}
+                    required={field.isRequired}
+                  />
+                </div>
               )}
               {field.type === "password" && (
                 <input
@@ -101,13 +204,13 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   value={formData[field.name] || formData[field.dataKey] || ""}
                   options={field.options}
                   onChange={(selectedOption) =>
-                    handleChange(field.name, selectedOption || null)
+                    handleChange(field.name, selectedOption|| null)
                   }
                   required={field.isRequired}
                 />
               )}
               {field.type === "radio" && (
-                <div  className="radio-button-styling">
+                <div className="radio-button-styling">
                   {field.options.map((option) => (
                     <label key={option.value}>
                       {console.log(
@@ -140,10 +243,12 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
               {field.type === "file" && (
                 <input
                   type="file"
+                  name={field.name}
                   multiple
-                  onChange={(e) => handleChange("images", e.target.files)}
+                  onChange={(e) => handleChange(field.name, e.target.files)}
                 />
               )}
+
               {fieldErrors[field.name] && <p>{fieldErrors[field.name]}</p>}
             </div>
           </div>

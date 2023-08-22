@@ -25,7 +25,11 @@ export default function AdminHome() {
         </Button>
         <Navbar />
       </div>
-      <div>
+      <div
+        className={`${"main-admin-container"} ${
+          showMenu ? "menu-is-active" : "menu-is-not-active"
+        } `}
+      >
         {showMenu && (
           <div className="admin-dashboard-home">
             <Panel
