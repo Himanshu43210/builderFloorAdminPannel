@@ -204,7 +204,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   value={formData[field.name] || formData[field.dataKey] || ""}
                   options={field.options}
                   onChange={(selectedOption) =>
-                    handleChange(field.name, selectedOption.value || null)
+                    handleChange(field.name, selectedOption|| null)
                   }
                   required={field.isRequired}
                 />

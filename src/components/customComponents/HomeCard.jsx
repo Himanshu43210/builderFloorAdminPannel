@@ -34,6 +34,13 @@ export default function HomeCard({
           // image = "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/NORMAL/THUMBNAIL.jpg"
           alt={element.title}
         />
+         <CardMedia
+          // image = "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/NORMAL/THUMBNAIL.jpg"
+          component="img"
+          image={"https://www.builderfloor.com/assets/imgs/icons/360-degrees.png"}
+          className="360-image-icon"
+          alt={"360-image-icon"}
+        />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
             {element.title}
