@@ -30,6 +30,7 @@ const TableButtonHeader = ({
   const userProfile = useSelector((state) => state[PROFILE]);
 
   const dispatch = useDispatch();
+  
   const convertArrayToExcel = (dataArray, filename) => {
     const worksheet = XLSX.utils.json_to_sheet(dataArray);
     const workbook = XLSX.utils.book_new();
@@ -64,8 +65,27 @@ const TableButtonHeader = ({
     try {
       console.log({ ...formData, parentId: userProfile._id }, userProfile._id);
       const newFormData = new FormData();
-      for (const file of formData?.images || []) {
-        newFormData.append("files", file);
+      
+      // for (const file of formData?.images || []) {
+      //   newFormData.append("files", file);
+      // }
+      for (const file of formData?.thumbnailFile || []) {
+        newFormData.append("thumbnailFile", file);
+      }
+      for (const file of formData?.normalImageFile || []) {
+        newFormData.append("normalImageFile", file);
+      }
+      for (const file of formData?.threeSixtyImages || []) {
+        newFormData.append("threeSixtyImages", file);
+      }
+      for (const file of formData?.layoutFile || []) {
+        newFormData.append("layoutFile", file);
+      }
+      for (const file of formData?.VideoFile || []) {
+        newFormData.append("videoFile", file);
+      }
+      for (const file of formData?.virtualFile || []) {
+        newFormData.append("virtualFile", file);
       }
       newFormData.append("parentId", userProfile._id);
       newFormData.append([NEED_APPROVAL_BY], userProfile.parentId);

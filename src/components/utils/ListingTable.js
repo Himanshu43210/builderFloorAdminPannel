@@ -261,7 +261,11 @@ const ListingTable = ({
         </ReusablePopup>
       )}
       {showHomePreviewModal && (
-        <ReusablePopup onHide={toggleHomePreview} onCancel={toggleHomePreview}>
+        <ReusablePopup
+          onHide={toggleHomePreview}
+          className="home-modal-content"
+          onCancel={toggleHomePreview}
+        >
           <HomeCard element={currentRowData}></HomeCard>
         </ReusablePopup>
       )}
@@ -269,12 +273,14 @@ const ListingTable = ({
         <ReusablePopup
           onHide={toggleSearchpreview}
           onCancel={toggleSearchpreview}
+          className="search-modal-content"
         >
           <SearchCard element={currentRowData}></SearchCard>
         </ReusablePopup>
       )}
       {showDetailPreviewModal && (
         <ReusablePopup
+          className="detail-modal-content"
           onHide={toggleDetailPreview}
           onCancel={toggleDetailPreview}
         >
