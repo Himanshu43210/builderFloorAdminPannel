@@ -22,7 +22,6 @@ const TableButtonHeader = ({
   refreshDataApi,
   addHeader,
 }) => {
-  
   const [selectedFile, setSelectedFile] = useState(null);
   const [newPopup, setNewPopup] = useState(null);
   const [importPopup, setImportPopup] = useState(null);
@@ -66,48 +65,98 @@ const TableButtonHeader = ({
     try {
       console.log({ ...formData, parentId: userProfile._id }, userProfile._id);
       const newFormData = new FormData();
-      
+
       // for (const file of formData?.images || []) {
       //   newFormData.append("files", file);
       // }
       for (const file of formData?.thumbnailFile || []) {
+        console.log(file, 341154);
         newFormData.append("thumbnailFile", file);
       }
       for (const file of formData?.normalImageFile || []) {
+        console.log(file, 341154);
         newFormData.append("normalImageFile", file);
       }
       for (const file of formData?.threeSixtyImages || []) {
+        console.log(file, 341154);
         newFormData.append("threeSixtyImages", file);
       }
       for (const file of formData?.layoutFile || []) {
+        console.log(file, 341154);
         newFormData.append("layoutFile", file);
       }
       for (const file of formData?.VideoFile || []) {
+        console.log(file, 341154);
         newFormData.append("videoFile", file);
       }
       for (const file of formData?.virtualFile || []) {
+        console.log(file, 341154);
         newFormData.append("virtualFile", file);
       }
       newFormData.append("parentId", userProfile._id);
       newFormData.append([NEED_APPROVAL_BY], userProfile.parentId);
       newFormData.append("formData", { ...formData });
-      Object.keys(formData).map((element) => {
-        newFormData.append(
-          element,
-          formData[element]?.value
-            ? formData[element]?.value
-            : formData[element]
+      function isObjectNotString(value) {
+        return (
+          typeof value === "object" && !Array.isArray(value) && value !== null
         );
+      }
+      function hasAnyProperty(object, properties) {
+        if (
+          !object ||
+          typeof object !== "object" ||
+          !properties ||
+          !Array.isArray(properties)
+        ) {
+          // Ensure that object is valid and properties is an array
+          return false;
+        }
+
+        for (let i = 0; i < properties.length; i++) {
+          if (object.hasOwnProperty(properties[i])) {
+            return true; // Found at least one property
+          }
+        }
+
+        return false; // None of the properties were found
+      }
+
+      const imagesCheck = hasAnyProperty(formData, [
+        "thumbnailFile",
+        "normalImageFile",
+        "threeSixtyImages",
+        "layoutFile",
+        "VideoFile",
+        "virtualFile",
+      ]);
+
+      console.log(imagesCheck, 3412);
+      let checked = false;
+      function isFileList(value) {
+        return value instanceof FileList;
+      }
+      Object.keys(formData).map((element) => {
+        console.log(isFileList(formData[element]));
+        if (!isFileList(formData[element])) {
+          if (isObjectNotString(formData[element])) {
+            checked = true;
+            newFormData.append(element, formData[element].value);
+          } else {
+            newFormData.append(element, formData[element]);
+          }
+        }
       });
       const options = {
         url: API_ENDPOINTS[saveDataApi],
         method: POST,
         headers: {
-          "Content-Type": formData.images
+          "Content-Type": imagesCheck
             ? "multipart/form-data"
             : "application/json",
         },
-        data: formData.images
+        data: imagesCheck
+          ? newFormData
+          : checked
           ? newFormData
           : {
               ...formData,
