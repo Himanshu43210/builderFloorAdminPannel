@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import ApiButton from "./ApiButton";
 import { FaShareAlt, FaRegHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchCard({
   element = {},
@@ -15,15 +16,24 @@ export default function SearchCard({
   onClickNavigate,
   classname,
 }) {
-  const cardDetailUrl = `${onClickNavigate}?title=${element.title?.replaceAll(" ","-")}&id=${element._id}`
+  const cardDetailUrl = `${onClickNavigate}?title=${element.title?.replaceAll(
+    " ",
+    "-"
+  )}&id=${element._id}`;
   const handleShareClick = () => {
     navigator.share({
       title: "WebShare",
       url: cardDetailUrl,
     });
   };
+  const navigateTo = useNavigate();
   return (
-    <Card className={classname}>
+    <Card
+      onClick={() => {
+        navigateTo(cardDetailUrl);
+      }}
+      className={classname}
+    >
       <CardActionArea className="searchcardiv">
         <CardMedia
           component="img"
@@ -31,7 +41,6 @@ export default function SearchCard({
           // image={element.thumbnails?.[0]}
           src={element.thumbnails}
           // alt="Left_Image"
-
           alt={element.title}
         />
         <div>
@@ -107,14 +116,13 @@ export default function SearchCard({
 
                 <div className="searchpagebuttondiv">
                   <ApiButton
-
                     apiType={apiType}
                     api={onClickApi}
                     buttonLabel={`₹ ${element.price / 10000000} Cr.`}
                     queryParams={{ id: element._id }}
                     navigate={cardDetailUrl}
                   />
-                  <Typography fontWeight="lg"> View Details >> </Typography>
+                  <Typography fontWeight="lg"> View Details {">>"} </Typography>
                 </div>
               </div>
             </div>
