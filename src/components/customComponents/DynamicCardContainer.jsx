@@ -17,7 +17,12 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
   const dataSelector = useSelector((state) => selectApiData(state, apiName));
 
   const dataToRender =
-    typeof dataSelector === "object" ? dataSelector.data : dataSelector;
+    typeof dataSelector === "object"
+      ? Array.isArray(dataSelector)
+        ? dataSelector
+        : dataSelector.data
+      : dataSelector;
+
   useEffect(() => {}, [dataToRender]);
 
   return (
@@ -52,7 +57,11 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
             setPage(newPage);
           }}
           currentPage={page || defaultPage}
-          totalPages={   typeof dataSelector === "object" ? dataSelector?.totalPages : ( dataToRender?.length / component.cardPerPage)}
+          totalPages={
+            typeof dataSelector === "object"
+              ? dataSelector?.totalPages
+              : dataToRender?.length / component.cardPerPage
+          }
         />
       )}
     </div>
