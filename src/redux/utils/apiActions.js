@@ -5,6 +5,6 @@ export const callApi = createAsyncThunk(
   "api/callApi",
   async (options, thunkAPI) => {
     const response = await axios(options);
-    return response.data.data;
+    return response.data;
   }
 );

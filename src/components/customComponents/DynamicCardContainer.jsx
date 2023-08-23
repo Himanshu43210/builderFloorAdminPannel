@@ -14,8 +14,12 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
   let ComponentType = component.renderComponentsInLoop.type;
   const [page, setPage] = React.useState(defaultPage);
 
-  const dataToRender = useSelector((state) => selectApiData(state, apiName));
+  const dataSelector = useSelector((state) => selectApiData(state, apiName));
+
+  const dataToRender =
+    typeof dataSelector === "object" ? dataSelector.data : dataSelector;
   useEffect(() => {}, [dataToRender]);
+
   return (
     <div className="searchdiv">
       {dataToRender?.map((element) => {
@@ -48,7 +52,7 @@ export default function DynamicCardContainer({ component, handleValueChange }) {
             setPage(newPage);
           }}
           currentPage={page || defaultPage}
-          totalPages={dataToRender?.length / component.cardPerPage}
+          totalPages={   typeof dataSelector === "object" ? dataSelector?.totalPages : ( dataToRender?.length / component.cardPerPage)}
         />
       )}
     </div>

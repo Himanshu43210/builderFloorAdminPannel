@@ -17,7 +17,10 @@ export default function ApiHeading({ component }) {
 
   return (
     <Tag key={name} className={className}>
-      {text.replace(dynamicDetails.textReplace, dataList?.length)}
+      {text.replace(
+        dynamicDetails.textReplace,
+        typeof dataList === "object" ? dataList?.totalItems : dataList?.length
+      )}
     </Tag>
   );
 }
