@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import ApiButton from "./ApiButton";
 import { convertToCr } from "../utils/HelperMethods";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeCard({
   element,
@@ -16,9 +17,17 @@ export default function HomeCard({
   classname,
   apiType,
 }) {
+  const navigateTo = useNavigate();
   return (
     <Card
       className={classname}
+      onClick={() => {
+        navigateTo(
+          `${onClickNavigate}?title=${element.title?.replaceAll(" ", "-")}&id=${
+            element._id
+          }`
+        );
+      }}
       sx={{
         maxWidth: "345px",
         width: "auto",
@@ -34,10 +43,12 @@ export default function HomeCard({
           // image = "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/NORMAL/THUMBNAIL.jpg"
           alt={element.title}
         />
-         <CardMedia
+        <CardMedia
           // image = "https://builderfloors.s3.ap-south-1.amazonaws.com/upload/photos/A329ASL1/1st%20Floor/NORMAL/THUMBNAIL.jpg"
           component="img"
-          image={"https://www.builderfloor.com/assets/imgs/icons/360-degrees.png"}
+          image={
+            "https://www.builderfloor.com/assets/imgs/icons/360-degrees.png"
+          }
           className="360-image-icon"
           alt={"360-image-icon"}
         />
