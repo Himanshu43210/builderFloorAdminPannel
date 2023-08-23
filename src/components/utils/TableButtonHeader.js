@@ -14,6 +14,8 @@ import ReusablePopup from "./ReusablePopup";
 import { GET, NEED_APPROVAL_BY, POST, PROFILE } from "./Const";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { callApi } from "../../redux/utils/apiActions";
+import ExcelTable from "../customComponents/BulkUpload";
+import CSVUpload from "../customComponents/BulkUpload";
 
 const TableButtonHeader = ({
   tableData = [],
@@ -22,6 +24,10 @@ const TableButtonHeader = ({
   refreshDataApi,
   addHeader,
 }) => {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   const [selectedFile, setSelectedFile] = useState(null);
   const [newPopup, setNewPopup] = useState(null);
   const [importPopup, setImportPopup] = useState(null);
@@ -151,10 +157,10 @@ const TableButtonHeader = ({
           : checked
           ? newFormData
           : {
-              ...formData,
-              parentId: userProfile._id,
-              [NEED_APPROVAL_BY]: userProfile.parentId,
-            },
+            ...formData,
+            parentId: userProfile._id,
+            [NEED_APPROVAL_BY]: userProfile.parentId,
+          },
       };
       dispatch(callApi(options));
     } catch (err) {
@@ -181,7 +187,7 @@ const TableButtonHeader = ({
         data: formData,
       };
       dispatch(callApi(options));
-    } catch (error) {}
+    } catch (error) { }
   };
   return (
     <>
@@ -202,14 +208,10 @@ const TableButtonHeader = ({
         <ReusablePopup onHide={toogleUploadPopup} onCancel={toogleUploadPopup}>
           <div className="container">
             <h2 className="lbel">You Can Upload Your Files over Here</h2>
-            <input
-              className="inputtag"
-              type="file"
-              onChange={handleFileSelect}
-            />
-            <Button variant="success" class="btnclass">
+            <CSVUpload />
+            {/* <Button variant="success" class="btnclass">
               Upload File
-            </Button>
+            </Button> */}
           </div>
         </ReusablePopup>
       ) : null}

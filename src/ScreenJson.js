@@ -472,3 +472,8 @@ export const REDIRECTION = {
 //   [HOME_SCREEN]: "/",
 //   [SEARCH_RESULT]: "/searchResult",
 // };
+
+export const ExpetedHeader = {
+  proprty: ["Name", "Phone Number", "Address", "Email", "Role", "Parent Id"],
+  
+};
