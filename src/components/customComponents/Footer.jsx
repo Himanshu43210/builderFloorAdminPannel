@@ -7,13 +7,15 @@ export default function Footer({ component }) {
   return (
     <footer className="footerdiv">
       <div className="footerlogo">
-        <a className="footerlink" href={component.HomeLinks.url}>
-          <img
-            src="https://www.builderfloor.com/assets/imgs/template/BUILDER.png"
-            alt=""
-            width="80px"
-            height="90px"
-          />
+        <a className="footerlink">
+          <a href={component.HomeLinks.url}>
+            <img
+              src="https://www.builderfloor.com/assets/imgs/template/BUILDER.png"
+              alt=""
+              width="80px"
+              height="90px"
+            />
+          </a>
         </a>
       </div>
       <hr />
