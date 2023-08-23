@@ -3,9 +3,9 @@ import axios from 'axios';
 import { ExpetedHeader } from '../../ScreenJson';
 
 function CSVUpload() {
-  const ExpetedHeader = ["Property id", "City", "Location", "Plot Number", "Size", "Floor", "Accommodation", "Possession", "Price", "Facing", "Park Facing", "Corner", "Description", "1st Page Title", "2 Page Title", "Channel Partner Name", "Channel Contact Number","Builder name", "Contact", "THUMBNAIL IMAGE NAME", "FOLDER NAME"];
+
   const [validationMessage, setValidationMessage] = useState('');
-  const [expectedHeaders, setExpectedHeaders] = useState(ExpetedHeader);
+  const [expectedHeaders, setExpectedHeaders] = useState(ExpetedHeader.property);
 
   const handleFileUpload = async (event) => {
     event.preventDefault(); // Prevent the default form submission

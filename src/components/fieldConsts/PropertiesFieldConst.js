@@ -284,3 +284,8 @@ export const newPropertyConst = [
     requiredErrorMessage: "Please Add 360 Image",
   },
 ];
+export const bulkuploadheader =[{
+  property: ["Property id", "City", "Location", "Plot Number", "Size", "Floor", "Accommodation", "Possession", "Price", "Facing", "Park Facing", "Corner", "Description", "1st Page Title", "2 Page Title", "Channel Partner Name", "Channel Contact Number","Builder name", "Contact", "THUMBNAIL IMAGE NAME", "FOLDER NAME"],
+}
+  
+];

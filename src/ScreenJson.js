@@ -474,6 +474,7 @@ export const REDIRECTION = {
 // };
 
 export const ExpetedHeader = {
-  proprty: ["Name", "Phone Number", "Address", "Email", "Role", "Parent Id"],
-  
+  user: ["Name", "Phone Number", "Address", "Email", "Role", "Parent Id"],
+  master: ["Field", "Value", "Parent Id"],
+  property: ["Property id", "City", "Location", "Plot Number", "Size", "Floor", "Accommodation", "Possession", "Price", "Facing", "Park Facing", "Corner", "Description", "1st Page Title", "2 Page Title", "Channel Partner Name", "Channel Contact Number","Builder name", "Contact", "THUMBNAIL IMAGE NAME", "FOLDER NAME"],
 };

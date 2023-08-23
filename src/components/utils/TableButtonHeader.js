@@ -24,10 +24,6 @@ const TableButtonHeader = ({
   refreshDataApi,
   addHeader,
 }) => {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   const [selectedFile, setSelectedFile] = useState(null);
   const [newPopup, setNewPopup] = useState(null);
   const [importPopup, setImportPopup] = useState(null);
