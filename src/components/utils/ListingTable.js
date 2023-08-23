@@ -411,7 +411,6 @@ const ListingTable = ({
                         }}
                       >
                         <FcApproval size={12} />
-                        &nbsp; Approve
                       </Button>
                     )}
                 </td>
