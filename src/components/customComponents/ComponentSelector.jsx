@@ -49,11 +49,23 @@ const ComponentSelector = ({ component }) => {
   const apiStatus = useSelector((state) =>
     selectApiStatus(state, component.loadingApi || "")
   );
+
+  function hasValueProperty(input) {
+    // Check if the input is an object
+    if (typeof input === "object" && input !== null) {
+      // Check if the object has a property named "value"
+      return "value" in input;
+    } else {
+      return false;
+    }
+  }
+
   const handleValueChange = (value) => {
+    console.log(value, 21411, hasValueProperty(value));
     dispatch(
       storeFilterData({
         key: component.paginatioName || component.name,
-        value: value,
+        value: typeof value === "object" ? value.value : value,
       })
     );
     if (component.onClickApi) {
@@ -63,7 +75,8 @@ const ComponentSelector = ({ component }) => {
         headers: { "Content-Type": "application/json" },
         data: {
           ...sliceData,
-          [component.paginatioName || component.name]: value,
+          [component.paginatioName || component.name]:
+            typeof value === "object" ? value.value : value,
         },
       };
       dispatch(callApi(options));
