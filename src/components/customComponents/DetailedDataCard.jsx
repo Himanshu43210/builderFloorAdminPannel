@@ -54,6 +54,13 @@ export default function DetailDataCard({
   };
 
   //... Rest of the code remains the same
+  const cardDetailUrl = window.location.href;
+  const handleShareClick = () => {
+    navigator.share({
+      title: "WebShare",
+      url: cardDetailUrl,
+    });
+  };
 
   return (
     <>
@@ -61,7 +68,7 @@ export default function DetailDataCard({
         <div className="detailed-title-component">
           <p>{cardData?.title}</p>
           <div className="detailicondiv">
-            <FaShareAlt size={"23px"} />
+            <FaShareAlt size={"23px"} onClick={handleShareClick} />
             <FaRegHeart size={"23px"} />
           </div>
         </div>
@@ -166,8 +173,7 @@ export default function DetailDataCard({
                 variant="contained"
                 onClick={() => {
                   window.open(
-                    `https://wa.me/${
-                      component.whatsappToDisplay
+                    `https://wa.me/${component.whatsappToDisplay
                     }?text=${component.whatsappText?.replace(
                       "{link}",
                       pathname
