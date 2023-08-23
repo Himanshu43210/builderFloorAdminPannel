@@ -58,10 +58,12 @@ export default function DetailDataCard({
   return (
     <>
       <div className="detailcomponent">
-        <p>{cardData?.title}</p>
-        <div className="detailicondiv">
-          <FaShareAlt size={"23px"} />
-          <FaRegHeart size={"23px"} />
+        <div className="detailed-title-component">
+          <p>{cardData?.title}</p>
+          <div className="detailicondiv">
+            <FaShareAlt size={"23px"} />
+            <FaRegHeart size={"23px"} />
+          </div>
         </div>
         <div className="detail-image-div">
           <div className="main-images">
