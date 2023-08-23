@@ -232,7 +232,6 @@ export const SEARCH_RESULT = {
   children: [
     HEADER,
     { type: HORIZONTAL_LINE },
-    
     {
       type: CONTAINER,
       className: "actioncontainer",
