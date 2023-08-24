@@ -363,7 +363,7 @@ export const SEARCH_RESULT = {
                 {
                   type: SELECT,
                   sliceName: "filter",
-                  name: "possesion",
+                  name: "possession",
                   label: "Possession",
                   className: "filterbutton",
                   onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
