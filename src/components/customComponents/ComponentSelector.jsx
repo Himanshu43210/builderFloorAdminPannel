@@ -61,11 +61,16 @@ const ComponentSelector = ({ component }) => {
   }
 
   const handleValueChange = (value) => {
-    console.log(value, 21411, hasValueProperty(value));
+    console.log(value, 21411, component.name, hasValueProperty(value));
     dispatch(
       storeFilterData({
         key: component.paginatioName || component.name,
-        value: typeof value === "object" ? value.value : value,
+        value:
+          typeof value === "object"
+            ? Array.isArray(value)
+              ? value
+              : value.value
+            : value,
       })
     );
     if (component.onClickApi) {
@@ -76,12 +81,17 @@ const ComponentSelector = ({ component }) => {
         data: {
           ...sliceData,
           [component.paginatioName || component.name]:
-            typeof value === "object" ? value.value : value,
+            typeof value === "object"
+              ? Array.isArray(value)
+                ? value
+                : value.value
+              : value,
         },
       };
       dispatch(callApi(options));
     }
   };
+  console.log(sliceData, 2141);
   return (
     <>
       {component.loadingApi && apiStatus === LOADING && (

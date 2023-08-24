@@ -18,7 +18,13 @@ export default function SelectButton({
       onChange={(selectedOption) => {
         handleValueChange(selectedOption);
       }}
-      value={value || defaultValue || { label: label, value: "" }}
+      value={
+        (value &&
+          (typeof value === "string"
+            ? { label: value, value: value }
+            : value)) ||
+        defaultValue || { label: label, value: "" }
+      }
     />
   );
 }

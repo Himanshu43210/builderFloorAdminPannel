@@ -8,7 +8,6 @@ export const SelectSlider = ({
   stateValue = component.defaultValue,
 }) => {
   const [showComponent, setShowComponent] = useState(false);
-
   return (
     <>
       <div>
