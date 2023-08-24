@@ -42,7 +42,7 @@ export default function SelectButton({
     // />
     <div
       className={`select-container-parent ${
-        !clicked ? "heighted-clasas-1" : "heighted-clasas-2"
+        !false ? "heighted-clasas-1" : "heighted-clasas-2"
       }`}
     >
       <div
