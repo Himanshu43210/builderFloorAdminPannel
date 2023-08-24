@@ -75,7 +75,7 @@ export default function SelectButton({
                   setCurr(item.label);
                   handleValueChange(item);
                 }}
-                
+                className={`${check && "selected-popup-temp-item"}  select-popup-temp-item`}
               >
                 {item.label}
               </div>
