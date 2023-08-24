@@ -337,7 +337,6 @@ export const SEARCH_RESULT = {
                   sliceName: "filter",
                   name: "size",
                   buttonLabel: "Size",
-                  className: "",
                   minValue: 0.0,
                   maxValue: 1000.0,
                   onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
