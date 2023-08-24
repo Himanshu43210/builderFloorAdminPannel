@@ -15,6 +15,7 @@ import {
   APPROVE_PROPERTY_DATA,
   DELETE_PROPERTY_DATA,
   GET,
+  GET_ADMIN_PROPERTY_DATA,
   GET_PROPERTY_DATA,
 } from "../../utils/Const";
 
@@ -38,12 +39,13 @@ export default function PropertyManagement() {
   const tableData = useSelector((state) =>
     selectApiData(state, GET_PROPERTY_DATA)
   );
+  const userProfile = useSelector((state) => state.profile);
+  const dataApi =
+    API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA] + "?id=" + userProfile._id;
 
   return (
     <>
-      {!tableData && (
-        <AutoFetchApi url={API_ENDPOINTS[GET_PROPERTY_DATA]} method={GET} />
-      )}
+      {!tableData && <AutoFetchApi url={dataApi} method={GET} />}
 
       <div>
         <div>
@@ -55,7 +57,7 @@ export default function PropertyManagement() {
                 fieldConst={fieldConst}
                 tableData={_.cloneDeep(tableData?.data || [])}
                 saveDataApi={ALTER_PROPERTY_DATA}
-                refreshDataApi={GET_PROPERTY_DATA}
+                refreshDataApi={dataApi}
                 addHeader="Add Property"
               />
               <ListingTable
@@ -65,7 +67,7 @@ export default function PropertyManagement() {
                 fieldConst={fieldConst}
                 editApi={ALTER_PROPERTY_DATA}
                 deleteApi={DELETE_PROPERTY_DATA}
-                getDataApi={GET_PROPERTY_DATA}
+                getDataApi={GET_ADMIN_PROPERTY_DATA}
                 approveApi={APPROVE_PROPERTY_DATA}
                 itemCount={tableData?.itemCount}
                 isproperty={true}

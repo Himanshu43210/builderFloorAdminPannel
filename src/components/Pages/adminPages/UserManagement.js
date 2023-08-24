@@ -10,6 +10,7 @@ import {
   ALTER_USER_DATA,
   DELETE_USER_DATA,
   GET,
+  GET_ADMIN_USER_DATA,
   GET_USER_DATA,
 } from "../../utils/Const";
 import AutoFetchApi from "../../customComponents/AutoFetchApi";
@@ -19,7 +20,7 @@ import { selectApiData } from "../../../redux/utils/selectors";
 export default function UserManagement() {
   const desktopHeaders = {
     Name: "name",
-    "Phone Number": "PhoneNumber",
+    "Phone Number": "phoneNumber",
     Address: "address",
     Email: "email",
     Role: "role",
@@ -28,12 +29,11 @@ export default function UserManagement() {
   const mobileHeaders = [{ Name: "name" }, { Role: "role" }];
   const fieldConst = newUserConst;
   let tableData = useSelector((state) => selectApiData(state, GET_USER_DATA));
-
+  const userProfile = useSelector((state) => state.profile);
+  const dataApi = API_ENDPOINTS[GET_ADMIN_USER_DATA] + "?id=" + userProfile._id;
   return (
     <>
-      {!tableData && (
-        <AutoFetchApi url={API_ENDPOINTS[GET_USER_DATA]} method={GET} />
-      )}
+      {!tableData && <AutoFetchApi url={dataApi} method={GET} />}
       <div>
         <div>
           <Navbar />
@@ -44,7 +44,7 @@ export default function UserManagement() {
                 fieldConst={fieldConst}
                 tableData={_.cloneDeep(tableData?.data || [])}
                 saveDataApi={ALTER_USER_DATA}
-                refreshDataApi={GET_USER_DATA}
+                refreshDataApi={dataApi}
                 addHeader="Add User"
               />
               <ListingTable
@@ -53,7 +53,7 @@ export default function UserManagement() {
                 fieldConst={fieldConst}
                 editApi={ALTER_USER_DATA}
                 deleteApi={DELETE_USER_DATA}
-                getDataApi={GET_USER_DATA}
+                getDataApi={GET_ADMIN_USER_DATA}
                 itemCount={tableData?.itemCount}
               />
             </Card.Body>

@@ -153,10 +153,10 @@ const TableButtonHeader = ({
           : checked
           ? newFormData
           : {
-            ...formData,
-            parentId: userProfile._id,
-            [NEED_APPROVAL_BY]: userProfile.parentId,
-          },
+              ...formData,
+              parentId: userProfile._id,
+              [NEED_APPROVAL_BY]: userProfile.parentId,
+            },
       };
       dispatch(callApi(options));
     } catch (err) {
@@ -174,16 +174,15 @@ const TableButtonHeader = ({
     setExportPopup(!exportPopup);
   };
   const handleRefreshClick = () => {
-    console.log(refreshDataApi);
     try {
       const options = {
-        url: API_ENDPOINTS[refreshDataApi],
+        url: refreshDataApi,
         method: GET,
         headers: { "Content-Type": "application/json" },
         data: formData,
       };
       dispatch(callApi(options));
-    } catch (error) { }
+    } catch (error) {}
   };
   return (
     <>

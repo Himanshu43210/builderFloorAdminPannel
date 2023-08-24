@@ -166,14 +166,15 @@ export default function DetailDataCard({
                   setShowNumber(!ShowNumber);
                 }}
               >
-                {ShowNumber ? component.phoneToDisplay : "Phone"}
+                {ShowNumber ? cardData?.channelContact : "Phone"}
               </Button>
               <Button
                 className="detail-button"
                 variant="contained"
                 onClick={() => {
                   window.open(
-                    `https://wa.me/${component.whatsappToDisplay
+                    `https://wa.me/${
+                      cardData?.channelContact
                     }?text=${component.whatsappText?.replace(
                       "{link}",
                       pathname

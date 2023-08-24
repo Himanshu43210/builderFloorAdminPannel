@@ -192,8 +192,6 @@ export const CARD_DETAILS_SCREEN = {
       loadingApi: GET_CARD_DATA,
       className: "home-page-banner",
       apiSliceName: GET_CARD_DATA,
-      phoneToDisplay: "+91 9818215215",
-      whatsappToDisplay: "9818215215",
       whatsappText: `Hi! I saw a property {link} on BuilderFloor.com and i am interested in it. Is it available?`,
       icons: {
         sectorNumber:

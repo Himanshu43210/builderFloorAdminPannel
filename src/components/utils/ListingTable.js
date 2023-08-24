@@ -14,7 +14,6 @@ import {
   NEED_APPROVAL_BY,
   POST,
   PROFILE,
-  PUT,
 } from "./Const";
 import { useDispatch, useSelector } from "react-redux";
 import { callApi } from "../../redux/utils/apiActions";
@@ -26,7 +25,6 @@ import _ from "lodash";
 import HomeCard from "../customComponents/HomeCard";
 import SearchCard from "../customComponents/SearchCard";
 import DetailDataCard from "../customComponents/DetailedDataCard";
-import { components } from "react-select";
 import { selectApiStatus } from "./../../redux/utils/selectors";
 const ListingTable = ({
   headersDesktop = [],
