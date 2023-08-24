@@ -41,9 +41,7 @@ export default function SelectButton({
     //   }
     // />
     <div
-      className={`select-container-parent ${
-        !false ? "heighted-clasas-1" : "heighted-clasas-2"
-      }`}
+      className={`select-container-parent "heighted-clasas-1`}
     >
       <div
         onClick={() => {
@@ -61,7 +59,6 @@ export default function SelectButton({
           onMouseLeave={() => {
             setHover(false);
           }}
-          
           className="select-popup-temp"
         >
           {options.map((item, i) => {
@@ -75,7 +72,9 @@ export default function SelectButton({
                   setCurr(item.label);
                   handleValueChange(item);
                 }}
-                className={`${check && "selected-popup-temp-item"}  select-popup-temp-item`}
+                className={`${
+                  check && "selected-popup-temp-item"
+                }  select-popup-temp-item`}
               >
                 {item.label}
               </div>
@@ -86,4 +85,3 @@ export default function SelectButton({
     </div>
   );
 }
-
