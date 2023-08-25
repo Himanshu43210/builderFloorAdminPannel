@@ -38,10 +38,6 @@ const MENU_ITEMS = [
     name: "Login",
     path: "/login",
   },
-  {
-    name: "Admin Dashboard",
-    path: "/admin",
-  },
 ];
 
 export const USER_ROLE = {
