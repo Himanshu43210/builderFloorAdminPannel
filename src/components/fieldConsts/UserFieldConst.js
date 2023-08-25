@@ -63,7 +63,7 @@ export const newUserConst = [
     type: "select",
     isRequired: true,
     options: [
-      { value: "BuilderFloorAdmin", label: "Builder Floor Admin" },
+      // { value: "BuilderFloorAdmin", label: "Builder Floor Admin" },
       { value: "ChannelPartner", label: "Channel Partner" },
       { value: "PropertyDealer", label: "Property Dealer" },
     ],
