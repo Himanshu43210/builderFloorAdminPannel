@@ -2,13 +2,12 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ListingTable from "../../utils/ListingTable";
-import Panel from "../../utils/Panel";
 import Navbar from "../../utils/Navbar";
 import TableButtonHeader from "../../utils/TableButtonHeader";
 import { newPropertyConst } from "../../fieldConsts/PropertiesFieldConst";
 import AutoFetchApi from "../../customComponents/AutoFetchApi";
 import { API_ENDPOINTS } from "../../../redux/utils/api";
-import { selectApiData } from "../../../redux/utils/selectors";
+import { selectApiData, selectApiStatus } from "../../../redux/utils/selectors";
 import _ from "lodash";
 import {
   ALTER_PROPERTY_DATA,
@@ -17,18 +16,24 @@ import {
   GET,
   GET_ADMIN_PROPERTY_DATA,
   GET_PROPERTY_DATA,
+  LOADING,
 } from "../../utils/Const";
+import { CircularProgress } from "@mui/material";
 
 export default function PropertyManagement() {
   const desktopHeaders = {
     Title: "title",
+    "Plot Number": "plotNumber",
     Accommodation: "accommodation",
     Possession: "possession",
     "Sector Number": "sectorNumber",
     Facing: "facing",
     "Builder Names": "builderName",
-    "Channel Partner": "channelPartner",
   };
+
+  const apiStatus = useSelector((state) =>
+    selectApiStatus(state, ALTER_PROPERTY_DATA || "")
+  );
 
   const mobileHeaders = {
     Title: "title",
@@ -46,36 +51,39 @@ export default function PropertyManagement() {
   return (
     <>
       {!tableData && <AutoFetchApi url={dataApi} method={GET} />}
-
-      <div>
+      {apiStatus === LOADING ? (
+        <CircularProgress className="loader-class" />
+      ) : (
         <div>
-          <Navbar />
-          <Card>
-            <Card.Header className="font">Property Details</Card.Header>
-            <Card.Body>
-              <TableButtonHeader
-                fieldConst={fieldConst}
-                tableData={_.cloneDeep(tableData?.data || [])}
-                saveDataApi={ALTER_PROPERTY_DATA}
-                refreshDataApi={dataApi}
-                addHeader="Add Property"
-              />
-              <ListingTable
-                data={_.cloneDeep(tableData?.data || [])}
-                headersDesktop={desktopHeaders}
-                headersMobile={mobileHeaders}
-                fieldConst={fieldConst}
-                editApi={ALTER_PROPERTY_DATA}
-                deleteApi={DELETE_PROPERTY_DATA}
-                getDataApi={GET_ADMIN_PROPERTY_DATA}
-                approveApi={APPROVE_PROPERTY_DATA}
-                itemCount={tableData?.itemCount}
-                isproperty={true}
-              />
-            </Card.Body>
-          </Card>
+          <div>
+            <Navbar />
+            <Card>
+              <Card.Header className="font">Property Details</Card.Header>
+              <Card.Body>
+                <TableButtonHeader
+                  fieldConst={fieldConst}
+                  tableData={_.cloneDeep(tableData?.data || [])}
+                  saveDataApi={ALTER_PROPERTY_DATA}
+                  refreshDataApi={dataApi}
+                  addHeader="Add Property"
+                />
+                <ListingTable
+                  data={_.cloneDeep(tableData?.data || [])}
+                  headersDesktop={desktopHeaders}
+                  headersMobile={mobileHeaders}
+                  fieldConst={fieldConst}
+                  editApi={ALTER_PROPERTY_DATA}
+                  deleteApi={DELETE_PROPERTY_DATA}
+                  getDataApi={GET_ADMIN_PROPERTY_DATA}
+                  approveApi={APPROVE_PROPERTY_DATA}
+                  itemCount={tableData?.itemCount}
+                  isproperty={true}
+                />
+              </Card.Body>
+            </Card>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

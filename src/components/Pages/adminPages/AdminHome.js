@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Panel from "../../utils/Panel";
 import Navbar from "../../utils/Navbar";
 import { useSelector } from "react-redux";
-import { BF_ADMIN } from "../../utils/Const";
+import { ADMIN_DASHBOARD_LOGIN, PROPERTY_DEALER } from "../../utils/Const";
 import { USER_ROLE } from "../../../ScreenJson";
 import PageSelector from "../../customComponents/PageSelector";
 
@@ -23,7 +23,7 @@ export default function AdminHome() {
         >
           <GiHamburgerMenu />
         </Button>
-        <Navbar />
+        <Navbar role={userProfile?.role} />
       </div>
       <div
         className={`${"main-admin-container"} ${
@@ -33,10 +33,11 @@ export default function AdminHome() {
         {showMenu && (
           <div className="admin-dashboard-home">
             <Panel
-              isSuperAdmin={userProfile?.role === USER_ROLE[BF_ADMIN]}
+              nonSalesUser={userProfile?.role !== USER_ROLE[PROPERTY_DEALER]}
               handlePageClick={(page) => {
                 setCurrentPage(page);
               }}
+              onLogoutClick={ADMIN_DASHBOARD_LOGIN}
             />
           </div>
         )}

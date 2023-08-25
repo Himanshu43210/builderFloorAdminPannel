@@ -12,10 +12,12 @@ import {
   GET,
   GET_ADMIN_USER_DATA,
   GET_USER_DATA,
+  LOADING,
 } from "../../utils/Const";
 import AutoFetchApi from "../../customComponents/AutoFetchApi";
 import { API_ENDPOINTS } from "../../../redux/utils/api";
-import { selectApiData } from "../../../redux/utils/selectors";
+import { selectApiData, selectApiStatus } from "../../../redux/utils/selectors";
+import { CircularProgress } from "@mui/material";
 
 export default function UserManagement() {
   const desktopHeaders = {
@@ -31,35 +33,42 @@ export default function UserManagement() {
   let tableData = useSelector((state) => selectApiData(state, GET_USER_DATA));
   const userProfile = useSelector((state) => state.profile);
   const dataApi = API_ENDPOINTS[GET_ADMIN_USER_DATA] + "?id=" + userProfile._id;
+  const apiStatus = useSelector((state) =>
+    selectApiStatus(state, ALTER_USER_DATA || "")
+  );
   return (
     <>
       {!tableData && <AutoFetchApi url={dataApi} method={GET} />}
-      <div>
+      {apiStatus === LOADING ? (
+        <CircularProgress className="loader-class" />
+      ) : (
         <div>
-          <Navbar />
-          <Card>
-            <Card.Header className="font">User Details</Card.Header>
-            <Card.Body>
-              <TableButtonHeader
-                fieldConst={fieldConst}
-                tableData={_.cloneDeep(tableData?.data || [])}
-                saveDataApi={ALTER_USER_DATA}
-                refreshDataApi={dataApi}
-                addHeader="Add User"
-              />
-              <ListingTable
-                headersDesktop={desktopHeaders}
-                headersMobile={mobileHeaders}
-                fieldConst={fieldConst}
-                editApi={ALTER_USER_DATA}
-                deleteApi={DELETE_USER_DATA}
-                getDataApi={GET_ADMIN_USER_DATA}
-                itemCount={tableData?.itemCount}
-              />
-            </Card.Body>
-          </Card>
+          <div>
+            <Navbar />
+            <Card>
+              <Card.Header className="font">User Details</Card.Header>
+              <Card.Body>
+                <TableButtonHeader
+                  fieldConst={fieldConst}
+                  tableData={_.cloneDeep(tableData?.data || [])}
+                  saveDataApi={ALTER_USER_DATA}
+                  refreshDataApi={dataApi}
+                  addHeader="Add User"
+                />
+                <ListingTable
+                  headersDesktop={desktopHeaders}
+                  headersMobile={mobileHeaders}
+                  fieldConst={fieldConst}
+                  editApi={ALTER_USER_DATA}
+                  deleteApi={DELETE_USER_DATA}
+                  getDataApi={GET_ADMIN_USER_DATA}
+                  itemCount={tableData?.itemCount}
+                />
+              </Card.Body>
+            </Card>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

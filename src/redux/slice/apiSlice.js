@@ -6,7 +6,11 @@ import { getApiName } from "../utils/api";
 const apiSlice = createSlice({
   name: "api/callApi",
   initialState: { data: {}, status: {}, error: null },
-  reducers: {},
+  reducers: {
+    resetApiStatus: (state, action) => {
+      state.status[action.payload] = undefined;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(callApi.pending, (state, action) => {
@@ -23,5 +27,5 @@ const apiSlice = createSlice({
       });
   },
 });
-
+export const { resetApiStatus } = apiSlice.actions;
 export default apiSlice.reducer;

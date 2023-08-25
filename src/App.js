@@ -14,14 +14,20 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} />
           <Route path="/searchResult" element={<SearchResult />} />
           <Route path="/builderFloorDetails" element={<DetailedView />} />
           <Route path="/admin" element={<AdminHome />} />
           <Route path="/admin/user" element={<UserManagement />} />
           <Route path="/admin/property" element={<PropertyManagement />} />
           <Route path="/admin/master" element={<MasterManagement />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<AdminHome />} />
+          <Route path="/admin/user" element={<UserManagement />} />
+          <Route path="/admin/property" element={<PropertyManagement />} />
+          <Route path="/admin/master" element={<MasterManagement />} />
+          <Route path="/" element={<Login />} />
         </Routes>
       </div>
     </Router>
