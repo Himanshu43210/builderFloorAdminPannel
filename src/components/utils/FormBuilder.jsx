@@ -221,10 +221,8 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                             label: formData[field.name],
                             value: formData[field.name],
                           }
-                        : formData[field.name])) || {
-                      label: field.name,
-                      value: "",
-                    }
+                        : formData[field.name])) ||
+                    field.defaultOption
                   }
                   options={field.options}
                   onChange={(selectedOption) =>
