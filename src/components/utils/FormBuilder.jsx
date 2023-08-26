@@ -219,7 +219,18 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   className="inputtag"
                   id={field.name}
                   name={field.name}
-                  value={formData[field.name] || formData[field.dataKey] || ""}
+                  value={
+                    (formData[field.name] &&
+                      (typeof formData[field.name] === "string"
+                        ? {
+                            label: formData[field.name],
+                            value: formData[field.name],
+                          }
+                        : formData[field.name])) || {
+                      label: field.name,
+                      value: "",
+                    }
+                  }
                   options={field.options}
                   onChange={(selectedOption) =>
                     handleChange(field.name, selectedOption || null)
