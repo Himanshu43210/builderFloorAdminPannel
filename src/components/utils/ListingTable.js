@@ -36,6 +36,7 @@ const ListingTable = ({
   approveApi,
   itemCount,
   isproperty,
+  filterDataUrl,
 }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -129,8 +130,8 @@ const ListingTable = ({
     dispatch(
       callApi({
         url:
-          API_ENDPOINTS[getDataApi] +
-          `?page=${activePage}&limit=${itemsCountPerPage}&sortType=${sortType}&sortColumn=${sortColumn}`,
+          filterDataUrl +
+          `&page=${activePage}&limit=${itemsCountPerPage}&sortType=${sortType}&sortColumn=${sortColumn}`,
         method: GET,
         headers: { "Content-Type": "application/json" },
         data: { sortType, sortColumn, activePage, itemsCountPerPage },

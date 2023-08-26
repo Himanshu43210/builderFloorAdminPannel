@@ -22,13 +22,12 @@ import { CircularProgress } from "@mui/material";
 
 export default function PropertyManagement() {
   const desktopHeaders = {
-    Title: "title",
     "Plot Number": "plotNumber",
+    Location: "sectorNumber",
+    Title: "title",
     Accommodation: "accommodation",
     Possession: "possession",
-    "Sector Number": "sectorNumber",
     Facing: "facing",
-    "Builder Names": "builderName",
   };
 
   const apiStatus = useSelector((state) =>
@@ -46,7 +45,11 @@ export default function PropertyManagement() {
   );
   const userProfile = useSelector((state) => state.profile);
   const dataApi =
-    API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA] + "?id=" + userProfile._id;
+    API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA] +
+    "?id=" +
+    userProfile._id +
+    "&role=" +
+    userProfile.role;
 
   return (
     <>
@@ -75,6 +78,7 @@ export default function PropertyManagement() {
                   editApi={ALTER_PROPERTY_DATA}
                   deleteApi={DELETE_PROPERTY_DATA}
                   getDataApi={GET_ADMIN_PROPERTY_DATA}
+                  filterDataUrl={dataApi}
                   approveApi={APPROVE_PROPERTY_DATA}
                   itemCount={tableData?.itemCount}
                   isproperty={true}

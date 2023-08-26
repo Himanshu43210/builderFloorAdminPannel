@@ -298,7 +298,49 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   <label>Lakh</label>
                 </div>
               )}
-
+              {field.type === "size" && (
+                <div className={field.className}>
+                  <input
+                    className="inputtag"
+                    type="text"
+                    disabled={field.disabled}
+                    id={`${field.name}-crore`}
+                    name={`${field.name}-crore`}
+                    value={Math.floor((formData[field.name] || 0) / 10000000)}
+                    onChange={(e) =>
+                      handleCurrencyChange(
+                        handleChange,
+                        field.name,
+                        formData[field.name] || 0
+                      )(e, "crore")
+                    }
+                    required={field.isRequired}
+                  />
+                  <Select
+                    className="inputtag"
+                    id={field.nameType}
+                    name={field.nameType}
+                    value={
+                      (formData[field.nameType] &&
+                        (typeof formData[field.nameType] === "string"
+                          ? {
+                              label: formData[field.nameType],
+                              value: formData[field.nameType],
+                            }
+                          : formData[field.nameType])) ||
+                      field.defaultOption || {
+                        label: field.nameType,
+                        value: "",
+                      }
+                    }
+                    options={field.options}
+                    onChange={(selectedOption) =>
+                      handleChange(field.nameType, selectedOption || null)
+                    }
+                    required={field.isRequired}
+                  />
+                </div>
+              )}
               {fieldErrors[field.name] && <p>{fieldErrors[field.name]}</p>}
             </div>
           </div>
