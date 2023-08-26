@@ -170,7 +170,7 @@ export const newPropertyConst = [
   {
     name: "title",
     label: "Main Title",
-    parentclassName:"property-w-3",
+    parentclassName:"property-w-2 property-margin-r",
     type: "select",
     options: PROPERTY_TITLE_LIST,
     isRequired: true,
@@ -178,7 +178,7 @@ export const newPropertyConst = [
   },
   {
     name: "detailTitle",
-    parentclassName:"property-w-3",
+    parentclassName:"property-w-2 property-margin-r",
     label: "Sub Title",
     type: TEXT,
     textLimit: 100,
@@ -198,7 +198,7 @@ export const newPropertyConst = [
   {
     name: "thumbnailFile",
     label: "Thumbnail Image",
-    parentclassName:"property-w-0",
+    parentclassName:"property-w-3",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -207,14 +207,14 @@ export const newPropertyConst = [
     name: "normalImageFile",
     label: "Normal Images",
     type: "file",
-    parentclassName:"property-w-0",
+    parentclassName:"property-w-3",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
   },
   {
     name: "threeSixtyImages",
     label: "360 Images",
-    parentclassName:"property-w-0",
+    parentclassName:"property-w-3",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -222,7 +222,7 @@ export const newPropertyConst = [
   {
     name: "layoutFile",
     label: "Layout Plan",
-    parentclassName:"property-w-0",
+    parentclassName:"property-w-3",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -230,7 +230,7 @@ export const newPropertyConst = [
   {
     name: "VideoFile",
     label: "Load Videos",
-    parentclassName:"property-w-0",
+    parentclassName:"property-w-3",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -238,7 +238,7 @@ export const newPropertyConst = [
   {
     name: "virtualFile",
     label: "Load Virtual Tour",
-    parentclassName:"property-w-0",
+    parentclassName:"property-w-3",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",

@@ -278,7 +278,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                     }
                     required={field.isRequired}
                   />
-                  <label>Crore</label>
+                  <label>Cr</label>
                   <input
                     className="inputtag"
                     type="text"
