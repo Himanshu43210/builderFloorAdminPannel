@@ -107,7 +107,10 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
     <form className="addbtn">
       <div className="formcontainer">
         {fields.map((field) => (
-          <div key={field.name} className={"subform" + " " + field.parentclassName}>
+          <div
+            key={field.name}
+            className={"subform" + " " + field.parentclassName}
+          >
             <div className="lablediv">
               <label className="lbel" htmlFor={field.name}>
                 {field.label}
@@ -328,10 +331,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                               value: formData[field.nameType],
                             }
                           : formData[field.nameType])) ||
-                      field.defaultOption || {
-                        label: field.nameType,
-                        value: "",
-                      }
+                      field.defaultOption
                     }
                     options={field.options}
                     onChange={(selectedOption) =>
