@@ -57,6 +57,7 @@ export const newPropertyConst = [
     nameType: "sizeType",
     parentclassName:"property-w-1",
     label: "Size",
+    className: "property-price-class",
     type: "size",
     options: [
       { value: "Sq.Yd.", label: "Sq.Yd." },
