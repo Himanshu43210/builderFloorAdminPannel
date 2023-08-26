@@ -3,6 +3,14 @@ import { PROPERTY_TITLE_LIST } from "../utils/tempData";
 
 export const newPropertyConst = [
   {
+    name: "state",
+    label: "State",
+    type: "select",
+    isRequired: true,
+    options: [{ value: "Haryana", label: "Haryana" }],
+    requiredErrorMessage: "Please select a state.",
+  },
+  {
     name: "city",
     label: "City",
     type: "select",
@@ -12,7 +20,7 @@ export const newPropertyConst = [
   },
   {
     name: "sectorNumber",
-    label: "Sector Number",
+    label: "Location",
     type: "select",
     isRequired: true,
     options: [
@@ -36,6 +44,20 @@ export const newPropertyConst = [
     type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter a size.",
+  },
+  {
+    name: "floor",
+    label: "Floor",
+    type: "select",
+    options: [
+      { value: "FirstFloor", label: "First Floor" },
+      { value: "SecondFloor", label: "Second Floor" },
+      { value: "ThirdFloor", label: "Third Floor" },
+      { value: "FourthFloor", label: "Fourth Floor" },
+      { value: "Basement+FirstFloor", label: "Basement + First Floor" },
+    ],
+    isRequired: true,
+    requiredErrorMessage: "Please enter a floor.",
   },
   {
     name: "facing",
@@ -92,20 +114,7 @@ export const newPropertyConst = [
     ],
     requiredErrorMessage: "Please select an option for corner.",
   },
-  {
-    name: "floor",
-    label: "Floor",
-    type: "select",
-    options: [
-      { value: "FirstFloor", label: "First Floor" },
-      { value: "SecondFloor", label: "Second Floor" },
-      { value: "ThirdFloor", label: "Third Floor" },
-      { value: "FourthFloor", label: "Fourth Floor" },
-      { value: "Basement+FirstFloor", label: "Basement + First Floor" },
-    ],
-    isRequired: true,
-    requiredErrorMessage: "Please enter a floor.",
-  },
+ 
   {
     name: "possession",
     label: "Possession",
@@ -182,14 +191,7 @@ export const newPropertyConst = [
   //   ],
   //   requiredErrorMessage: "Please select a category.",
   // },
-  {
-    name: "state",
-    label: "State",
-    type: "select",
-    isRequired: true,
-    options: [{ value: "Haryana", label: "Haryana" }],
-    requiredErrorMessage: "Please select a state.",
-  },
+
   // {
   //   name: "images",
   //   label: "Images",
