@@ -11,11 +11,12 @@ import {
 import { FiRefreshCcw } from "react-icons/fi";
 import FormBuilder from "./FormBuilder";
 import ReusablePopup from "./ReusablePopup";
-import { GET, NEED_APPROVAL_BY, POST, PROFILE } from "./Const";
+import { GET, NEED_APPROVAL_BY, POST, PROFILE, PROPERTY_DEALER } from "./Const";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { callApi } from "../../redux/utils/apiActions";
 import ExcelTable from "../customComponents/BulkUpload";
 import CSVUpload from "../customComponents/BulkUpload";
+import { USER_ROLE } from "../../ScreenJson";
 
 const TableButtonHeader = ({
   tableData = [],
@@ -90,6 +91,12 @@ const TableButtonHeader = ({
         newFormData.append("virtualFile", file);
       }
       newFormData.append("parentId", userProfile._id);
+      newFormData.append(
+        "contactId",
+        userProfile.role === USER_ROLE[PROPERTY_DEALER]
+          ? userProfile.parentId
+          : userProfile._id
+      );
       newFormData.append([NEED_APPROVAL_BY], userProfile.parentId);
       newFormData.append("formData", { ...formData });
       function isObjectNotString(value) {
