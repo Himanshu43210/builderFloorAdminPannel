@@ -6,6 +6,7 @@ export const newPropertyConst = [
     name: "state",
     label: "State",
     type: "select",
+    parentclassName:"property-w-1",
     isRequired: true,
     options: [{ value: "Haryana", label: "Haryana" }],
     requiredErrorMessage: "Please select a state.",
@@ -14,6 +15,7 @@ export const newPropertyConst = [
     name: "city",
     label: "City",
     type: "select",
+    parentclassName:"property-w-1",
     isRequired: true,
     options: [{ value: "gurgaon", label: "Gurgaon" }],
     requiredErrorMessage: "Please select a city.",
@@ -22,6 +24,7 @@ export const newPropertyConst = [
     name: "sectorNumber",
     label: "Location",
     type: "select",
+    parentclassName:"property-w-1",
     isRequired: true,
     options: [
       { value: "DLF1", label: "DLF City Phase 1" },
@@ -34,6 +37,7 @@ export const newPropertyConst = [
   {
     name: "plotNumber",
     label: "Plot Number",
+    parentclassName:"property-w-1",
     type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter a plot number.",
@@ -41,6 +45,7 @@ export const newPropertyConst = [
   {
     name: "size",
     label: "Size",
+    parentclassName:"property-w-1",
     type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter a size.",
@@ -48,6 +53,7 @@ export const newPropertyConst = [
   {
     name: "floor",
     label: "Floor",
+    parentclassName:"property-w-1",
     type: "select",
     options: [
       { value: "1st Floor", label: "First Floor" },
@@ -62,6 +68,7 @@ export const newPropertyConst = [
   {
     name: "price",
     label: "Price",
+    parentclassName:"property-w-1",
     type: "price",
     className: "property-price-class",
     isRequired: true,
@@ -71,6 +78,7 @@ export const newPropertyConst = [
     name: "accommodation",
     label: "Accommodation",
     type: "select",
+    parentclassName:"property-w-1",
     isRequired: true,
     options: [
       { value: "2BHK", label: "2 BHK" },
@@ -85,6 +93,7 @@ export const newPropertyConst = [
     name: "facing",
     label: "Facing",
     type: "select",
+    parentclassName:"property-w-1",
     isRequired: true,
     options: [
       { value: "North", label: "North" },
@@ -103,6 +112,7 @@ export const newPropertyConst = [
     name: "parkFacing",
     label: "Park Facing",
     type: "radio",
+    parentclassName:"property-w-1",
     dataKey: "parkFacing",
     isRequired: true,
     options: [
@@ -116,6 +126,7 @@ export const newPropertyConst = [
     label: "Corner",
     type: "radio",
     isRequired: true,
+    parentclassName:"property-w-1",
     dataKey: "corner",
     options: [
       { value: true, label: "Yes" },
@@ -128,6 +139,7 @@ export const newPropertyConst = [
     name: "possession",
     label: "Possession",
     type: "select",
+    parentclassName:"property-w-1",
     isRequired: true,
     options: [
       { value: "Ready", label: "Ready" },
@@ -142,6 +154,7 @@ export const newPropertyConst = [
   {
     name: "builderName",
     label: "Builder Name",
+    parentclassName:"property-w-2",
     type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter a builder name.",
@@ -149,6 +162,7 @@ export const newPropertyConst = [
   {
     name: "builderContact",
     label: "Builder Contact",
+    parentclassName:"property-w-2",
     type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter a builder contact.",
@@ -156,6 +170,7 @@ export const newPropertyConst = [
   {
     name: "title",
     label: "Main Title",
+    parentclassName:"property-w-3",
     type: "select",
     options: PROPERTY_TITLE_LIST,
     isRequired: true,
@@ -163,6 +178,7 @@ export const newPropertyConst = [
   },
   {
     name: "detailTitle",
+    parentclassName:"property-w-3",
     label: "Sub Title",
     type: TEXT,
     textLimit: 100,
@@ -173,6 +189,8 @@ export const newPropertyConst = [
     name: "description",
     label: "Description",
     type: "textarea",
+    parentclassName:"property-w-3 column-property",
+    className:"column-property",
     isRequired: true,
     textLimit: 100,
     requiredErrorMessage: "Please enter a description.",
@@ -180,6 +198,7 @@ export const newPropertyConst = [
   {
     name: "thumbnailFile",
     label: "Thumbnail Image",
+    parentclassName:"property-w-0",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -188,12 +207,14 @@ export const newPropertyConst = [
     name: "normalImageFile",
     label: "Normal Images",
     type: "file",
+    parentclassName:"property-w-0",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
   },
   {
     name: "threeSixtyImages",
     label: "360 Images",
+    parentclassName:"property-w-0",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -201,6 +222,7 @@ export const newPropertyConst = [
   {
     name: "layoutFile",
     label: "Layout Plan",
+    parentclassName:"property-w-0",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -208,6 +230,7 @@ export const newPropertyConst = [
   {
     name: "VideoFile",
     label: "Load Videos",
+    parentclassName:"property-w-0",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -215,6 +238,7 @@ export const newPropertyConst = [
   {
     name: "virtualFile",
     label: "Load Virtual Tour",
+    parentclassName:"property-w-0",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",

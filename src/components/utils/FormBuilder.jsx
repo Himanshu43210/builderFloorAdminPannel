@@ -107,14 +107,7 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
     <form className="addbtn">
       <div className="formcontainer">
         {fields.map((field) => (
-          <div
-            key={field.name}
-            className={
-              "subform" +
-              " " +
-              (field.type === "textarea" && "full-width-textarea")
-            }
-          >
+          <div key={field.name} className={"subform" + " " + field.parentclassName}>
             <div className="lablediv">
               <label className="lbel" htmlFor={field.name}>
                 {field.label}
