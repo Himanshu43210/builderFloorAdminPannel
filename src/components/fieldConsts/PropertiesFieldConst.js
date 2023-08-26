@@ -189,7 +189,7 @@ export const newPropertyConst = [
     name: "description",
     label: "Description",
     type: "textarea",
-    parentclassName:"property-w-3",
+    parentclassName:"property-w-3 column-property",
     className:"column-property",
     isRequired: true,
     textLimit: 100,
