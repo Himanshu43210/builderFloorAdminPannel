@@ -57,6 +57,21 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
     handleChange(key, allFiles);
   };
 
+  const handleCurrencyChange =
+    (handleChange, fieldName, existingTotal) => (e, unitType) => {
+      let updatedValue = parseInt(e.target.value) || 0;
+
+      if (unitType === "crore") {
+        updatedValue = (existingTotal % 10000000) + updatedValue * 10000000;
+      } else if (unitType === "lakh") {
+        updatedValue =
+          Math.floor(existingTotal / 10000000) * 10000000 +
+          updatedValue * 100000;
+      }
+
+      handleChange(fieldName, updatedValue, true);
+    };
+
   const [verificationId, setVerificationId] = useState("");
 
   const handleSendOtp = async () => {
@@ -274,6 +289,44 @@ const FormBuilder = ({ fields, onFormDataChange, propsFormData }) => {
                   multiple
                   onChange={(e) => handleChange(field.name, e.target.files)}
                 />
+              )}
+              {field.type === "price" && (
+                <div className={field.className}>
+                  <input
+                    className="inputtag"
+                    type="text"
+                    disabled={field.disabled}
+                    id={`${field.name}-crore`}
+                    name={`${field.name}-crore`}
+                    value={Math.floor((formData[field.name] || 0) / 10000000)}
+                    onChange={(e) =>
+                      handleCurrencyChange(
+                        handleChange,
+                        field.name,
+                        formData[field.name] || 0
+                      )(e, "crore")
+                    }
+                    required={field.isRequired}
+                  />
+                  <label>Crore</label>
+                  <input
+                    className="inputtag"
+                    type="text"
+                    disabled={field.disabled}
+                    id={`${field.name}-lakh`}
+                    name={`${field.name}-lakh`}
+                    value={((formData[field.name] || 0) % 10000000) / 100000}
+                    onChange={(e) =>
+                      handleCurrencyChange(
+                        handleChange,
+                        field.name,
+                        formData[field.name] || 0
+                      )(e, "lakh")
+                    }
+                    required={field.isRequired}
+                  />
+                  <label>Lakh</label>
+                </div>
               )}
 
               {fieldErrors[field.name] && <p>{fieldErrors[field.name]}</p>}

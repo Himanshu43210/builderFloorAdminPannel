@@ -141,6 +141,7 @@ export const newPropertyConst = [
     label: "Description",
     type: "textarea",
     isRequired: true,
+    textLimit: 100,
     requiredErrorMessage: "Please enter a description.",
   },
   {
@@ -160,7 +161,8 @@ export const newPropertyConst = [
   {
     name: "price",
     label: "Price",
-    type: TEXT,
+    type: "price",
+    className: "property-price-class",
     isRequired: true,
     requiredErrorMessage: "Please enter a price.",
   },
