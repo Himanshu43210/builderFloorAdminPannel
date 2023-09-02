@@ -41,20 +41,6 @@ export const newUserConst = [
     isRequired: true,
     requiredErrorMessage: "Please enter your email.",
   },
-  {
-    name: "password",
-    label: "Password",
-    type: "password",
-    isRequired: true,
-    requiredErrorMessage: "Please enter your password.",
-  },
-  {
-    name: "confirmPassword",
-    label: "Confirm Password",
-    type: "password",
-    isRequired: true,
-    requiredErrorMessage: "Please confirm your password.",
-  },
 
   {
     name: "role",
