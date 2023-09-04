@@ -12,12 +12,14 @@ export const TEXT = "text";
 export const EMAIL = "email";
 // components
 export const SELECT = "SELECT";
+export const DASHBOARD_LISTING = "DASHBOARD_LISTING";
 export const IMAGE = "IMAGE";
 export const SLIDER = "SLIDER";
 export const BUTTON = "BUTTON";
 export const API_BUTTON = "API_BUTTON";
 export const HEADING = "HEADING";
 export const CONTAINER = "CONTAINER";
+
 export const CARD_DETAILS = "CARD_DETAILS";
 export const DETAILED_VIEW = "DETAILED_VIEW";
 export const HOME_CARD = "HOME_CARD";
@@ -34,6 +36,7 @@ export const SELECT_SLIDER = "SELECT_SLIDER";
 export const SEARCH_CARD = "SEARCH_CARD";
 export const API_HEADING = "API_HEADING";
 export const TOGGLE_BUTTON = "TOGGLE_BUTTON";
+export const ROUTE_BUTTON = "ROUTE_BUTTON";
 export const PAGE_HEADER = "PAGE_HEADER";
 export const HORIZONTAL_LINE = "HORIZONTAL_LINE";
 export const SPAN_TEXT = "SPAN_TEXT";
@@ -60,6 +63,7 @@ export const GET_SIMILAR_PROPERTY_DATA = "getSimilarPropertyData";
 export const APPROVE_PROPERTY_DATA = "approvePropertyData";
 export const GET_HOME_SCREEN_DATA = "getHomeScreenData";
 export const GET_ADMIN_PROPERTY_DATA = "getAdminPropertyData";
+export const GET_CHANNEL_PARTNER_DATA = "getChannelPartnerData";
 export const GET_ADMIN_USER_DATA = "getAdminUserData";
 
 export const LINKEDIN_ICON = "LINKEDIN_ICON";
@@ -79,4 +83,3 @@ export const MASTER_MANAGEMENT = "MASTER_MANAGEMENT";
 export const YES = "yes";
 export const PROFILE = "profile";
 export const NEED_APPROVAL_BY = "needApprovalBy";
-

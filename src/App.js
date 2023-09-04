@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminHome from "./components/Pages/adminPages/AdminHome";
+import FormPage from "./components/Pages/adminPages/FormPage.jsx";
 import Login from "./components/Pages/Login";
 import UserManagement from "./components/Pages/adminPages/UserManagement";
 import PropertyManagement from "./components/Pages/adminPages/PropertyManagement";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminHome />} />
+          <Route path="/admin/form" element={<FormPage />} />
           <Route path="/admin/user" element={<UserManagement />} />
           <Route path="/admin/property" element={<PropertyManagement />} />
           <Route path="/admin/master" element={<MasterManagement />} />
