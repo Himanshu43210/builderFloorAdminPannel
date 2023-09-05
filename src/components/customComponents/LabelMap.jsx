@@ -22,16 +22,20 @@ const LabelMap = ({ component }) => {
       setChecked(true);
     }
   });
-  const apiData = useSelector((state) => state.api.data)[component.endpoint].response
-  console.log(apiData);
-  return <>{apiData.map((item,i)=>{
-    return(
-        <div key={i} >
-            <p>{item.label}</p>
-            <p>{item.value}</p>
-        </div>
-    )
-  })}</>;
+  const apiData = useSelector((state) => state.api.data)[component.endpoint]
+    ?.response;
+  return (
+    <>
+      {apiData?.map((item, i) => {
+        return (
+          <div key={i}>
+            <p>{item?.label}</p>
+            <p>{item?.value}</p>
+          </div>
+        );
+      })}
+    </>
+  );
 };
 
 export default LabelMap;
