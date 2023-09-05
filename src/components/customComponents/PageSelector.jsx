@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import AdminDashboard from "../Pages/adminPages/SuperAdminDashboard";
-// import AdminDashboard from "../Pages/adminPages/AdminDashboard";
 import MasterManagement from "../Pages/adminPages/MasterManagement";
 import PropertyManagement from "../Pages/adminPages/PropertyManagement";
 import UserManagement from "../Pages/adminPages/UserManagement";
@@ -31,7 +30,7 @@ export default function PageSelector({ pageName }) {
   return (
     <>
       {!loginStatus && <Login />}
-      {pageName === ADMIN_DASHBOARD && <AdminDashboard    />}
+      {pageName === ADMIN_DASHBOARD && <AdminDashboard />}
       {pageName === USER_MANAGEMENT && <UserManagement />}
       {pageName === PROPERTY_MANAGEMENT && <PropertyManagement />}
       {pageName === MASTER_MANAGEMENT && <MasterManagement />}

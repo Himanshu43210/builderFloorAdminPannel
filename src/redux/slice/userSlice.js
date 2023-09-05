@@ -13,6 +13,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { storeUserData, clearUserData } =
-  userSlice.actions;
+export const { storeUserData, clearUserData } = userSlice.actions;
 export default userSlice.reducer;
