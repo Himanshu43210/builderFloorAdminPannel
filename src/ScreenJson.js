@@ -454,8 +454,7 @@ export const SEARCH_RESULT = {
         },
       ],
     },
-    FOOTER,
-    SCROLLTOP,
+
   ],
 };
 

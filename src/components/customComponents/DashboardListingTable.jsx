@@ -5,7 +5,7 @@ import { GET_CHANNEL_PARTNER_DATA } from "../utils/Const";
 
 const DashboardListing = ({ component }) => {
   const dataApi = API_ENDPOINTS[GET_CHANNEL_PARTNER_DATA];
-
+  
   return (
     <ListingTable
       data={component.data}

@@ -32,4 +32,5 @@ export const API_ENDPOINTS = {
   addMasterData: API_DOMAIN + "masters/addMaster",
   alterMasterData: API_DOMAIN + "masters/editMaster",
   deleteMasterData: API_DOMAIN + "masters/deleteMaster",
+  getPropertiesListingCounts:API_DOMAIN + "properties/getPropertiesListingCounts"
 };

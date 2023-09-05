@@ -17,6 +17,7 @@ import {
   GET_ADMIN_PROPERTY_DATA,
   GET_PROPERTY_DATA,
   LOADING,
+  POST,
 } from "../../utils/Const";
 import { CircularProgress } from "@mui/material";
 
@@ -53,7 +54,7 @@ export default function PropertyManagement() {
 
   return (
     <>
-      {!tableData && <AutoFetchApi url={dataApi} method={GET} />}
+      {!tableData && <AutoFetchApi url={dataApi} method={POST} data={{filter:{}}} />}
       {apiStatus === LOADING ? (
         <CircularProgress className="loader-class" />
       ) : (
@@ -71,7 +72,8 @@ export default function PropertyManagement() {
                   addHeader="Add Property"
                 />
                 <ListingTable
-                  data={_.cloneDeep(tableData?.data || [])}
+                  // data={_.cloneDeep(tableData?.data || [])}
+                  data={{ filter: {} }}
                   headersDesktop={desktopHeaders}
                   headersMobile={mobileHeaders}
                   fieldConst={fieldConst}

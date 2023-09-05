@@ -50,7 +50,7 @@ export const APPROVED = "Approved";
 
 export const GET_CARD_DATA = "getCardData";
 export const GET_SEARCH_RESULT = "getSearchResult";
-export const GET_LISTING_DATA = "getListingData";
+export const GET_LISTING_DATA = "getPropertiesListingCounts";
 export const ALTER_USER_DATA = "alterUserData";
 export const DELETE_USER_DATA = "deleteUserData";
 export const ALTER_PROPERTY_DATA = "alterPropertyData";

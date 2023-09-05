@@ -4,7 +4,7 @@ import AdminHome from "./components/Pages/adminPages/AdminHome";
 import Login from "./components/Pages/Login";
 import UserManagement from "./components/Pages/adminPages/UserManagement";
 import PropertyManagement from "./components/Pages/adminPages/PropertyManagement";
-import MasterManagement from "./components/Pages/adminPages/MasterManagement";
+import MasterManagement from "./components/Pages/adminPages/SuperMasterManagement";
 import Home from "./components/Pages/Home";
 import DetailedView from "./components/Pages/DetailedView";
 import SearchResult from "./components/Pages/SearchResult";
