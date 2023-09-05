@@ -20,6 +20,8 @@ import {
   PAGE_HEADER,
   HORIZONTAL_LINE,
   LOADING,
+  DASHBOARD_LISTING,
+  ROUTE_BUTTON,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -42,6 +44,8 @@ import Header from "./Header";
 import CustomToogleButton from "./ToggleButton";
 import { CircularProgress } from "@material-ui/core";
 import { selectApiStatus } from "../../redux/utils/selectors";
+import DashboardListing from "./DashboardListingTable";
+import CustomRouteButton from "./RouteButton";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -168,6 +172,12 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === SCROLL_TO_TOP && (
         <ScrollToTop component={component} />
+      )}
+      {component.type === DASHBOARD_LISTING && (
+        <DashboardListing component={component} />
+      )}
+      {component.type === ROUTE_BUTTON && (
+        <CustomRouteButton component={component} />
       )}
       {component.type === HORIZONTAL_LINE && <hr />}
     </>
