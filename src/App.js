@@ -4,7 +4,8 @@ import AdminHome from "./components/Pages/adminPages/AdminHome";
 import Login from "./components/Pages/Login";
 import UserManagement from "./components/Pages/adminPages/UserManagement";
 import PropertyManagement from "./components/Pages/adminPages/PropertyManagement";
-import MasterManagement from "./components/Pages/adminPages/SuperMasterManagement";
+import MasterManagement from "./components/Pages/adminPages/MasterManagement";
+import SuperMasterTable from "./components/Pages/adminPages/SuperMasterTable";
 import Home from "./components/Pages/Home";
 import DetailedView from "./components/Pages/DetailedView";
 import SearchResult from "./components/Pages/SearchResult";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/admin/user" element={<UserManagement />} />
           <Route path="/admin/property" element={<PropertyManagement />} />
           <Route path="/admin/master" element={<MasterManagement />} />
+          <Route path="/admin/masterTable" element={<SuperMasterTable />} />
           <Route path="/" element={<Login />} />
         </Routes>
       </div>

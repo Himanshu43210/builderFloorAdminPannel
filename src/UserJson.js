@@ -96,6 +96,7 @@ export const USER_DASHBOARD = {
           className: "toogle-filter",
           label: "Master Data of Super Admin",
           name: "Master Data of Super Admin",
+          route: "/admin/masterTable",
         },
         {
           type: LABEL_MAP,
