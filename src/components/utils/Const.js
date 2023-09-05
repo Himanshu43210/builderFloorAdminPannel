@@ -37,6 +37,7 @@ export const SEARCH_CARD = "SEARCH_CARD";
 export const API_HEADING = "API_HEADING";
 export const TOGGLE_BUTTON = "TOGGLE_BUTTON";
 export const ROUTE_BUTTON = "ROUTE_BUTTON";
+export const LABEL_MAP = "LABEL_MAP";
 export const PAGE_HEADER = "PAGE_HEADER";
 export const HORIZONTAL_LINE = "HORIZONTAL_LINE";
 export const SPAN_TEXT = "SPAN_TEXT";
@@ -49,6 +50,7 @@ export const APPROVED = "Approved";
 
 export const GET_CARD_DATA = "getCardData";
 export const GET_SEARCH_RESULT = "getSearchResult";
+export const GET_LISTING_DATA = "getListingData";
 export const ALTER_USER_DATA = "alterUserData";
 export const DELETE_USER_DATA = "deleteUserData";
 export const ALTER_PROPERTY_DATA = "alterPropertyData";

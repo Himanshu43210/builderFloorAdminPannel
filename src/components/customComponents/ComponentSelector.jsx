@@ -22,6 +22,7 @@ import {
   LOADING,
   DASHBOARD_LISTING,
   ROUTE_BUTTON,
+  LABEL_MAP,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -46,6 +47,7 @@ import { CircularProgress } from "@material-ui/core";
 import { selectApiStatus } from "../../redux/utils/selectors";
 import DashboardListing from "./DashboardListingTable";
 import CustomRouteButton from "./RouteButton";
+import LabelMap from "./LabelMap";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -179,6 +181,7 @@ const ComponentSelector = ({ component }) => {
       {component.type === ROUTE_BUTTON && (
         <CustomRouteButton component={component} />
       )}
+      {component.type === LABEL_MAP && <LabelMap component={component} />}
       {component.type === HORIZONTAL_LINE && <hr />}
     </>
   );

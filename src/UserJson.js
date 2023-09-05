@@ -3,8 +3,12 @@ import { newUserConst } from "./components/fieldConsts/UserFieldConst";
 import {
   CONTAINER,
   DASHBOARD_LISTING,
+  GET,
+  GET_LISTING_DATA,
+  LABEL_MAP,
   ROUTE_BUTTON,
 } from "./components/utils/Const";
+import { API_ENDPOINTS } from "./redux/utils/api";
 
 // export const USER_DASHBOARD = {
 //   name: "User Dashboard Screen",
@@ -83,6 +87,13 @@ export const USER_DASHBOARD = {
           className: "toogle-filter",
           label: "Master Data of Super Admin",
           name: "Master Data of Super Admin",
+        },
+        {
+          type: LABEL_MAP,
+          className: "lableded-map-dashboard",
+          api: API_ENDPOINTS[GET_LISTING_DATA],
+          method: GET,
+          endpoint: GET_LISTING_DATA,
         },
       ],
     },
