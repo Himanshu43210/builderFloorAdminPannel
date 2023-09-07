@@ -73,9 +73,9 @@ export default function PropertyManagement() {
       <div style={{ marginTop: "100px" }}>
         <RenderComponent jsonToRender={MASTER_TABLE} />
       </div>
-      {!tableData && (
+      {/* {!tableData && (
         <AutoFetchApi url={dataApi} method={POST} data={{ filter: {} }} />
-      )}
+      )} */}
       {apiStatus === LOADING ? (
         <CircularProgress className="loader-class" />
       ) : (

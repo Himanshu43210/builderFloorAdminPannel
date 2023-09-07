@@ -23,6 +23,8 @@ import {
   DASHBOARD_LISTING,
   ROUTE_BUTTON,
   LABEL_MAP,
+  POST,
+  AUTO_FETCH_API_POST,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -105,6 +107,9 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === AUTO_FETCH_API && (
         <AutoFetchApi url={component.api} method={GET} />
+      )}
+      {component.type === AUTO_FETCH_API_POST && (
+        <AutoFetchApi url={component.api} method={POST} data={component.data} />
       )}
       {component.type === CONTAINER && (
         <RenderComponent jsonToRender={component} />

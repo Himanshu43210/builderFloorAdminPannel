@@ -3,6 +3,7 @@ import { newUserConst } from "./components/fieldConsts/UserFieldConst";
 import {
   API_BUTTON,
   API_HEADING,
+  AUTO_FETCH_API_POST,
   CONTAINER,
   DASHBOARD_LISTING,
   GET,
@@ -115,6 +116,12 @@ export const MASTER_TABLE = {
   name: "Master table",
   className: "klk",
   children: [
+    {
+      type: AUTO_FETCH_API_POST,
+      api: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
+      data: { filter: {} },
+      className: "header",
+    },
     { type: HORIZONTAL_LINE },
     {
       type: CONTAINER,
@@ -143,7 +150,7 @@ export const MASTER_TABLE = {
           name: "search",
           buttonLabel: "Search",
           apiType: POST,
-          navigate: "/searchResult",
+          navigate: "/admin/masterTable",
           api: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
         },
       ],
