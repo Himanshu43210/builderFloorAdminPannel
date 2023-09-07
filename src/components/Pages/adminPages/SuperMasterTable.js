@@ -20,6 +20,8 @@ import {
   POST,
 } from "../../utils/Const";
 import { CircularProgress } from "@mui/material";
+import { MASTER_TABLE } from "../../../UserJson";
+import RenderComponent from "../../customComponents/ComponentRenderer";
 
 export default function PropertyManagement() {
   const desktopHeaders = {
@@ -32,7 +34,7 @@ export default function PropertyManagement() {
     Accommodation: "accommodation",
     Facing: "facing",
     "Park Facing": "parkFacing",
-    "Corner": "corner",
+    Corner: "corner",
     Possession: "possession",
     "Builder Name": "builderName",
     "Builder Contact Name": "builderContact",
@@ -68,6 +70,9 @@ export default function PropertyManagement() {
 
   return (
     <>
+      <div style={{ marginTop: "100px" }}>
+        <RenderComponent jsonToRender={MASTER_TABLE} />
+      </div>
       {!tableData && (
         <AutoFetchApi url={dataApi} method={POST} data={{ filter: {} }} />
       )}

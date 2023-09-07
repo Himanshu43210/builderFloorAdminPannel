@@ -9,7 +9,7 @@ import SuperMasterTable from "./components/Pages/adminPages/SuperMasterTable";
 import Home from "./components/Pages/Home";
 import DetailedView from "./components/Pages/DetailedView";
 import SearchResult from "./components/Pages/SearchResult";
-
+import FormPage from "./components/Pages/adminPages/FormPage.jsx";
 function App() {
   return (
     <Router>
@@ -25,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminHome />} />
+          <Route path="/admin/form" element={<FormPage />} />
           <Route path="/admin/user" element={<UserManagement />} />
           <Route path="/admin/property" element={<PropertyManagement />} />
           <Route path="/admin/master" element={<MasterManagement />} />
