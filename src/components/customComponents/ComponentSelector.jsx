@@ -25,6 +25,7 @@ import {
   LABEL_MAP,
   POST,
   AUTO_FETCH_API_POST,
+  TABLE_HEADER,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -50,6 +51,7 @@ import { selectApiStatus } from "../../redux/utils/selectors";
 import DashboardListing from "./DashboardListingTable";
 import CustomRouteButton from "./RouteButton";
 import LabelMap from "./LabelMap";
+import TableHeader from "./TableHeader";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -188,6 +190,7 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === LABEL_MAP && <LabelMap component={component} />}
       {component.type === HORIZONTAL_LINE && <hr />}
+      {component.type === TABLE_HEADER && <TableHeader component={component} />}
     </>
   );
 };
