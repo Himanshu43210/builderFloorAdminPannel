@@ -87,4 +87,18 @@ export const newUserConst = [
     options: [{ value: "gurgaon", label: "Gurgaon" }],
     requiredErrorMessage: "Please select a City.",
   },
+  {
+    name: "status",
+    label: "Status",
+    dataKey: "status",
+    type: "select",
+    isRequired: true,
+    options: [
+      // { value: "BuilderFloorAdmin", label: "Builder Floor Admin" },
+      { value: "Suspend", label: "Suspend" },
+      { value: "Unsuspend", label: "Unsuspend" },
+      { value: "Terminate", label: "Terminate" },
+    ],
+    requiredErrorMessage: "Please select a Status.",
+  },
 ];

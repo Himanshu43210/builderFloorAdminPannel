@@ -2,17 +2,22 @@ import { newPropertyConst } from "./components/fieldConsts/PropertiesFieldConst"
 import { newUserConst } from "./components/fieldConsts/UserFieldConst";
 import {
   ALTER_PROPERTY_DATA,
+  ALTER_USER_DATA,
   API_BUTTON,
   API_HEADING,
   APPROVE_PROPERTY_DATA,
   AUTO_FETCH_API_POST,
+  AUTO_FETCH_API_USER,
   CONTAINER,
   DASHBOARD_LISTING,
   DELETE_PROPERTY_DATA,
+  DELETE_USER_DATA,
   GET,
   GET_ADMIN_PROPERTY_DATA,
+  GET_ADMIN_USER_DATA,
   GET_LISTING_DATA,
   GET_SEARCH_RESULT,
+  GET_USER_DATA,
   HORIZONTAL_LINE,
   LABEL_MAP,
   POST,
@@ -422,5 +427,61 @@ export const MASTER_TABLE = {
     //     "View Details": "view detail",
     //   },
     // },
+  ],
+};
+
+export const SUPER_USER = {
+  name: "Master table",
+  className: "klk",
+  children: [
+    {
+      type: AUTO_FETCH_API_USER,
+      user: true,
+      method: GET,
+      api: API_ENDPOINTS[GET_ADMIN_USER_DATA],
+    },
+    {
+      type: CONTAINER,
+      name: "",
+      className: "",
+      children: [
+        {
+          type: CONTAINER,
+          name: "",
+          className: "",
+          children: [
+            {
+              type: TABLE_HEADER,
+              fieldConst: newUserConst,
+              endpoint: GET_USER_DATA,
+              saveApi: ALTER_USER_DATA,
+              dataApi: API_ENDPOINTS[GET_USER_DATA],
+              header: "Add User",
+            },
+            {
+              type: DASHBOARD_LISTING,
+              data: {},
+              desktopHeaders: {
+                Name: "name",
+                "Phone Number": "phoneNumber",
+                Address: "address",
+                Email: "email",
+                Role: "role",
+                "Parent Id": "parentId",
+                "Status":"status"
+              },
+              mobileHeaders: [{ Name: "name" }, { Role: "role" }],
+              fieldConst: newUserConst,
+              editApi: ALTER_USER_DATA,
+              deleteApi: DELETE_USER_DATA,
+              getDataApi: GET_ADMIN_USER_DATA,
+              // approveApi: APPROVE_PROPERTY_DATA,
+              endpoint: API_ENDPOINTS[GET_ADMIN_USER_DATA],
+              dataPoint: GET_ADMIN_USER_DATA,
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
