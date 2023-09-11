@@ -8,7 +8,7 @@ export default function ApiHandler({
   data = null,
   headers = null,
   children,
-  user,
+  user, 
 }) {
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.profile);
