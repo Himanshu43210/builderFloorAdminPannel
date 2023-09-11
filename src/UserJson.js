@@ -6,6 +6,7 @@ import {
   API_BUTTON,
   API_HEADING,
   APPROVE_PROPERTY_DATA,
+  AUTO_FETCH_API,
   AUTO_FETCH_API_POST,
   AUTO_FETCH_API_USER,
   CONTAINER,
@@ -16,11 +17,13 @@ import {
   GET_ADMIN_PROPERTY_DATA,
   GET_ADMIN_USER_DATA,
   GET_LISTING_DATA,
+  GET_PROPERTY_USER,
   GET_SEARCH_RESULT,
   GET_USER_DATA,
   HORIZONTAL_LINE,
   LABEL_MAP,
   POST,
+  REJECT_PROPERTY,
   ROUTE_BUTTON,
   SELECT,
   SELECT_SLIDER,
@@ -93,6 +96,7 @@ export const AD_USER_DASHBOARD = {
           className: "toogle-filter",
           label: "Statistics",
           name: "Statistics",
+          route: "/admin/statistics",
         },
         {
           type: ROUTE_BUTTON,
@@ -135,7 +139,7 @@ export const CP_USER_DASHBOARD = {
           name: "Create Sub User",
           form: newUserConst,
           route: "/admin/form",
-          isAutoFill: true
+          isAutoFill: true,
         },
         {
           type: ROUTE_BUTTON,
@@ -530,7 +534,7 @@ export const AD_SUPER_USER = {
                 Email: "email",
                 Role: "role",
                 "Parent Id": "parentId",
-                "Status": "status"
+                Status: "status",
               },
               mobileHeaders: [{ Name: "name" }, { Role: "role" }],
               fieldConst: newUserConst,
@@ -540,7 +544,7 @@ export const AD_SUPER_USER = {
               // approveApi: APPROVE_PROPERTY_DATA,
               endpoint: API_ENDPOINTS[GET_ADMIN_USER_DATA],
               dataPoint: GET_ADMIN_USER_DATA,
-              showPreviewButton: false
+              showPreviewButton: false,
             },
             {
               type: ROUTE_BUTTON,
@@ -548,6 +552,64 @@ export const AD_SUPER_USER = {
               label: "Back",
               name: "Back",
               route: "/admin",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const STATS_LIST = {
+  name: "Master table",
+  className: "klk",
+  children: [
+    {
+      type: LABEL_MAP,
+      className: "lableded-map-dashboard",
+      api: API_ENDPOINTS[GET_LISTING_DATA],
+      method: GET,
+      endpoint: GET_LISTING_DATA,
+    },
+    {
+      type: AUTO_FETCH_API_USER,
+      user: true,
+      userId: true,
+      method: GET,
+      api: API_ENDPOINTS[GET_PROPERTY_USER],
+    },
+    {
+      type: CONTAINER,
+      name: "",
+      className: "",
+      children: [
+        {
+          type: CONTAINER,
+          name: "",
+          className: "",
+          children: [
+            {
+              type: DASHBOARD_LISTING,
+              data: {},
+              desktopHeaders: {
+                "Company Name": "name",
+                "Mobile Number": "phoneNumber",
+                City: "city",
+                "Total Listings": "total_count",
+                Approved: "approved_count",
+                Pending: "pending_count",
+                "View all Listings": "",
+              },
+              removeApi: REJECT_PROPERTY,
+              user: true,
+              mobileHeaders: [{ Name: "name" }, { Role: "role" }],
+              fieldConst: newUserConst,
+              editApi: ALTER_USER_DATA,
+              deleteApi: DELETE_USER_DATA,
+              getDataApi: GET_PROPERTY_USER,
+              approveApi: APPROVE_PROPERTY_DATA,
+              endpoint: API_ENDPOINTS[GET_PROPERTY_USER],
+              dataPoint: GET_PROPERTY_USER,
             },
           ],
         },

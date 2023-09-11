@@ -8,15 +8,22 @@ export default function ApiHandler({
   data = null,
   headers = null,
   children,
-  user, 
+  user,
+  userId,
 }) {
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.profile);
 
   let uurl = url;
   if (user) {
-    uurl = url + "?id=" + userProfile._id + "&role=" + userProfile.role;
+    uurl =
+      url +
+      (userId ? "?userId=" : "?id=") +
+      userProfile._id +
+      (userProfile.role ? "&role=" + userProfile.role : "");
   }
+
+  console.log(uurl, url);
   const doFetch = useCallback(() => {
     const options = {
       url: uurl,

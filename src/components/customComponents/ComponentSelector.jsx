@@ -120,6 +120,7 @@ const ComponentSelector = ({ component }) => {
           url={component.api}
           method={component.method}
           data={component.data}
+          userId={component.userId}
           user={component.user}
         />
       )}
