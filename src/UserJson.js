@@ -452,6 +452,7 @@ const AD_MASTER_TABLE_CHILD = {
     {
       type: DASHBOARD_LISTING,
       data: {},
+      paginationMethod:POST,
       desktopHeaders: {
         Location: "sectorNumber",
         "Plot No.": "plotNumber",
