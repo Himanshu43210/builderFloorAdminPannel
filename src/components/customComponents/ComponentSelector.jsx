@@ -27,6 +27,7 @@ import {
   AUTO_FETCH_API_POST,
   TABLE_HEADER,
   AUTO_FETCH_API_USER,
+  CARD_CONTAINER,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -54,6 +55,7 @@ import CustomRouteButton from "./RouteButton";
 import LabelMap from "./LabelMap";
 import TableHeader from "./TableHeader";
 import ApiHandler from "./AutoFetchApiPost";
+import CardContainer from "./CardContainer";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -114,6 +116,9 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === AUTO_FETCH_API_POST && (
         <AutoFetchApi url={component.api} method={POST} data={component.data} />
+      )}
+      {component.type === CARD_CONTAINER && (
+        <CardContainer component={component} />
       )}
       {component.type === AUTO_FETCH_API_USER && (
         <ApiHandler
