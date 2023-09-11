@@ -1,7 +1,7 @@
 import React from "react";
 import ListingTable from "../utils/ListingTable";
 import { API_ENDPOINTS } from "../../redux/utils/api";
-import { GET_CHANNEL_PARTNER_DATA, LOADING } from "../utils/Const";
+import { GET_CHANNEL_PARTNER_DATA, LOADING, POST } from "../utils/Const";
 import { useSelector } from "react-redux";
 import { selectApiStatus } from "../../redux/utils/selectors";
 import { CircularProgress } from "@mui/material";
@@ -26,7 +26,6 @@ const DashboardListing = ({ component }) => {
     <ListingTable
       data={component.data}
       headersDesktop={component.desktopHeaders}
-      ś
       headersMobile={component.mobileHeaders}
       fieldConst={component.fieldConst}
       editApi={component.editApi}
@@ -35,6 +34,7 @@ const DashboardListing = ({ component }) => {
       removeApi={component.removeApi}
       approveApi={component.approveApi}
       filterDataUrl={dataApi}
+      paginationMethod={component.paginationMethod}
       itemCount={apiData?.itemCount}
       isproperty={component.showPreviewButton}
     />

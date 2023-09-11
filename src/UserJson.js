@@ -9,6 +9,7 @@ import {
   AUTO_FETCH_API,
   AUTO_FETCH_API_POST,
   AUTO_FETCH_API_USER,
+  CARD_CONTAINER,
   CONTAINER,
   DASHBOARD_LISTING,
   DELETE_PROPERTY_DATA,
@@ -214,17 +215,10 @@ export const CP_USER_DASHBOARD = {
   ],
 };
 
-export const AD_MASTER_TABLE = {
-  name: "Master table",
-  className: "klk",
+const AD_MASTER_TABLE_CHILD = {
+  name: "",
+  className: "",
   children: [
-    {
-      type: AUTO_FETCH_API_POST,
-      api: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
-      data: { filter: {} },
-      className: "header",
-    },
-    { type: HORIZONTAL_LINE },
     {
       type: CONTAINER,
       className: "actioncontainer",
@@ -309,11 +303,26 @@ export const AD_MASTER_TABLE = {
                   onClickApi: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
                   onClickApiMethod: POST,
                   options: [
-                    { label: "DLF City Phase 1", value: "DLF City Phase 1" },
-                    { label: "DLF City Phase 2", value: "DLF City Phase 2" },
-                    { label: "DLF City Phase 3", value: "DLF City Phase 3" },
-                    { label: "DLF City Phase 4", value: "DLF City Phase 4" },
-                    { label: "Sector 15 Part 2", value: "Sector 15 Part 2" },
+                    {
+                      label: "DLF City Phase 1",
+                      value: "DLF City Phase 1",
+                    },
+                    {
+                      label: "DLF City Phase 2",
+                      value: "DLF City Phase 2",
+                    },
+                    {
+                      label: "DLF City Phase 3",
+                      value: "DLF City Phase 3",
+                    },
+                    {
+                      label: "DLF City Phase 4",
+                      value: "DLF City Phase 4",
+                    },
+                    {
+                      label: "Sector 15 Part 2",
+                      value: "Sector 15 Part 2",
+                    },
                     { label: "Sector 27", value: "Sector 27" },
                     { label: "Sector 28", value: "Sector 28" },
                     { label: "Sector 38", value: "Sector 38" },
@@ -398,8 +407,14 @@ export const AD_MASTER_TABLE = {
                   onClickApi: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
                   onClickApiMethod: POST,
                   options: [
-                    { label: "Price High to Low", value: "Price High to Low" },
-                    { label: "Price Low to High", value: "Price Low to High" },
+                    {
+                      label: "Price High to Low",
+                      value: "Price High to Low",
+                    },
+                    {
+                      label: "Price Low to High",
+                      value: "Price Low to High",
+                    },
                   ],
                 },
                 {
@@ -437,6 +452,7 @@ export const AD_MASTER_TABLE = {
     {
       type: DASHBOARD_LISTING,
       data: {},
+      paginationMethod:POST,
       desktopHeaders: {
         Location: "sectorNumber",
         "Plot No.": "plotNumber",
@@ -496,6 +512,28 @@ export const AD_MASTER_TABLE = {
       name: "Back",
       route: "/admin",
     },
+  ],
+};
+
+export const AD_MASTER_TABLE = {
+  name: "Master table",
+  className: "klk",
+  children: [
+    {
+      type: AUTO_FETCH_API_POST,
+      api: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
+      data: { filter: {} },
+      className: "header",
+    },
+
+    { type: HORIZONTAL_LINE },
+    {
+      type: CARD_CONTAINER,
+      className: "",
+      title: "Manage Channel Partner",
+      child: AD_MASTER_TABLE_CHILD,
+    },
+
     // {
     //   type: DASHBOARD_LISTING,
     //   desktopHeaders: {
@@ -522,6 +560,50 @@ export const AD_MASTER_TABLE = {
   ],
 };
 
+const AD_SUPER_USER_CHILD = {
+  name: "",
+  className: "",
+  children: [
+    {
+      type: TABLE_HEADER,
+      fieldConst: newUserConst,
+      endpoint: GET_ADMIN_USER_DATA,
+      saveApi: ALTER_USER_DATA,
+      dataApi: API_ENDPOINTS[GET_ADMIN_USER_DATA],
+      header: "Add User",
+    },
+    {
+      type: DASHBOARD_LISTING,
+      data: {},
+      desktopHeaders: {
+        Name: "name",
+        "Phone Number": "phoneNumber",
+        Address: "address",
+        Email: "email",
+        Role: "role",
+        "Parent Id": "parentId",
+        Status: "status",
+      },
+      mobileHeaders: [{ Name: "name" }, { Role: "role" }],
+      fieldConst: newUserConst,
+      editApi: ALTER_USER_DATA,
+      deleteApi: DELETE_USER_DATA,
+      getDataApi: GET_ADMIN_USER_DATA,
+      // approveApi: APPROVE_PROPERTY_DATA,
+      endpoint: API_ENDPOINTS[GET_ADMIN_USER_DATA],
+      dataPoint: GET_ADMIN_USER_DATA,
+      showPreviewButton: false,
+    },
+    {
+      type: ROUTE_BUTTON,
+      className: "toogle-filter",
+      label: "Back",
+      name: "Back",
+      route: "/admin",
+    },
+  ],
+};
+
 export const AD_SUPER_USER = {
   name: "Master table",
   className: "klk",
@@ -533,53 +615,45 @@ export const AD_SUPER_USER = {
       api: API_ENDPOINTS[GET_ADMIN_USER_DATA],
     },
     {
+      type: CARD_CONTAINER,
+      className: "",
+      title: "Manage Channel Partner",
+      child: AD_SUPER_USER_CHILD,
+    },
+  ],
+};
+
+const STATS_LIST_CHILD = {
+  name: "",
+  className: "",
+  children: [
+    {
       type: CONTAINER,
       name: "",
       className: "",
       children: [
         {
-          type: CONTAINER,
-          name: "",
-          className: "",
-          children: [
-            {
-              type: TABLE_HEADER,
-              fieldConst: newUserConst,
-              endpoint: GET_ADMIN_USER_DATA,
-              saveApi: ALTER_USER_DATA,
-              dataApi: API_ENDPOINTS[GET_ADMIN_USER_DATA],
-              header: "Add User",
-            },
-            {
-              type: DASHBOARD_LISTING,
-              data: {},
-              desktopHeaders: {
-                Name: "name",
-                "Phone Number": "phoneNumber",
-                Address: "address",
-                Email: "email",
-                Role: "role",
-                "Parent Id": "parentId",
-                Status: "status",
-              },
-              mobileHeaders: [{ Name: "name" }, { Role: "role" }],
-              fieldConst: newUserConst,
-              editApi: ALTER_USER_DATA,
-              deleteApi: DELETE_USER_DATA,
-              getDataApi: GET_ADMIN_USER_DATA,
-              // approveApi: APPROVE_PROPERTY_DATA,
-              endpoint: API_ENDPOINTS[GET_ADMIN_USER_DATA],
-              dataPoint: GET_ADMIN_USER_DATA,
-              showPreviewButton: false,
-            },
-            {
-              type: ROUTE_BUTTON,
-              className: "toogle-filter",
-              label: "Back",
-              name: "Back",
-              route: "/admin",
-            },
-          ],
+          type: DASHBOARD_LISTING,
+          data: {},
+          desktopHeaders: {
+            "Company Name": "name",
+            "Mobile Number": "phoneNumber",
+            City: "city",
+            "Total Listings": "total_count",
+            Approved: "approved_count",
+            Pending: "pending_count",
+            "View all Listings": "",
+          },
+          removeApi: REJECT_PROPERTY,
+          user: true,
+          mobileHeaders: [{ Name: "name" }, { Role: "role" }],
+          fieldConst: newUserConst,
+          editApi: ALTER_USER_DATA,
+          deleteApi: DELETE_USER_DATA,
+          getDataApi: GET_PROPERTY_USER,
+          approveApi: APPROVE_PROPERTY_DATA,
+          endpoint: API_ENDPOINTS[GET_PROPERTY_USER],
+          dataPoint: GET_PROPERTY_USER,
         },
       ],
     },
@@ -595,6 +669,7 @@ export const STATS_LIST = {
       className: "lableded-map-dashboard",
       api: API_ENDPOINTS[GET_LISTING_DATA],
       method: GET,
+      parentClassName: "super-admin-label",
       endpoint: GET_LISTING_DATA,
     },
     {
@@ -605,41 +680,10 @@ export const STATS_LIST = {
       api: API_ENDPOINTS[GET_PROPERTY_USER],
     },
     {
-      type: CONTAINER,
-      name: "",
+      type: CARD_CONTAINER,
       className: "",
-      children: [
-        {
-          type: CONTAINER,
-          name: "",
-          className: "",
-          children: [
-            {
-              type: DASHBOARD_LISTING,
-              data: {},
-              desktopHeaders: {
-                "Company Name": "name",
-                "Mobile Number": "phoneNumber",
-                City: "city",
-                "Total Listings": "total_count",
-                Approved: "approved_count",
-                Pending: "pending_count",
-                "View all Listings": "",
-              },
-              removeApi: REJECT_PROPERTY,
-              user: true,
-              mobileHeaders: [{ Name: "name" }, { Role: "role" }],
-              fieldConst: newUserConst,
-              editApi: ALTER_USER_DATA,
-              deleteApi: DELETE_USER_DATA,
-              getDataApi: GET_PROPERTY_USER,
-              approveApi: APPROVE_PROPERTY_DATA,
-              endpoint: API_ENDPOINTS[GET_PROPERTY_USER],
-              dataPoint: GET_PROPERTY_USER,
-            },
-          ],
-        },
-      ],
+      title: "Manage Channel Partner",
+      child: STATS_LIST_CHILD,
     },
   ],
 };

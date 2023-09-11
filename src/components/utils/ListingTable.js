@@ -35,6 +35,7 @@ const ListingTable = ({
   deleteApi,
   getDataApi,
   approveApi,
+  paginationMethod,
   itemCount,
   isproperty,
   removeApi,
@@ -155,7 +156,7 @@ const ListingTable = ({
         url:
           filterDataUrl +
           `&page=${activePage}&limit=${itemsCountPerPage}&sortType=${sortType}&sortColumn=${sortColumn}`,
-        method: GET,
+        method: paginationMethod ? paginationMethod : GET,
         headers: { "Content-Type": "application/json" },
         data: { sortType, sortColumn, activePage, itemsCountPerPage },
       })
