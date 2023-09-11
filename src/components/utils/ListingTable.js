@@ -37,6 +37,7 @@ const ListingTable = ({
   approveApi,
   itemCount,
   isproperty,
+  removeApi,
   filterDataUrl,
 }) => {
   const [showEditModal, setShowEditModal] = useState(false);
@@ -46,6 +47,7 @@ const ListingTable = ({
   const [showSearchPreviewModal, setShowSearchPreviewModal] = useState(false);
   const [showDetailPreviewModal, setShowDetailPreviewModal] = useState(false);
   const [showApprovalModal, setShowApprovalModal] = useState(false);
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
   const [showRowModal, setShowRowModal] = useState(false);
   const [currentRowData, setCurrentRowData] = useState({});
   const [activePage, setActivePage] = useState(1);
@@ -80,7 +82,7 @@ const ListingTable = ({
   }, [getApiDataFromRedux]);
 
   const handleSave = () => {
-    console.log()
+    console.log();
     try {
       const options = {
         url: API_ENDPOINTS[editApi],
@@ -123,6 +125,25 @@ const ListingTable = ({
     }
   };
 
+  const handleRemove = (rowId) => {
+    try {
+      const options = {
+        url: API_ENDPOINTS[removeApi],
+        method: POST,
+        headers: { "Content-Type": "application/json" },
+        data: {
+          _id: rowId,
+          [NEED_APPROVAL_BY]: userProfile.parentId || APPROVED,
+          rejectedByBFAdmin: "rejectedByCP",
+          rejectedByBFAdminComments: "testing",
+        },
+      };
+      dispatch(callApi(options));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const filterData = ({
     activePage,
     itemsCountPerPage,
@@ -151,7 +172,6 @@ const ListingTable = ({
   const toogleEdit = () => {
     setShowEditModal(!showEditModal);
   };
-
   const toogleDelete = () => {
     setShowDeleteModal(!showDeleteModal);
   };
@@ -173,8 +193,7 @@ const ListingTable = ({
   };
 
   const toggleRemove = () => {
-    "remove logic";
-    axios.post("/api/properties/rejectProperty");
+    setShowRemoveModal(!showRemoveModal);
   };
 
   const handleSort = (column) => {
@@ -335,6 +354,18 @@ const ListingTable = ({
           onCancel={toogleApproval}
         >
           <p className="lbel">Are you sure want to Approve?</p>
+        </ReusablePopup>
+      )}
+      {showRemoveModal && (
+        <ReusablePopup
+          onYes={() => {
+            handleRemove(currentRowData._id);
+            toggleRemove();
+          }}
+          onHide={toggleRemove}
+          onCancel={toggleRemove}
+        >
+          <p className="lbel">Are you sure want to Remove?</p>
         </ReusablePopup>
       )}
       <div className="tablediv ">

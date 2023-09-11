@@ -25,12 +25,14 @@ const DashboardListing = ({ component }) => {
   return (
     <ListingTable
       data={component.data}
-      headersDesktop={component.desktopHeaders}ś
+      headersDesktop={component.desktopHeaders}
+      ś
       headersMobile={component.mobileHeaders}
       fieldConst={component.fieldConst}
       editApi={component.editApi}
       deleteApi={component.deleteApi}
       getDataApi={component.getDataApi}
+      removeApi={component.removeApi}
       approveApi={component.approveApi}
       filterDataUrl={dataApi}
       itemCount={apiData?.itemCount}

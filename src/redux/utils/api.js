@@ -11,6 +11,7 @@ export const getApiName = (api) => {
 };
 
 export const API_ENDPOINTS = {
+  rejectProperty: API_DOMAIN + "properties/rejectProperty",
   getPropertiesCountsByUserId:
     API_DOMAIN + "properties/getPropertiesCountsByUserId",
   adminDashboardLogin: API_DOMAIN + "users/auth/login",

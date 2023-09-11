@@ -67,6 +67,7 @@ export const GET_MASTER_DATA = "getMasterData";
 export const ADMIN_DASHBOARD_LOGIN = "adminDashboardLogin";
 export const GET_SIMILAR_PROPERTY_DATA = "getSimilarPropertyData";
 export const APPROVE_PROPERTY_DATA = "approvePropertyData";
+export const REJECT_PROPERTY = "rejectProperty";
 export const GET_HOME_SCREEN_DATA = "getHomeScreenData";
 export const GET_ADMIN_PROPERTY_DATA = "getAdminPropertyData";
 export const GET_CHANNEL_PARTNER_DATA = "getChannelPartnerData";

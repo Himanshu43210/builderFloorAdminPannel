@@ -23,6 +23,7 @@ import {
   HORIZONTAL_LINE,
   LABEL_MAP,
   POST,
+  REJECT_PROPERTY,
   ROUTE_BUTTON,
   SELECT,
   SELECT_SLIDER,
@@ -138,7 +139,7 @@ export const CP_USER_DASHBOARD = {
           name: "Create Sub User",
           form: newUserConst,
           route: "/admin/form",
-          isAutoFill: true
+          isAutoFill: true,
         },
         {
           type: ROUTE_BUTTON,
@@ -533,7 +534,7 @@ export const AD_SUPER_USER = {
                 Email: "email",
                 Role: "role",
                 "Parent Id": "parentId",
-                "Status": "status"
+                Status: "status",
               },
               mobileHeaders: [{ Name: "name" }, { Role: "role" }],
               fieldConst: newUserConst,
@@ -543,7 +544,7 @@ export const AD_SUPER_USER = {
               // approveApi: APPROVE_PROPERTY_DATA,
               endpoint: API_ENDPOINTS[GET_ADMIN_USER_DATA],
               dataPoint: GET_ADMIN_USER_DATA,
-              showPreviewButton: false
+              showPreviewButton: false,
             },
             {
               type: ROUTE_BUTTON,
@@ -599,6 +600,7 @@ export const STATS_LIST = {
                 Pending: "pending_count",
                 "View all Listings": "",
               },
+              removeApi: REJECT_PROPERTY,
               user: true,
               mobileHeaders: [{ Name: "name" }, { Role: "role" }],
               fieldConst: newUserConst,
