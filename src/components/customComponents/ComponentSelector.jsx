@@ -26,6 +26,7 @@ import {
   POST,
   AUTO_FETCH_API_POST,
   TABLE_HEADER,
+  AUTO_FETCH_API_USER,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -52,6 +53,7 @@ import DashboardListing from "./DashboardListingTable";
 import CustomRouteButton from "./RouteButton";
 import LabelMap from "./LabelMap";
 import TableHeader from "./TableHeader";
+import ApiHandler from "./AutoFetchApiPost";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -112,6 +114,14 @@ const ComponentSelector = ({ component }) => {
       )}
       {component.type === AUTO_FETCH_API_POST && (
         <AutoFetchApi url={component.api} method={POST} data={component.data} />
+      )}
+      {component.type === AUTO_FETCH_API_USER && (
+        <ApiHandler
+          url={component.api}
+          method={component.method}
+          data={component.data}
+          user={component.user}
+        />
       )}
       {component.type === CONTAINER && (
         <RenderComponent jsonToRender={component} />
