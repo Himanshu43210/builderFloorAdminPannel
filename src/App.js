@@ -12,7 +12,9 @@ import Home from "./components/Pages/Home";
 import DetailedView from "./components/Pages/DetailedView";
 import SearchResult from "./components/Pages/SearchResult";
 import FormPage from "./components/Pages/adminPages/FormPage.jsx";
+import {  useSelector } from "react-redux";
 function App() {
+  const userProfile = useSelector((state) => state.profile);
   return (
     <Router>
       <div className="App">
@@ -26,7 +28,7 @@ function App() {
           <Route path="/admin/master" element={<MasterManagement />} />
           <Route path="/" element={<Home />} /> */}
           <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<AdminHome />} />
+          <Route path="/admin" element={<AdminHome role={userProfile.role} />} />
           <Route path="/admin/form" element={<FormPage />} />
           <Route path="/admin/user" element={<UserManagement />} />
           <Route path="/admin/property" element={<PropertyManagement />} />

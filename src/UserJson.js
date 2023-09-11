@@ -32,7 +32,7 @@ import {
 } from "./components/utils/Const";
 import { API_ENDPOINTS } from "./redux/utils/api";
 
-// export const USER_DASHBOARD = {
+// export const AD_USER_DASHBOARD = {
 //   name: "User Dashboard Screen",
 //   children: [
 //     {
@@ -61,7 +61,7 @@ import { API_ENDPOINTS } from "./redux/utils/api";
 //   ],
 // };
 
-export const USER_DASHBOARD = {
+export const AD_USER_DASHBOARD = {
   name: "User Dashboard Screen",
   children: [
     {
@@ -124,7 +124,70 @@ export const USER_DASHBOARD = {
   ],
 };
 
-export const MASTER_TABLE = {
+export const CP_USER_DASHBOARD = {
+  name: "User Dashboard Screen",
+  children: [
+    {
+      type: CONTAINER,
+      className: "superAdminDashboard",
+      children: [
+        {
+          type: ROUTE_BUTTON,
+          className: "toogle-filter",
+          label: "Create Sub User",
+          name: "Create Sub User",
+          form: newUserConst,
+          route: "/admin/form",
+          isAutoFill: true
+        },
+        {
+          type: ROUTE_BUTTON,
+          className: "toogle-filter",
+          label: "Manage Sub User",
+          name: "Manage Sub User",
+          route: "/admin/user",
+        },
+        {
+          type: ROUTE_BUTTON,
+          className: "toogle-filter",
+          label: "Approve Sub User Listngs",
+          name: "Approve Sub User Listngs",
+          route: "/admin/property",
+        },
+        {
+          type: ROUTE_BUTTON,
+          className: "toogle-filter",
+          label: "Statistics",
+          name: "Statistics",
+        },
+        {
+          type: ROUTE_BUTTON,
+          className: "toogle-filter",
+          label: "Post Listing",
+          name: "Post Listing",
+          form: newPropertyConst,
+          route: "/admin/form",
+        },
+        {
+          type: ROUTE_BUTTON,
+          className: "toogle-filter",
+          label: "Master Data of Channel Partner",
+          name: "Master Data of Channel Partner",
+          route: "/admin/masterTable",
+        },
+        {
+          type: LABEL_MAP,
+          className: "lableded-map-dashboard",
+          api: API_ENDPOINTS[GET_LISTING_DATA],
+          method: GET,
+          endpoint: GET_LISTING_DATA,
+        },
+      ],
+    },
+  ],
+};
+
+export const AD_MASTER_TABLE = {
   name: "Master table",
   className: "klk",
   children: [
@@ -345,14 +408,6 @@ export const MASTER_TABLE = {
       ],
     },
     {
-      type: TABLE_HEADER,
-      fieldConst: newPropertyConst,
-      endpoint: GET_ADMIN_PROPERTY_DATA,
-      saveApi: ALTER_PROPERTY_DATA,
-      dataApi: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
-      header: "Add Property",
-    },
-    {
       type: DASHBOARD_LISTING,
       data: {},
       desktopHeaders: {
@@ -407,6 +462,13 @@ export const MASTER_TABLE = {
       endpoint: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
       dataPoint: GET_ADMIN_PROPERTY_DATA,
     },
+    {
+      type: ROUTE_BUTTON,
+      className: "toogle-filter",
+      label: "Back",
+      name: "Back",
+      route: "/admin",
+    },
     // {
     //   type: DASHBOARD_LISTING,
     //   desktopHeaders: {
@@ -433,7 +495,7 @@ export const MASTER_TABLE = {
   ],
 };
 
-export const SUPER_USER = {
+export const AD_SUPER_USER = {
   name: "Master table",
   className: "klk",
   children: [
@@ -456,9 +518,9 @@ export const SUPER_USER = {
             {
               type: TABLE_HEADER,
               fieldConst: newUserConst,
-              endpoint: GET_USER_DATA,
+              endpoint: GET_ADMIN_USER_DATA,
               saveApi: ALTER_USER_DATA,
-              dataApi: API_ENDPOINTS[GET_USER_DATA],
+              dataApi: API_ENDPOINTS[GET_ADMIN_USER_DATA],
               header: "Add User",
             },
             {
@@ -471,7 +533,7 @@ export const SUPER_USER = {
                 Email: "email",
                 Role: "role",
                 "Parent Id": "parentId",
-                Status: "status",
+                "Status": "status"
               },
               mobileHeaders: [{ Name: "name" }, { Role: "role" }],
               fieldConst: newUserConst,
@@ -481,6 +543,14 @@ export const SUPER_USER = {
               // approveApi: APPROVE_PROPERTY_DATA,
               endpoint: API_ENDPOINTS[GET_ADMIN_USER_DATA],
               dataPoint: GET_ADMIN_USER_DATA,
+              showPreviewButton: false
+            },
+            {
+              type: ROUTE_BUTTON,
+              className: "toogle-filter",
+              label: "Back",
+              name: "Back",
+              route: "/admin",
             },
           ],
         },

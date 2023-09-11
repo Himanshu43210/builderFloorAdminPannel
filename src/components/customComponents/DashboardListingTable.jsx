@@ -23,25 +23,19 @@ const DashboardListing = ({ component }) => {
 
   console.log(apiData);
   return (
-    <>
-      {apiStatus === LOADING ? (
-        <CircularProgress className="loader-class" />
-      ) : (
-        <ListingTable
-          data={component.data}
-          headersDesktop={component.desktopHeaders}
-          headersMobile={component.mobileHeaders}
-          fieldConst={component.fieldConst}
-          editApi={component.editApi}
-          deleteApi={component.deleteApi}
-          getDataApi={component.getDataApi}
-          approveApi={component.approveApi}
-          filterDataUrl={dataApi}
-          itemCount={apiData?.itemCount}
-          isproperty={true}
-        />
-      )}
-    </>
+    <ListingTable
+      data={component.data}
+      headersDesktop={component.desktopHeaders}ś
+      headersMobile={component.mobileHeaders}
+      fieldConst={component.fieldConst}
+      editApi={component.editApi}
+      deleteApi={component.deleteApi}
+      getDataApi={component.getDataApi}
+      approveApi={component.approveApi}
+      filterDataUrl={dataApi}
+      itemCount={apiData?.itemCount}
+      isproperty={component.showPreviewButton}
+    />
   );
 };
 
