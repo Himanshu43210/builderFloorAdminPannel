@@ -616,6 +616,43 @@ export const AD_SUPER_USER = {
   ],
 };
 
+const STATS_LIST_CHILD = {
+  name: "",
+  className: "",
+  children: [
+    {
+      type: CONTAINER,
+      name: "",
+      className: "",
+      children: [
+        {
+          type: DASHBOARD_LISTING,
+          data: {},
+          desktopHeaders: {
+            "Company Name": "name",
+            "Mobile Number": "phoneNumber",
+            City: "city",
+            "Total Listings": "total_count",
+            Approved: "approved_count",
+            Pending: "pending_count",
+            "View all Listings": "",
+          },
+          removeApi: REJECT_PROPERTY,
+          user: true,
+          mobileHeaders: [{ Name: "name" }, { Role: "role" }],
+          fieldConst: newUserConst,
+          editApi: ALTER_USER_DATA,
+          deleteApi: DELETE_USER_DATA,
+          getDataApi: GET_PROPERTY_USER,
+          approveApi: APPROVE_PROPERTY_DATA,
+          endpoint: API_ENDPOINTS[GET_PROPERTY_USER],
+          dataPoint: GET_PROPERTY_USER,
+        },
+      ],
+    },
+  ],
+};
+
 export const STATS_LIST = {
   name: "Master table",
   className: "klk",
@@ -625,6 +662,7 @@ export const STATS_LIST = {
       className: "lableded-map-dashboard",
       api: API_ENDPOINTS[GET_LISTING_DATA],
       method: GET,
+      parentClassName: "super-admin-label",
       endpoint: GET_LISTING_DATA,
     },
     {
@@ -635,41 +673,10 @@ export const STATS_LIST = {
       api: API_ENDPOINTS[GET_PROPERTY_USER],
     },
     {
-      type: CONTAINER,
-      name: "",
+      type: CARD_CONTAINER,
       className: "",
-      children: [
-        {
-          type: CONTAINER,
-          name: "",
-          className: "",
-          children: [
-            {
-              type: DASHBOARD_LISTING,
-              data: {},
-              desktopHeaders: {
-                "Company Name": "name",
-                "Mobile Number": "phoneNumber",
-                City: "city",
-                "Total Listings": "total_count",
-                Approved: "approved_count",
-                Pending: "pending_count",
-                "View all Listings": "",
-              },
-              removeApi: REJECT_PROPERTY,
-              user: true,
-              mobileHeaders: [{ Name: "name" }, { Role: "role" }],
-              fieldConst: newUserConst,
-              editApi: ALTER_USER_DATA,
-              deleteApi: DELETE_USER_DATA,
-              getDataApi: GET_PROPERTY_USER,
-              approveApi: APPROVE_PROPERTY_DATA,
-              endpoint: API_ENDPOINTS[GET_PROPERTY_USER],
-              dataPoint: GET_PROPERTY_USER,
-            },
-          ],
-        },
-      ],
+      title: "Manage Channel Partner",
+      child: STATS_LIST_CHILD,
     },
   ],
 };
