@@ -306,7 +306,7 @@ export const SEARCH_RESULT = {
                   sliceName: "filter",
                   name: "location",
                   label: "Location",
-                  className: "filterbutton",
+                  className: "filterChannel",
                   onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
                   onClickApiMethod: POST,
                   options: [

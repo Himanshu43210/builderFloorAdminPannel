@@ -21,7 +21,7 @@ const DashboardListing = ({ component }) => {
       approveApi={component.approveApi}
       filterDataUrl={dataApi}
       itemCount={apiData?.itemCount}
-      isproperty={true}
+      isproperty={component.showPreviewButton}
     />
   );
 };

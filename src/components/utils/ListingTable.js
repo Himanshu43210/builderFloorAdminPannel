@@ -79,6 +79,7 @@ const ListingTable = ({
   }, [getApiDataFromRedux]);
 
   const handleSave = () => {
+    console.log()
     try {
       const options = {
         url: API_ENDPOINTS[editApi],

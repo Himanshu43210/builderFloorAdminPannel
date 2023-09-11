@@ -342,14 +342,6 @@ export const MASTER_TABLE = {
       ],
     },
     {
-      type: TABLE_HEADER,
-      fieldConst: newPropertyConst,
-      endpoint: GET_ADMIN_PROPERTY_DATA,
-      saveApi: ALTER_PROPERTY_DATA,
-      dataApi: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
-      header: "Add Property",
-    },
-    {
       type: DASHBOARD_LISTING,
       data: {},
       desktopHeaders: {
@@ -404,6 +396,13 @@ export const MASTER_TABLE = {
       endpoint: API_ENDPOINTS[GET_ADMIN_PROPERTY_DATA],
       dataPoint: GET_ADMIN_PROPERTY_DATA,
     },
+    {
+      type: ROUTE_BUTTON,
+      className: "toogle-filter",
+      label: "Back",
+      name: "Back",
+      route: "/admin",
+    },
     // {
     //   type: DASHBOARD_LISTING,
     //   desktopHeaders: {
@@ -453,9 +452,9 @@ export const SUPER_USER = {
             {
               type: TABLE_HEADER,
               fieldConst: newUserConst,
-              endpoint: GET_USER_DATA,
+              endpoint: GET_ADMIN_USER_DATA,
               saveApi: ALTER_USER_DATA,
-              dataApi: API_ENDPOINTS[GET_USER_DATA],
+              dataApi: API_ENDPOINTS[GET_ADMIN_USER_DATA],
               header: "Add User",
             },
             {
@@ -468,7 +467,7 @@ export const SUPER_USER = {
                 Email: "email",
                 Role: "role",
                 "Parent Id": "parentId",
-                "Status":"status"
+                "Status": "status"
               },
               mobileHeaders: [{ Name: "name" }, { Role: "role" }],
               fieldConst: newUserConst,
@@ -478,6 +477,14 @@ export const SUPER_USER = {
               // approveApi: APPROVE_PROPERTY_DATA,
               endpoint: API_ENDPOINTS[GET_ADMIN_USER_DATA],
               dataPoint: GET_ADMIN_USER_DATA,
+              showPreviewButton: false
+            },
+            {
+              type: ROUTE_BUTTON,
+              className: "toogle-filter",
+              label: "Back",
+              name: "Back",
+              route: "/admin",
             },
           ],
         },
