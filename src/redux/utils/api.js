@@ -1,7 +1,7 @@
 import _ from "lodash";
 
 const API_DOMAIN = "https://builder-floor-backend-n2ib.onrender.com/api/";
-// const API_DOMAIN = "http://localhost:5000/api/"; 
+// const API_DOMAIN = "http://localhost:5000/api/";
 
 export const getApiName = (api) => {
   const apiWithoutParams = api.split("?")[0]; //remove any qurey params
@@ -11,6 +11,8 @@ export const getApiName = (api) => {
 };
 
 export const API_ENDPOINTS = {
+  getPropertiesCountsByUserId:
+    API_DOMAIN + "properties/getPropertiesCountsByUserId",
   adminDashboardLogin: API_DOMAIN + "users/auth/login",
   getHomeScreenData: API_DOMAIN + "properties/getHomeData",
   getSimilarPropertyData:
@@ -32,5 +34,6 @@ export const API_ENDPOINTS = {
   addMasterData: API_DOMAIN + "masters/addMaster",
   alterMasterData: API_DOMAIN + "masters/editMaster",
   deleteMasterData: API_DOMAIN + "masters/deleteMaster",
-  getPropertiesListingCounts:API_DOMAIN + "properties/getPropertiesListingCounts"
+  getPropertiesListingCounts:
+    API_DOMAIN + "properties/getPropertiesListingCounts",
 };

@@ -5,9 +5,9 @@ import { callApi } from "../../redux/utils/apiActions";
 
 const LabelMap = ({ component }) => {
   const data = useSelector((state) => state.profile);
-  console.log(data._id);
+
   // const api = component.api+`?userId=${data?._id?data._id:""}`
-  const api = component.api+`?userId=64d23559cdd136858f8ebc05`
+  const api = component.api + `?userId=64d23559cdd136858f8ebc05`;
   const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
   const handleApiCall = () => {
@@ -19,6 +19,7 @@ const LabelMap = ({ component }) => {
       })
     );
   };
+  console.log(data._id, component.api, api);
   useEffect(() => {
     if (!checked) {
       // console.log(api)

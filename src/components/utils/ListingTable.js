@@ -20,12 +20,13 @@ import { callApi } from "../../redux/utils/apiActions";
 import BasicTablePagination from "../customComponents/TablePagination";
 import { selectApiData } from "../../redux/utils/selectors";
 import { useEffect } from "react";
-import { FcApproval } from "react-icons/fc";
+import { FcApproval, FcRemoveImage } from "react-icons/fc";
 import _ from "lodash";
 import HomeCard from "../customComponents/HomeCard";
 import SearchCard from "../customComponents/SearchCard";
 import DetailDataCard from "../customComponents/DetailedDataCard";
 import { selectApiStatus } from "./../../redux/utils/selectors";
+import axios from "axios";
 const ListingTable = ({
   headersDesktop = [],
   headersMobile = [],
@@ -170,6 +171,11 @@ const ListingTable = ({
     setShowApprovalModal(!showApprovalModal);
   };
 
+  const toggleRemove = () => {
+    "remove logic";
+    axios.post("/api/properties/rejectProperty");
+  };
+
   const handleSort = (column) => {
     const newSortType = sortType === "asc" ? "desc" : "asc";
     setSortType(newSortType);
@@ -210,6 +216,8 @@ const ListingTable = ({
       `Sort type: ${sortType}, Sort column: ${sortColumn}, Active page: ${activePage}, Records per page: ${itemsCountPerPage}`
     );
   };
+
+  console.log(tableData);
 
   // // Sort the data
   // setTableData(
@@ -402,15 +410,27 @@ const ListingTable = ({
                   {approveApi &&
                     element[NEED_APPROVAL_BY] &&
                     userProfile._id === element[NEED_APPROVAL_BY] && (
-                      <Button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setCurrentRowData(element);
-                          toogleApproval();
-                        }}
-                      >
-                        <FcApproval size={12} />
-                      </Button>
+                      <>
+                        <Button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentRowData(element);
+                            toogleApproval();
+                          }}
+                        >
+                          <FcApproval size={12} />
+                        </Button>
+                        <Button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            // setCurrentRowData(element);
+                            // toogleApproval();
+                            toggleRemove();
+                          }}
+                        >
+                          <FcRemoveImage size={12} />
+                        </Button>
+                      </>
                     )}
                 </td>
               </tr>
