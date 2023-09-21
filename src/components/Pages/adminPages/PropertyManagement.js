@@ -17,6 +17,7 @@ import {
   GET_ADMIN_PROPERTY_DATA,
   GET_PROPERTY_DATA,
   LOADING,
+  POST,
 } from "../../utils/Const";
 import { CircularProgress } from "@mui/material";
 
@@ -53,13 +54,15 @@ export default function PropertyManagement() {
 
   return (
     <>
-      {!tableData && <AutoFetchApi url={dataApi} method={GET} />}
+      {!tableData && (
+        <AutoFetchApi url={dataApi} method={POST} data={{ filter: {} }} />
+      )}
       {apiStatus === LOADING ? (
         <CircularProgress className="loader-class" />
       ) : (
         <div>
           <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <Card>
               <Card.Header className="font">Property Details</Card.Header>
               <Card.Body>
@@ -68,10 +71,12 @@ export default function PropertyManagement() {
                   tableData={_.cloneDeep(tableData?.data || [])}
                   saveDataApi={ALTER_PROPERTY_DATA}
                   refreshDataApi={dataApi}
+                  refreshMethod={POST}
                   addHeader="Add Property"
                 />
                 <ListingTable
-                  data={_.cloneDeep(tableData?.data || [])}
+                  // data={_.cloneDeep(tableData?.data || [])}
+                  data={{ filter: {} }}
                   headersDesktop={desktopHeaders}
                   headersMobile={mobileHeaders}
                   fieldConst={fieldConst}
@@ -82,6 +87,7 @@ export default function PropertyManagement() {
                   approveApi={APPROVE_PROPERTY_DATA}
                   itemCount={tableData?.itemCount}
                   isproperty={true}
+                  onRefreshApiType={POST}
                 />
               </Card.Body>
             </Card>

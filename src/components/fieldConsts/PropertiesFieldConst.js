@@ -1,5 +1,4 @@
 import { TEXT } from "../utils/Const";
-import { PROPERTY_TITLE_LIST } from "../utils/tempData";
 
 export const newPropertyConst = [
   {
@@ -8,7 +7,6 @@ export const newPropertyConst = [
     type: "select",
     parentclassName: "property-w-1",
     isRequired: true,
-    options: [{ value: "Haryana", label: "Haryana" }],
     requiredErrorMessage: "Please select a state.",
   },
   {
@@ -17,31 +15,15 @@ export const newPropertyConst = [
     type: "select",
     parentclassName: "property-w-1",
     isRequired: true,
-    options: [{ value: "gurgaon", label: "Gurgaon" }],
     requiredErrorMessage: "Please select a city.",
   },
   {
     name: "sectorNumber",
     label: "Location",
     type: "select",
+    isMulti: true,
     parentclassName: "property-w-1",
     isRequired: true,
-    options: [
-      { value: "DLF1", label: "DLF City Phase 1" },
-      { value: "DLF2", label: "DLF City Phase 2" },
-      { value: "DLF3", label: "DLF City Phase 3" },
-      { value: "DLF4", label: "DLF City Phase 4" },
-      { value: "SEC15P2", label: "Sector 15 Part 2" },
-      { value: "SEC27", label: "Sector 27" },
-      { value: "SEC28", label: "Sector 28" },
-      { value: "SEC38", label: "Sector 38" },
-      { value: "SEC42", label: "Sector 42" },
-      { value: "SEC43", label: "Sector 43" },
-      { value: "SEC45", label: "Sector 45" },
-      { value: "SEC46", label: "Sector 46" },
-      { value: "SCITY1", label: "South City 1" },
-      { value: "SLOK1", label: "Sushant Lok 1" },
-    ],
     requiredErrorMessage: "Please select a sector number.",
   },
   {
@@ -72,13 +54,6 @@ export const newPropertyConst = [
     label: "Floor",
     parentclassName: "property-w-1",
     type: "select",
-    options: [
-      { value: "1st Floor", label: "First Floor" },
-      { value: "2nd Floor", label: "Second Floor" },
-      { value: "3rd Floor", label: "Third Floor" },
-      { value: "4th Floor", label: "Fourth Floor" },
-      { value: "Basement + 1st Floor", label: "Basement + First Floor" },
-    ],
     isRequired: true,
     requiredErrorMessage: "Please enter a floor.",
   },
@@ -97,13 +72,6 @@ export const newPropertyConst = [
     type: "select",
     parentclassName: "property-w-1",
     isRequired: true,
-    options: [
-      { value: "2BHK", label: "2 BHK" },
-      { value: "3BHK", label: "3 BHK" },
-      { value: "4BHK", label: "4 BHK" },
-      { value: "5BHK", label: "5 BHK" },
-      { value: "6BHK", label: "6 BHK" },
-    ],
     requiredErrorMessage: "Please select an accommodation.",
   },
   {
@@ -112,16 +80,6 @@ export const newPropertyConst = [
     type: "select",
     parentclassName: "property-w-1",
     isRequired: true,
-    options: [
-      { value: "North", label: "North" },
-      { value: "South", label: "South" },
-      { value: "East", label: "East" },
-      { value: "West", label: "West" },
-      { value: "North-East", label: "North-East" },
-      { value: "North-West", label: "North-West" },
-      { value: "South-East", label: "South-East" },
-      { value: "South-West", label: "South-West" },
-    ],
     requiredErrorMessage: "Please select a facing direction.",
   },
 
@@ -158,14 +116,6 @@ export const newPropertyConst = [
     type: "select",
     parentclassName: "property-w-1",
     isRequired: true,
-    options: [
-      { value: "Ready", label: "Ready" },
-      { value: "1Months", label: "1 Months" },
-      { value: "3Months", label: "3 Months" },
-      { value: "6Months", label: "6 Months" },
-      { value: "9Months", label: "9 Months" },
-      { value: "12Months", label: "12 Months" },
-    ],
     requiredErrorMessage: "Please select a possession status.",
   },
   {
@@ -187,15 +137,14 @@ export const newPropertyConst = [
   {
     name: "title",
     label: "Main Title",
-    parentclassName:"property-w-2 property-margin-r",
+    parentclassName: "property-w-2 property-margin-r",
     type: "select",
-    options: PROPERTY_TITLE_LIST,
     isRequired: true,
     requiredErrorMessage: "Please enter a title.",
   },
   {
     name: "detailTitle",
-    parentclassName:"property-w-2 property-margin-r",
+    parentclassName: "property-w-2 property-margin-r",
     label: "Sub Title",
     type: TEXT,
     textLimit: 100,
@@ -215,7 +164,7 @@ export const newPropertyConst = [
   {
     name: "thumbnailFile",
     label: "Thumbnail Image",
-    parentclassName:"property-w-1",
+    parentclassName: "property-w-1",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -224,14 +173,14 @@ export const newPropertyConst = [
     name: "normalImageFile",
     label: "Normal Images",
     type: "file",
-    parentclassName:"property-w-1",
+    parentclassName: "property-w-1",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
   },
   {
     name: "threeSixtyImages",
     label: "360 Images",
-    parentclassName:"property-w-1",
+    parentclassName: "property-w-1",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -239,7 +188,7 @@ export const newPropertyConst = [
   {
     name: "layoutFile",
     label: "Layout Plan",
-    parentclassName:"property-w-1",
+    parentclassName: "property-w-1",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -247,7 +196,7 @@ export const newPropertyConst = [
   {
     name: "VideoFile",
     label: "Load Videos",
-    parentclassName:"property-w-1",
+    parentclassName: "property-w-1",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",
@@ -255,7 +204,7 @@ export const newPropertyConst = [
   {
     name: "virtualFile",
     label: "Load Virtual Tour",
-    parentclassName:"property-w-1",
+    parentclassName: "property-w-1",
     type: "file",
     isRequired: true,
     requiredErrorMessage: "Please Add 360 Image",

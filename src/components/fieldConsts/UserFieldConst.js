@@ -1,4 +1,4 @@
-import { EMAIL, TEXT } from "../utils/Const";
+import { TEXT } from "../utils/Const";
 
 export const newUserConst = [
   {
@@ -11,11 +11,19 @@ export const newUserConst = [
   },
   {
     name: "phoneNumber",
-    label: "Phone Number",
+    label: "Mobile Number",
     dataKey: "PhoneNumber",
     type: TEXT,
     isRequired: true,
     requiredErrorMessage: "Please enter your phone number.",
+  },
+  {
+    name: "email",
+    label: "Email",
+    dataKey: "email",
+    type: TEXT,
+    isRequired: true,
+    requiredErrorMessage: "Please enter your email.",
   },
   {
     name: "companyName",
@@ -33,6 +41,51 @@ export const newUserConst = [
     isRequired: true,
     requiredErrorMessage: "Please enter your address.",
   },
+
+  {
+    name: "city",
+    label: "city",
+    dataKey: "city",
+    type: "select",
+    isRequired: true,
+    requiredErrorMessage: "Please select a City.",
+  },
+  {
+    name: "state",
+    label: "state",
+    dataKey: "state",
+    type: "select",
+    isRequired: true,
+    requiredErrorMessage: "Please select a State.",
+  },
+  {
+    name: "sectorNumber",
+    label: "Locations Allowed",
+    dataKey: "location",
+    type: "select",
+    isRequired: true,
+    isMulti: true,
+    requiredErrorMessage: "Please select a Locations.",
+  },
+];
+
+export const editUserConst = [
+  {
+    name: "name",
+    label: "Name",
+    dataKey: "name",
+    type: TEXT,
+    isRequired: true,
+    requiredErrorMessage: "Please enter your name.",
+  },
+  {
+    name: "phoneNumber",
+    label: "Mobile Number",
+    dataKey: "PhoneNumber",
+    type: TEXT,
+    isRequired: true,
+    requiredErrorMessage: "Please enter your phone number.",
+  },
   {
     name: "email",
     label: "Email",
@@ -42,32 +95,29 @@ export const newUserConst = [
     requiredErrorMessage: "Please enter your email.",
   },
   {
-    name: "password",
-    label: "Password",
-    type: "password",
+    name: "companyName",
+    label: "Company Name",
+    dataKey: "companyName",
+    type: TEXT,
     isRequired: true,
-    requiredErrorMessage: "Please enter your password.",
+    requiredErrorMessage: "Please enter your name.",
   },
   {
-    name: "confirmPassword",
-    label: "Confirm Password",
-    type: "password",
+    name: "companyAddress",
+    label: "Company Address",
+    dataKey: "companyAddress",
+    type: TEXT,
     isRequired: true,
-    requiredErrorMessage: "Please confirm your password.",
+    requiredErrorMessage: "Please enter your address.",
   },
 
   {
-    name: "role",
-    label: "Role",
-    dataKey: "role",
+    name: "city",
+    label: "city",
+    dataKey: "city",
     type: "select",
     isRequired: true,
-    options: [
-      // { value: "BuilderFloorAdmin", label: "Builder Floor Admin" },
-      { value: "ChannelPartner", label: "Channel Partner" },
-      { value: "PropertyDealer", label: "Property Dealer" },
-    ],
-    requiredErrorMessage: "Please select a role.",
+    requiredErrorMessage: "Please select a City.",
   },
   {
     name: "state",
@@ -75,16 +125,22 @@ export const newUserConst = [
     dataKey: "state",
     type: "select",
     isRequired: true,
-    options: [{ value: "harayana", label: "Harayana" }],
     requiredErrorMessage: "Please select a State.",
   },
   {
-    name: "city",
-    label: "city",
-    dataKey: "city",
+    name: "sectorNumber",
+    label: "Locations Allowed",
+    dataKey: "location",
     type: "select",
     isRequired: true,
-    options: [{ value: "gurgaon", label: "Gurgaon" }],
-    requiredErrorMessage: "Please select a City.",
+    requiredErrorMessage: "Please select a Locations.",
+  },
+  {
+    name: "status",
+    label: "Status",
+    dataKey: "status",
+    type: "select",
+    isRequired: true,
+    requiredErrorMessage: "Please select a Status.",
   },
 ];

@@ -20,6 +20,16 @@ import {
   PAGE_HEADER,
   HORIZONTAL_LINE,
   LOADING,
+  DASHBOARD_LISTING,
+  ROUTE_BUTTON,
+  LABEL_MAP,
+  POST,
+  AUTO_FETCH_API_POST,
+  TABLE_HEADER,
+  AUTO_FETCH_API_USER,
+  TITLE,
+  PANEL_HEADER,
+  LOGIN_REFRESH,
 } from "../utils/Const";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -42,6 +52,14 @@ import Header from "./Header";
 import CustomToogleButton from "./ToggleButton";
 import { CircularProgress } from "@material-ui/core";
 import { selectApiStatus } from "../../redux/utils/selectors";
+import DashboardListing from "./DashboardListingTable";
+import CustomRouteButton from "./RouteButton";
+import LabelMap from "./LabelMap";
+import TableHeader from "./TableHeader";
+import ApiHandler from "./AutoFetchApiPost";
+import { USER_ROLE } from "../../ScreenJson";
+import PanelHeader from "./PanelHeader";
+import LoginRefresh from "./LoginRefresh";
 
 const ComponentSelector = ({ component }) => {
   const dispatch = useDispatch();
@@ -49,6 +67,7 @@ const ComponentSelector = ({ component }) => {
   const apiStatus = useSelector((state) =>
     selectApiStatus(state, component.loadingApi || "")
   );
+  const userProfile = useSelector((state) => state.profile);
 
   function hasValueProperty(input) {
     // Check if the input is an object
@@ -61,7 +80,6 @@ const ComponentSelector = ({ component }) => {
   }
 
   const handleValueChange = (value) => {
-    console.log(value, 21411, component.name, hasValueProperty(value));
     dispatch(
       storeFilterData({
         key: component.paginatioName || component.name,
@@ -91,7 +109,25 @@ const ComponentSelector = ({ component }) => {
       dispatch(callApi(options));
     }
   };
-  console.log(sliceData, 2141);
+
+  const getTitle = () => {
+    let idx = component.common
+      ? 0
+      : userProfile.role == USER_ROLE.bfAdmin
+      ? 0
+      : userProfile.role == USER_ROLE.channelPartner
+      ? 1
+      : 2;
+    return (
+      <Heading
+        component={{
+          text: component?.titles[idx],
+          className: "formheadingcontainer",
+        }}
+      />
+    );
+  };
+
   return (
     <>
       {component.loadingApi && apiStatus === LOADING && (
@@ -100,9 +136,25 @@ const ComponentSelector = ({ component }) => {
       {component.type === AUTO_FETCH_API && (
         <AutoFetchApi url={component.api} method={GET} />
       )}
+      {component.type === AUTO_FETCH_API_POST && (
+        <AutoFetchApi url={component.api} method={POST} data={component.data} />
+      )}
+      {component.type === AUTO_FETCH_API_USER && (
+        <ApiHandler
+          url={component.api}
+          method={component.method}
+          data={component.data}
+          userId={component.userId}
+          user={component.user}
+        />
+      )}
+      {component.type === TITLE && getTitle()}
       {component.type === CONTAINER && (
         <RenderComponent jsonToRender={component} />
       )}
+      {
+        component.type === PANEL_HEADER && <PanelHeader component={component} />
+      }
       {component.type === IMAGE_BANNER && <Banner component={component} />}
       {component.type === SELECT && (
         <SelectButton
@@ -169,8 +221,20 @@ const ComponentSelector = ({ component }) => {
       {component.type === SCROLL_TO_TOP && (
         <ScrollToTop component={component} />
       )}
+      {component.type === DASHBOARD_LISTING && (
+        <DashboardListing component={component} />
+      )}
+      {component.type === ROUTE_BUTTON && (
+        <CustomRouteButton component={component} />
+      )}
+      {component.type === LABEL_MAP && <LabelMap component={component} />}
       {component.type === HORIZONTAL_LINE && <hr />}
+      {component.type === TABLE_HEADER && <TableHeader component={component} />}
+      {component.type === LOGIN_REFRESH && (
+        <LoginRefresh component={component} />
+      )}
     </>
   );
 };
+
 export default ComponentSelector;

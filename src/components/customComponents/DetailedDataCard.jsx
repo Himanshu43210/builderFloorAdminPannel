@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import { callApi } from "../../redux/utils/apiActions";
 import { useDispatch } from "react-redux";
-import { GET, HORIZONTAL_LINE, SAMPLE_CARD_DATA } from "../utils/Const";
+import { DETAILED_VIEW, GET, HORIZONTAL_LINE, SAMPLE_CARD_DATA } from "../utils/Const";
 import { selectApiData } from "../../redux/utils/selectors";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { convertToCr } from "../utils/HelperMethods";
 import IframeBuilder from "./IframeBuilder";
 import { FaShareAlt, FaRegHeart } from "react-icons/fa";
+import { CARD_DETAILS_SCREEN } from "../../ScreenJson";
 
 export default function DetailDataCard({
   component,
@@ -17,7 +18,14 @@ export default function DetailDataCard({
 }) {
   // Prioritize singledata if available
   const data = singledata || component;
-
+  let iconList = data?.icons;
+  if (!iconList) {
+    CARD_DETAILS_SCREEN?.children?.map((child) => {
+      if (child?.type == DETAILED_VIEW) {
+        iconList = child?.icons;
+      }
+    });
+  }
   // If using component prop, fetch additional data from API
   const pathname = window.location.href;
   const id = pathname.split("id=").pop();
@@ -41,7 +49,7 @@ export default function DetailDataCard({
     (state) => selectApiData(state, getApiEndpoint)?.data
   );
   const cardData = singledata || apiData || {};
-  console.log("cardData", cardData?.title);
+  // ("cardData", cardData?.title);
 
   const [ShowNumber, setShowNumber] = useState();
   const [imageLink, setImageLink] = useState(cardData.images?.[0]);
@@ -118,42 +126,42 @@ export default function DetailDataCard({
           <div className="detail-icon-div">
             <div className="rowicon">
               <div>
-                <img src={component?.icons.sectorNumber} alt="" />
+                <img src={iconList?.sectorNumber} alt="" />
                 {cardData?.sectorNumber}
               </div>
               <div>
-                <img src={component?.icons.size} alt="" />
+                <img src={iconList?.size} alt="" />
                 {cardData?.size}
               </div>
               <div>
-                <img src={component?.icons.accommodation} alt="" />
+                <img src={iconList?.accommodation} alt="" />
                 {cardData?.accommodation}
               </div>
             </div>
 
             <div className="rowicon">
               <div>
-                <img src={component?.icons.floor} alt="" />
+                <img src={iconList?.floor} alt="" />
                 {cardData?.floor}
               </div>
               <div>
-                <img src={component?.icons.facing} alt="" />
+                <img src={iconList?.facing} alt="" />
                 {cardData?.facing}
               </div>
               <div>
-                <img src={component?.icons.possession} alt="" />
+                <img src={iconList?.possession} alt="" />
                 {cardData?.possession}
               </div>
             </div>
 
             <div className="rowicon">
               <div>
-                <img src={component?.icons.parkFacing} alt="" />
+                <img src={iconList?.parkFacing} alt="" />
                 {cardData?.parkFacing}
               </div>
 
               <div>
-                <img src={component?.icons.corner} alt="" />
+                <img src={iconList?.corner} alt="" />
                 {cardData?.corner}
               </div>
             </div>
@@ -166,15 +174,15 @@ export default function DetailDataCard({
                   setShowNumber(!ShowNumber);
                 }}
               >
-                {ShowNumber ? cardData?.channelContact : "Phone"}
+                <img src={component?.icons?.phone} alt="" />
+                {ShowNumber ? cardData?.channelContact : "Call"}
               </Button>
               <Button
                 className="detail-button"
                 variant="contained"
                 onClick={() => {
                   window.open(
-                    `https://wa.me/${
-                      cardData?.channelContact
+                    `https://wa.me/${cardData?.channelContact
                     }?text=${component.whatsappText?.replace(
                       "{link}",
                       pathname
@@ -183,6 +191,7 @@ export default function DetailDataCard({
                   );
                 }}
               >
+                <img src={component?.icons?.whatsapp} alt="" />
                 WhatsApp
               </Button>
             </div>

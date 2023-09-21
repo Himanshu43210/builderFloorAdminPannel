@@ -6,29 +6,38 @@ import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import { FaUserEdit, FaRegTrashAlt, FaRegEye } from "react-icons/fa";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
+import { AiOutlineDoubleRight } from "react-icons/ai";
 import {
   APPROVED,
+  BF_ADMIN,
+  CHANNEL_PARTNER,
   DELETE,
   GET,
   NEED_APPROVAL_BY,
   POST,
   PROFILE,
+  REJECTED,
 } from "./Const";
 import { useDispatch, useSelector } from "react-redux";
 import { callApi } from "../../redux/utils/apiActions";
 import BasicTablePagination from "../customComponents/TablePagination";
 import { selectApiData } from "../../redux/utils/selectors";
 import { useEffect } from "react";
-import { FcApproval } from "react-icons/fc";
+import { FcApproval, FcRemoveImage } from "react-icons/fc";
 import _ from "lodash";
 import HomeCard from "../customComponents/HomeCard";
 import SearchCard from "../customComponents/SearchCard";
 import DetailDataCard from "../customComponents/DetailedDataCard";
 import { selectApiStatus } from "./../../redux/utils/selectors";
+import { useNavigate } from "react-router-dom";
+import { sanitizeFormData } from "./reusableMethods";
+import { USER_ROLE } from "../../ScreenJson";
+import SnackBar from "../customComponents/SnackBar";
+
 const ListingTable = ({
   headersDesktop = [],
   headersMobile = [],
+  roleSpecificDesktopHeaders,
   fieldConst,
   editApi,
   deleteApi,
@@ -36,58 +45,131 @@ const ListingTable = ({
   approveApi,
   itemCount,
   isproperty,
+  removeApi,
   filterDataUrl,
+  onRefreshApiType,
+  hideActions,
+  showViewAllListing,
+  hideAlterActions,
+  refreshDataApi,
+  refreshMethod,
+  disableRowModal,
+  showColumnFilter,
 }) => {
+  const [snackbar, setSnackbar] = useState({});
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
-  const [showHomePreviewModal, setShowHomePreviewModal] = useState(false);
-  const [showSearchPreviewModal, setShowSearchPreviewModal] = useState(false);
-  const [showDetailPreviewModal, setShowDetailPreviewModal] = useState(false);
   const [showApprovalModal, setShowApprovalModal] = useState(false);
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
   const [showRowModal, setShowRowModal] = useState(false);
   const [currentRowData, setCurrentRowData] = useState({});
-  const [activePage, setActivePage] = useState(1);
+  const [activePage, setActivePage] = useState(0);
   const [itemsCountPerPage, setItemsCountPerPage] = useState(10);
   const [totalItems, setTotalItems] = useState(10);
   const [sortType, setSortType] = useState("asc");
   const [sortColumn, setSortColumn] = useState("id");
   const [tableData, setTableData] = useState([]);
   const [formData, setFormData] = useState({});
+  const [showFilters, setShowFilters] = useState(false);
+  const [tableFilter, setTableFilter] = useState({});
   const apiStatus = useSelector((state) => selectApiStatus(state, getDataApi));
-
   const isMobile = window.innerWidth <= 768; // Adjust the breakpoint as per your needs
-
   const tableHeaders = isMobile ? headersMobile : headersDesktop;
   const dispatch = useDispatch();
   const getApiDataFromRedux = useSelector((state) =>
     selectApiData(state, getDataApi)
   );
   const userProfile = useSelector((state) => state[PROFILE]);
+  const navigateTo = useNavigate();
+  let allowedTableColumns = roleSpecificDesktopHeaders
+    ? roleSpecificDesktopHeaders[userProfile.role]
+    : tableHeaders;
+
+  const applyFilters = (sortingFilter = "") => {
+    const filterQuery =
+      Object.entries(tableFilter)
+        .map(([key, value]) => `&${key}=${value}`)
+        .join("") || "";
+    console.log(filterDataUrl, sortingFilter, filterQuery);
+    dispatch(
+      callApi({
+        url: filterDataUrl + sortingFilter + filterQuery,
+        method: onRefreshApiType || GET,
+        headers: { "Content-Type": "application/json" },
+        data: { sortType, sortColumn, activePage, itemsCountPerPage },
+      })
+    );
+  };
 
   useEffect(() => {
     if (!_.isEmpty(getApiDataFromRedux)) {
       if (getApiDataFromRedux.pageNumber !== activePage)
         setActivePage(getApiDataFromRedux.pageNumber);
-      if (getApiDataFromRedux.nbHits !== itemsCountPerPage)
+      if (getApiDataFromRedux.nbHits !== itemsCountPerPage) {
+        console.log(
+          "===== not equal to nbHits =====",
+          getApiDataFromRedux,
+          itemsCountPerPage
+        );
         setItemsCountPerPage(getApiDataFromRedux.nbHits);
+      }
       if (getApiDataFromRedux.totalItems !== totalItems)
         setTotalItems(getApiDataFromRedux.totalItems);
       setTableData(getApiDataFromRedux.data);
-      console.log("data set Successfully", tableData);
+      allowedTableColumns = roleSpecificDesktopHeaders
+        ? roleSpecificDesktopHeaders[userProfile.role]
+        : tableHeaders;
     }
   }, [getApiDataFromRedux]);
 
+  const refreshData = () => {
+    console.log("here");
+    try {
+      const options = {
+        url: refreshDataApi,
+        method: refreshMethod ? refreshMethod : POST,
+        headers: { "Content-Type": "application/json" },
+        data: {},
+      };
+      dispatch(callApi(options));
+    } catch (error) {}
+  };
+
   const handleSave = () => {
     try {
+      const err = {};
+      fieldConst.forEach((field) => {
+        if (
+          field.isRequired &&
+          ((typeof formData[field.name] === "object" &&
+            formData[field.name]?.length === 0) ||
+            !formData[field.name])
+        ) {
+          err[field.name] = "This is required";
+        }
+      });
       const options = {
         url: API_ENDPOINTS[editApi],
         method: POST,
         headers: { "Content-Type": "application/json" },
-        data: formData,
+        data: sanitizeFormData(formData),
       };
-      dispatch(callApi(options));
+
+      if (Object.keys(err).length === 0) {
+        dispatch(callApi(options))
+          .then(() => {
+            setSnackbar({ open: true, message: `Saved.` });
+          })
+          .catch(() => {
+            setSnackbar({ open: true, message: `Failed.` });
+          });
+      } else {
+        setSnackbar({ open: true, message: `Fields are missing.` });
+      }
+      refreshData();
     } catch (error) {
+      setSnackbar({ open: true, message: `Failed.` });
       console.log(error);
     }
   };
@@ -99,7 +181,9 @@ const ListingTable = ({
         method: DELETE,
         headers: { "Content-Type": "application/json" },
       };
-      dispatch(callApi(options));
+      dispatch(callApi(options)).then(() => {
+        setSnackbar({ open: true, message: `Deleted.` });
+      });
     } catch (error) {
       console.log(error);
     }
@@ -115,7 +199,39 @@ const ListingTable = ({
           [NEED_APPROVAL_BY]: userProfile.parentId || APPROVED,
         },
       };
-      dispatch(callApi(options));
+      dispatch(callApi(options)).then(() => {
+        setSnackbar({ open: true, message: `Approved.` });
+      });
+    } catch (error) {
+      console.log(error);
+      setSnackbar({ open: true, message: `Approve Failed.` });
+    }
+  };
+
+  const handleRemove = (rowId) => {
+    try {
+      const options = {
+        url: API_ENDPOINTS[removeApi],
+        method: POST,
+        headers: { "Content-Type": "application/json" },
+        data: {
+          id: rowId,
+          userId: userProfile._id,
+          rejectedByBFAdmin:
+            userProfile.role === USER_ROLE[BF_ADMIN]
+              ? userProfile._id
+              : undefined,
+          rejectedByCP:
+            userProfile.role === USER_ROLE[CHANNEL_PARTNER]
+              ? userProfile._id
+              : undefined,
+          rejectedByBFAdminComments: formData.rejectedByBFAdminComments,
+          rejectedByCPComments: formData.rejectedByCPComments,
+        },
+      };
+      dispatch(callApi(options)).then(() => {
+        setSnackbar({ open: true, message: `Removed.` });
+      });
     } catch (error) {
       console.log(error);
     }
@@ -127,15 +243,8 @@ const ListingTable = ({
     sortType,
     sortColumn,
   }) => {
-    dispatch(
-      callApi({
-        url:
-          filterDataUrl +
-          `&page=${activePage}&limit=${itemsCountPerPage}&sortType=${sortType}&sortColumn=${sortColumn}`,
-        method: GET,
-        headers: { "Content-Type": "application/json" },
-        data: { sortType, sortColumn, activePage, itemsCountPerPage },
-      })
+    applyFilters(
+      `&page=${activePage}&limit=${itemsCountPerPage}&sortType=${sortType}&sortColumn=${sortColumn}`
     );
   };
   const handleFormDataChange = (newFormData) => {
@@ -146,28 +255,29 @@ const ListingTable = ({
     setShowRowModal(!showRowModal);
   };
 
+  const snackbarClose = () => {
+    setSnackbar({
+      open: false,
+      message: "",
+    });
+    refreshData();
+  };
+
   const toogleEdit = () => {
     setShowEditModal(!showEditModal);
   };
-
   const toogleDelete = () => {
     setShowDeleteModal(!showDeleteModal);
   };
   const tooglePreview = () => {
     setShowPreviewModal(!showPreviewModal);
   };
-  const toggleHomePreview = () => {
-    setShowHomePreviewModal(!showHomePreviewModal);
-    console.log(showPreviewModal);
-  };
-  const toggleSearchpreview = () => {
-    setShowSearchPreviewModal(!showSearchPreviewModal);
-  };
-  const toggleDetailPreview = () => {
-    setShowDetailPreviewModal(!showDetailPreviewModal);
-  };
   const toogleApproval = () => {
     setShowApprovalModal(!showApprovalModal);
+  };
+
+  const toggleRemove = () => {
+    setShowRemoveModal(!showRemoveModal);
   };
 
   const handleSort = (column) => {
@@ -180,9 +290,6 @@ const ListingTable = ({
       sortColumn: column,
       sortType: newSortType,
     });
-    console.log(
-      `Sort type: ${newSortType}, Sort column: ${column}, Active page: ${activePage}, Records per page: ${itemsCountPerPage}`
-    );
   };
 
   const handlePageChange = (action, pageNumber) => {
@@ -193,9 +300,6 @@ const ListingTable = ({
       sortColumn,
       sortType,
     });
-    console.log(
-      `Sort type: ${sortType}, Sort column: ${sortColumn}, Active page: ${pageNumber}, Records per page: ${itemsCountPerPage}`
-    );
   };
 
   const handleRecordPerPage = (action) => {
@@ -206,9 +310,6 @@ const ListingTable = ({
       sortColumn,
       sortType,
     });
-    console.log(
-      `Sort type: ${sortType}, Sort column: ${sortColumn}, Active page: ${activePage}, Records per page: ${itemsCountPerPage}`
-    );
   };
 
   // // Sort the data
@@ -259,55 +360,38 @@ const ListingTable = ({
           <p className="lbel">Are you sure want to Delete?</p>
         </ReusablePopup>
       )}
-      {showHomePreviewModal && (
-        <ReusablePopup
-          onHide={toggleHomePreview}
-          className="home-modal-content"
-          onCancel={toggleHomePreview}
-        >
-          <HomeCard element={currentRowData}></HomeCard>
-        </ReusablePopup>
-      )}
-      {showSearchPreviewModal && (
-        <ReusablePopup
-          onHide={toggleSearchpreview}
-          onCancel={toggleSearchpreview}
-          className="search-modal-content"
-        >
-          <SearchCard element={currentRowData}></SearchCard>
-        </ReusablePopup>
-      )}
-      {showDetailPreviewModal && (
-        <ReusablePopup
-          className="detail-modal-content"
-          onHide={toggleDetailPreview}
-          onCancel={toggleDetailPreview}
-        >
-          <DetailDataCard singledata={currentRowData}></DetailDataCard>
-        </ReusablePopup>
-      )}
 
       {showPreviewModal && (
-        <ReusablePopup
-          onHomePreview={() => {
-            toggleHomePreview();
-            tooglePreview();
-          }}
-          onDetailPreview={() => {
-            console.log(currentRowData);
-            toggleDetailPreview();
-            tooglePreview();
-          }}
-          onSearchResultPreview={() => {
-            console.log("Search Clicked");
-            toggleSearchpreview();
-            tooglePreview();
-          }}
-          onHide={tooglePreview}
-        ></ReusablePopup>
+        <ReusablePopup onHide={tooglePreview} onClose={tooglePreview}>
+          <HomeCard element={currentRowData}></HomeCard>
+          <SearchCard element={currentRowData}></SearchCard>
+          <DetailDataCard singledata={currentRowData}></DetailDataCard>
+          {currentRowData[NEED_APPROVAL_BY] && (
+            <>
+              <Button
+                variant="success"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toogleApproval();
+                }}
+              >
+                Approve
+              </Button>
+              <Button
+                variant="danger"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleRemove();
+                }}
+              >
+                Reject
+              </Button>
+            </>
+          )}
+        </ReusablePopup>
       )}
 
-      {showRowModal && (
+      {!disableRowModal && showRowModal && (
         <ReusablePopup onHide={toogleRowClick} onClose={toogleRowClick}>
           <FormBuilder
             propsFormData={currentRowData}
@@ -328,22 +412,81 @@ const ListingTable = ({
           <p className="lbel">Are you sure want to Approve?</p>
         </ReusablePopup>
       )}
+      {showRemoveModal && (
+        <ReusablePopup
+          onYes={() => {
+            handleRemove(currentRowData._id);
+            toggleRemove();
+          }}
+          onHide={toggleRemove}
+          onCancel={toggleRemove}
+        >
+          <p className="lbel">Are you sure want to Remove?</p>
+          <FormBuilder
+            fields={[
+              {
+                name:
+                  userProfile.role === USER_ROLE[BF_ADMIN]
+                    ? "rejectedByBFAdminComments"
+                    : "rejectedByCPComments",
+                label: "Comments",
+                type: "textarea",
+                parentclassName: "property-w-3 column-property",
+                className: "column-property",
+                textLimit: 100,
+              },
+            ]}
+            onFormDataChange={handleFormDataChange}
+          />
+        </ReusablePopup>
+      )}
       <div className="tablediv ">
+        <input
+          type="text"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setTableFilter({
+              search: e.target.value,
+            });
+          }}
+          value={[tableFilter["search"]] || ""}
+        />
+        <Button onClick={() => applyFilters()}>Filter Data</Button>
+        {showColumnFilter && (
+          <Button onClick={() => setShowFilters(!showFilters)}>Filter</Button>
+        )}
         <Table striped bordered hover responsive size="sm">
           <thead>
             <tr>
-              {Object.keys(tableHeaders).map((headerLabel, index) => (
-                <th
-                  key={index}
-                  onClick={() => handleSort(tableHeaders[headerLabel])}
-                  className="tablehead text"
-                >
-                  {headerLabel}
-                  {sortColumn === tableHeaders[headerLabel] &&
+              {Object.keys(allowedTableColumns).map((headerLabel, index) => (
+                <th key={index} className="tablehead text">
+                  <div
+                    onClick={() => handleSort(allowedTableColumns[headerLabel])}
+                  >
+                    {headerLabel}
+                  </div>
+                  {sortColumn === allowedTableColumns[headerLabel] &&
                     (sortType === "asc" ? <FaCaretUp /> : <FaCaretDown />)}
+                  {showFilters && (
+                    <input
+                      type="text"
+                      onChange={(e) =>
+                        setTableFilter({
+                          ...tableFilter,
+                          [allowedTableColumns[headerLabel]]: e.target.value,
+                        })
+                      }
+                      value={
+                        tableFilter[allowedTableColumns[headerLabel]] || ""
+                      }
+                    />
+                  )}
                 </th>
               ))}
-              <th className="tablehead text">Actions</th>
+              {!hideActions && <th className="tablehead text">Actions</th>}
+              {showViewAllListing && (
+                <th className="tablehead text">View all Listing</th>
+              )}
             </tr>
           </thead>
           <tbody className="tablebody text">
@@ -352,67 +495,97 @@ const ListingTable = ({
                 className="tableborder text"
                 key={element.id}
                 onClick={() => {
-                  setCurrentRowData(element);
-                  toogleRowClick();
+                  if (!showViewAllListing) {
+                    setCurrentRowData(element);
+                    toogleRowClick();
+                  }
                 }}
               >
-                {Object.keys(tableHeaders).map((headerLabel, index) => (
+                {Object.keys(allowedTableColumns).map((headerLabel, index) => (
                   <td className="bodytext" key={index}>
-                    {element[tableHeaders[headerLabel]]}
+                    {element[allowedTableColumns[headerLabel]]}
                   </td>
                 ))}
-                <td className="tablebody tableborder text actionColumn">
-                  <Button
-                    className="ListingEditbtn"
-                    variant="success"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentRowData(element);
-                      toogleEdit();
-                    }}
-                  >
-                    <FaUserEdit size={20} />
-                  </Button>
-                  &nbsp;
-                  <Button
-                    className="ListingDeletebtn"
-                    variant="danger"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentRowData(element);
-                      toogleDelete();
-                    }}
-                  >
-                    <FaRegTrashAlt size={20} />
-                  </Button>
-                  &nbsp;
-                  {isproperty && ( // Conditionally render the Preview button
-                    <Button
-                      className="ListingPreviewbtn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setCurrentRowData(element);
-                        tooglePreview(); // Add a function to handle the preview logic
-                      }}
-                    >
-                      <FaRegEye size={20} />
-                    </Button>
-                  )}
-                  &nbsp;
-                  {approveApi &&
-                    element[NEED_APPROVAL_BY] &&
-                    userProfile._id === element[NEED_APPROVAL_BY] && (
+                {!hideActions && (
+                  <td className="tablebody tableborder text actionColumn">
+                    {!hideAlterActions && (
+                      <>
+                        <Button
+                          className="ListingEditbtn"
+                          variant="success"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentRowData(element);
+                            toogleEdit();
+                          }}
+                        >
+                          <FaUserEdit size={20} />
+                        </Button>
+                        &nbsp;
+                        <Button
+                          className="ListingDeletebtn"
+                          variant="danger"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentRowData(element);
+                            toogleDelete();
+                          }}
+                        >
+                          <FaRegTrashAlt size={20} />
+                        </Button>
+                        &nbsp;
+                      </>
+                    )}
+                    {isproperty && ( // Conditionally render the Preview button
                       <Button
+                        className="ListingPreviewbtn"
                         onClick={(e) => {
                           e.stopPropagation();
                           setCurrentRowData(element);
-                          toogleApproval();
+                          tooglePreview(); // Add a function to handle the preview logic
                         }}
                       >
-                        <FcApproval size={12} />
+                        <FaRegEye size={20} />
                       </Button>
                     )}
-                </td>
+                    &nbsp;
+                    {approveApi &&
+                      element[NEED_APPROVAL_BY] &&
+                      userProfile._id === element[NEED_APPROVAL_BY] && (
+                        <>
+                          <Button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setCurrentRowData(element);
+                              toogleApproval();
+                            }}
+                          >
+                            <FcApproval size={12} />
+                          </Button>
+                          <Button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setCurrentRowData(element);
+                              toggleRemove();
+                            }}
+                          >
+                            <FcRemoveImage size={12} />
+                          </Button>
+                        </>
+                      )}
+                  </td>
+                )}
+                {showViewAllListing && (
+                  <td>
+                    <Button
+                      onClick={(e) => {
+                        navigateTo(showViewAllListing + "?id=" + element._id);
+                      }}
+                    >
+                      <AiOutlineDoubleRight size={12} />
+                    </Button>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -440,6 +613,11 @@ const ListingTable = ({
           />
         )
       )}
+      <SnackBar
+        open={snackbar?.open}
+        message={snackbar?.message}
+        onClose={snackbarClose}
+      />
     </>
   );
 };

@@ -1,8 +1,8 @@
+import _ from "lodash";
 import React from "react";
 import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ListingTable from "../../utils/ListingTable";
-import { newMasterConst } from "../../fieldConsts/MasterFieldConst";
 import TableButtonHeader from "../../utils/TableButtonHeader";
 import Navbar from "../../utils/Navbar";
 import {
@@ -10,71 +10,75 @@ import {
   DELETE_MASTER_DATA,
   GET,
   GET_MASTER_DATA,
+  LOADING,
+  ROUTE_BUTTON,
 } from "../../utils/Const";
 import AutoFetchApi from "../../customComponents/AutoFetchApi";
 import { API_ENDPOINTS } from "../../../redux/utils/api";
-import { selectApiData } from "../../../redux/utils/selectors";
+import { selectApiData, selectApiStatus } from "../../../redux/utils/selectors";
+import { CircularProgress } from "@mui/material";
+import { newMasterConst } from "../../fieldConsts/MasterFieldConst";
+import CustomRouteButton from "../../customComponents/RouteButton";
 
-export default function MasterManagement() {
-  let tableData = [];
+export default function UserManagement() {
   const desktopHeaders = {
     Field: "fieldName",
+    Label: "fieldLabel",
     Value: "fieldValue",
-    "Parent Id": "parentId",
   };
-  const mobileHeaders = {
-    Field: "field",
-    Value: "value",
-    "Parent Id": "parentId",
-  };
+  const mobileHeaders = [{ Name: "name" }, { Role: "role" }];
   const fieldConst = newMasterConst;
-  const dataToRender = useSelector((state) =>
-    selectApiData(state, GET_MASTER_DATA)
+  let tableData = useSelector((state) => selectApiData(state, GET_MASTER_DATA));
+  const userProfile = useSelector((state) => state.profile);
+  const dataApi = API_ENDPOINTS[GET_MASTER_DATA] + "?id=" + userProfile._id;
+  const apiStatus = useSelector((state) =>
+    selectApiStatus(state, ALTER_MASTER_DATA || "")
   );
-
-  dataToRender?.data?.map((element) => {
-    element.fieldValue?.map((value) => {
-      console.log(element, value);
-      tableData.push({
-        masterId: element.id,
-        field: element.fieldName,
-        value: value,
-      });
-    });
-  });
-  console.log(tableData);
   return (
     <>
-      {!dataToRender && (
-        <AutoFetchApi url={API_ENDPOINTS[GET_MASTER_DATA]} method={GET} />
-      )}
-      <div>
+      {!tableData && <AutoFetchApi url={dataApi} method={GET} />}
+      {apiStatus === LOADING ? (
+        <CircularProgress className="loader-class" />
+      ) : (
         <div>
-          <Navbar />
-          <Card>
-            <Card.Header className="font">Master Details</Card.Header>
-            <Card.Body>
-              <TableButtonHeader
-                fieldConst={fieldConst}
-                tableData={tableData}
-                saveDataApi={ALTER_MASTER_DATA}
-                refreshDataApi={GET_MASTER_DATA}
-                addHeader="Add Masters"
-              />
-              <ListingTable
-                data={tableData}
-                headersDesktop={desktopHeaders}
-                headersMobile={mobileHeaders}
-                fieldConst={fieldConst}
-                editApi={ALTER_MASTER_DATA}
-                deleteApi={DELETE_MASTER_DATA}
-                getDataApi={GET_MASTER_DATA}
-                itemCount={dataToRender?.itemCount}
-              />
-            </Card.Body>
-          </Card>
+          <div>
+            <Navbar />
+            <Card>
+              <Card.Header className="font">User Details</Card.Header>
+              <Card.Body>
+                <TableButtonHeader
+                  fieldConst={fieldConst}
+                  tableData={_.cloneDeep(tableData?.data || [])}
+                  saveDataApi={ALTER_MASTER_DATA}
+                  refreshDataApi={dataApi}
+                  addHeader="Add Master Data"
+                  refreshMethod={GET}
+                />
+                <ListingTable
+                  headersDesktop={desktopHeaders}
+                  headersMobile={mobileHeaders}
+                  fieldConst={fieldConst}
+                  editApi={ALTER_MASTER_DATA}
+                  deleteApi={DELETE_MASTER_DATA}
+                  getDataApi={GET_MASTER_DATA}
+                  filterDataUrl={dataApi}
+                  itemCount={tableData?.itemCount}
+                  refreshMethod={GET}
+                />
+                <CustomRouteButton
+                  component={{
+                    type: ROUTE_BUTTON,
+                    className: "admin-route-button",
+                    label: "Go to Dashboard",
+                    name: "Go to Dashboard",
+                    route: "/admin",
+                  }}
+                />
+              </Card.Body>
+            </Card>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

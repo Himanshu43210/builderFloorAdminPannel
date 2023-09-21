@@ -1,26 +1,14 @@
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AdminDashboard from "../Pages/adminPages/AdminDashboard";
-import MasterManagement from "../Pages/adminPages/MasterManagement";
-import PropertyManagement from "../Pages/adminPages/PropertyManagement";
-import UserManagement from "../Pages/adminPages/UserManagement";
-import {
-  ADMIN_DASHBOARD,
-  ADMIN_DASHBOARD_LOGIN,
-  MASTER_MANAGEMENT,
-  POST,
-  PROPERTY_MANAGEMENT,
-  SUCCESS,
-  USER_MANAGEMENT,
-} from "../utils/Const";
-import { selectApiData, selectApiStatus } from "../../redux/utils/selectors";
-import Login from "../Pages/Login";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ADMIN_DASHBOARD_LOGIN, POST, SUCCESS } from "../utils/Const";
+import { selectApiData, selectApiStatus } from "../../redux/utils/selectors";
 import { API_ENDPOINTS } from "../../redux/utils/api";
 import { callApi } from "../../redux/utils/apiActions";
 import { storeUserData } from "../../redux/slice/userSlice";
+import RenderComponent from "./ComponentRenderer";
 
-export default function PageSelector({ pageName }) {
+const LoginRefresh = ({ component }) => {
   const navigate = useNavigate();
   const loginStatus = useSelector((state) =>
     selectApiStatus(state, ADMIN_DASHBOARD_LOGIN)
@@ -63,21 +51,8 @@ export default function PageSelector({ pageName }) {
     if (userProfile._id) {
       setCheck(true);
     }
-  }, [loginStatus,userProfile]);
+  }, [loginStatus, userProfile]);
+  return <>{check && <RenderComponent jsonToRender={component} />}</>;
+};
 
-  return (
-    <>
-      {check && (
-        <>
-          {!loginStatus && <Login />}
-          {pageName === ADMIN_DASHBOARD && (
-            <AdminDashboard role={userProfile.role} />
-          )}
-          {pageName === USER_MANAGEMENT && <UserManagement />}
-          {pageName === PROPERTY_MANAGEMENT && <PropertyManagement />}
-          {pageName === MASTER_MANAGEMENT && <MasterManagement />}
-        </>
-      )}
-    </>
-  );
-}
+export default LoginRefresh;

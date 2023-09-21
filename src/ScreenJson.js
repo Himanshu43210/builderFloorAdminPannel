@@ -43,7 +43,7 @@ const MENU_ITEMS = [
 export const USER_ROLE = {
   bfAdmin: "BuilderFloorAdmin",
   channelPartner: "ChannelPartner",
-  propertyDealer: "PropertyDealer",
+  salesUser: "SalesUser",
 };
 
 const FOOTER = {
@@ -304,9 +304,9 @@ export const SEARCH_RESULT = {
                 {
                   type: SELECT,
                   sliceName: "filter",
-                  name: "location",
-                  label: "Location",
-                  className: "filterbutton",
+                  name: "sectorNumber",
+                  label: "Locations",
+                  className: "filterChannel",
                   onClickApi: API_ENDPOINTS[GET_SEARCH_RESULT],
                   onClickApiMethod: POST,
                   options: [
@@ -454,8 +454,7 @@ export const SEARCH_RESULT = {
         },
       ],
     },
-    FOOTER,
-    SCROLLTOP,
+
   ],
 };
 
