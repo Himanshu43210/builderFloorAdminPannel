@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Table, Button, Container } from "react-bootstrap";
 import ReusablePopup from "./ReusablePopup";
 import FormBuilder from "./FormBuilder";
@@ -54,8 +54,10 @@ const ListingTable = ({
   refreshDataApi,
   refreshMethod,
   disableRowModal,
+  showEditAction,
   showColumnFilter,
 }) => {
+  const finalizeRef = useRef(null);
   const [snackbar, setSnackbar] = useState({});
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -70,7 +72,6 @@ const ListingTable = ({
   const [sortType, setSortType] = useState("asc");
   const [sortColumn, setSortColumn] = useState("id");
   const [tableData, setTableData] = useState([]);
-  const [formData, setFormData] = useState({});
   const [showFilters, setShowFilters] = useState(false);
   const [tableFilter, setTableFilter] = useState({});
   const apiStatus = useSelector((state) => selectApiStatus(state, getDataApi));
@@ -91,7 +92,6 @@ const ListingTable = ({
       Object.entries(tableFilter)
         .map(([key, value]) => `&${key}=${value}`)
         .join("") || "";
-    console.log(filterDataUrl, sortingFilter, filterQuery);
     dispatch(
       callApi({
         url: filterDataUrl + sortingFilter + filterQuery,
@@ -107,11 +107,6 @@ const ListingTable = ({
       if (getApiDataFromRedux.pageNumber !== activePage)
         setActivePage(getApiDataFromRedux.pageNumber);
       if (getApiDataFromRedux.nbHits !== itemsCountPerPage) {
-        console.log(
-          "===== not equal to nbHits =====",
-          getApiDataFromRedux,
-          itemsCountPerPage
-        );
         setItemsCountPerPage(getApiDataFromRedux.nbHits);
       }
       if (getApiDataFromRedux.totalItems !== totalItems)
@@ -124,7 +119,6 @@ const ListingTable = ({
   }, [getApiDataFromRedux]);
 
   const refreshData = () => {
-    console.log("here");
     try {
       const options = {
         url: refreshDataApi,
@@ -137,40 +131,48 @@ const ListingTable = ({
   };
 
   const handleSave = () => {
-    try {
-      const err = {};
-      fieldConst.forEach((field) => {
-        if (
-          field.isRequired &&
-          ((typeof formData[field.name] === "object" &&
-            formData[field.name]?.length === 0) ||
-            !formData[field.name])
-        ) {
-          err[field.name] = "This is required";
-        }
-      });
-      const options = {
-        url: API_ENDPOINTS[editApi],
-        method: POST,
-        headers: { "Content-Type": "application/json" },
-        data: sanitizeFormData(formData),
-      };
+    const formData = finalizeRef.current();
+    if (formData) {
+      console.log("Received validated data:", formData);
+      try {
+        const err = {};
+        fieldConst.forEach((field) => {
+          if (
+            field.isRequired &&
+            ((typeof formData[field.name] === "object" &&
+              formData[field.name]?.length === 0) ||
+              !formData[field.name])
+          ) {
+            err[field.name] = "This is required";
+          }
+        });
+        const options = {
+          url: API_ENDPOINTS[editApi],
+          method: POST,
+          headers: { "Content-Type": "application/json" },
+          data: sanitizeFormData(formData),
+        };
 
-      if (Object.keys(err).length === 0) {
-        dispatch(callApi(options))
-          .then(() => {
-            setSnackbar({ open: true, message: `Saved.` });
-          })
-          .catch(() => {
-            setSnackbar({ open: true, message: `Failed.` });
+        if (Object.keys(err).length === 0) {
+          dispatch(callApi(options))
+            .then(() => {
+              setSnackbar({ open: true, message: `Saved.`, status: 0 });
+            })
+            .catch(() => {
+              setSnackbar({ open: true, message: `Failed.`, status: -1 });
+            });
+        } else {
+          setSnackbar({
+            open: true,
+            message: `Fields are missing.`,
+            status: -1,
           });
-      } else {
-        setSnackbar({ open: true, message: `Fields are missing.` });
+        }
+        refreshData();
+      } catch (error) {
+        setSnackbar({ open: true, message: `Failed.`, status: -1 });
+        console.log(error);
       }
-      refreshData();
-    } catch (error) {
-      setSnackbar({ open: true, message: `Failed.` });
-      console.log(error);
     }
   };
 
@@ -182,10 +184,11 @@ const ListingTable = ({
         headers: { "Content-Type": "application/json" },
       };
       dispatch(callApi(options)).then(() => {
-        setSnackbar({ open: true, message: `Deleted.` });
+        setSnackbar({ open: true, message: `Deleted.`, status: 0 });
       });
     } catch (error) {
       console.log(error);
+      setSnackbar({ open: true, message: `Deletion Failed.`, status: -1 });
     }
   };
   const handleApprove = (rowId) => {
@@ -200,40 +203,44 @@ const ListingTable = ({
         },
       };
       dispatch(callApi(options)).then(() => {
-        setSnackbar({ open: true, message: `Approved.` });
+        setSnackbar({ open: true, message: `Approved.`, status: 0 });
       });
     } catch (error) {
       console.log(error);
-      setSnackbar({ open: true, message: `Approve Failed.` });
+      setSnackbar({ open: true, message: `Approval Failed.`, status: -1 });
     }
   };
 
   const handleRemove = (rowId) => {
-    try {
-      const options = {
-        url: API_ENDPOINTS[removeApi],
-        method: POST,
-        headers: { "Content-Type": "application/json" },
-        data: {
-          id: rowId,
-          userId: userProfile._id,
-          rejectedByBFAdmin:
-            userProfile.role === USER_ROLE[BF_ADMIN]
-              ? userProfile._id
-              : undefined,
-          rejectedByCP:
-            userProfile.role === USER_ROLE[CHANNEL_PARTNER]
-              ? userProfile._id
-              : undefined,
-          rejectedByBFAdminComments: formData.rejectedByBFAdminComments,
-          rejectedByCPComments: formData.rejectedByCPComments,
-        },
-      };
-      dispatch(callApi(options)).then(() => {
-        setSnackbar({ open: true, message: `Removed.` });
-      });
-    } catch (error) {
-      console.log(error);
+    const formData = finalizeRef.current();
+    if (formData) {
+      try {
+        const options = {
+          url: API_ENDPOINTS[removeApi],
+          method: POST,
+          headers: { "Content-Type": "application/json" },
+          data: {
+            id: rowId,
+            userId: userProfile._id,
+            rejectedByBFAdmin:
+              userProfile.role === USER_ROLE[BF_ADMIN]
+                ? userProfile._id
+                : undefined,
+            rejectedByCP:
+              userProfile.role === USER_ROLE[CHANNEL_PARTNER]
+                ? userProfile._id
+                : undefined,
+            rejectedByBFAdminComments: formData.rejectedByBFAdminComments,
+            rejectedByCPComments: formData.rejectedByCPComments,
+          },
+        };
+        dispatch(callApi(options)).then(() => {
+          setSnackbar({ open: true, message: `Removed.`, status: 0 });
+        });
+      } catch (error) {
+        console.log(error);
+        setSnackbar({ open: true, message: `Removal Failed.`, status: -1 });
+      }
     }
   };
 
@@ -247,20 +254,20 @@ const ListingTable = ({
       `&page=${activePage}&limit=${itemsCountPerPage}&sortType=${sortType}&sortColumn=${sortColumn}`
     );
   };
-  const handleFormDataChange = (newFormData) => {
-    setFormData(newFormData);
-  };
 
   const toogleRowClick = () => {
     setShowRowModal(!showRowModal);
   };
 
-  const snackbarClose = () => {
+  const snackbarClose = (status) => {
     setSnackbar({
       open: false,
       message: "",
     });
-    refreshData();
+    // if status == 0, refresh
+    if (status === 0) {
+      refreshData();
+    }
   };
 
   const toogleEdit = () => {
@@ -312,22 +319,6 @@ const ListingTable = ({
     });
   };
 
-  // // Sort the data
-  // setTableData(
-  //   _.clone(tableData).sort((a, b) => {
-  //     const itemA = a[sortColumn];
-  //     const itemB = b[sortColumn];
-
-  //     let comparison = 0;
-  //     if (itemA > itemB) {
-  //       comparison = 1;
-  //     } else if (itemA < itemB) {
-  //       comparison = -1;
-  //     }
-  //     return sortType === "asc" ? comparison : comparison * -1;
-  //   })
-  // );
-
   return (
     <>
       {showEditModal && (
@@ -341,9 +332,9 @@ const ListingTable = ({
         >
           <div className="formheadingcontainer">Edit User</div>
           <FormBuilder
+            ref={finalizeRef}
             propsFormData={currentRowData}
             fields={fieldConst}
-            onFormDataChange={handleFormDataChange}
           />
         </ReusablePopup>
       )}
@@ -363,40 +354,48 @@ const ListingTable = ({
 
       {showPreviewModal && (
         <ReusablePopup onHide={tooglePreview} onClose={tooglePreview}>
-          <HomeCard element={currentRowData}></HomeCard>
-          <SearchCard element={currentRowData}></SearchCard>
+          <HomeCard
+            element={currentRowData}
+            disableOnClickNavigate={true}
+          ></HomeCard>
+          <SearchCard
+            element={currentRowData}
+            disableOnClickNavigate={true}
+          ></SearchCard>
           <DetailDataCard singledata={currentRowData}></DetailDataCard>
-          {currentRowData[NEED_APPROVAL_BY] && (
-            <>
-              <Button
-                variant="success"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toogleApproval();
-                }}
-              >
-                Approve
-              </Button>
-              <Button
-                variant="danger"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleRemove();
-                }}
-              >
-                Reject
-              </Button>
-            </>
-          )}
+          {approveApi &&
+            currentRowData[NEED_APPROVAL_BY] &&
+            userProfile._id === currentRowData[NEED_APPROVAL_BY] && (
+              <>
+                <Button
+                  variant="success"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toogleApproval();
+                  }}
+                >
+                  Approve
+                </Button>
+                <Button
+                  variant="danger"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleRemove();
+                  }}
+                >
+                  Reject
+                </Button>
+              </>
+            )}
         </ReusablePopup>
       )}
 
       {!disableRowModal && showRowModal && (
         <ReusablePopup onHide={toogleRowClick} onClose={toogleRowClick}>
           <FormBuilder
+            ref={finalizeRef}
             propsFormData={currentRowData}
             fields={fieldConst}
-            onFormDataChange={handleFormDataChange}
           />
         </ReusablePopup>
       )}
@@ -423,6 +422,7 @@ const ListingTable = ({
         >
           <p className="lbel">Are you sure want to Remove?</p>
           <FormBuilder
+            ref={finalizeRef}
             fields={[
               {
                 name:
@@ -434,9 +434,9 @@ const ListingTable = ({
                 parentclassName: "property-w-3 column-property",
                 className: "column-property",
                 textLimit: 100,
+                isRequired: true,
               },
             ]}
-            onFormDataChange={handleFormDataChange}
           />
         </ReusablePopup>
       )}
@@ -444,7 +444,6 @@ const ListingTable = ({
         <input
           type="text"
           onChange={(e) => {
-            console.log(e.target.value);
             setTableFilter({
               search: e.target.value,
             });
@@ -616,7 +615,7 @@ const ListingTable = ({
       <SnackBar
         open={snackbar?.open}
         message={snackbar?.message}
-        onClose={snackbarClose}
+        onClose={(status) => snackbarClose(status)}
       />
     </>
   );
