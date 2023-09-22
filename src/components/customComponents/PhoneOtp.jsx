@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { auth } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import SnackBar from "./SnackBar";
 
 const PhoneOtp = ({ value, onChange, Phone }) => {
   const [val, setVal] = useState("");
@@ -11,7 +12,7 @@ const PhoneOtp = ({ value, onChange, Phone }) => {
 
   const [otpSent, setOtpSent] = useState(false);
   const [verified, setVerified] = useState(false);
-
+  const [snackbar, setSnackbar] = useState({});
   const sendOtp = () => {};
   console.log(Phone);
 
@@ -64,11 +65,28 @@ const PhoneOtp = ({ value, onChange, Phone }) => {
           // ...
           setVerified(true);
           onChange("true");
+         
         })
         .catch((error) => {
           // User couldn't sign in (bad verification code?)
           // ...
+          setSnackbar({
+            open: true,
+            message: "Phone Otp is InValid",
+            status: -1,
+          });
         });
+    }
+  };
+
+  const snackbarClose = (status) => {
+    setSnackbar({
+      ...snackbar,
+      open: false,
+      message: "",
+    });
+    // if status is 0, then refresh
+    if (status === 0) {
     }
   };
 
@@ -124,6 +142,11 @@ const PhoneOtp = ({ value, onChange, Phone }) => {
           >
             {otpSent ? "Verify" : "Send"}
           </div>
+          <SnackBar
+            open={snackbar?.open}
+            message={snackbar?.message}
+            onClose={snackbarClose}
+          />
         </>
       )}
       {verified && (

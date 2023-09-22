@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import SnackBar from "./SnackBar";
 
 const EmailOtp = ({ value, onChange, email }) => {
   const [val, setVal] = useState("");
@@ -9,6 +10,7 @@ const EmailOtp = ({ value, onChange, email }) => {
 
   const [otpSent, setOtpSent] = useState(false);
   const [verified, setVerified] = useState(false);
+  const [snackbar, setSnackbar] = useState({});
 
   const sendOtp = () => {
     axios
@@ -25,6 +27,17 @@ const EmailOtp = ({ value, onChange, email }) => {
       });
   };
 
+  const snackbarClose = (status) => {
+    setSnackbar({
+      ...snackbar,
+      open: false,
+      message: "",
+    });
+    // if status is 0, then refresh
+    if (status === 0) {
+    }
+  };
+
   const verifyEmail = () => {
     axios
       .post(
@@ -36,10 +49,21 @@ const EmailOtp = ({ value, onChange, email }) => {
         if (e.data.success) {
           setVerified(true);
           onChange("true");
+        } else {
+          setSnackbar({
+            open: true,
+            message: "Email Otp is InValid",
+            status: -1,
+          });
         }
       })
       .catch((e) => {
         console.log(e);
+        setSnackbar({
+          open: true,
+          message: "Email Otp is InValid",
+          status: -1,
+        });
       });
   };
 
@@ -97,6 +121,11 @@ const EmailOtp = ({ value, onChange, email }) => {
           >
             {otpSent ? "Verify" : "Send"}
           </div>
+          <SnackBar
+            open={snackbar?.open}
+            message={snackbar?.message}
+            onClose={snackbarClose}
+          />
         </>
       )}
     </>

@@ -33,6 +33,7 @@ const FormPage = () => {
     });
   };
 
+  let phoneCheck = false
   const [loading, setLoading] = useState(false);
   const router = useNavigate();
 
@@ -42,6 +43,43 @@ const FormPage = () => {
       if (formData) {
         try {
           let newFormData = new FormData();
+
+          if (formData.hasOwnProperty("emailOtp")) {
+            if (formData.emailOtp === "false") {
+              setSnackbar({
+                open: true,
+                message: "Please Verify your Email!",
+                status: -1,
+              });
+              return;
+            }
+          }
+
+          if (formData.hasOwnProperty("phoneOtp")) {
+            if (!phoneCheck) {
+              if (formData.phoneOtp === "false") {
+                setSnackbar({
+                  open: true,
+                  message: "Please Verify your Phone Number!",
+                  status: -1,
+                });
+                return;
+              }
+            }
+          }
+
+          if (
+            formData.hasOwnProperty("emailOtp") &&
+            formData.hasOwnProperty("phoneOtp")
+          ) {
+            if (formData.emailOtp === "true") {
+              delete formData.emailOtp;
+            }
+            if (formData.phoneOtp === "true") {
+              delete formData.phoneOtp;
+            }
+          }
+
           const fileFields = [
             "thumbnailFile",
             "normalImageFile",
