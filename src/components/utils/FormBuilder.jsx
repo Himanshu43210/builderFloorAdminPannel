@@ -7,6 +7,8 @@ import { selectMasterData } from "../../redux/utils/selectors";
 import _ from "lodash";
 import { useImperativeHandle } from "react";
 import { isValueEmpty } from "./reusableMethods";
+import EmailOtp from "../customComponents/EmailOtp";
+import PhoneOtp from "../customComponents/PhoneOtp";
 
 const FormBuilder = forwardRef(({ fields, propsFormData }, ref) => {
   const [formData, setFormData] = useState(propsFormData || {});
@@ -21,7 +23,7 @@ const FormBuilder = forwardRef(({ fields, propsFormData }, ref) => {
 
     fields.forEach((field) => {
       const value = formData[field.name];
-
+      console.log(value)
       if (field.isRequired && isValueEmpty(value)) {
         errors[field.name] =
           field.requiredErrorMessage || "This field is required.";
@@ -124,51 +126,19 @@ const FormBuilder = forwardRef(({ fields, propsFormData }, ref) => {
                 />
               )}
 
-              {field.type === "phoneOTP" && (
-                <div className="phone-otp-button">
-                  <label
-                    onClick={() => {
-                      // handleSendOtp();
-                      // configureCaptcha();
-                    }}
-                  >
-                    Send Otp
-                  </label>
-                  <div id="recaptcha-container"></div>
-                  <input
-                    className="inputtag"
-                    type={TEXT}
-                    id={field.name}
-                    name={field.name}
-                    value={
-                      formData[field.name] || formData[field.dataKey] || ""
-                    }
-                    onChange={(e) => handleChange(field, e.target.value)}
-                    required={field.isRequired}
-                  />
-                </div>
+              {field.type === "phoneOtp" && (
+                <PhoneOtp
+                  Phone={formData["phoneNumber"] || ""}
+                  value={formData[field.name] || ""}
+                  onChange={(e) => handleChange(field, e)}
+                />
               )}
               {field.type === "emailOtp" && (
-                <div className="phone-otp-button">
-                  <label
-                    onClick={() => {
-                      // handleSendOtpMail();
-                    }}
-                  >
-                    Send Otp on Mail
-                  </label>
-                  <input
-                    className="inputtag"
-                    type={EMAIL}
-                    id={field.name}
-                    name={field.name}
-                    value={
-                      formData[field.name] || formData[field.dataKey] || ""
-                    }
-                    onChange={(e) => handleChange(field, e.target.value)}
-                    required={field.isRequired}
-                  />
-                </div>
+                <EmailOtp
+                  email={formData["email"] || ""}
+                  value={formData[field.name] || ""}
+                  onChange={(e) => handleChange(field, e)}
+                />
               )}
               {field.type === "password" && (
                 <input

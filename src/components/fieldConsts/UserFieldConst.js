@@ -71,6 +71,22 @@ export const newUserConst = [
     isMulti: true,
     requiredErrorMessage: "Please select a Locations.",
   },
+  {
+    name: "emailOtp",
+    label: "Email Verify",
+    dataKey: "emailOtp",
+    type: "emailOtp",
+    isRequired: true,
+    requiredErrorMessage: "Please verify your email first",
+  },
+  {
+    name: "phoneOtp",
+    label: "Phone Number Verify",
+    dataKey: "phoneOtp",
+    type: "phoneOtp",
+    isRequired: true,
+    requiredErrorMessage: "Please verify your Number first",
+  },
 ];
 
 export const editUserConst = [

@@ -90,16 +90,55 @@ const TableButtonHeader = ({
         data: {},
       };
       dispatch(callApi(options));
-    } catch (error) { }
+    } catch (error) {}
   };
+
+  let phoneCheck = false;
 
   const handleSubmit = async () => {
     const formData = finalizeRef.current();
+
     if (formData) {
       console.log("Received validated data:", formData);
       if (Object.keys(formData).length !== 0) {
         try {
           const newFormData = new FormData();
+
+          if (formData.hasOwnProperty("emailOtp")) {
+            if (formData.emailOtp === "false") {
+              setSnackbar({
+                open: true,
+                message: "Please Verify your Email!",
+                status: -1,
+              });
+              return;
+            }
+          }
+
+          if (formData.hasOwnProperty("phoneOtp")) {
+            if (!phoneCheck) {
+              if (formData.phoneOtp === "false") {
+                setSnackbar({
+                  open: true,
+                  message: "Please Verify your Phone Number!",
+                  status: -1,
+                });
+                return;
+              }
+            }
+          }
+
+          if (
+            formData.hasOwnProperty("emailOtp") &&
+            formData.hasOwnProperty("phoneOtp")
+          ) {
+            if (formData.emailOtp === "true") {
+              delete formData.emailOtp;
+            }
+            if (formData.phoneOtp === "true") {
+              delete formData.phoneOtp;
+            }
+          }
 
           // for (const file of formData?.images || []) {
           //   newFormData.append("files", file);
@@ -193,13 +232,13 @@ const TableButtonHeader = ({
             data: imagesCheck
               ? newFormData
               : sanitizeFormData({
-                ...formData,
-                parentId: userProfile._id,
-                role:
-                  userProfile.role === USER_ROLE[BF_ADMIN]
-                    ? USER_ROLE["channelPartner"]
-                    : USER_ROLE["salesUser"],
-              }),
+                  ...formData,
+                  parentId: userProfile._id,
+                  role:
+                    userProfile.role === USER_ROLE[BF_ADMIN]
+                      ? USER_ROLE["channelPartner"]
+                      : USER_ROLE["salesUser"],
+                }),
           };
           setLoading(true);
           dispatch(callApi(options)).then(() => {
