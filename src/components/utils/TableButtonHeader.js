@@ -124,10 +124,19 @@ const TableButtonHeader = ({
                   status: -1,
                 });
                 return;
-              } else if (formData.phoneOtp === "true") {
-                delete formData.phoneOtp;
-                phoneCheck = true;
               }
+            }
+          }
+
+          if (
+            formData.hasOwnProperty("emailOtp") &&
+            formData.hasOwnProperty("phoneOtp")
+          ) {
+            if (formData.emailOtp === "true") {
+              delete formData.emailOtp;
+            }
+            if (formData.phoneOtp === "true") {
+              delete formData.phoneOtp;
             }
           }
 
