@@ -35,7 +35,7 @@ const EmailOtp = ({ value, onChange, email }) => {
         console.log(e);
         if (e.data.success) {
           setVerified(true);
-          onChange("true");
+          onChange(true);
         }
       })
       .catch((e) => {

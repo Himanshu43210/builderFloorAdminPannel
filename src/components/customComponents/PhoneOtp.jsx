@@ -78,7 +78,7 @@ const PhoneOtp = ({ value, onChange, Phone }) => {
       setCheck(true);
     }
   });
-  
+
   return (
     <>
       {!verified && (

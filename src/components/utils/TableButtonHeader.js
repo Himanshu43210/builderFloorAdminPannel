@@ -93,6 +93,8 @@ const TableButtonHeader = ({
     } catch (error) {}
   };
 
+  let phoneCheck = false;
+
   const handleSubmit = async () => {
     const formData = finalizeRef.current();
 
@@ -101,6 +103,33 @@ const TableButtonHeader = ({
       if (Object.keys(formData).length !== 0) {
         try {
           const newFormData = new FormData();
+
+          if (formData.hasOwnProperty("emailOtp")) {
+            if (formData.emailOtp === "false") {
+              setSnackbar({
+                open: true,
+                message: "Please Verify your Email!",
+                status: -1,
+              });
+              return;
+            }
+          }
+
+          if (formData.hasOwnProperty("phoneOtp")) {
+            if (!phoneCheck) {
+              if (formData.phoneOtp === "false") {
+                setSnackbar({
+                  open: true,
+                  message: "Please Verify your Phone Number!",
+                  status: -1,
+                });
+                return;
+              } else if (formData.phoneOtp === "true") {
+                delete formData.phoneOtp;
+                phoneCheck = true;
+              }
+            }
+          }
 
           // for (const file of formData?.images || []) {
           //   newFormData.append("files", file);
