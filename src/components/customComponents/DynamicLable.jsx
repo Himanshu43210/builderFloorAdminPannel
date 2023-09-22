@@ -1,5 +1,5 @@
-export default function DynamicLabel({component}){
-    return (
-<tag
-    )
-}
+// export default function DynamicLabel({component}){
+//     return (
+// <tag
+//     )
+// }

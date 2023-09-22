@@ -90,11 +90,12 @@ const TableButtonHeader = ({
         data: {},
       };
       dispatch(callApi(options));
-    } catch (error) { }
+    } catch (error) {}
   };
 
   const handleSubmit = async () => {
     const formData = finalizeRef.current();
+
     if (formData) {
       console.log("Received validated data:", formData);
       if (Object.keys(formData).length !== 0) {
@@ -193,13 +194,13 @@ const TableButtonHeader = ({
             data: imagesCheck
               ? newFormData
               : sanitizeFormData({
-                ...formData,
-                parentId: userProfile._id,
-                role:
-                  userProfile.role === USER_ROLE[BF_ADMIN]
-                    ? USER_ROLE["channelPartner"]
-                    : USER_ROLE["salesUser"],
-              }),
+                  ...formData,
+                  parentId: userProfile._id,
+                  role:
+                    userProfile.role === USER_ROLE[BF_ADMIN]
+                      ? USER_ROLE["channelPartner"]
+                      : USER_ROLE["salesUser"],
+                }),
           };
           setLoading(true);
           dispatch(callApi(options)).then(() => {
