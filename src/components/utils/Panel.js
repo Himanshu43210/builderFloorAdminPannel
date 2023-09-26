@@ -11,6 +11,15 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { resetApiStatus } from "../../redux/slice/apiSlice";
 
+const PanelChild = ({ icon, title }) => {
+  return (
+    <div className="panel-link-child">
+      {icon} &nbsp;
+      <h1>{title}</h1>
+    </div>
+  );
+};
+
 function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
   const dispatch = useDispatch();
   return (
@@ -22,7 +31,8 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
             <AiFillHome className="admin-panel-icons" /> &nbsp;
             <h6>BuilderFloor</h6>
           </Link> */}
-        <a
+        <PanelChild icon={<AiFillHome className="admin-panel-icons" />} />
+        {/* <a
           href="https://www.builderfloor.com"
           className="panel-link"
           target="_blank"
@@ -30,8 +40,7 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
         >
           <AiFillHome className="admin-panel-icons" /> &nbsp;
           <h6>BuilderFloor</h6>
-        </a>
-
+        </a> */}
         <Button
           onClick={() => handlePageClick(ADMIN_DASHBOARD)}
           className="panel-link"
