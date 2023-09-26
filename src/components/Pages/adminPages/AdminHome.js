@@ -19,8 +19,8 @@ export default function AdminHome() {
   const [currentPage, setCurrentPage] = useState(ADMIN_DASHBOARD);
 
   return (
-    <>
-      <div>
+    <div className="whole-container">
+      <div className="nav-nav ">
         <Button
           className="admin-menu-button"
           onClick={() => setShowMenu(!showMenu)}
@@ -30,12 +30,16 @@ export default function AdminHome() {
         {/* <Navbar role={userProfile?.role} /> */}
       </div>
       <div
-        className={`${"main-admin-container"} ${
-          showMenu ? "menu-is-active" : "menu-is-not-active"
-        } `}
+        // className={`${"main-admin-container"} ${
+        //   showMenu ? "menu-is-active" : "menu-is-not-active"
+        // } `}
+        className={`${"content-container"}
+       
+         `}
       >
         {showMenu && (
-          <div className="admin-dashboard-home">
+          // <div className="admin-dashboard-home">
+          <div className="admin-dashboard-home-check">
             <Panel
               nonSalesUser={userProfile?.role !== USER_ROLE[PROPERTY_DEALER]}
               handlePageClick={(page) => {
@@ -45,10 +49,10 @@ export default function AdminHome() {
             />
           </div>
         )}
-        <div>
+        <div className="main-content" >
           <PageSelector pageName={currentPage} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
