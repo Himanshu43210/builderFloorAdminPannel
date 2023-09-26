@@ -11,9 +11,28 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { resetApiStatus } from "../../redux/slice/apiSlice";
 
-const PanelChild = ({ icon, title }) => {
+const PanelChild = ({
+  icon,
+  title,
+  target,
+  route,
+  onClick,
+  handlePageClick,
+}) => {
   return (
-    <div className="panel-link-child">
+    <div
+      onClick={() => {
+        if (onClick) {
+          onClick();
+        }
+        if (target) {
+          window.open(target, "_blank");
+        } else {
+          handlePageClick(route);
+        }
+      }}
+      className="panel-link-child"
+    >
       {icon} &nbsp;
       <h1>{title}</h1>
     </div>
@@ -31,7 +50,47 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
             <AiFillHome className="admin-panel-icons" /> &nbsp;
             <h6>BuilderFloor</h6>
           </Link> */}
-        <PanelChild title="BuilderFloor" icon={<AiFillHome className="admin-panel-icons" />} />
+        <PanelChild
+          handlePageClick={handlePageClick}
+          title="BuilderFloor"
+          target="https://www.builderfloor.com"
+          icon={<AiFillHome className="admin-panel-icons" />}
+        />
+        <PanelChild
+          handlePageClick={handlePageClick}
+          route={ADMIN_DASHBOARD}
+          title="Dashboard"
+          icon={<FaClipboardList className="admin-panel-icons" />}
+        />
+        <>
+          {nonSalesUser && (
+            <>
+              <PanelChild
+                handlePageClick={handlePageClick}
+                route={USER_MANAGEMENT}
+                title="user"
+                icon={<FaUsers className="admin-panel-icons" />}
+              />
+            </>
+          )}
+        </>
+        <PanelChild
+          handlePageClick={handlePageClick}
+          route={PROPERTY_MANAGEMENT}
+          title="Property"
+          icon={<FaCog className="admin-panel-icons" />}
+        />
+
+        <PanelChild
+          handlePageClick={handlePageClick}
+          onClick={() => {
+            dispatch(resetApiStatus(onLogoutClick));
+            localStorage.removeItem("email");
+            localStorage.removeItem("login");
+          }}
+          title="Logout"
+          icon={<AiOutlineLogout className="admin-panel-icons" />}
+        />
         {/* <a
           href="https://www.builderfloor.com"
           className="panel-link"
@@ -41,23 +100,23 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
           <AiFillHome className="admin-panel-icons" /> &nbsp;
           <h6>BuilderFloor</h6>
         </a> */}
-        <Button
+        {/* <Button
           onClick={() => handlePageClick(ADMIN_DASHBOARD)}
           className="panel-link"
         >
           <FaClipboardList className="admin-panel-icons" /> &nbsp;
           <h6>Dashboard</h6>
-        </Button>
+        </Button> */}
         <>
           {nonSalesUser && (
             <>
-              <Button
+              {/* <Button
                 onClick={() => handlePageClick(USER_MANAGEMENT)}
                 className="panel-link"
               >
                 <FaUsers className="admin-panel-icons" />
                 <h6>User</h6>
-              </Button>
+              </Button> */}
 
               {/* <Button
                   onClick={() => handlePageClick(MASTER_MANAGEMENT)}
@@ -69,7 +128,7 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
             </>
           )}
         </>
-        <Button
+        {/* <Button
           onClick={() => handlePageClick(PROPERTY_MANAGEMENT)}
           className="panel-link"
         >
@@ -86,7 +145,7 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
         >
           <AiOutlineLogout className="admin-panel-icons" />
           <h6>Logout</h6>
-        </Button>
+        </Button> */}
       </div>
       {/* </div>
     </div> */}
