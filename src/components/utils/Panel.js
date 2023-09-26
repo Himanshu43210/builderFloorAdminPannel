@@ -31,7 +31,7 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
             <AiFillHome className="admin-panel-icons" /> &nbsp;
             <h6>BuilderFloor</h6>
           </Link> */}
-        <PanelChild icon={<AiFillHome className="admin-panel-icons" />} />
+        <PanelChild title="BuilderFloor" icon={<AiFillHome className="admin-panel-icons" />} />
         {/* <a
           href="https://www.builderfloor.com"
           className="panel-link"
