@@ -41,6 +41,7 @@ export default function AdminHome() {
           // <div className="admin-dashboard-home">
           <div className="admin-dashboard-home-check">
             <Panel
+              currentPage={currentPage}
               nonSalesUser={userProfile?.role !== USER_ROLE[PROPERTY_DEALER]}
               handlePageClick={(page) => {
                 setCurrentPage(page);
@@ -49,7 +50,7 @@ export default function AdminHome() {
             />
           </div>
         )}
-        <div className="main-content" >
+        <div className="main-content">
           <PageSelector pageName={currentPage} />
         </div>
       </div>

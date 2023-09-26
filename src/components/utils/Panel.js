@@ -10,6 +10,7 @@ import {
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { resetApiStatus } from "../../redux/slice/apiSlice";
+import { useLocation } from "react-router-dom";
 
 const PanelChild = ({
   icon,
@@ -18,7 +19,10 @@ const PanelChild = ({
   route,
   onClick,
   handlePageClick,
+  currentPage,
 }) => {
+  const location = useLocation();
+  console.log(location);
   return (
     <div
       onClick={() => {
@@ -31,7 +35,7 @@ const PanelChild = ({
           handlePageClick(route);
         }
       }}
-      className="panel-link-child"
+      className={`panel-link-child ${route === currentPage && "panel-link-child-clicked"}`}
     >
       {icon} &nbsp;
       <h1>{title}</h1>
@@ -39,7 +43,7 @@ const PanelChild = ({
   );
 };
 
-function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
+function Panel({ nonSalesUser, handlePageClick, onLogoutClick, currentPage }) {
   const dispatch = useDispatch();
   return (
     <>
@@ -51,12 +55,14 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
             <h6>BuilderFloor</h6>
           </Link> */}
         <PanelChild
+          currentPage={currentPage}
           handlePageClick={handlePageClick}
           title="BuilderFloor"
           target="https://www.builderfloor.com"
           icon={<AiFillHome className="admin-panel-icons" />}
         />
         <PanelChild
+          currentPage={currentPage}
           handlePageClick={handlePageClick}
           route={ADMIN_DASHBOARD}
           title="Dashboard"
@@ -66,6 +72,7 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
           {nonSalesUser && (
             <>
               <PanelChild
+                currentPage={currentPage}
                 handlePageClick={handlePageClick}
                 route={USER_MANAGEMENT}
                 title="user"
@@ -75,6 +82,7 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
           )}
         </>
         <PanelChild
+          currentPage={currentPage}
           handlePageClick={handlePageClick}
           route={PROPERTY_MANAGEMENT}
           title="Property"
@@ -82,6 +90,7 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick }) {
         />
 
         <PanelChild
+          currentPage={currentPage}
           handlePageClick={handlePageClick}
           onClick={() => {
             dispatch(resetApiStatus(onLogoutClick));
