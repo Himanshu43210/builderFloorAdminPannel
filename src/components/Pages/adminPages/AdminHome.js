@@ -27,6 +27,7 @@ export default function AdminHome() {
         >
           <GiHamburgerMenu />
         </Button>
+        <h1>Dashboard</h1>
         {/* <Navbar role={userProfile?.role} /> */}
       </div>
       <div
