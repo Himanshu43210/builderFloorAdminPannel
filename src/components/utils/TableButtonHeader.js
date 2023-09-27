@@ -322,7 +322,7 @@ const TableButtonHeader = ({
           </div>
         </ReusablePopup>
       ) : null}
-      <div>
+      <div className="btn-header-container" >
         <Button class="btn" variant="success" onClick={toogleNewPopup}>
           <FaUserPlus />
           &nbsp;&nbsp; ADD
