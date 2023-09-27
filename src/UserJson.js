@@ -81,10 +81,11 @@ export const AD_USER_DASHBOARD = {
         {
           type: PANEL_HEADER,
           mainHeading: "WELCOME TO BUILDERFLOOR.COM",
-          panelTitle: "SUPER ADMIN PANEL",
+          panelTitle: "Super Admin Panel",
           classes: "formheadingcontainer",
-          mainHeaderClass: "formheadingcontainer",
-          panelTitleClass: "formheadingcontainer",
+          mainHeaderClass: "formheadingcontainer main-title-form",
+          panelTitleClass: "formheadingcontainer panel-title-form",
+          detailsClass:"detail-title-form"
         },
       ],
     },
