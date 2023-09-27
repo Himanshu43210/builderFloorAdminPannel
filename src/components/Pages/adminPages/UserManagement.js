@@ -44,7 +44,7 @@ export default function UserManagement() {
       ) : (
         <div>
           <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <Card>
               <Card.Header className="font">User Details</Card.Header>
               <Card.Body>

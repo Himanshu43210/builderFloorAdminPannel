@@ -145,7 +145,7 @@ export const AD_USER_DASHBOARD = {
         },
         {
           type: CONTAINER,
-          className: "superAdminDashboard-child-1",
+          className: "superAdminDashboard-child-2",
           children: [
             {
               type: LABEL_MAP,
@@ -173,9 +173,10 @@ export const CP_USER_DASHBOARD = {
           type: PANEL_HEADER,
           mainHeading: "WELCOME TO BUILDERFLOOR.COM",
           panelTitle: "CHANNEL PARTNER ADMIN PANEL",
-          classes: "formheadingcontainer",
-          mainHeaderClass: "formheadingcontainer",
-          panelTitleClass: "formheadingcontainer",
+          classes: "formheadingcontainer ",
+          mainHeaderClass: "formheadingcontainer main-title-form",
+          panelTitleClass: "formheadingcontainer panel-title-form",
+          detailsClass:"detail-title-form"
         },
       ],
     },
@@ -245,7 +246,7 @@ export const CP_USER_DASHBOARD = {
         },
         {
           type: CONTAINER,
-          className: "superAdminDashboard-child-1",
+          className: "superAdminDashboard-child-2",
           children: [
             {
               type: LABEL_MAP,
@@ -274,8 +275,9 @@ export const SU_USER_DASHBOARD = {
           mainHeading: "WELCOME TO BUILDERFLOOR.COM",
           panelTitle: "SUB USER PANEL",
           classes: "formheadingcontainer",
-          mainHeaderClass: "formheadingcontainer",
-          panelTitleClass: "formheadingcontainer",
+          mainHeaderClass: "formheadingcontainer main-title-form",
+          panelTitleClass: "formheadingcontainer panel-title-form",
+          detailsClass:"detail-title-form"
         },
       ],
     },
@@ -314,7 +316,7 @@ export const SU_USER_DASHBOARD = {
         },
         {
           type: CONTAINER,
-          className: "superAdminDashboard-child-1",
+          className: "superAdminDashboard-child-2",
           children: [
             {
               type: LABEL_MAP,
