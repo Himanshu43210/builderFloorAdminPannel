@@ -441,19 +441,21 @@ const ListingTable = ({
         </ReusablePopup>
       )}
       <div className="tablediv ">
-        <input
-          type="text"
-          onChange={(e) => {
-            setTableFilter({
-              search: e.target.value,
-            });
-          }}
-          value={[tableFilter["search"]] || ""}
-        />
-        <Button onClick={() => applyFilters()}>Filter Data</Button>
-        {showColumnFilter && (
-          <Button onClick={() => setShowFilters(!showFilters)}>Filter</Button>
-        )}
+        <div className="filter-container-listing" >
+          <input
+            type="text"
+            onChange={(e) => {
+              setTableFilter({
+                search: e.target.value,
+              });
+            }}
+            value={[tableFilter["search"]] || ""}
+          />
+          <Button onClick={() => applyFilters()}>Filter Data</Button>
+          {showColumnFilter && (
+            <Button onClick={() => setShowFilters(!showFilters)}>Filter</Button>
+          )}
+        </div>
         <Table striped bordered hover responsive size="sm">
           <thead>
             <tr>
