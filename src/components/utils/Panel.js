@@ -20,6 +20,7 @@ const PanelChild = ({
   onClick,
   handlePageClick,
   currentPage,
+  className1
 }) => {
   const location = useLocation();
   console.log(location);
@@ -35,7 +36,7 @@ const PanelChild = ({
           handlePageClick(route);
         }
       }}
-      className={`panel-link-child ${route === currentPage && "panel-link-child-clicked"}`}
+      className={`panel-link-child ${route === currentPage && "panel-link-child-clicked"} ${className1}`}
     >
       {icon} &nbsp;
       <h1>{title}</h1>
@@ -97,6 +98,7 @@ function Panel({ nonSalesUser, handlePageClick, onLogoutClick, currentPage }) {
             localStorage.removeItem("email");
             localStorage.removeItem("login");
           }}
+          className1="last-login-btn"
           title="Logout"
           icon={<AiOutlineLogout className="admin-panel-icons" />}
         />
