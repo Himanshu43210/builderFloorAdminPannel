@@ -246,7 +246,7 @@ export const CP_USER_DASHBOARD = {
         },
         {
           type: CONTAINER,
-          className: "superAdminDashboard-child-1",
+          className: "superAdminDashboard-child-2",
           children: [
             {
               type: LABEL_MAP,
@@ -316,7 +316,7 @@ export const SU_USER_DASHBOARD = {
         },
         {
           type: CONTAINER,
-          className: "superAdminDashboard-child-1",
+          className: "superAdminDashboard-child-2",
           children: [
             {
               type: LABEL_MAP,
