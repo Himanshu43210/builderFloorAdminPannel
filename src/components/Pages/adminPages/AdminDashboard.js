@@ -28,7 +28,7 @@ export default function AdminDashboard({ role }) {
   }, []);
 
   return (
-    <div style={{ marginTop: "100px" }}>
+    <div>
       <RenderComponent
         jsonToRender={
           role === USER_ROLE[BF_ADMIN]
