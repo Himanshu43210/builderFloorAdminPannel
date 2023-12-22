@@ -7,28 +7,30 @@ import UserManagement from "./components/Pages/adminPages/SuperUserManagement";
 import MasterManagement from "./components/Pages/adminPages/MasterManagement";
 import SuperMasterTable from "./components/Pages/adminPages/SuperMasterTable";
 import StatsList from "./components/Pages/adminPages/StatsList";
-// import Home from "./components/Pages/Home";
-// import DetailedView from "./components/Pages/DetailedView";
-// import SearchResult from "./components/Pages/SearchResult";
+import Home from "./components/Pages/Home";
+import DetailedView from "./components/Pages/DetailedView";
+import SearchResult from "./components/Pages/SearchResult";
 import { useSelector } from "react-redux";
 import FormPage from "./components/customComponents/FormPage";
 import ViewListing from "./components/Pages/adminPages/ViewListing";
 import ApproveListing from "./components/Pages/adminPages/ApproveListings";
 import TableFormPage from "./components/customComponents/TableFormData";
+import PropertyManagement from "./components/Pages/adminPages/PropertyManagement";
+import TextBoxDisplay from "./components/Pages/TestingPage";
 function App() {
   const userProfile = useSelector((state) => state.profile);
   return (
     <Router>
       <div className="App">
         <Routes>
-          {/* <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/searchResult" element={<SearchResult />} />
           <Route path="/builderFloorDetails" element={<DetailedView />} />
           <Route path="/admin" element={<AdminHome />} />
           <Route path="/admin/user" element={<UserManagement />} />
-          <Route path="/admin/property" element={<PropertyManagement />} />
+          {/* <Route path="/admin/property" element={<PropertyManagement />} /> */}
           <Route path="/admin/master" element={<MasterManagement />} />
-          <Route path="/" element={<Home />} /> */}
+          <Route path="/test" element={<TextBoxDisplay />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin/form" element={<FormPage />} />
           <Route path="/admin/TableForm" element={<TableFormPage />} />
@@ -45,7 +47,8 @@ function App() {
             path="/admin"
             element={<AdminHome role={userProfile.role} />}
           />
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Login />} /> */}
         </Routes>
       </div>
     </Router>
